@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 // Router Import
-import {Route,  Redirect, withRouter} from 'react-router-dom';
+import {Route, withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import PrivateRoute from './components/common/PrivateRoute';
@@ -10,10 +10,8 @@ import * as actions from './store/actions/index';
 import setAuthToken from './utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
 
-//Custom pages import
-import Login from "./containers/Login/login";
-import Homepage from './containers/HomePage/index';
-
+//Custom index for all pages
+import Index from "./pages/index";
 
 class App extends Component {
  
@@ -36,27 +34,37 @@ class App extends Component {
 
   }
     let routes = (
-      <div>
+      <React.Fragment>
         <PrivateRoute  
 					exact 
 					path={"/dashboard"} 
-					component={Homepage}
+					component={Index}
 				/>
 
 {/* Open Routes */}
           <Route 
             exact
             path={'/login'}
-            component={Login} />
+            component={Index} />
 
-            <Redirect to="/login" />
-        </div>
+          <Route 
+            exact
+            path={'/forgot-password'}
+            component={Index} />
+
+          <Route 
+            exact
+            path={'/reset-password'}
+            component={Index} />
+
+          <Route 
+            exact
+            path={'/signup'}
+            component={Index} />
+
+        </React.Fragment>
     );
-    return (
-      <div className="app">
-            {routes}
-      </div>
-    )
+    return routes;
   }
 }
 

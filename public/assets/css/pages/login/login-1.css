@@ -1,5 +1,73 @@
+@font-face {
+  font-family: Gilroy-Regular;
+    src: url(fonts/Gilroy-Regular.ttf);
+}
+
+@font-face {
+  font-family: Gilroy-Medium;
+    src: url(fonts/Gilroy-Medium.ttf);
+}
+
+@font-face {
+  font-family: Gilroy-Bold;
+    src: url(fonts/Gilroy-Bold.ttf);
+}
+
+.gilroy-regular {
+  font-family: 'Gilroy-Regular';
+}
+
+.gilroy-medium {
+  font-family: 'Gilroy-Medium';
+}
+
+.gilroy-bold {
+  font-family: 'Gilroy-Bold';
+}
+
+.roboto-condensed {
+  font-family: 'Roboto Condensed';
+}
+
 .login.login-1 .login-aside .aside-img {
-  min-height: 450px; }
+    min-height: 450px; 
+    background-size: contain;
+}
+
+.envision-red-logo {
+    text-align: center;
+    display: block;
+    margin: 0px auto 60px;
+}
+
+.envision-white-logo {
+      text-align: left;
+    margin-right: auto;
+    padding-left: 25px;
+    padding-top: 25px;
+}
+
+.forgot-password {
+    margin-top: 15px;
+    margin-left: auto;
+}
+
+.welcome-title {
+  color: #1B283F;
+  font-family: 'Roboto Condensed';
+  font-size: 31px;
+}
+
+.forgot-title {
+  color: #C7112B;
+  font-family: 'Roboto Condensed';
+  font-size: 31px;
+}
+
+.leave-text {
+  color: #000;
+  font-size: 14px;
+}
 
 .login.login-1 .login-signin,
 .login.login-1 .login-signup,
