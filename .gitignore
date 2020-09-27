@@ -104,6 +104,3 @@ dist
 .tern-port
 
 build/
-.firebaserc
-firebase.json
-.firebase/

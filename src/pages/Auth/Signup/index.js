@@ -11,6 +11,7 @@ class Signup extends Component {
                 {/*begin::Login*/}
                 <div className="login login-1 login-signin-on d-flex flex-column flex-lg-row flex-column-fluid bg-white" id="kt_login">
                     {/*begin::Aside*/}
+                    <div className="side_bar_wrapper">
                     <div className="login-aside d-flex flex-column flex-row-auto" style={{backgroundColor: '#C7112B'}}>
                     {/*begin::Aside Top*/}
                     <div className="d-flex flex-column-auto flex-column pt-5">
@@ -20,6 +21,7 @@ class Signup extends Component {
                     {/*begin::Aside Bottom*/}
                     <div className="aside-img d-flex flex-row-fluid bgi-no-repeat bgi-position-y-bottom bgi-position-x-center" style={{backgroundImage: 'url(assets/media/svg/illustrations/login-visual-1.svg)'}} />
                     {/*end::Aside Bottom*/}
+                    </div>
                     </div>
                     {/*begin::Aside*/}
                     {/*begin::Content*/}
