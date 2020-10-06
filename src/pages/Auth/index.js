@@ -7,7 +7,7 @@ import Aside from "../../components/Auth/Aside";
 class index extends Component {
     render() {
         return (
-            <div  id="kt_body"  class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+            <React.Fragment>
                 {/*begin::Main*/}
                 <div className="d-flex flex-column flex-root">
                     {/*begin::Login*/}
@@ -23,7 +23,7 @@ class index extends Component {
                 </div>
                 {/*end::Main*/}
 
-            </div>
+            </React.Fragment>
         )
     }
 }

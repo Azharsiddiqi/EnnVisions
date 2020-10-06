@@ -12,9 +12,11 @@ import ChatPanel from '../components/Dashboard/ChatPanel';
 import ScrollToTop from '../components/Dashboard/ScrollToTop';
 import DemoPanel from '../components/Dashboard/DemoPanel';
 class index extends Component {
+
+
     render() {
         return (
-            <div  id="kt_body"  class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+            <React.Fragment>
                  <div>
                     {/*begin::Main*/}
                     {/*begin::Header Mobile*/}
@@ -59,7 +61,7 @@ class index extends Component {
                         {/*end::Demo Panel*/}
                     </div>
             </div>
-            </div>
+            </React.Fragment>
         )
     }
 }

@@ -65,7 +65,7 @@ class App extends Component {
 
           <Route 
             exact
-            path={'/add-rule'}
+            path={'/add-role'}
             component={Index} />
 
 
