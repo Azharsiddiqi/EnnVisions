@@ -73,10 +73,34 @@ class App extends Component {
             exact
             path={'/edit-role'}
             component={Index} />
+            <Route 
+            exact
+            path={'/create-admin'}
+            component={Index} />
+            <Route 
+            exact
+            path={'/user-role'}
+            component={Index} />
+            <Route 
+            exact
+            path={'/create-dispatcher'}
+            component={Index} />
+            <Route 
+            exact
+            path={'/helper'}
+            component={Index} />
 
           <Route 
             exact
-            path={'/user-role'}
+            path={'/admin-info'}
+            component={Index} />
+            <Route 
+            exact
+            path={'/dispatcher-info'}
+            component={Index} />
+            <Route 
+            exact
+            path={'/vender-list'}
             component={Index} />
 
           <Route 

@@ -36,7 +36,7 @@ class Sidebar extends Component {
                 {/*begin::Menu Nav*/}
                 <ul className="menu-nav ">
                 <li className="menu-item  menu-item-active" aria-haspopup="true">
-                    <Link to="index.html" className="menu-link ">
+                    <Link to="/" className="menu-link ">
                     <span className="menu-text">Dashboard</span>
                     </Link>
                 </li>
