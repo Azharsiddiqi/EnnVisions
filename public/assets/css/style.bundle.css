@@ -67,8 +67,80 @@ body {
   background-color: #ffffff;
 }
 
+@font-face {
+  font-family: Gilroy-Regular;
+    src: url(fonts/Gilroy-Regular.ttf);
+}
+
+@font-face {
+  font-family: Gilroy-Medium;
+    src: url(fonts/Gilroy-Medium.ttf);
+}
+
+@font-face {
+  font-family: Gilroy-Bold;
+    src: url(fonts/Gilroy-Bold.ttf);
+}
+
+@font-face {
+  font-family: Gilroy-SemiBold;
+  src: url(fonts/Gilroy-SemiBold.ttf);
+}
+
+.gilroy-regular {
+  font-family: 'Gilroy-Regular';
+}
+
+.gilroy-medium {
+  font-family: 'Gilroy-Medium';
+}
+
+.gilroy-semibold {
+  font-family: 'Gilroy-SemiBold';
+}
+
+.gilroy-bold {
+  font-family: 'Gilroy-Bold';
+}
+
+.roboto-condensed {
+  font-family: 'Roboto Condensed';
+}
+
+.dark-text {
+  color: #1B283F;
+}
+
+.semi-dark-text {
+  color: #464E5F;
+}
+
+.main-breadcrumb {
+  font-size: 12px;
+}
+
+.inactive-breadcrumb {
+  font-size: 11px;
+}
+
+.subheader .btn.btn-clean:hover:not(.btn-text):not(:disabled):not(.disabled), .subheader .btn.btn-clean:focus:not(.btn-text), .subheader .btn.btn-clean.focus:not(.btn-text) {
+  color: #1B283F;
+}
+
+#kt_content {
+  background-color: #eef0f8;
+}
+
+.form-group input {
+  border-radius: 4px;
+}
+
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
+}
+
+.topbar-item .svg-icon.svg-icon-primary svg g [fill] {
+  fill: #1B283F !important;
 }
 
 hr {
@@ -90,6 +162,15 @@ p {
 
 .next-btn {
   width: 100%;
+}
+
+.aside.aside-left .brand {
+  justify-content: center;
+}
+
+
+.aside.aside-left .brand img {
+  width: 98px; 
 }
 
 abbr[title],
@@ -68054,13 +68135,50 @@ code {
 }
 
 .form-control.form-control-solid {
+  font-size: 14px !important;
+  font-family: Gilroy-Regular;
+  border-radius: 5px !important;
   background-color: #fff;
-  border-color: #F3F6F9;
+  border-color: #D6D6E0;
   color: #3F4254;
   -webkit-transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
   transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
   transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
   transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, -webkit-box-shadow 0.15s ease;
+  height: 47px !important;
+}
+
+#kt_login_signin_form span {
+  color: #AEAEB2 !important;
+  font-family: 'Gilroy-Medium' !important;
+  font-size: 16px !important;
+}
+
+#kt_login_signin_form span a {
+  color: #C7112B !important;
+  font-family: 'Gilroy-SemiBold' !important;
+  font-size: 16px !important;
+}
+
+#kt_login_signin_form .forgot-password {
+  font-family: Gilroy-Medium !important;
+  font-size:13px !important;
+}
+
+#kt_login_signin_submit {
+  font-family: Gilroy-Medium !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+}
+
+.footer-links a {
+  font-family: 'Gilroy-Medium' !important;
+  font-size: 13px !important;
+}
+
+#kt_login_signin_form .leave-text {
+  color: #000 !important;
+  font-size: 14px !important;
 }
 
 .form-control.form-control-solid::-moz-placeholder {
@@ -71057,6 +71175,7 @@ code {
 
 .checkbox-inline .checkbox span {
   margin-right: 0.75rem;
+  border-radius: 2px;
 }
 
 .checkbox-inline .checkbox:last-child {
@@ -80986,7 +81105,7 @@ code {
   right: 20px;
   cursor: pointer;
   z-index: 100;
-  background-color: #C7112B;
+  background-color: #1B283F;
   -webkit-box-shadow: 0 0.5rem 1.5rem 0.5rem rgba(0, 0, 0, 0.075);
   box-shadow: 0 0.5rem 1.5rem 0.5rem rgba(0, 0, 0, 0.075);
   opacity: 0;
@@ -84718,9 +84837,24 @@ code {
   }
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 767px) {
   .daterangepicker.show-calendar .ranges {
     height: 245px;
+  }
+
+  .add-edit-role.dash-body .col-md-2 {
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  .add-edit-role.dash-body .col-md-2 img {
+    top: 0px !important;
+    width: 150px;
+  }
+
+  .add-edit-role.dash-body .col-md-2 {
+      max-width: 93%;
+      margin: 0 auto 25px;
   }
 }
 
@@ -90743,6 +90877,7 @@ body {
     height: 65px;
     position: relative;
     z-index: 2;
+    border-left: 1px solid #e2e3e9;
   }
 
   .header.header-fixed {

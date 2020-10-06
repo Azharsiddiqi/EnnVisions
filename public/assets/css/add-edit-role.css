@@ -1,0 +1,83 @@
+#kt_content .d-flex.flex-column-fluid {
+	padding: 0;
+}
+
+.add-edit-role.dash-body {
+	background-color: #fff;
+	padding:20px;
+}
+
+.add-edit-role.dash-body .col-md-2 {
+  background-color: #F3F6F9;
+  border-radius: 5px;
+}
+
+.add-edit-role.dash-body .col-md-2 img {
+    position: relative;
+    top: 28px;
+}
+
+.add-edit-role.dash-body .form-group textarea {
+	height: 98px;
+  border-radius: 4px;
+}
+
+.add-edit-role.dash-body .col-md-12 .form-group {
+  margin-bottom: 0px;
+}
+
+.add-edit-role.dash-body .form-group .checkbox-inline label {
+  color: #1B283F;
+  font-size: 15px;
+  font-family: 'Gilroy-Medium';
+}
+
+@font-face {
+  font-family: Gilroy-Regular;
+    src: url(fonts/Gilroy-Regular.ttf);
+}
+
+@font-face {
+  font-family: Gilroy-Medium;
+    src: url(fonts/Gilroy-Medium.ttf);
+}
+
+@font-face {
+  font-family: Gilroy-Bold;
+    src: url(fonts/Gilroy-Bold.ttf);
+}
+
+@font-face {
+  font-family: Gilroy-SemiBold;
+  src: url(fonts/Gilroy-SemiBold.ttf);
+}
+
+.gilroy-regular {
+  font-family: 'Gilroy-Regular';
+}
+
+.gilroy-medium {
+  font-family: 'Gilroy-Medium';
+}
+
+.gilroy-semibold {
+  font-family: 'Gilroy-SemiBold';
+}
+
+.gilroy-bold {
+  font-family: 'Gilroy-Bold';
+}
+
+
+.add-edit-role.dash-body .add-edit-permission {
+	font-family: 'Gilroy-SemiBold';
+	font-size: 14px;
+	width: 100%;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.add-edit-role.dash-body .row {
+	margin-left: 0;
+	margin-right: 0;
+}

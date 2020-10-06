@@ -12,6 +12,7 @@ import jwt_decode from 'jwt-decode';
 
 //Custom index for all pages
 import Index from "./pages/index";
+import AuthIndex from './pages/Auth/index';
 
 class App extends Component {
  
@@ -45,21 +46,42 @@ class App extends Component {
           <Route 
             exact
             path={'/login'}
-            component={Index} />
+            component={AuthIndex} />
 
           <Route 
             exact
             path={'/forgot-password'}
-            component={Index} />
+            component={AuthIndex} />
 
           <Route 
             exact
             path={'/reset-password'}
-            component={Index} />
+            component={AuthIndex} />
 
           <Route 
             exact
             path={'/signup'}
+            component={AuthIndex} />
+
+          <Route 
+            exact
+            path={'/add-rule'}
+            component={Index} />
+
+
+          <Route 
+            exact
+            path={'/edit-role'}
+            component={Index} />
+
+          <Route 
+            exact
+            path={'/user-role'}
+            component={Index} />
+
+          <Route 
+            exact
+            path={'/'}
             component={Index} />
 
         </React.Fragment>

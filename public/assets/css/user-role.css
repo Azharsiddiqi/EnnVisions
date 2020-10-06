@@ -1,0 +1,177 @@
+#kt_content .d-flex.flex-column-fluid {
+	padding: 0 !important;
+}
+
+#kt_content .d-flex.flex-column-fluid .dash-body {
+	padding: 0px 10px !important;
+}
+
+.user-role-table {
+	background-color: #fff;
+	padding: 20px;
+	overflow-x: auto;
+	border-radius: 5px;
+}
+
+.user-role-table .user-thead {
+	background-color: #F3F6F9;
+	color: #1B283F;
+	font-size: 12px;
+	font-family: 'khula', sans-serif;
+}
+
+.user-role-table td {
+	vertical-align: inherit;
+	font-size: 12px;
+}
+
+.user-role-table td .user-name {
+	color: #1B283F;
+	font-size: 14px;
+	font-family: 'khula', sans-serif;
+	padding-left: 10px;
+	font-weight: 600;
+}
+
+.user-role-table .user-p {
+	min-width: 150px;
+}
+
+.user-role-table td.user-message {
+	color: #1B283F;
+	font-size: 12px;
+	font-family: 'khula', sans-serif;
+}
+
+.user-role-table td.comm-percentage {
+	color: #1B283F;
+	font-size: 14px;
+	font-family: 'khula', sans-serif;
+	font-weight: 600;
+}
+
+.user-role-table td.rating .fa-star {
+	color: #FFA800;
+	font-size: 10px;
+}
+
+.user-role-table td.action-btn .btn-active {
+	background-color: #34C759;
+	color: #fff;
+	font-size: 12px;
+	font-family: 'khula', sans-serif;
+	padding: 7px 10px 3px 10px;
+}
+
+.user-role-table td.action-btn .btn-inactive {
+	background-color: #ECF0F3;
+	color: #1B283F;
+	font-size: 12px;
+	font-family: 'khula', sans-serif;
+	padding: 7px 10px 3px 10px;	
+}
+
+.user-role-table .role-detail {
+	min-width: 390px;
+}
+
+.user-role-table td {
+	font-family: 'khula', sans-serif;
+}
+
+.rating-icon .fa {
+	color: #FFA800;
+	font-size: 10px;
+}
+
+.role-id {
+	min-width: 90px;
+}
+
+.role-id img {
+	width: 32px;
+	float: right;
+}
+
+.user-role-table td.company-name, .user-role-table td.rol-email, .user-role-table td.phone-no, .user-role-table td.created-at, .user-role-table td.outlet, .user-role-table td.commission, .user-role-table td.review-btn button {
+	font-size: 12px;
+}
+
+.user-role-table td.review-btn button {
+	background: #32D74B;
+    color: #fff;
+}
+
+.user-role-table .company-name {
+	min-width: 120px;
+}
+
+.user-role-table .rol-email {
+	min-width: 169px;
+}
+
+.user-role-table .outlet .num-out {
+	background-color: #F3F6F9;
+    color: #464E5F;
+    padding: 3px 7px;
+    border-radius: 4px
+}
+
+.user-role-table table th {
+	font-weight: 600;
+}
+
+.user-role-table .role-action {
+	min-width: 110px;
+}
+
+.user-role-table .outlet {
+	min-width: 85px;
+}
+
+.user-role-table .rating-th {
+	min-width: 95px;
+}
+
+.user-role-table .comm-th {
+	min-width: 95px;
+}
+
+.user-role-table .action-th {
+	min-width: 130px;
+}
+
+.user-role-table .btn.del {
+	background-color: #C7112B;
+	padding: 4px 6px 0px;
+    font-size: 18px;
+}
+
+.user-role-table .btn.edit {
+	background-color: #007AFF;
+	padding: 4px 6px 0px;
+    font-size: 18px;
+}
+
+.user-role-table td:first-child {
+	font-weight: 600;
+    font-size: 14px;
+}
+
+.user-role-table th.helper-company {
+	min-width: 125px;
+}
+
+.user-role-table th.helper-status {
+	min-width: 120px;
+}
+
+.user-role-table th.helper-created, .user-role-table th.helper-action {
+	min-width: 100px;
+}
+
+@media (max-width: 576px) {
+	.dash-right-s {
+		float: unset;
+	}
+}

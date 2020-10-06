@@ -1,9 +1,11 @@
 import React from 'react';
 import {BrowserRouter as Router , Route,  withRouter} from 'react-router-dom';
  
-import Index from './Dashboard/index';
-import AddEdit from './Roles/AddEdit';
-import UserRole from './Roles/UserRoles';
+import Login from './Login';
+import Forgot from './Forgot';
+import Reset from './Reset';
+import Signup from './Signup';
+
 
 
 class Routes extends React.Component {
@@ -11,40 +13,39 @@ class Routes extends React.Component {
 	render(){
 		console.log("checking props: ", this.props);
 		return (
-			<Router>
+			<Router  >
+			
 				<Route  
 					exact 
-					path={"/add-role"} 
+					path={"/login"} 
 					component={
-						() => <AddEdit />
+						() => <Login />
 					}
 				/>
 
 				<Route  
 					exact 
-					path={"/edit-role"} 
+					path={"/forgot-password"} 
 					component={
-						() => <AddEdit />
+						() => <Forgot />
 					}
 				/>
 
 				<Route  
 					exact 
-					path={"/user-role"} 
+					path={"/reset-password"} 
 					component={
-						() => <UserRole />
+						() => <Reset />
 					}
 				/>
 
 				<Route  
 					exact 
-					path={"/"} 
+					path={"/signup"} 
 					component={
-						() => <Index />
+						() => <Signup />
 					}
 				/>
-				
-
 			</Router>
 		);
 	}
