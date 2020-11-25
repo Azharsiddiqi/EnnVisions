@@ -5,7 +5,6 @@ class page15 extends Component {
     render() {
         return (
             <React.Fragment>
-                <div className="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
                     {/*begin::Header*/}
                     <div id="kt_header" className="header  header-fixed ">
                         {/*begin::Container*/}
@@ -234,7 +233,6 @@ class page15 extends Component {
                             </div>
                         </div>
                         </div>
-                    </div>
                     </div>
 
             </React.Fragment>
