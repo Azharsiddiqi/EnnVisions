@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Form_1 from './CreateAdmin/form1';
-import Form_2 from './CreateAdmin/form2';
-import Form_3 from './CreateAdmin/form3';
+import Form1 from './CreateAdmin/form1';
+import Form2 from './CreateAdmin/form2';
+import Form3 from './CreateAdmin/form3';
 
 class createAdmin extends Component {
     constructor(props){
@@ -22,13 +22,13 @@ class createAdmin extends Component {
         return ( 
             <React.Fragment>
                 {this.state.formShow === 0 && 
-                <Form_1  formShowHandler={(num) => this.formShowHandler(num)} />
+                <Form1  formShowHandler={(num) => this.formShowHandler(num)} />
                 }
                 {this.state.formShow === 1 && 
-                <Form_2 formShowHandler={(num) => this.formShowHandler(num)}/>
+                <Form2 formShowHandler={(num) => this.formShowHandler(num)}/>
                 }
                 {this.state.formShow === 2 && 
-                <Form_3 formShowHandler={(num) => this.formShowHandler(num)}/>
+                <Form3 formShowHandler={(num) => this.formShowHandler(num)}/>
                 }
             </React.Fragment>
          );

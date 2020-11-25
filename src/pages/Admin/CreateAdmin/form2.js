@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class from_2 extends Component {
+class from2 extends Component {
     state = {  }
     render() { 
         return ( 
@@ -235,4 +235,4 @@ class from_2 extends Component {
     }
 }
  
-export default from_2;
+export default from2;

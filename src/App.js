@@ -53,6 +53,8 @@ class App extends Component {
             path={'/forgot-password'}
             component={AuthIndex} />
 
+
+
           <Route 
             exact
             path={'/reset-password'}
@@ -83,11 +85,19 @@ class App extends Component {
             component={Index} />
             <Route 
             exact
+            path={'/create-vendor'}
+            component={Index} />
+            <Route 
+            exact
             path={'/create-dispatcher'}
             component={Index} />
             <Route 
             exact
             path={'/helper'}
+            component={Index} />
+            <Route 
+            exact
+            path={'/new-driver'}
             component={Index} />
 
           <Route 
@@ -102,10 +112,67 @@ class App extends Component {
             exact
             path={'/vender-list'}
             component={Index} />
+            <Route 
+            exact
+            path={'/view-vendor'}
+            component={Index} />
 
           <Route 
             exact
             path={'/'}
+            component={Index} />
+            <Route 
+            exact
+            path={'/page-38'}
+            component={Index} />
+          <Route 
+            exact
+            path={'/page-26'}
+            component={Index} />
+            <Route 
+            exact
+            path={'/page-13'}
+            component={Index} />
+
+<Route 
+            exact
+            path={'/page-6'}
+            component={Index} />
+            <Route 
+            exact
+            path={'/page-8'}
+            component={Index} />
+            <Route 
+            exact
+            path={'/page-12'}
+            component={Index} />
+            <Route 
+            exact
+            path={'/page-14'}
+            component={Index} />
+            <Route 
+            exact
+            path={'/page-15'}
+            component={Index} />
+            <Route 
+            exact
+            path={'/page-18'}
+            component={Index} />
+            <Route 
+            exact
+            path={'/page-20'}
+            component={Index} />
+            <Route 
+            exact
+            path={'/page-23'}
+            component={Index} />
+            <Route 
+            exact
+            path={'/page-33'}
+            component={Index} />
+            <Route 
+            exact
+            path={'/page-35'}
             component={Index} />
 
         </React.Fragment>

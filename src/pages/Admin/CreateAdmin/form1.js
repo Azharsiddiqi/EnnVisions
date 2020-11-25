@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class form_1 extends Component {
+class form1 extends Component {
     render() { 
         return ( 
             <React.Fragment>
@@ -181,4 +181,4 @@ class form_1 extends Component {
     }
 }
  
-export default form_1;
+export default form1;
