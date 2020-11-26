@@ -1,0 +1,203 @@
+@font-face {
+  font-family: Gilroy-Regular;
+    src: url(fonts/Gilroy-Regular.ttf);
+}
+
+@font-face {
+  font-family: Gilroy-Medium;
+    src: url(fonts/Gilroy-Medium.ttf);
+}
+
+@font-face {
+  font-family: Gilroy-Bold;
+    src: url(fonts/Gilroy-Bold.ttf);
+}
+
+@font-face {
+  font-family: Gilroy-SemiBold;
+  src: url(fonts/Gilroy-SemiBold.ttf);
+}
+
+.gilroy-regular {
+  font-family: 'Gilroy-Regular';
+}
+
+.gilroy-medium {
+  font-family: 'Gilroy-Medium';
+}
+
+.gilroy-semibold {
+  font-family: 'Gilroy-SemiBold';
+}
+
+.gilroy-bold {
+  font-family: 'Gilroy-Bold';
+}
+
+
+#kt_content .d-flex.flex-column-fluid {
+	padding: 0px 15px;
+}
+
+.create-admin-container {
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.create-admin-container .create-admin-steps .checkbox-inline {
+	flex-wrap: wrap;
+}
+
+.create-admin-steps .checkbox-inline .basic-info span, .create-admin-steps .checkbox-inline .app-info span, .create-admin-steps .checkbox-inline .accounts-info span, .create-admin-steps .checkbox-inline .review-submit  span {
+	border-radius: 4px !important;
+	text-align: center;
+	padding-left: 3px;
+}
+
+.dash-body {
+	width: 100%;
+}
+
+.create-admin-form div div:nth-child(16) input::placeholder {
+	color: #1C1C1E;
+	font-size: 15px;
+	font-family: 'Gilroy-Medium';
+}
+
+.create-admin-container .create-admin-steps {
+	justify-content: center;
+	display: flex;
+	padding-top: 25px;
+}
+
+.create-admin-container .create-admin-steps .checkbox-inline .checkbox {
+	margin:0 15px;
+	font-family: Gilroy-Medium;
+	font-size: 15px;
+}
+
+.create-admin-container .create-admin-steps .checkbox-inline .active-checkbox.checkbox {
+	font-size: 17px;
+}
+
+.create-admin-form {
+	padding: 20px 70px;
+	background-color: #fff;
+	border-radius: 4px;
+}
+
+.create-admin-form input, .create-admin-form select {
+	height: 47px;
+    color: #80808F;
+    font-size: 14px;
+    font-family: 'Gilroy-Regular';
+}
+
+.create-admin-form label {
+	color: #1B283F;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 16px;
+}
+
+.create-admin-form .form-group {
+	position: relative;
+}
+ 
+.create-admin-form .form-control.upload {
+	position: relative;
+    text-align: right;
+    -moz-opacity: 0;
+    filter: alpha(opacity: 0);
+    opacity: 0;
+    z-index: 2;
+}
+
+.create-admin-form .fakefile {
+	position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    width: 100%;
+}
+
+.create-admin-form .fakefile input {
+	width: 100%;
+	border: 1px solid #ced4da;
+	border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.create-admin-form .fakefile img {
+	position: absolute;
+    right: 10px;
+    top: 16px;
+    width: 20px;
+}
+
+.create-admin-form .fakefile .placeholder {
+	position: absolute;
+	color: #1C1C1E;
+	font-family: 'Gilroy-Regular';
+	font-size: 15px;
+	font-weight: 600;
+	left: 10px;
+	top: 10px;
+}
+
+.create-admin-form .fakefile .placeholder .light {
+	font-weight: 400;
+}
+
+.create-admin-form .btn-fleet-submit {
+	max-width: 360px;
+	margin: 0 auto;
+}
+
+.create-admin-form .btn-fleet-submit button {
+	background-color: #C7112B;
+	color: #fff;
+	font-family: 'Gilroy-Medium';
+	font-size: 14px;
+	width: 100%;
+}
+
+.create-admin-form .calendar-icon {
+	position: absolute;
+    top: 8px;
+    right: 10px;
+}
+
+.create-admin-container .map {
+	margin-bottom: 20px;
+}
+
+.app-info-container .basic-info.active-checkbox.checkbox {
+	position: relative;
+	bottom: 10px;
+}
+
+.app-info-container .basic-info.active-checkbox.checkbox span {
+	width: 31px;
+	height: 31px;
+}
+
+@media (max-width: 767px) {
+	.create-admin-container .create-admin-steps .checkbox-inline .checkbox {
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+
+	.create-admin-form {
+		padding: 20px 0;
+	}
+
+	.create-admin-form {
+		padding: 20px 20px;
+	}
+}
+
+@media (min-width: 576px) {
+	.app-info-container .col-md-3 {
+		max-width: 23%;
+	}
+}
