@@ -1,21 +1,23 @@
 import React, {useState} from 'react';
-import {BrowserRouter as Router , Route,  withRouter} from 'react-router-dom';
+import {Route} from 'react-router-dom';
  
 import Login from './Login/login.jsx';
 import ForgetPasswordEmail from './ForgetPasswordEmail/forgetPasswordEmail.jsx';
 import ResetPassword from './ResetPassword/resetPassword.jsx';
 import RegisterVendor from './RegisterVendor/registerVendor.jsx';
+import ConfirmationMessage from './RegisterVendor/components/confirmationMessage.jsx';
 
 
-const Routes = () => {
+export default () => {
 	const [routes] = useState([
 		{ path: "/login", component: Login },
 		{ path: "/forgot-password-email", component: ForgetPasswordEmail },
 		{ path: "/reset-password", component: ResetPassword },
 		{ path: "/register-vendor", component: RegisterVendor },
+		{ path: "/confirmation-massage", component: ConfirmationMessage },
 	])
 	return (
-		<Router>
+		<>
 			{ routes.map(({path, component}, index) => (
 				<Route  
 					exact 
@@ -24,9 +26,6 @@ const Routes = () => {
 					component={component}
 				/>
 			)) }
-	</Router>
+	</>
 	)
 }
-
-
-export default withRouter(Routes);

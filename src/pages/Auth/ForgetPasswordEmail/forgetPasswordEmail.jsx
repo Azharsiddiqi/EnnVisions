@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 export default () => {
+    const history = useHistory();
     return (<React.Fragment>
         <div className="login-content flex-row-fluid d-flex flex-column justify-content-center position-relative overflow-hidden p-7 mx-auto">
             {/*begin::Content body*/}
@@ -22,7 +23,7 @@ export default () => {
                     <input className="form-control form-control-solid h-auto py-4 px-6 rounded-lg" type="text" name="username" autoComplete="off" placeholder="Enter Email Address" />
                     </div>
                     <div className="pb-lg-0 pb-5">
-                    <button type="button" id="kt_login_signin_submit" className="btn btn-primary next-btn font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3">NEXT</button>
+                    <button onClick={() => history.push('/reset-password')} type="button" id="kt_login_signin_submit" className="btn btn-primary next-btn font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3">NEXT</button>
                     </div>
                     {/*end::Action*/}
                 </form>

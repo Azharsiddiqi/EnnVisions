@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {BrowserRouter as Router , Route,  withRouter} from 'react-router-dom';
+import {Route} from 'react-router-dom';
  
 import Index from './Dashboard/dashboard.jsx';
 import AddEdit from './Roles/AddEdit.jsx';
@@ -27,7 +27,7 @@ import Page38 from './page-38.jsx';
 import Page13 from './page-13.jsx';
 import ViewVendor from './Vendor/viewVendor.jsx';
 
-function Routes() {
+export default () => {
 	const [routes] = useState([
 		{ path: "/add-role", component:AddEdit },
 		{ path: "/edit-role", component:AddEdit },
@@ -44,6 +44,7 @@ function Routes() {
 		{ path: "/dispatcher-info", component:DispatcherInfo },
 		{ path: "/vender-list", component:VenderList },
 		{ path: "/", component:Index },
+		{ path: "/dashboard", component:Index },
 		{ path: "/page-26", component:Page26 },
 		{ path: "/page-6", component:Page6 },
 		{ path: "/page-8", component:Page8 },
@@ -57,7 +58,7 @@ function Routes() {
 		{ path: "/page-35", component:Page35 },
 	])
 	return (
-		<Router>
+		<>
 			{ routes.map(({path, component}, index) => (
 				<Route  
 					exact 
@@ -67,8 +68,6 @@ function Routes() {
 				/>
 			)) }
 
-		</Router>
+		</>
 	)
 }
-
-export default withRouter(Routes);

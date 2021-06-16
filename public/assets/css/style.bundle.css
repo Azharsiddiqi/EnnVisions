@@ -56,6 +56,14 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
 
+.topbar.topbar-item .text-dark-50 {
+  color: #1B283F;
+}
+
+.topbar.topbar-item .text-muted {
+  color: #1B283F !important;
+}
+
 body {
   margin: 0;
   font-family: Poppins, Helvetica, "sans-serif";
@@ -121,6 +129,104 @@ body {
 
 .inactive-breadcrumb {
   font-size: 11px;
+}
+
+.login-form.login-signin .form-group .checkbox.checkbox-lg > span {
+  height: 20px !important;
+  width: 20px !important;
+}
+
+@media (min-width: 992px) {
+  .login-form.login-signin {
+    max-width: 450px !important;
+  }
+}
+
+.location-div {
+  border:1px solid #D6D6E0;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.location-input {
+  margin-bottom: 7px;
+}
+
+.location-div .map iframe {
+  height: 150px;
+  border-radius: 4px;
+  border:1px solid #D6D6E0;
+}
+
+#who-serve-options {
+  position: relative;
+  left: 7px;
+}
+
+#who-serve-options .checkbox.checkbox-lg > span {
+  width: 17px !important;
+  height: 17px !important;
+  margin-right: 3px !important;
+}
+
+#who-serve-options .col-md-2, #who-serve-options .col-md-4, #who-serve-options .col-md-3 {
+  padding-right: 6px !important;
+  padding-left: 6px !important; 
+}
+
+#who-serve-options .checkbox-inline .checkbox {
+  font-size: 11px !important;
+}
+
+.timing-container {
+  border:1px solid #D6D6E0;
+  padding: 10px 10px 15px 10px;
+  border-radius: 4px;
+}
+
+#timing-container-content #who-serve-options .checkbox-inline .checkbox {
+  font-size: 14px !important;
+    color: #1B283F;
+    font-family: ROboto condensed;
+}
+
+.add-time-btn {
+  width: 100%;
+  height: 48px;
+  background-color: #C7112B !important;
+  color: #fff !important;
+  font-family: 'Gilroy-Medium';
+  font-size: 14px !important;
+}
+
+.password-show {
+  position: absolute;
+  top: 15px;
+  right: 0;
+}
+
+.password-show button {
+  background: none;
+  border: none;
+  color: #C7112B;
+  font-family: Gilroy-Medium;
+  font-size: 14px;
+}
+
+.privacy-text {
+  font-size: 10px;
+  font-family: 'Gilroy-Regular';
+  color: #000000;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.edit {
+    background-color: #007AFF !important;
+}
+
+.delete {
+    background-color: #C7112B !important;
 }
 
 .subheader .btn.btn-clean:hover:not(.btn-text):not(:disabled):not(.disabled), .subheader .btn.btn-clean:focus:not(.btn-text), .subheader .btn.btn-clean.focus:not(.btn-text) {
@@ -341,6 +447,18 @@ input {
 button,
 select {
   text-transform: none;
+}
+
+select.form-control, input.form-control {
+    height: 47px;
+    padding-top: 0;
+    padding-bottom: 0;
+    border:1px solid #D6D6E0;
+    border-radius: 3px;
+}
+
+.form-group {
+  margin-bottom: 12px !important;
 }
 
 [role="button"] {
@@ -2892,8 +3010,8 @@ pre code {
   color: #3F4254;
   background-color: #ffffff;
   background-clip: padding-box;
-  border: 1px solid #E4E6EF;
-  border-radius: 0.42rem;
+  border: 1px solid #D6D6E0;
+  border-radius: 3px;
   -webkit-box-shadow: none;
   box-shadow: none;
   -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
@@ -68487,6 +68605,10 @@ code {
 
   .row.row-col-divider-sm > div:last-child {
     border-right: 0;
+  }
+
+  #kt_login_signin_submit {
+    width: 100%;
   }
 }
 

@@ -1,10 +1,12 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 //Importing assets
 import IC_LOGO from '../../../assets/images/ic-logo.svg';
 
 export default () => {
+    const history = useHistory();
     return (<React.Fragment>
         <div className="login-content flex-row-fluid d-flex flex-column justify-content-center position-relative overflow-hidden p-7 mx-auto">
             {/*begin::Content body*/}
@@ -29,7 +31,7 @@ export default () => {
                     <div className="form-group">
                     <input className="form-control form-control-solid h-auto py-4 px-6 rounded-lg" type="password" name="password" autoComplete="off" placeholder="Enter Password" />
                     <div className="d-flex justify-content-between mt-n5">
-                        <Link to="forgot-password" className="gilroy-medium forgot-password text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5">
+                        <Link to="/forgot-password-email" className="gilroy-medium forgot-password text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5">
                         FORGOT PASSWORD ?
                         </Link>
                     </div>
@@ -37,7 +39,7 @@ export default () => {
                     {/*end::Form group*/}
                     {/*begin::Action*/}
                     <div className="pb-lg-0 pb-5">
-                    <button type="button" id="kt_login_signin_submit" className="gilroy-medium btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3">SIGN IN</button>
+                    <button type="submit" onClick={() => history.push('/dashboard')} className="gilroy-medium btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3">SIGN IN</button>
                     <button type="button" className="gilroy-medium btn btn-light-primary font-weight-bolder px-8 py-4 my-3 font-size-lg">
                         <span className="svg-icon svg-icon-md">
                         {/*begin::Svg Icon | path:assets/media/svg/social-icons/google.svg*/}

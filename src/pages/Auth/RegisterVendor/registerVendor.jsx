@@ -1,7 +1,10 @@
-import React from 'react';
-import {Link} from "react-router-dom";
+import React, {useState} from 'react';
+import {Link, useHistory} from "react-router-dom";
+import AddMoreOptions from './components/addMoreInfo'
 
 export default () => {
+    const [showAddMoreOptions, setShowAddMoreOptions] = useState(false);
+    const history = useHistory();
     return (
     <React.Fragment>
         <div className="login-content flex-row-fluid d-flex flex-column justify-content-center position-relative overflow-hidden p-7 mx-auto">
@@ -13,7 +16,7 @@ export default () => {
                 <img src="assets/images/ic-logo.svg" alt="logo" className="envision-red-logo" />
                 <form className="form" noValidate="novalidate" id="kt_login_signin_form">
                     <div className="pb-7 pt-lg-0 pt-5">
-                    <h3 className="signup-title">Want to be a EnnVisions merchant? (CANADA)</h3>
+                    <h3 className="signup-title">WANT TO BE A EnnVisions MERCHANT? (CANADA)</h3>
                     <p className="gilroy-regular signup-leave-text">Leave your restaurant details here and we will be in touch shortly.</p>
                     </div>
                     {/*end::Title*/}
@@ -162,13 +165,17 @@ export default () => {
                     </select>
                     </div>
                     <div className="form-group">
-                    <button type="button" id="add-more-btn" className="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4">+ Add more info (optional)</button>
+                    <button type="button" onClick={() => setShowAddMoreOptions(!showAddMoreOptions)} id="add-more-btn" className="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4">+ Add more info (optional)</button>
                     </div>
+                    { showAddMoreOptions ?
+                    <AddMoreOptions />
+                    : "" }
                     <div className="form-group">
-                    <button type="button" id="sign-submit-btn" className="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 mr-4">SUBMIT</button>
+                    <button type="button" onClick={() => history.push('/confirmation-massage')} id="sign-submit-btn" className="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 mr-4">SUBMIT</button>
                     </div>
                     {/*end::Action*/}
                 </form>
+                <div className="privacy-text">By proceeding, I agree that you can collect, use and disclose the information provided by me in accordance with your <Link to="#">Privacy Policy</Link> which I have read and understand</div>
                 {/*end::Form*/}
                 </div>
                 {/*end::Signin*/}  

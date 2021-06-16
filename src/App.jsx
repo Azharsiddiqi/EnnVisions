@@ -12,7 +12,8 @@ const App = () => {
     "/login",
     "/forgot-password-email",
     "/reset-password",
-    "/register-vendor"
+    "/register-vendor",
+    "/confirmation-massage"
   ]);
   const [privateRoutes] = useState([
     "/",
