@@ -10,5 +10,6 @@ export default () => {
 				alt="Loading..."
 			/>
 		</div>
+		
 	);
 };

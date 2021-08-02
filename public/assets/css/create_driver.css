@@ -1,0 +1,7 @@
+.create-vendor-submit button {
+	width: 100%;
+}
+
+.create-fleet-form.new-driver-container form {
+	max-width: 410px;
+}

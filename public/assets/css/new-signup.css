@@ -1,168 +1,168 @@
 @font-face {
-	font-family: Gilroy-Regular;
-	  src: url(fonts/Gilroy-Regular.ttf);
-  }
-  
-  @font-face {
-	font-family: Gilroy-Medium;
-	  src: url(fonts/Gilroy-Medium.ttf);
-  }
-  
-  @font-face {
-	font-family: Gilroy-Bold;
-	  src: url(fonts/Gilroy-Bold.ttf);
-  }
-  
-  @font-face {
-	font-family: Gilroy-SemiBold;
-	src: url(fonts/Gilroy-SemiBold.ttf);
-  }
-  
-  .gilroy-regular {
+  font-family: Gilroy-Regular;
+    src: url(fonts/Gilroy-Regular.ttf);
+}
+
+@font-face {
+  font-family: Gilroy-Medium;
+    src: url(fonts/Gilroy-Medium.ttf);
+}
+
+@font-face {
+  font-family: Gilroy-Bold;
+    src: url(fonts/Gilroy-Bold.ttf);
+}
+
+@font-face {
+  font-family: Gilroy-SemiBold;
+  src: url(fonts/Gilroy-SemiBold.ttf);
+}
+
+.gilroy-regular {
+  font-family: 'Gilroy-Regular';
+}
+
+.gilroy-medium {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.gilroy-semibold {
+  font-family: 'Gilroy-SemiBold';
+}
+
+.gilroy-bold {
+  font-family: 'Gilroy-Bold';
+}
+
+#kt_login_signin_form .signup-title {
+	font-family: Roboto Condensed;
+	font-size: 31px;
+	color: #C7112B;
+}
+
+.signup-leave-text {
+	color: #000000;
 	font-family: 'Gilroy-Regular';
-  }
-  
-  .gilroy-medium {
+	font-size: 14px;
+}
+
+#kt_login_signin_form .form-group.country-numbers .country-code {
+	position: absolute !important;
+    top: 13px !important;
+    margin-left: 5px !important;
+    color: #000 !important;
+}
+
+.country-numbers .country-code img {
+	width: 24px !important;
+}
+
+.country-numbers input {
+	padding-left: 55px !important;
+}
+
+.country-names select {
+	height: 47px !important;
+}
+
+.label-country {
+	font-family: Roboto Condensed;
+	font-size: 16px !important;
+	color: #1B283F !important;
+}
+
+.label-country.day-label {
+	width: 85px;
+    display: inline-block;
+}
+
+.label-time {
+	color: #80808F !important;
+	font-size: 11px !important;
+	font-family: 'Gilroy-Regular';
+	width: 55px;
+	display: inline-block;
+}
+
+.mark-label {
+	color: #C7112B !important;
+	font-size: 14px !important;
+	font-family: Roboto Condensed;
+	width: 190px;
+	text-align: right;
+	cursor: pointer;
+}
+
+.country-time-select select {
+	color: #80808F;
+	font-size: 14px;
+	font-family: 'Gilroy-Regular';
+}
+
+.del-container {
+	background-color: #F2F2F7;
+	padding:0px 2px;
+	width: 20px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.r-u-owner {
+	font-family: Roboto Condensed;
+	font-size: 16px;
+	color: #1B283F;
+	margin-bottom: 15px;
+}
+
+#add-more-btn {
+	width: 100%;
+	color: #1B283F;
+    text-align: left;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+#add-more-btn:hover {
+	background-color: #EFEFF4;
+}
+
+#sign-submit-btn {
+	max-width: 450px;
+	width: 100%;
 	font-family: 'Roboto Condensed', sans-serif;
-  }
-  
-  .gilroy-semibold {
-	font-family: 'Gilroy-SemiBold';
-  }
-  
-  .gilroy-bold {
-	font-family: 'Gilroy-Bold';
-  }
-  
-  #kt_login_signin_form .signup-title {
-	  font-family: Roboto Condensed;
-	  font-size: 31px;
-	  color: #C7112B;
-  }
-  
-  .signup-leave-text {
-	  color: #000000;
-	  font-family: 'Gilroy-Regular';
-	  font-size: 14px;
-  }
-  
-  #kt_login_signin_form .form-group.country-numbers .country-code {
-	  position: absolute !important;
-	  top: 13px !important;
-	  margin-left: 5px !important;
-	  color: #000 !important;
-  }
-  
-  .country-numbers .country-code img {
-	  width: 24px !important;
-  }
-  
-  .country-numbers input {
-	  padding-left: 55px !important;
-  }
-  
-  .country-names select {
-	  height: 47px !important;
-  }
-  
-  .label-country {
-	  font-family: Roboto Condensed;
-	  font-size: 16px !important;
-	  color: #1B283F !important;
-  }
-  
-  .label-country.day-label {
-	  width: 85px;
-	  display: inline-block;
-  }
-  
-  .label-time {
-	  color: #80808F !important;
-	  font-size: 11px !important;
-	  font-family: 'Gilroy-Regular';
-	  width: 55px;
-	  display: inline-block;
-  }
-  
-  .mark-label {
-	  color: #C7112B !important;
-	  font-size: 14px !important;
-	  font-family: Roboto Condensed;
-	  width: 190px;
-	  text-align: right;
-	  cursor: pointer;
-  }
-  
-  .country-time-select select {
-	  color: #80808F;
-	  font-size: 14px;
-	  font-family: 'Gilroy-Regular';
-  }
-  
-  .del-container {
-	  background-color: #F2F2F7;
-	  padding:0px 2px;
-	  width: 20px;
-	  display: inline-block;
-	  text-align: center;
-	  border-radius: 3px;
-	  cursor: pointer;
-  }
-  .r-u-owner {
-	  font-family: Roboto Condensed;
-	  font-size: 16px;
-	  color: #1B283F;
-	  margin-bottom: 15px;
-  }
-  
-  #add-more-btn {
-	  width: 100%;
-	  color: #1B283F;
-	  text-align: left;
-	  font-family: 'Roboto Condensed', sans-serif;
-  }
-  #add-more-btn:hover {
-	  background-color: #EFEFF4;
-  }
-  
-  #sign-submit-btn {
-	  max-width: 450px;
-	  width: 100%;
-	  font-family: 'Roboto Condensed', sans-serif;
-	  margin: 0 auto !important;
-	  display: block;
-  }
-  
-  .privacy-text {
-	  max-width: 450px;
-	  font-family: 'Roboto Condensed', sans-serif;
-	  margin: 0 auto !important;
-	  display: block;
-  }
-  @media (min-width: 992px) {
-	  .login-aside-container {
-		  width: 50%;
-	  }
-  
-	  .login-aside-container .login-aside {
-		  position: fixed;
-	  }
-  
-	  .login.login-1 .login-content .login-form {
-		  width: 100%;
-		  max-width: 360px;
-	  }
-  }
-  
-  @media (min-width: 992px) {
-	  .login.login-1 .login-content {
-		  width: 100%;
-		  max-width: 100%;
-	  }
-  }
-  
-  @media (max-width: 576px) {
-	  .mark-label {
-		  text-align: left !important;
-	  }
-  }
+	margin: 0 auto !important;
+	display: block;
+}
+
+.privacy-text {
+	max-width: 450px;
+	font-family: 'Roboto Condensed', sans-serif;
+	margin: 0 auto !important;
+	display: block;
+}
+@media (min-width: 992px) {
+	.login-aside-container {
+		width: 50%;
+	}
+
+	.login-aside-container .login-aside {
+		position: fixed;
+	}
+
+	.login.login-1 .login-content .login-form {
+    	width: 100%;
+    	max-width: 360px;
+	}
+}
+
+@media (min-width: 992px) {
+	.login.login-1 .login-content {
+    	width: 100%;
+    	max-width: 100%;
+	}
+}
+
+@media (max-width: 576px) {
+	.mark-label {
+		text-align: left !important;
+	}
+}

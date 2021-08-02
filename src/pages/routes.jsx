@@ -1,73 +1,116 @@
-import React, {useState} from 'react';
-import {Route} from 'react-router-dom';
- 
-import Index from './Dashboard/dashboard.jsx';
-import AddEdit from './Roles/AddEdit.jsx';
-import UserRole from './Roles/UserRoles.jsx';
-import CreateDispatcher from './Roles/createDispatcher.jsx';
-import Helper from './Roles/helper.jsx';
-import AdminInfo from './Admin/adminInfo.jsx';
-import DispatcherInfo from './Roles/dispatcherInfo.jsx';
-import VenderList from './Roles/venderList.jsx';
-import CreateAdmin from './Admin/createAdmin.jsx';
-import Page26 from './page-26.jsx';
-import Page6 from './page-6.jsx';
-import Page8 from './page-8.jsx';
-import Page12 from './page-12.jsx';
-import Page14 from './page-14.jsx';
-import Page15 from './page-15.jsx';
-import Page18 from './page-18.jsx';
-import Page20 from './page-20.jsx';
-import Page23 from './page-23.jsx';
-import Page33 from './page-33.jsx';
-import Page35 from './page-35.jsx';
-import CreateVendor from './Vendor/createVendor.jsx';
-import NewDriver from './Driver/newDriver.jsx';
-import Page38 from './page-38.jsx';
-import Page13 from './page-13.jsx';
-import ViewVendor from './Vendor/viewVendor.jsx';
+import React, { useState } from "react";
+import { Route } from "react-router-dom";
+import { PRIVATE_ROUTES } from "../config";
+
+import Index from "./Dashboard/dashboard.jsx";
+// start: ROLES Import
+import AddNewRoles from "./UserRoles/addNewRoles";
+import CreateRegistrationForm from "./UserRoles/createRegistrationForm";
+import UserRoleList from "./UserRoles/userRolesList";
+// start: ADMIN Import
+import CreateAdmin from "./AdminManage/createAdmin";
+import AdminDetail from "./AdminManage/adminDetail";
+// start: FLEET Import
+import CreateFleet from "./FleetManage/createFleet";
+import FleetDetail from "./FleetManage/fleetDetail";
+// start: DISPATCHER Import
+import CreateDispatcher from "./DispatcherManage/createDispatcher";
+import DispatcherDetail from "./DispatcherManage/dispatcherDetail";
+// start: VENDOR Import
+import CreateVendor from "./VendorManage/createVendor";
+import VendorDetail from "./VendorManage/vendorDetail";
+import VendorList from "./VendorManage/vendorList";
+import VendorOutlets from "./VendorManage/OutLets/vendorOutlets";
+import OutLetsDetail from "./VendorManage/OutLets/outLetsDetail";
+import EditOutLets from "./VendorManage/OutLets/editOutLets";
+import HelperList from "./VendorManage/helperList";
 
 export default () => {
-	const [routes] = useState([
-		{ path: "/add-role", component:AddEdit },
-		{ path: "/edit-role", component:AddEdit },
-		{ path: "/user-role", component:UserRole },
-		{ path: "/create-admin", component:CreateAdmin },
-		{ path: "/create-dispatcher", component:CreateDispatcher },
-		{ path: "/new-driver", component:NewDriver },
-		{ path: "/create-vendor", component:CreateVendor },
-		{ path: "/page-38", component:Page38 },
-		{ path: "/helper", component:Helper },
-		{ path: "/page-13", component:Page13 },
-		{ path: "/view-vendor", component:ViewVendor },
-		{ path: "/admin-info", component:AdminInfo },
-		{ path: "/dispatcher-info", component:DispatcherInfo },
-		{ path: "/vender-list", component:VenderList },
-		{ path: "/", component:Index },
-		{ path: "/dashboard", component:Index },
-		{ path: "/page-26", component:Page26 },
-		{ path: "/page-6", component:Page6 },
-		{ path: "/page-8", component:Page8 },
-		{ path: "/page-12", component:Page12 },
-		{ path: "/page-14", component:Page14 },
-		{ path: "/page-15", component:Page15 },
-		{ path: "/page-18", component:Page18 },
-		{ path: "/page-20", component:Page20 },
-		{ path: "/page-23", component:Page23 },
-		{ path: "/page-33", component:Page33 },
-		{ path: "/page-35", component:Page35 },
-	])
-	return (
-		<>
-			{ routes.map(({path, component}, index) => (
-				<Route  
-					exact 
-					key={index}
-					path={path} 
-					component={component}
-				/>
-			)) }
+  const [routes] = useState([
+    { path: PRIVATE_ROUTES.dashboard.path, component: Index },
 
-		</>
-	)
-}
+    { path: PRIVATE_ROUTES.userRoles.addNewRole.path, component: AddNewRoles },
+    {
+      path: PRIVATE_ROUTES.userRoles.createRegistrationForm.path,
+      component: CreateRegistrationForm,
+    },
+    {
+      path: PRIVATE_ROUTES.userRoles.userRoleList.path,
+      component: UserRoleList,
+    },
+
+    {
+      path: PRIVATE_ROUTES.adminManage.createAdmin.path,
+      component: CreateAdmin,
+    },
+    {
+      path: PRIVATE_ROUTES.adminManage.adminDetail.path,
+      component: AdminDetail,
+    },
+    { path: PRIVATE_ROUTES.adminManage.editAdmin.path, component: CreateAdmin },
+
+    {
+      path: PRIVATE_ROUTES.fleetManage.createFleet.path,
+      component: CreateFleet,
+    },
+    { path: PRIVATE_ROUTES.fleetManage.editFleet.path, component: CreateFleet },
+    {
+      path: PRIVATE_ROUTES.fleetManage.fleetDetail.path,
+      component: FleetDetail,
+    },
+
+    {
+      path: PRIVATE_ROUTES.dispatcherManage.createDispatcher.path,
+      component: CreateDispatcher,
+    },
+    {
+      path: PRIVATE_ROUTES.dispatcherManage.editDispatcher.path,
+      component: CreateDispatcher,
+    },
+    {
+      path: PRIVATE_ROUTES.dispatcherManage.dispatcherDetail.path,
+      component: DispatcherDetail,
+    },
+    {
+      path: PRIVATE_ROUTES.dispatcherManage.dispatcherDetail.path,
+      component: DispatcherDetail,
+    },
+
+    {
+      path: PRIVATE_ROUTES.vendorManage.createVendor.path,
+      component: CreateVendor,
+    },
+    {
+      path: PRIVATE_ROUTES.vendorManage.vendorDetail.path,
+      component: VendorDetail,
+    },
+    {
+      path: PRIVATE_ROUTES.vendorManage.vendorList.path,
+      component: VendorList,
+    },
+    {
+      path: PRIVATE_ROUTES.vendorManage.vendorOutLets.path,
+      component: VendorOutlets,
+    },
+    {
+      path: PRIVATE_ROUTES.vendorManage.outLetsDetail.path,
+      component: OutLetsDetail,
+    },
+    {
+      path: PRIVATE_ROUTES.vendorManage.editOutLet.path,
+      component: EditOutLets,
+    },
+    {
+      path: PRIVATE_ROUTES.vendorManage.helperList.path,
+      component: HelperList,
+    },
+  ]);
+
+  return (
+    <>
+      {routes.map(({ path, component }, index) => (
+        <Route exact key={index} path={path} component={component} />
+      ))}
+    </>
+  );
+};

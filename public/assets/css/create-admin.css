@@ -181,6 +181,57 @@
 	height: 31px;
 }
 
+.create-admin-container .checkbox-inline .checkbox > input:checked ~ span:after {
+	left: -1px;
+	position: relative;
+}
+
+.create-registration-form .create-registration-container h3.create-t {
+	color: #C7112B;
+	font-size: 20px;
+	margin: 10px 0;
+	font-family: 'Roboto Condensed', sans-serif;
+	text-align: center;
+}
+
+.create-registration-form .create-registration-container p.leave-shortly {
+	color: #000000;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 16px;
+	margin: 0 0 20px 0;
+}
+
+.create-registration-form .create-registration-container .add-placeholder {
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+.create-registration-form .create-admin-container .create-admin-form {
+	padding: 20px 0 !important;
+}
+
+.form-group.country-numbers .country-code {
+    position: absolute !important;
+    top: 13px !important;
+    margin-left: 5px !important;
+    color: #000 !important;
+}
+
+.country-numbers .country-code img {
+    width: 24px !important;
+}
+
+.create-admin-form .form-group.country-numbers input {
+	padding-left: 55px !important;
+}
+
+.btn-fleet-submit button, .btn-fleet-submit button:hover {
+	background-color: #C7112B;
+    color: #fff;
+    font-family: 'Gilroy-Medium';
+    font-size: 14px;
+    width: 100%;
+}
+
 @media (max-width: 767px) {
 	.create-admin-container .create-admin-steps .checkbox-inline .checkbox {
 		margin-top: 15px;
@@ -194,10 +245,35 @@
 	.create-admin-form {
 		padding: 20px 20px;
 	}
+
+	.create-registration-container {
+		margin-bottom: 20px
+	}
+
+	.create-registration-container .create-registration-content {
+		background-color: #fff;
+	    border-radius: 5px;
+	    padding: 15px;
+	}
 }
 
 @media (min-width: 576px) {
 	.app-info-container .col-md-3 {
 		max-width: 23%;
+	}
+}
+
+@media (min-width: 768px) {
+	.create-registration-form .create-registration-container {
+		background-color: #fff;
+	    border-radius: 5px;
+	    padding-top: 20px;
+	    padding-bottom: 20px;
+	}
+
+	.create-registration-form .create-registration-container .btn-fleet-submit {
+		position: absolute;
+    	width: 94%;
+    	bottom: 15px;
 	}
 }

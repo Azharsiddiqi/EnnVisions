@@ -1,7 +1,46 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, {useState, useEffect} from 'react'
+import { Link, useLocation } from 'react-router-dom';
+import { PRIVATE_ROUTES } from '../../config';
 
 export default () => {
+    const { pathname } = useLocation();
+    const { userRoles, dashboard, adminManage, fleetManage, dispatcherManage }  = PRIVATE_ROUTES;
+    const [mainActive, setMainActive] = useState("");
+    const [subActive, setSubActive] = useState("");
+    const hiddenStyle = {
+        display: "none",
+        overflow: "hidden"
+    }
+
+    useEffect(() => {
+        if( pathname === userRoles.addNewRole.path ||
+            pathname === userRoles.userRoleList.path ||
+            pathname === userRoles.createRegistrationForm.path
+        ){
+            setMainActive("userRoles");
+        }
+        else if( pathname === adminManage.createAdmin.path ||
+                pathname === adminManage.editAdmin.path ||
+                pathname === adminManage.adminDetail.path
+        ){
+            setMainActive("adminManage");
+        }
+        else if( pathname === fleetManage.createFleet.path ||
+            pathname === fleetManage.editFleet.path ||
+            pathname === fleetManage.fleetDetail.path
+        ){
+            setMainActive("fleetManage");
+        }
+        else if( pathname === dispatcherManage.createDispatcher.path ||
+            pathname === dispatcherManage.editDispatcher.path ||
+            pathname === dispatcherManage.dispatcherDetail.path
+        ){
+            setMainActive("dispatcherManage");
+        }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [pathname])
+
     return (
         <div className="aside aside-left  aside-fixed  d-flex flex-column flex-row-auto" id="kt_aside">
             {/*begin::Brand*/}
@@ -34,374 +73,211 @@ export default () => {
             <div id="kt_aside_menu" className="aside-menu my-4 " data-menu-vertical={1} data-menu-scroll={1} data-menu-dropdown-timeout={500}>
                 {/*begin::Menu Nav*/}
                 <ul className="menu-nav ">
-                <li className="menu-item  menu-item-active" aria-haspopup="true">
-                    <Link to="/" className="menu-link ">
+                
+                <li className={`menu-item ${pathname === dashboard.path ? "menu-item-active" : ""}`} aria-haspopup="true">
+                    <Link to={dashboard.path} className="menu-link ">
                     <span className="menu-text">Dashboard</span>
                     </Link>
                 </li>
-                <li className="menu-section ">
-                    <h4 className="menu-text">User Roles</h4>
-                </li>
-                <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                    <Link to="/" className="menu-link menu-toggle">
-                    <span className="menu-text">Create New</span>
-                    </Link>
-                </li>
-                <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                    <Link to="/" className="menu-link menu-toggle">
-                    <span className="menu-text">User Roles</span>
-                    </Link>
-                </li>
-                <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                    <Link to="/" className="menu-link menu-toggle">
-                    <span className="menu-text">Admin Manage</span><i className="menu-arrow" />
-                    </Link>
-                    <div className="menu-submenu ">
+                
+                <li className={`menu-item  menu-item-submenu ${mainActive === "userRoles" ? "menu-item-open" :""}`}>
+                    <div onClick={() => setMainActive(mainActive !== 'userRoles' ? 'userRoles' : "" )} className="menu-link">
+                        <span className="menu-text">User Roles</span><i className="menu-arrow" />
+                    </div>
+                    <div className="menu-submenu" style={mainActive === "userRoles" ? {} : hiddenStyle}>
                     <i className="menu-arrow" />
                     <ul className="menu-subnav">
-                        <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                        <Link to="/" className="menu-link menu-toggle">
+                        <li className={`menu-item ${ (pathname === userRoles.addNewRole.path || pathname === userRoles.createRegistrationForm.path) ? "menu-item-active" : ""}`}>
+                        <Link to={userRoles.addNewRole.path} className="menu-link">
                             <i className="menu-bullet menu-bullet-line">
                             <span />
                             </i>
                             <span className="menu-text">Create New</span>
-                            <i className="menu-arrow" />
                         </Link>
-                        <div className="menu-submenu ">
-                            <i className="menu-arrow" />
-                            <ul className="menu-subnav">
-                            <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                <Link to="/" className="menu-link menu-toggle"><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Profile 1</span><i className="menu-arrow" /></Link>
-                                <div className="menu-submenu ">
-                                <i className="menu-arrow" />
-                                <ul className="menu-subnav">
-                                    <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-1/overview.html" className="menu-link "><i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">Overview</span></Link></li>
-                                    <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-1/personal-information.html" className="menu-link "><i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">Personal Information</span></Link></li>
-                                    <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-1/account-information.html" className="menu-link "><i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">Account Information</span></Link></li>
-                                    <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-1/change-password.html" className="menu-link "><i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">Change Password</span></Link></li>
-                                    <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-1/email-settings.html" className="menu-link "><i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">Email Settings</span></Link></li>
-                                </ul>
-                                </div>
-                            </li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-2.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Profile 2</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-3.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Profile 3</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-4.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Profile 4</span></Link></li>
-                            </ul>
-                        </div>
                         </li>
-                        <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                        <Link to="/" className="menu-link menu-toggle">
+                        <li className={`menu-item ${pathname === userRoles.userRoleList.path ? "menu-item-active" : ""}`}>
+                        <Link to={userRoles.userRoleList.path} className="menu-link">
                             <i className="menu-bullet menu-bullet-line">
                             <span />
                             </i>
-                            <span className="menu-text">DoorBud</span><i className="menu-arrow" /></Link>
-                        <div className="menu-submenu ">
-                            <i className="menu-arrow" />
-                            <ul className="menu-subnav">
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/list-columns-1.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">List - Columns 1</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/list-columns-2.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">List - Columns 2</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/list-columns-3.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">List - Columns 3</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/list-columns-4.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">List - Columns 4</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/list-datatable.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">List - Datatable</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/view-project.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">View Project</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/add-project.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Add Project</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/edit-project.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Edit Project</span></Link></li>
-                            </ul>
-                        </div>
-                        </li>
-                        <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                        <Link to="/" className="menu-link menu-toggle">
-                            <i className="menu-bullet menu-bullet-line">
-                            <span />
-                            </i>
-                            <span className="menu-text">Jawafa</span>
-                            <i className="menu-arrow" />
-                        </Link>
-                        <div className="menu-submenu ">
-                            <i className="menu-arrow" />
-                            <ul className="menu-subnav">
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/home-1.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Home 1</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/home-2.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Home 2</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/faq-1.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">FAQ 1</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/faq-2.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">FAQ 2</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/faq-3.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">FAQ 3</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/feedback.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Feedback</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/license.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">License</span></Link></li>
-                            </ul>
-                        </div>
-                        </li>
-                        <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                        <Link to="/" className="menu-link menu-toggle"><i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">Jimmy Guaco's</span><i className="menu-arrow" /></Link>
-                        <div className="menu-submenu ">
-                            <i className="menu-arrow" />
-                            <ul className="menu-subnav">
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/chat/private.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Private</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/chat/group.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Group</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/chat/popup.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Popup</span></Link></li>
-                            </ul>
-                        </div>
-                        </li>
-                        <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                        <Link to="/" className="menu-link menu-toggle">
-                            <i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">XP Eats</span><i className="menu-arrow" /></Link>
-                        <div className="menu-submenu ">
-                            <i className="menu-arrow" />
-                            <ul className="menu-subnav">
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/todo/tasks.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Tasks</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/todo/docs.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Docs</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/todo/files.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Files</span></Link></li>
-                            </ul>
-                        </div>
+                            <span className="menu-text">User Roles</span></Link>
                         </li>
                     </ul>
                     </div>
                 </li>
-                <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                    <Link to="/" className="menu-link menu-toggle">
-                    <span className="menu-text">Fleet Manage</span><i className="menu-arrow" />
-                    </Link>
+                
+                <li className={`menu-item  menu-item-submenu ${mainActive === "adminManage" ? "menu-item-open" :""}`}>
+                    <div onClick={() => setMainActive(mainActive !== 'adminManage' ? 'adminManage' : "" )} className="menu-link ">
+                        <span className="menu-text">Admin Manage</span><i className="menu-arrow" />
+                    </div>
                     <div className="menu-submenu ">
                     <i className="menu-arrow" />
                     <ul className="menu-subnav">
-                        <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                        <Link to="/" className="menu-link menu-toggle">
-                            <i className="menu-bullet menu-bullet-line">
-                            <span />
-                            </i>
-                            <span className="menu-text">Create New</span>
-                            <i className="menu-arrow" />
-                        </Link>
-                        <div className="menu-submenu ">
-                            <i className="menu-arrow" />
-                            <ul className="menu-subnav">
-                            <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                <Link to="/" className="menu-link menu-toggle"><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Profile 1</span><i className="menu-arrow" /></Link>
-                                <div className="menu-submenu ">
-                                <i className="menu-arrow" />
-                                <ul className="menu-subnav">
-                                    <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-1/overview.html" className="menu-link "><i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">Overview</span></Link></li>
-                                    <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-1/personal-information.html" className="menu-link "><i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">Personal Information</span></Link></li>
-                                    <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-1/account-information.html" className="menu-link "><i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">Account Information</span></Link></li>
-                                    <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-1/change-password.html" className="menu-link "><i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">Change Password</span></Link></li>
-                                    <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-1/email-settings.html" className="menu-link "><i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">Email Settings</span></Link></li>
-                                </ul>
-                                </div>
-                            </li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-2.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Profile 2</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-3.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Profile 3</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-4.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Profile 4</span></Link></li>
-                            </ul>
-                        </div>
+                        <li className={`menu-item ${pathname === adminManage.createAdmin.path ? "menu-item-active" : ""}`} >
+                            <Link to={adminManage.createAdmin.path} className="menu-link">
+                                <i className="menu-bullet menu-bullet-line">
+                                <span />
+                                </i>
+                                <span className="menu-text">Create New</span>
+                            </Link>
                         </li>
-                        <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                        <Link to="/" className="menu-link menu-toggle">
-                            <i className="menu-bullet menu-bullet-line">
-                            <span />
-                            </i>
-                            <span className="menu-text">DoorBud</span><i className="menu-arrow" /></Link>
-                        <div className="menu-submenu ">
-                            <i className="menu-arrow" />
-                            <ul className="menu-subnav">
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/list-columns-1.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">List - Columns 1</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/list-columns-2.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">List - Columns 2</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/list-columns-3.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">List - Columns 3</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/list-columns-4.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">List - Columns 4</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/list-datatable.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">List - Datatable</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/view-project.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">View Project</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/add-project.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Add Project</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/edit-project.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Edit Project</span></Link></li>
-                            </ul>
-                        </div>
+                        <li className="menu-item  menu-item-submenu">
+                            <Link to={adminManage.adminDetail.path} className="menu-link">
+                                <i className="menu-bullet menu-bullet-line">
+                                <span />
+                                </i>
+                                <span className="menu-text">DoorBud</span>
+                            </Link>
                         </li>
-                        <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                        <Link to="/" className="menu-link menu-toggle">
-                            <i className="menu-bullet menu-bullet-line">
-                            <span />
-                            </i>
-                            <span className="menu-text">Jawafa</span>
-                            <i className="menu-arrow" />
-                        </Link>
-                        <div className="menu-submenu ">
-                            <i className="menu-arrow" />
-                            <ul className="menu-subnav">
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/home-1.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Home 1</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/home-2.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Home 2</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/faq-1.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">FAQ 1</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/faq-2.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">FAQ 2</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/faq-3.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">FAQ 3</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/feedback.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Feedback</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/license.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">License</span></Link></li>
-                            </ul>
-                        </div>
+                        <li className="menu-item  menu-item-submenu">
+                            <Link to={adminManage.adminDetail.path} className="menu-link">
+                                <i className="menu-bullet menu-bullet-line">
+                                <span />
+                                </i>
+                                <span className="menu-text">Jawafa</span>
+                            </Link>
                         </li>
-                        <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                        <Link to="/" className="menu-link menu-toggle"><i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">Jimmy Guaco's</span><i className="menu-arrow" /></Link>
-                        <div className="menu-submenu ">
-                            <i className="menu-arrow" />
-                            <ul className="menu-subnav">
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/chat/private.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Private</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/chat/group.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Group</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/chat/popup.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Popup</span></Link></li>
-                            </ul>
-                        </div>
+                        <li className="menu-item  menu-item-submenu">
+                            <Link to={adminManage.adminDetail.path} className="menu-link ">
+                                <i className="menu-bullet menu-bullet-line">
+                                    <span /></i><span className="menu-text">Jimmy Guaco's</span>
+                            </Link>
+                        </li>
+                        <li className="menu-item  menu-item-submenu">
+                            <Link to={adminManage.adminDetail.path} className="menu-link menu-toggle">
+                                <i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">XP Eats</span>
+                            </Link>
                         </li>
                     </ul>
                     </div>
                 </li>
-                <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                    <Link to="/" className="menu-link menu-toggle">
-                    <span className="menu-text">Dispatcher Manage</span><i className="menu-arrow" />
-                    </Link>
+
+                <li className={`menu-item  menu-item-submenu ${mainActive === "fleetManage" ? "menu-item-open" :""}`}>
+                    <div onClick={() => setMainActive(mainActive !== 'fleetManage' ? 'fleetManage' : "" )} className="menu-link ">
+                        <span className="menu-text">Fleet Manage</span><i className="menu-arrow" />
+                    </div>
                     <div className="menu-submenu ">
                     <i className="menu-arrow" />
                     <ul className="menu-subnav">
-                        <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                        <Link to="/" className="menu-link menu-toggle">
-                            <i className="menu-bullet menu-bullet-line">
-                            <span />
-                            </i>
-                            <span className="menu-text">Create New</span>
-                            <i className="menu-arrow" />
-                        </Link>
-                        <div className="menu-submenu ">
-                            <i className="menu-arrow" />
-                            <ul className="menu-subnav">
-                            <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                <Link to="/" className="menu-link menu-toggle"><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Profile 1</span><i className="menu-arrow" /></Link>
-                                <div className="menu-submenu ">
-                                <i className="menu-arrow" />
-                                <ul className="menu-subnav">
-                                    <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-1/overview.html" className="menu-link "><i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">Overview</span></Link></li>
-                                    <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-1/personal-information.html" className="menu-link "><i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">Personal Information</span></Link></li>
-                                    <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-1/account-information.html" className="menu-link "><i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">Account Information</span></Link></li>
-                                    <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-1/change-password.html" className="menu-link "><i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">Change Password</span></Link></li>
-                                    <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-1/email-settings.html" className="menu-link "><i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">Email Settings</span></Link></li>
-                                </ul>
-                                </div>
-                            </li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-2.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Profile 2</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-3.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Profile 3</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/profile/profile-4.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Profile 4</span></Link></li>
-                            </ul>
-                        </div>
+                        <li className={`menu-item ${pathname === fleetManage.createFleet.path ? "menu-item-active" : ""}`} >
+                            <Link to={fleetManage.createFleet.path} className="menu-link">
+                                <i className="menu-bullet menu-bullet-line">
+                                <span />
+                                </i>
+                                <span className="menu-text">Create New</span>
+                            </Link>
                         </li>
-                        <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                        <Link to="/" className="menu-link menu-toggle">
-                            <i className="menu-bullet menu-bullet-line">
-                            <span />
-                            </i>
-                            <span className="menu-text">DoorBud</span><i className="menu-arrow" /></Link>
-                        <div className="menu-submenu ">
-                            <i className="menu-arrow" />
-                            <ul className="menu-subnav">
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/list-columns-1.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">List - Columns 1</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/list-columns-2.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">List - Columns 2</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/list-columns-3.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">List - Columns 3</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/list-columns-4.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">List - Columns 4</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/list-datatable.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">List - Datatable</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/view-project.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">View Project</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/add-project.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Add Project</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/edit-project.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Edit Project</span></Link></li>
-                            </ul>
-                        </div>
+                        <li className="menu-item  menu-item-submenu">
+                            <Link to={fleetManage.fleetDetail.path} className="menu-link">
+                                <i className="menu-bullet menu-bullet-line">
+                                <span />
+                                </i>
+                                <span className="menu-text">DoorBud</span>
+                            </Link>
                         </li>
-                        <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                        <Link to="/" className="menu-link menu-toggle">
-                            <i className="menu-bullet menu-bullet-line">
-                            <span />
-                            </i>
-                            <span className="menu-text">Jawafa</span>
-                            <i className="menu-arrow" />
-                        </Link>
-                        <div className="menu-submenu ">
-                            <i className="menu-arrow" />
-                            <ul className="menu-subnav">
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/home-1.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Home 1</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/home-2.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Home 2</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/faq-1.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">FAQ 1</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/faq-2.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">FAQ 2</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/faq-3.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">FAQ 3</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/feedback.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Feedback</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/license.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">License</span></Link></li>
-                            </ul>
-                        </div>
+                        <li className="menu-item  menu-item-submenu">
+                            <Link to={fleetManage.fleetDetail.path} className="menu-link">
+                                <i className="menu-bullet menu-bullet-line">
+                                <span />
+                                </i>
+                                <span className="menu-text">Jawafa</span>
+                            </Link>
                         </li>
-                        <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                        <Link to="/" className="menu-link menu-toggle"><i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">Jimmy Guaco's</span><i className="menu-arrow" /></Link>
-                        <div className="menu-submenu ">
-                            <i className="menu-arrow" />
-                            <ul className="menu-subnav">
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/chat/private.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Private</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/chat/group.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Group</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/chat/popup.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Popup</span></Link></li>
-                            </ul>
-                        </div>
+                        <li className="menu-item  menu-item-submenu">
+                            <Link to={fleetManage.fleetDetail.path} className="menu-link ">
+                                <i className="menu-bullet menu-bullet-line">
+                                    <span /></i><span className="menu-text">Jimmy Guaco's</span>
+                            </Link>
                         </li>
                     </ul>
                     </div>
                 </li>
-                <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                    <Link to="/" className="menu-link menu-toggle">
-                    <span className="menu-text">Vendor Manage</span><i className="menu-arrow" />
-                    </Link>
+                
+                <li className={`menu-item  menu-item-submenu ${mainActive === "dispatcherManage" ? "menu-item-open" :""}`}>
+                    <div onClick={() => setMainActive(mainActive !== 'dispatcherManage' ? 'dispatcherManage' : "" )} className="menu-link ">
+                        <span className="menu-text">Dispatcher Manage</span><i className="menu-arrow" />
+                    </div>
                     <div className="menu-submenu ">
                     <i className="menu-arrow" />
                     <ul className="menu-subnav">
-                        <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                        <Link to="/" className="menu-link menu-toggle">
-                            <i className="menu-bullet menu-bullet-line">
-                            <span />
-                            </i>
-                            <span className="menu-text">DoorBud</span><i className="menu-arrow" /></Link>
-                        <div className="menu-submenu ">
-                            <i className="menu-arrow" />
-                            <ul className="menu-subnav">
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/list-columns-1.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">List - Columns 1</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/list-columns-2.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">List - Columns 2</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/list-columns-3.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">List - Columns 3</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/list-columns-4.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">List - Columns 4</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/list-datatable.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">List - Datatable</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/view-project.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">View Project</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/add-project.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Add Project</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/projects/edit-project.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Edit Project</span></Link></li>
-                            </ul>
-                        </div>
+                        <li className={`menu-item ${pathname === dispatcherManage.createDispatcher.path ? "menu-item-active" : ""}`} >
+                            <Link to={dispatcherManage.createDispatcher.path} className="menu-link">
+                                <i className="menu-bullet menu-bullet-line">
+                                <span />
+                                </i>
+                                <span className="menu-text">Create New</span>
+                            </Link>
                         </li>
-                        <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                        <Link to="/" className="menu-link menu-toggle">
+                        <li className="menu-item  menu-item-submenu">
+                            <Link to={dispatcherManage.dispatcherDetail.path} className="menu-link">
+                                <i className="menu-bullet menu-bullet-line">
+                                <span />
+                                </i>
+                                <span className="menu-text">DoorBud</span>
+                            </Link>
+                        </li>
+                        <li className="menu-item  menu-item-submenu">
+                            <Link to={dispatcherManage.dispatcherDetail.path} className="menu-link">
+                                <i className="menu-bullet menu-bullet-line">
+                                <span />
+                                </i>
+                                <span className="menu-text">Jawafa</span>
+                            </Link>
+                        </li>
+                        <li className="menu-item  menu-item-submenu">
+                            <Link to={dispatcherManage.dispatcherDetail.path} className="menu-link ">
+                                <i className="menu-bullet menu-bullet-line">
+                                    <span /></i><span className="menu-text">Jimmy Guaco's</span>
+                            </Link>
+                        </li>
+                    </ul>
+                    </div>
+                </li>
+         
+                <li className={`menu-item  menu-item-submenu ${mainActive === "vendorManage" ? "menu-item-open" :""}`}>
+                    <div onClick={() => setMainActive(mainActive !== 'vendorManage' ? 'vendorManage' : "" )} className="menu-link ">
+                        <span className="menu-text">Vendor Manage</span><i className="menu-arrow" />
+                    </div>
+                    <div className="menu-submenu">
+                    <i className="menu-arrow" />
+                    <ul className="menu-subnav">
+                        <li className="menu-item  menu-item-submenu">
+                            <Link to={dispatcherManage.dispatcherDetail.path} className="menu-link">
+                                <i className="menu-bullet menu-bullet-line">
+                                <span />
+                                </i>
+                                <span className="menu-text">DoorBud</span>
+                            </Link>
+                        </li>
+                        <li className={`menu-item  menu-item-submenu ${subActive === "vendorManageJawafa" ? "menu-item-open" :""}`} >
+                        <div onClick={() => setSubActive(subActive !== 'vendorManageJawafa' ? 'vendorManageJawafa' : "" )} className="menu-link">
                             <i className="menu-bullet menu-bullet-line">
                             <span />
                             </i>
                             <span className="menu-text">Jawafa</span>
                             <i className="menu-arrow" />
-                        </Link>
-                        <div className="menu-submenu ">
+                        </div>
+                        <div className="menu-submenu" style={subActive === "vendorManageJawafa" ? {} : hiddenStyle}>
                             <i className="menu-arrow" />
                             <ul className="menu-subnav">
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/home-1.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Home 1</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/home-2.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Home 2</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/faq-1.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">FAQ 1</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/faq-2.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">FAQ 2</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/faq-3.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">FAQ 3</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/feedback.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Feedback</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/license.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">License</span></Link></li>
+                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/home-1.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Create Vendor</span></Link></li>
+                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/home-2.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Vendor List</span></Link></li>
+                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/support-center/faq-1.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Helper List</span></Link></li>
                             </ul>
                         </div>
                         </li>
-                        <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                        <Link to="/" className="menu-link menu-toggle"><i className="menu-bullet menu-bullet-line"><span /></i><span className="menu-text">Jimmy Guaco's</span><i className="menu-arrow" /></Link>
-                        <div className="menu-submenu ">
-                            <i className="menu-arrow" />
-                            <ul className="menu-subnav">
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/chat/private.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Private</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/chat/group.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Group</span></Link></li>
-                            <li className="menu-item " aria-haspopup="true"><Link to="custom/apps/chat/popup.html" className="menu-link "><i className="menu-bullet menu-bullet-dot"><span /></i><span className="menu-text">Popup</span></Link></li>
-                            </ul>
-                        </div>
+                        
+                        <li className="menu-item  menu-item-submenu">
+                            <Link to={dispatcherManage.dispatcherDetail.path} className="menu-link ">
+                                <i className="menu-bullet menu-bullet-line">
+                                    <span /></i><span className="menu-text">Jimmy Guaco's</span>
+                            </Link>
                         </li>
                     </ul>
                     </div>
                 </li>
+         
+
                 <li className="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                     <Link to="/" className="menu-link menu-toggle">
                     <span className="menu-text">Driver Manage</span><i className="menu-arrow" />

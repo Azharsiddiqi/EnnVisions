@@ -16,10 +16,12 @@
 
 .dash-body .card .red-bullet {
 	color: #D63229;
+	font-size: 22px;
 }
 
 .sky-bullet {
 	color: #64D2FF;
+	font-size: 22px;
 }
 
 .sky.user-img {
@@ -56,6 +58,7 @@
 
 .light-green {
 	color: #1BC5BD;
+	font-size: 22px;
 }
 
 .light-green.user-img {
@@ -78,30 +81,37 @@
 
 .user-blue.bullet {
 	color: #187DE4;
+
 }
 
 .card .user-blue {
 	color: #187DE4;
+	font-size: 22px;
 }
 
 .card .yellow {
 	color: #EE9D01;
+	font-size: 22px;
 }
 
 .card .brownish {
 	color: #E05417;
+	font-size: 22px;
 }
 
 .card .agency {
 	color: #3699FF;
+	font-size: 22px;
 }
 
 .card .water {
 	color: #32D74B;
+	font-size: 22px;
 }
 
 .card .referral {
 	color: #FFD60A;
+	font-size: 22px;
 }
 .card .sale-blue {
 	    background: #4A7DFF;

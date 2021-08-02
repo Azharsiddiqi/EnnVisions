@@ -99,9 +99,16 @@
   display: none; }
 
 .login.login-1.login-forgot-on .login-forgot {
-  display: block; }
+  display: block; 
+}
+
+
 
 @media (min-width: 992px) {
+  .login.login-1 .login-aside {
+    position: fixed;
+    height: 100%;
+  }
   .login.login-1 .login-aside {
     width: 100%;
     max-width: 600px; }

@@ -1,0 +1,16 @@
+.page-3-table .user-thead th {
+	font-weight: 500;
+	font-size: 14px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.user-company, .user-name, .user-name-td, .user-email, .user-number, .create-at, .user-status {
+	color: #464E5F;
+    font-size: 14px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.main-categories-list .counter-td {
+    width: 160px;
+    min-width: 160px;
+}

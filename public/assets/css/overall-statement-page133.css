@@ -1,0 +1,31 @@
+.overall-statement-page133 {
+	font-family: 'Roboto Condensed', sans-serif;
+	margin-bottom: 25px;
+}
+
+.overall-statement-page133 .Owner-title{
+	color: #0C1423;
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+
+.overall-statement-page133 .plane-1 {
+	border-bottom: 1px solid #EEF0F8;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.overall-statement-page133 .plane-1 .plane-left {
+	color: #1C1C1E;
+	font-size: 16px;
+}
+
+.overall-statement-page133 .plane-1 .plane-right {
+	color: #888C9F;
+	font-size: 14px;
+}
+
+.overall-statement-page133 .green-status {
+	color: #32D74B !important;
+}
