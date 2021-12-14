@@ -660,7 +660,7 @@ export default () => {
               <div className="create-vendor-submit mt-15">
                 <button
                   onClick={() =>
-                    history.push(PRIVATE_ROUTES.vendorManage.vendorList.path)
+                    history.push(PRIVATE_ROUTES.dashboard.path)
                   }
                   className="btn"
                   type="button"

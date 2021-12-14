@@ -4,6 +4,7 @@ import * as adminManage from "./adminManage";
 import * as fleetManage from "./fleetManage";
 import * as dispatcherManage from "./dispatcherManage";
 import * as vendorManage from "./vendorManage";
+import * as driverManage from "./driverManage";
 
 export const PRIVATE_ROUTES = {
   ...common,
@@ -12,4 +13,5 @@ export const PRIVATE_ROUTES = {
   fleetManage,
   dispatcherManage,
   vendorManage,
+  driverManage,
 };

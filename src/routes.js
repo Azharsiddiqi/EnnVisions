@@ -28,4 +28,7 @@ export const privateRoutes = [
   PRIVATE_ROUTES.vendorManage.vendorOutLets,
   PRIVATE_ROUTES.vendorManage.editOutLet,
   PRIVATE_ROUTES.vendorManage.outLetsDetail,
+  PRIVATE_ROUTES.vendorManage.helperList,
+  PRIVATE_ROUTES.driverManage.createDriver
+  
 ];

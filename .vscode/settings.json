@@ -1,11 +1,18 @@
 {
     "cSpell.words": [
+        "ADNAN",
+        "checboxes",
+        "fullname",
         "loginform",
         "phonecode",
+        "QURESHI",
+        "semibold",
         "signin"
     ],
-    "editor.codeActionsOnSave": { "source.fixAll.eslint": true }, 
-    "editor.formatOnSave": true, 
-    "eslint.alwaysShowStatus": true, 
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "editor.formatOnSave": true,
+    "eslint.alwaysShowStatus": true,
     "files.autoSave": "onFocusChange"
 }

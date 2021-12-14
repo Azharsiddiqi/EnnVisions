@@ -1,13 +1,12 @@
-import React from "react";
+import React from 'react'
 
 // Router Import
-import { Route, withRouter, Switch, Redirect } from "react-router-dom";
-
+import { Route, withRouter, Switch, Redirect } from 'react-router-dom'
 // Custom index for all pages
-import Index from "./pages/index.jsx";
-import AuthIndex from "./pages/Auth/index.jsx";
-import { authRoutes, privateRoutes } from "./routes";
-import { PUBLIC_ROUTES } from "./config";
+import Index from './pages/index.jsx'
+import AuthIndex from './pages/Auth/index.jsx'
+import { authRoutes, privateRoutes } from './routes'
+import { PUBLIC_ROUTES } from './config'
 
 const App = () => {
   return (
@@ -30,7 +29,7 @@ const App = () => {
       {/* End: private routes */}
       <Redirect to={PUBLIC_ROUTES.login.path} />
     </Switch>
-  );
-};
+  )
+}
 
-export default withRouter(App);
+export default withRouter(App)
