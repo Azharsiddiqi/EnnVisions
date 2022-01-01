@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import {Link} from 'react-router-dom';
 
 export default () => {
   return (
@@ -11,29 +11,17 @@ export default () => {
           role="tablist"
         >
           <li className="nav-item">
-            <Link
-              className="nav-link active"
-              data-toggle="tab"
-              to="#kt_quick_panel_logs"
-            >
+            <Link className="nav-link active" data-toggle="tab" to="#kt_quick_panel_logs">
               Audit Logs
             </Link>
           </li>
           <li className="nav-item">
-            <Link
-              className="nav-link"
-              data-toggle="tab"
-              to="#kt_quick_panel_notifications"
-            >
+            <Link className="nav-link" data-toggle="tab" to="#kt_quick_panel_notifications">
               Notifications
             </Link>
           </li>
           <li className="nav-item">
-            <Link
-              className="nav-link"
-              data-toggle="tab"
-              to="#kt_quick_panel_settings"
-            >
+            <Link className="nav-link" data-toggle="tab" to="#kt_quick_panel_settings">
               Settings
             </Link>
           </li>
@@ -79,9 +67,7 @@ export default () => {
                   >
                     Top Authors
                   </Link>
-                  <span className="text-muted font-weight-bold">
-                    Most Successful Fellas
-                  </span>
+                  <span className="text-muted font-weight-bold">Most Successful Fellas</span>
                 </div>
                 <span className="btn btn-sm btn-light font-weight-bolder py-1 my-lg-0 my-2 text-dark-50">
                   +82$
@@ -106,9 +92,7 @@ export default () => {
                   >
                     Popular Authors
                   </Link>
-                  <span className="text-muted font-weight-bold">
-                    Most Successful Fellas
-                  </span>
+                  <span className="text-muted font-weight-bold">Most Successful Fellas</span>
                 </div>
                 <span className="btn btn-sm btn-light font-weight-bolder  my-lg-0 my-2 py-1 text-dark-50">
                   +280$
@@ -133,9 +117,7 @@ export default () => {
                   >
                     New Users
                   </Link>
-                  <span className="text-muted font-weight-bold">
-                    Most Successful Fellas
-                  </span>
+                  <span className="text-muted font-weight-bold">Most Successful Fellas</span>
                 </div>
                 <span className="btn btn-sm btn-light font-weight-bolder  my-lg-0 my-2 py-1 text-dark-50">
                   +4500$
@@ -160,9 +142,7 @@ export default () => {
                   >
                     Active Customers
                   </Link>
-                  <span className="text-muted font-weight-bold">
-                    Most Successful Fellas
-                  </span>
+                  <span className="text-muted font-weight-bold">Most Successful Fellas</span>
                 </div>
                 <span className="btn btn-sm btn-light font-weight-bolder my-lg-0 my-2 py-1 text-dark-50">
                   +4500$
@@ -187,9 +167,7 @@ export default () => {
                   >
                     Bestseller Theme
                   </Link>
-                  <span className="text-muted font-weight-bold">
-                    Most Successful Fellas
-                  </span>
+                  <span className="text-muted font-weight-bold">Most Successful Fellas</span>
                 </div>
                 <span className="btn btn-sm btn-light font-weight-bolder my-lg-0 my-2 py-1 text-dark-50">
                   +4500$
@@ -214,12 +192,7 @@ export default () => {
                       viewBox="0 0 24 24"
                       version="1.1"
                     >
-                      <g
-                        stroke="none"
-                        strokeWidth={1}
-                        fill="none"
-                        fillRule="evenodd"
-                      >
+                      <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
                         <rect x={0} y={0} width={24} height={24} />
                         <path
                           d="M5,3 L6,3 C6.55228475,3 7,3.44771525 7,4 L7,20 C7,20.5522847 6.55228475,21 6,21 L5,21 C4.44771525,21 4,20.5522847 4,20 L4,4 C4,3.44771525 4.44771525,3 5,3 Z M10,3 L11,3 C11.5522847,3 12,3.44771525 12,4 L12,20 C12,20.5522847 11.5522847,21 11,21 L10,21 C9.44771525,21 9,20.5522847 9,20 L9,4 C9,3.44771525 9.44771525,3 10,3 Z"
@@ -249,9 +222,7 @@ export default () => {
                   </Link>
                   <span className="text-muted font-size-sm">Due in 2 Days</span>
                 </div>
-                <span className="font-weight-bolder text-warning py-1 font-size-lg">
-                  +28%
-                </span>
+                <span className="font-weight-bolder text-warning py-1 font-size-lg">+28%</span>
               </div>
               {/* end: Item */}
               {/* begin: Item */}
@@ -267,12 +238,7 @@ export default () => {
                       viewBox="0 0 24 24"
                       version="1.1"
                     >
-                      <g
-                        stroke="none"
-                        strokeWidth={1}
-                        fill="none"
-                        fillRule="evenodd"
-                      >
+                      <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
                         <rect x={0} y={0} width={24} height={24} />
                         <path
                           d="M12.2674799,18.2323597 L12.0084872,5.45852451 C12.0004303,5.06114792 12.1504154,4.6768183 12.4255037,4.38993949 L15.0030167,1.70195304 L17.5910752,4.40093695 C17.8599071,4.6812911 18.0095067,5.05499603 18.0083938,5.44341307 L17.9718262,18.2062508 C17.9694575,19.0329966 17.2985816,19.701953 16.4718324,19.701953 L13.7671717,19.701953 C12.9505952,19.701953 12.2840328,19.0487684 12.2674799,18.2323597 Z"
@@ -300,9 +266,7 @@ export default () => {
                   </Link>
                   <span className="text-muted font-size-sm">Due in 2 Days</span>
                 </div>
-                <span className="font-weight-bolder text-success py-1 font-size-lg">
-                  +50%
-                </span>
+                <span className="font-weight-bolder text-success py-1 font-size-lg">+50%</span>
               </div>
               {/* end: Item */}
               {/* begin: Item */}
@@ -318,12 +282,7 @@ export default () => {
                       viewBox="0 0 24 24"
                       version="1.1"
                     >
-                      <g
-                        stroke="none"
-                        strokeWidth={1}
-                        fill="none"
-                        fillRule="evenodd"
-                      >
+                      <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
                         <rect x={0} y={0} width={24} height={24} />
                         <path
                           d="M16,15.6315789 L16,12 C16,10.3431458 14.6568542,9 13,9 L6.16183229,9 L6.16183229,5.52631579 C6.16183229,4.13107011 7.29290239,3 8.68814808,3 L20.4776218,3 C21.8728674,3 23.0039375,4.13107011 23.0039375,5.52631579 L23.0039375,13.1052632 L23.0206157,17.786793 C23.0215995,18.0629336 22.7985408,18.2875874 22.5224001,18.2885711 C22.3891754,18.2890457 22.2612702,18.2363324 22.1670655,18.1421277 L19.6565168,15.6315789 L16,15.6315789 Z"
@@ -348,9 +307,7 @@ export default () => {
                   </Link>
                   <span className="text-muted font-size-sm">Due in 2 Days</span>
                 </div>
-                <span className="font-weight-bolder text-danger py-1 font-size-lg">
-                  -27%
-                </span>
+                <span className="font-weight-bolder text-danger py-1 font-size-lg">-27%</span>
               </div>
               {/* end: Item */}
               {/* begin: Item */}
@@ -366,12 +323,7 @@ export default () => {
                       viewBox="0 0 24 24"
                       version="1.1"
                     >
-                      <g
-                        stroke="none"
-                        strokeWidth={1}
-                        fill="none"
-                        fillRule="evenodd"
-                      >
+                      <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
                         <rect x={0} y={0} width={24} height={24} />
                         <path
                           d="M11.7573593,15.2426407 L8.75735931,15.2426407 C8.20507456,15.2426407 7.75735931,15.6903559 7.75735931,16.2426407 C7.75735931,16.7949254 8.20507456,17.2426407 8.75735931,17.2426407 L11.7573593,17.2426407 L11.7573593,18.2426407 C11.7573593,19.3472102 10.8619288,20.2426407 9.75735931,20.2426407 L5.75735931,20.2426407 C4.65278981,20.2426407 3.75735931,19.3472102 3.75735931,18.2426407 L3.75735931,14.2426407 C3.75735931,13.1380712 4.65278981,12.2426407 5.75735931,12.2426407 L9.75735931,12.2426407 C10.8619288,12.2426407 11.7573593,13.1380712 11.7573593,14.2426407 L11.7573593,15.2426407 Z"
@@ -410,9 +362,7 @@ export default () => {
                   </Link>
                   <span className="text-muted font-size-sm">Due in 2 Days</span>
                 </div>
-                <span className="font-weight-bolder text-info py-1 font-size-lg">
-                  +8%
-                </span>
+                <span className="font-weight-bolder text-info py-1 font-size-lg">+8%</span>
               </div>
               {/* end: Item */}
             </div>
@@ -436,9 +386,7 @@ export default () => {
                     </div>
                   </div>
                   <div className="navi-text">
-                    <div className="font-weight-bold font-size-lg">
-                      5 new user generated report
-                    </div>
+                    <div className="font-weight-bold font-size-lg">5 new user generated report</div>
                     <div className="text-muted">Reports based on sales</div>
                   </div>
                 </div>
@@ -453,9 +401,7 @@ export default () => {
                     </div>
                   </div>
                   <div className="navi-text">
-                    <div className="font-weight-bold  font-size-lg">
-                      2 new items submited
-                    </div>
+                    <div className="font-weight-bold  font-size-lg">2 new items submited</div>
                     <div className="text-muted">by Grog John</div>
                   </div>
                 </div>
@@ -470,9 +416,7 @@ export default () => {
                     </div>
                   </div>
                   <div className="navi-text">
-                    <div className="font-weight-bold  font-size-lg">
-                      79 PSD files generated
-                    </div>
+                    <div className="font-weight-bold  font-size-lg">79 PSD files generated</div>
                     <div className="text-muted">Reports based on sales</div>
                   </div>
                 </div>
@@ -504,9 +448,7 @@ export default () => {
                     </div>
                   </div>
                   <div className="navi-text">
-                    <div className="font-weight-bold  font-size-lg">
-                      4.5h-avarage response time
-                    </div>
+                    <div className="font-weight-bold  font-size-lg">4.5h-avarage response time</div>
                     <div className="text-muted">Fostest is Barry</div>
                   </div>
                 </div>
@@ -521,12 +463,8 @@ export default () => {
                     </div>
                   </div>
                   <div className="navi-text">
-                    <div className="font-weight-bold  font-size-lg">
-                      3 Defence alerts
-                    </div>
-                    <div className="text-muted">
-                      40% less alerts thar last week
-                    </div>
+                    <div className="font-weight-bold  font-size-lg">3 Defence alerts</div>
+                    <div className="text-muted">40% less alerts thar last week</div>
                   </div>
                 </div>
               </Link>
@@ -560,9 +498,7 @@ export default () => {
                     <div className="font-weight-bold  font-size-lg">
                       16 authors joined last week
                     </div>
-                    <div className="text-muted">
-                      9 photodrapehrs, 7 designer
-                    </div>
+                    <div className="text-muted">9 photodrapehrs, 7 designer</div>
                   </div>
                 </div>
               </Link>
@@ -644,9 +580,7 @@ export default () => {
                     </div>
                   </div>
                   <div className="navi-text">
-                    <div className="font-weight-bold  font-size-lg">
-                      4.5h-avarage response time
-                    </div>
+                    <div className="font-weight-bold  font-size-lg">4.5h-avarage response time</div>
                     <div className="text-muted">Fostest is Barry</div>
                   </div>
                 </div>
@@ -667,50 +601,33 @@ export default () => {
               <div>
                 <h5 className="font-weight-bold mb-3">Customer Care</h5>
                 <div className="form-group mb-0 row align-items-center">
-                  <label className="col-8 col-form-label">
-                    Enable Notifications:
-                  </label>
+                  <label className="col-8 col-form-label">Enable Notifications:</label>
                   <div className="col-4 d-flex justify-content-end">
                     <span className="switch switch-success switch-sm">
                       <label>
-                        <input
-                          type="checkbox"
-                          defaultChecked="checked"
-                          name="select"
-                        />
+                        <input type="checkbox" defaultChecked="checked" name="select" />
                         <span />
                       </label>
                     </span>
                   </div>
                 </div>
                 <div className="form-group mb-0 row align-items-center">
-                  <label className="col-8 col-form-label">
-                    Enable Case Tracking:
-                  </label>
+                  <label className="col-8 col-form-label">Enable Case Tracking:</label>
                   <div className="col-4 d-flex justify-content-end">
                     <span className="switch switch-success switch-sm">
                       <label>
-                        <input
-                          type="checkbox"
-                          name="quick_panel_notifications_2"
-                        />
+                        <input type="checkbox" name="quick_panel_notifications_2" />
                         <span />
                       </label>
                     </span>
                   </div>
                 </div>
                 <div className="form-group mb-0 row align-items-center">
-                  <label className="col-8 col-form-label">
-                    Support Portal:
-                  </label>
+                  <label className="col-8 col-form-label">Support Portal:</label>
                   <div className="col-4 d-flex justify-content-end">
                     <span className="switch switch-success switch-sm">
                       <label>
-                        <input
-                          type="checkbox"
-                          defaultChecked="checked"
-                          name="select"
-                        />
+                        <input type="checkbox" defaultChecked="checked" name="select" />
                         <span />
                       </label>
                     </span>
@@ -723,26 +640,18 @@ export default () => {
               <div className="pt-2">
                 <h5 className="font-weight-bold mb-3">Reports</h5>
                 <div className="form-group mb-0 row align-items-center">
-                  <label className="col-8 col-form-label">
-                    Generate Reports:
-                  </label>
+                  <label className="col-8 col-form-label">Generate Reports:</label>
                   <div className="col-4 d-flex justify-content-end">
                     <span className="switch switch-sm switch-danger">
                       <label>
-                        <input
-                          type="checkbox"
-                          defaultChecked="checked"
-                          name="select"
-                        />
+                        <input type="checkbox" defaultChecked="checked" name="select" />
                         <span />
                       </label>
                     </span>
                   </div>
                 </div>
                 <div className="form-group mb-0 row align-items-center">
-                  <label className="col-8 col-form-label">
-                    Enable Report Export:
-                  </label>
+                  <label className="col-8 col-form-label">Enable Report Export:</label>
                   <div className="col-4 d-flex justify-content-end">
                     <span className="switch switch-sm switch-danger">
                       <label>
@@ -753,17 +662,11 @@ export default () => {
                   </div>
                 </div>
                 <div className="form-group mb-0 row align-items-center">
-                  <label className="col-8 col-form-label">
-                    Allow Data Collection:
-                  </label>
+                  <label className="col-8 col-form-label">Allow Data Collection:</label>
                   <div className="col-4 d-flex justify-content-end">
                     <span className="switch switch-sm switch-danger">
                       <label>
-                        <input
-                          type="checkbox"
-                          defaultChecked="checked"
-                          name="select"
-                        />
+                        <input type="checkbox" defaultChecked="checked" name="select" />
                         <span />
                       </label>
                     </span>
@@ -776,26 +679,18 @@ export default () => {
               <div className="pt-2">
                 <h5 className="font-weight-bold mb-3">Memebers</h5>
                 <div className="form-group mb-0 row align-items-center">
-                  <label className="col-8 col-form-label">
-                    Enable Member singup:
-                  </label>
+                  <label className="col-8 col-form-label">Enable Member singup:</label>
                   <div className="col-4 d-flex justify-content-end">
                     <span className="switch switch-sm switch-primary">
                       <label>
-                        <input
-                          type="checkbox"
-                          defaultChecked="checked"
-                          name="select"
-                        />
+                        <input type="checkbox" defaultChecked="checked" name="select" />
                         <span />
                       </label>
                     </span>
                   </div>
                 </div>
                 <div className="form-group mb-0 row align-items-center">
-                  <label className="col-8 col-form-label">
-                    Allow User Feedbacks:
-                  </label>
+                  <label className="col-8 col-form-label">Allow User Feedbacks:</label>
                   <div className="col-4 d-flex justify-content-end">
                     <span className="switch switch-sm switch-primary">
                       <label>
@@ -806,17 +701,11 @@ export default () => {
                   </div>
                 </div>
                 <div className="form-group mb-0 row align-items-center">
-                  <label className="col-8 col-form-label">
-                    Enable Customer Portal:
-                  </label>
+                  <label className="col-8 col-form-label">Enable Customer Portal:</label>
                   <div className="col-4 d-flex justify-content-end">
                     <span className="switch switch-sm switch-primary">
                       <label>
-                        <input
-                          type="checkbox"
-                          defaultChecked="checked"
-                          name="select"
-                        />
+                        <input type="checkbox" defaultChecked="checked" name="select" />
                         <span />
                       </label>
                     </span>

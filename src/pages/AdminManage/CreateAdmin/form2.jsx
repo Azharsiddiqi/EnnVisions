@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-export default ({ formShowHandler }) => {
+export default ({formShowHandler}) => {
   return (
     <div className="create-admin-form">
       <form>
@@ -59,11 +59,7 @@ export default ({ formShowHandler }) => {
               </div>
             </div>
             <label className="basic-info active-checkbox checkbox checkbox-lg">
-              <input
-                type="checkbox"
-                defaultChecked="checked"
-                name="Checkboxes3_1"
-              />
+              <input type="checkbox" defaultChecked="checked" name="Checkboxes3_1" />
               <span />
             </label>
           </div>
@@ -123,11 +119,7 @@ export default ({ formShowHandler }) => {
               </div>
             </div>
             <label className="basic-info active-checkbox checkbox checkbox-lg">
-              <input
-                type="checkbox"
-                defaultChecked="checked"
-                name="Checkboxes3_1"
-              />
+              <input type="checkbox" defaultChecked="checked" name="Checkboxes3_1" />
               <span />
             </label>
           </div>
@@ -187,11 +179,7 @@ export default ({ formShowHandler }) => {
               </div>
             </div>
             <label className="basic-info active-checkbox checkbox checkbox-lg">
-              <input
-                type="checkbox"
-                defaultChecked="checked"
-                name="Checkboxes3_1"
-              />
+              <input type="checkbox" defaultChecked="checked" name="Checkboxes3_1" />
               <span />
             </label>
           </div>
@@ -251,11 +239,7 @@ export default ({ formShowHandler }) => {
               </div>
             </div>
             <label className="basic-info active-checkbox checkbox checkbox-lg">
-              <input
-                type="checkbox"
-                defaultChecked="checked"
-                name="Checkboxes3_1"
-              />
+              <input type="checkbox" defaultChecked="checked" name="Checkboxes3_1" />
               <span />
             </label>
           </div>
@@ -315,21 +299,13 @@ export default ({ formShowHandler }) => {
               </div>
             </div>
             <label className="basic-info active-checkbox checkbox checkbox-lg">
-              <input
-                type="checkbox"
-                defaultChecked="checked"
-                name="Checkboxes3_1"
-              />
+              <input type="checkbox" defaultChecked="checked" name="Checkboxes3_1" />
               <span />
             </label>
           </div>
         </div>
         <div className="btn-fleet-submit">
-          <button
-            type="submit"
-            onClick={() => formShowHandler(2)}
-            className="btn"
-          >
+          <button type="submit" onClick={() => formShowHandler(2)} className="btn">
             NEXT
           </button>
         </div>

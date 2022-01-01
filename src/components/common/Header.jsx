@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import {Link} from 'react-router-dom';
 
 export default () => {
   return (
@@ -7,10 +7,7 @@ export default () => {
       {/* begin::Container */}
       <div className=" container-fluid  d-flex align-items-stretch justify-content-between">
         {/* begin::Header Menu Wrapper */}
-        <div
-          className="header-menu-wrapper header-menu-wrapper-left"
-          id="kt_header_menu_wrapper"
-        >
+        <div className="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
           {/* begin::Header Menu */}
           <div
             id="kt_header_menu"
@@ -27,11 +24,7 @@ export default () => {
           {/* begin::Search */}
           <div className="dropdown" id="kt_quick_search_toggle">
             {/* begin::Toggle */}
-            <div
-              className="topbar-item"
-              data-toggle="dropdown"
-              data-offset="10px,0px"
-            >
+            <div className="topbar-item" data-toggle="dropdown" data-offset="10px,0px">
               <div className="btn btn-icon btn-clean btn-lg btn-dropdown mr-1">
                 <span className="svg-icon svg-icon-xl svg-icon-primary">
                   {/* begin::Svg Icon | path:assets/media/svg/icons/General/Search.svg */}
@@ -43,12 +36,7 @@ export default () => {
                     viewBox="0 0 24 24"
                     version="1.1"
                   >
-                    <g
-                      stroke="none"
-                      strokeWidth={1}
-                      fill="none"
-                      fillRule="evenodd"
-                    >
+                    <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
                       <rect x={0} y={0} width={24} height={24} />
                       <path
                         d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z"
@@ -70,11 +58,7 @@ export default () => {
           </div>
           <div className="dropdown">
             {/* begin::Toggle */}
-            <div
-              className="topbar-item"
-              data-toggle="dropdown"
-              data-offset="10px,0px"
-            >
+            <div className="topbar-item" data-toggle="dropdown" data-offset="10px,0px">
               <div className="btn btn-icon btn-clean btn-dropdown btn-lg mr-1">
                 <img
                   className="h-20px w-20px rounded-sm"
@@ -92,10 +76,7 @@ export default () => {
                 <li className="navi-item">
                   <Link to="#" className="navi-link">
                     <span className="symbol symbol-20 mr-3">
-                      <img
-                        src="assets/media/svg/flags/226-united-states.svg"
-                        alt=""
-                      />
+                      <img src="assets/media/svg/flags/226-united-states.svg" alt="" />
                     </span>
                     <span className="navi-text">English</span>
                   </Link>
@@ -115,10 +96,7 @@ export default () => {
                 <li className="navi-item">
                   <Link to="#" className="navi-link">
                     <span className="symbol symbol-20 mr-3">
-                      <img
-                        src="assets/media/svg/flags/162-germany.svg"
-                        alt=""
-                      />
+                      <img src="assets/media/svg/flags/162-germany.svg" alt="" />
                     </span>
                     <span className="navi-text">German</span>
                   </Link>
@@ -163,9 +141,7 @@ export default () => {
                 Adnan
               </span>
               <span className="symbol symbol-lg-35 symbol-25 symbol-light-success">
-                <span className="symbol-label font-size-h5 font-weight-bold">
-                  S
-                </span>
+                <span className="symbol-label font-size-h5 font-weight-bold">S</span>
               </span>
             </div>
           </div>

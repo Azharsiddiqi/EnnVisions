@@ -1,4 +1,4 @@
-import { PRIVATE_ROUTES, PUBLIC_ROUTES } from "./config";
+import {PRIVATE_ROUTES, PUBLIC_ROUTES} from './config';
 export const authRoutes = [
   PUBLIC_ROUTES.login.path,
   PUBLIC_ROUTES.forgotPasswordEmail.path,
@@ -12,6 +12,9 @@ export const privateRoutes = [
   PRIVATE_ROUTES.userRoles.addNewRole,
   PRIVATE_ROUTES.userRoles.createRegistrationForm,
   PRIVATE_ROUTES.userRoles.userRoleList,
+  PRIVATE_ROUTES.userRoles.createPermissions,
+  PRIVATE_ROUTES.userRoles.superAdmin,
+  PRIVATE_ROUTES.userRoles.adminManagePer,
   PRIVATE_ROUTES.adminManage.createAdmin,
   PRIVATE_ROUTES.adminManage.editAdmin,
   PRIVATE_ROUTES.adminManage.adminDetail,
@@ -29,6 +32,9 @@ export const privateRoutes = [
   PRIVATE_ROUTES.vendorManage.editOutLet,
   PRIVATE_ROUTES.vendorManage.outLetsDetail,
   PRIVATE_ROUTES.vendorManage.helperList,
-  PRIVATE_ROUTES.driverManage.createDriver
-  
+  PRIVATE_ROUTES.vendorManage.outLetDetail,
+  PRIVATE_ROUTES.driverManage.createDriver,
+  PRIVATE_ROUTES.driverManage.createDriver,
+  PRIVATE_ROUTES.mainCategories.addNewCategory,
+
 ];

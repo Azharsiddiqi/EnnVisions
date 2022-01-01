@@ -1,7 +1,7 @@
-import React from "react";
-import Routes from "./routes.jsx";
+import React from 'react';
+import Routes from './routes.jsx';
 
-import Aside from "./components/Aside.jsx";
+import Aside from './components/Aside.jsx';
 
 export default () => {
   return (

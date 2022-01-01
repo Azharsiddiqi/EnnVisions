@@ -1,6 +1,6 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
-import { PRIVATE_ROUTES } from "../../config";
+import React from 'react';
+import {useHistory} from 'react-router-dom';
+import {PRIVATE_ROUTES} from '../../config';
 
 export default () => {
   const history = useHistory();
@@ -27,19 +27,14 @@ export default () => {
                       <img src="assets/images/ic-logo.svg" alt="logo" />
                     </div>
                     <div className="modal-body">
-                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                      sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                      magna
+                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                      eirmod tempor invidunt ut labore et dolore magna
                     </div>
                     <div className="modal-footer">
                       <button type="button" className="btn btn-primary">
                         YES!
                       </button>
-                      <button
-                        type="button"
-                        className="btn btn-secondary"
-                        data-dismiss="modal"
-                      >
+                      <button type="button" className="btn btn-secondary" data-dismiss="modal">
                         CANCEL
                       </button>
                     </div>
@@ -106,10 +101,7 @@ export default () => {
                   <div className="col-sm-6">
                     <div className="form-group">
                       <label htmlFor="exampleFormControlInput1">Country</label>
-                      <select
-                        className="form-control"
-                        id="exampleFormControlSelect1"
-                      >
+                      <select className="form-control" id="exampleFormControlSelect1">
                         <option>Pakistan</option>
                         <option>USA</option>
                         <option>UK</option>
@@ -121,10 +113,7 @@ export default () => {
                   <div className="col-sm-6">
                     <div className="form-group">
                       <label htmlFor="exampleFormControlInput1">State</label>
-                      <select
-                        className="form-control"
-                        id="exampleFormControlSelect1"
-                      >
+                      <select className="form-control" id="exampleFormControlSelect1">
                         <option>Punjab</option>
                         <option>Sindh</option>
                         <option>KPK</option>
@@ -203,11 +192,7 @@ export default () => {
                         aria-describedby="emailHelp"
                         placeholder="License Expiry Date"
                       />
-                      <img
-                        alt=""
-                        src="assets/images/ic_calendar.svg"
-                        className="calendar-icon"
-                      />
+                      <img alt="" src="assets/images/ic_calendar.svg" className="calendar-icon" />
                     </div>
                   </div>
                   <div className="col-sm-6">
@@ -237,22 +222,13 @@ export default () => {
                         aria-describedby="emailHelp"
                         placeholder="Insurance Expiry Date"
                       />
-                      <img
-                        src="assets/images/ic_calendar.svg"
-                        alt=""
-                        className="calendar-icon"
-                      />
+                      <img src="assets/images/ic_calendar.svg" alt="" className="calendar-icon" />
                     </div>
                   </div>
                   <div className="col-sm-6">
                     <div className="form-group">
-                      <label htmlFor="exampleFormControlInput1">
-                        Vehicle Type*
-                      </label>
-                      <select
-                        className="form-control"
-                        id="exampleFormControlSelect1"
-                      >
+                      <label htmlFor="exampleFormControlInput1">Vehicle Type*</label>
+                      <select className="form-control" id="exampleFormControlSelect1">
                         <option>EV Go, EV PLUS, EV BUSINESS</option>
                         <option>Sindh</option>
                         <option>KPK</option>
@@ -262,9 +238,7 @@ export default () => {
                   </div>
                   <div className="col-sm-6">
                     <div className="form-group">
-                      <label htmlFor="exampleFormControlInput1">
-                        Company Share
-                      </label>
+                      <label htmlFor="exampleFormControlInput1">Company Share</label>
                       <input
                         type="text"
                         className="form-control"

@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import {Link} from 'react-router-dom';
 
 export default () => {
   return (
@@ -368,10 +368,7 @@ export default () => {
               />
             </div>
             <div className="overlay-layer">
-              <Link
-                to="#"
-                className="btn font-weight-bold btn-primary btn-shadow disabled"
-              >
+              <Link to="#" className="btn font-weight-bold btn-primary btn-shadow disabled">
                 Coming soon
               </Link>
             </div>
@@ -386,10 +383,7 @@ export default () => {
               />
             </div>
             <div className="overlay-layer">
-              <Link
-                to="#"
-                className="btn font-weight-bold btn-primary btn-shadow disabled"
-              >
+              <Link to="#" className="btn font-weight-bold btn-primary btn-shadow disabled">
                 Coming soon
               </Link>
             </div>
@@ -404,10 +398,7 @@ export default () => {
               />
             </div>
             <div className="overlay-layer">
-              <Link
-                to="#"
-                className="btn font-weight-bold btn-primary btn-shadow disabled"
-              >
+              <Link to="#" className="btn font-weight-bold btn-primary btn-shadow disabled">
                 Coming soon
               </Link>
             </div>
@@ -422,10 +413,7 @@ export default () => {
               />
             </div>
             <div className="overlay-layer">
-              <Link
-                to="#"
-                className="btn font-weight-bold btn-primary btn-shadow disabled"
-              >
+              <Link to="#" className="btn font-weight-bold btn-primary btn-shadow disabled">
                 Coming soon
               </Link>
             </div>
@@ -440,10 +428,7 @@ export default () => {
               />
             </div>
             <div className="overlay-layer">
-              <Link
-                to="#"
-                className="btn font-weight-bold btn-primary btn-shadow disabled"
-              >
+              <Link to="#" className="btn font-weight-bold btn-primary btn-shadow disabled">
                 Coming soon
               </Link>
             </div>
@@ -458,10 +443,7 @@ export default () => {
               />
             </div>
             <div className="overlay-layer">
-              <Link
-                to="#"
-                className="btn font-weight-bold btn-primary btn-shadow disabled"
-              >
+              <Link to="#" className="btn font-weight-bold btn-primary btn-shadow disabled">
                 Coming soon
               </Link>
             </div>
@@ -476,10 +458,7 @@ export default () => {
               />
             </div>
             <div className="overlay-layer">
-              <Link
-                to="#"
-                className="btn font-weight-bold btn-primary btn-shadow disabled"
-              >
+              <Link to="#" className="btn font-weight-bold btn-primary btn-shadow disabled">
                 Coming soon
               </Link>
             </div>
@@ -494,10 +473,7 @@ export default () => {
               />
             </div>
             <div className="overlay-layer">
-              <Link
-                to="#"
-                className="btn font-weight-bold btn-primary btn-shadow disabled"
-              >
+              <Link to="#" className="btn font-weight-bold btn-primary btn-shadow disabled">
                 Coming soon
               </Link>
             </div>
@@ -512,10 +488,7 @@ export default () => {
               />
             </div>
             <div className="overlay-layer">
-              <Link
-                to="#"
-                className="btn font-weight-bold btn-primary btn-shadow disabled"
-              >
+              <Link to="#" className="btn font-weight-bold btn-primary btn-shadow disabled">
                 Coming soon
               </Link>
             </div>
@@ -530,10 +503,7 @@ export default () => {
               />
             </div>
             <div className="overlay-layer">
-              <Link
-                to="#"
-                className="btn font-weight-bold btn-primary btn-shadow disabled"
-              >
+              <Link to="#" className="btn font-weight-bold btn-primary btn-shadow disabled">
                 Coming soon
               </Link>
             </div>
@@ -548,10 +518,7 @@ export default () => {
               />
             </div>
             <div className="overlay-layer">
-              <Link
-                to="#"
-                className="btn font-weight-bold btn-primary btn-shadow disabled"
-              >
+              <Link to="#" className="btn font-weight-bold btn-primary btn-shadow disabled">
                 Coming soon
               </Link>
             </div>
@@ -566,10 +533,7 @@ export default () => {
               />
             </div>
             <div className="overlay-layer">
-              <Link
-                to="#"
-                className="btn font-weight-bold btn-primary btn-shadow disabled"
-              >
+              <Link to="#" className="btn font-weight-bold btn-primary btn-shadow disabled">
                 Coming soon
               </Link>
             </div>
@@ -584,10 +548,7 @@ export default () => {
               />
             </div>
             <div className="overlay-layer">
-              <Link
-                to="#"
-                className="btn font-weight-bold btn-primary btn-shadow disabled"
-              >
+              <Link to="#" className="btn font-weight-bold btn-primary btn-shadow disabled">
                 Coming soon
               </Link>
             </div>
@@ -602,10 +563,7 @@ export default () => {
               />
             </div>
             <div className="overlay-layer">
-              <Link
-                to="#"
-                className="btn font-weight-bold btn-primary btn-shadow disabled"
-              >
+              <Link to="#" className="btn font-weight-bold btn-primary btn-shadow disabled">
                 Coming soon
               </Link>
             </div>
@@ -620,10 +578,7 @@ export default () => {
               />
             </div>
             <div className="overlay-layer">
-              <Link
-                to="#"
-                className="btn font-weight-bold btn-primary btn-shadow disabled"
-              >
+              <Link to="#" className="btn font-weight-bold btn-primary btn-shadow disabled">
                 Coming soon
               </Link>
             </div>
@@ -638,10 +593,7 @@ export default () => {
               />
             </div>
             <div className="overlay-layer">
-              <Link
-                to="#"
-                className="btn font-weight-bold btn-primary btn-shadow disabled"
-              >
+              <Link to="#" className="btn font-weight-bold btn-primary btn-shadow disabled">
                 Coming soon
               </Link>
             </div>
@@ -656,10 +608,7 @@ export default () => {
               />
             </div>
             <div className="overlay-layer">
-              <Link
-                to="#"
-                className="btn font-weight-bold btn-primary btn-shadow disabled"
-              >
+              <Link to="#" className="btn font-weight-bold btn-primary btn-shadow disabled">
                 Coming soon
               </Link>
             </div>

@@ -1,6 +1,6 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
-import { PRIVATE_ROUTES } from "../../config";
+import React from 'react';
+import {useHistory} from 'react-router-dom';
+import {PRIVATE_ROUTES} from '../../config';
 
 export default () => {
   const history = useHistory();
@@ -19,8 +19,7 @@ export default () => {
                     WANT TO BE A ENNVISIONS <u>ADD ROLE NAME</u>
                   </h3>
                   <p className="leave-shortly">
-                    Leave your restaurant details here and we will be in touch
-                    shortly.
+                    Leave your restaurant details here and we will be in touch shortly.
                   </p>
                   <div className="form-group">
                     <input
@@ -32,9 +31,7 @@ export default () => {
                   </div>
                   <div className="btn-fleet-submit">
                     <button
-                      onClick={() =>
-                        history.push(PRIVATE_ROUTES.dashboard.path)
-                      }
+                      onClick={() => history.push(PRIVATE_ROUTES.dashboard.path)}
                       type="submit"
                       className="btn"
                     >
@@ -57,13 +54,8 @@ export default () => {
                         />
                       </div>
                       <div className="form-group">
-                        <label htmlFor="exampleFormControlInput1">
-                          Add title
-                        </label>
-                        <select
-                          className="form-control"
-                          id="exampleFormControlSelect1"
-                        >
+                        <label htmlFor="exampleFormControlInput1">Add title</label>
+                        <select className="form-control" id="exampleFormControlSelect1">
                           <option>add placeholder 1</option>
                           <option>add placeholder 2</option>
                           <option>add placeholder 3</option>
@@ -100,8 +92,7 @@ export default () => {
                         />
                         <div className="fakefile">
                           <span className="placeholder">
-                            add placeholder{" "}
-                            <span className="light">(Photo)</span>
+                            add placeholder <span className="light">(Photo)</span>
                           </span>
                           <input />
                           <img src="assets/images/ic_upload.svg" alt="" />
@@ -116,11 +107,7 @@ export default () => {
                           placeholder="Insurance Expiry Date"
                           defaultValue="add placeholder"
                         />
-                        <img
-                          src="assets/images/ic_calendar.svg"
-                          className="calendar-icon"
-                          alt=""
-                        />
+                        <img src="assets/images/ic_calendar.svg" className="calendar-icon" alt="" />
                       </div>
                       <div className="form-group country-numbers">
                         <input

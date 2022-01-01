@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import {Link} from 'react-router-dom';
 
 export default () => {
   return (
@@ -297,10 +297,7 @@ export default () => {
                     <p>$750000</p>
                   </div>
                   <div className="cat-info-three">
-                    <img
-                      src="assets/images/green-circle.png"
-                      alt="green-circle"
-                    />
+                    <img src="assets/images/green-circle.png" alt="green-circle" />
                   </div>
                 </div>
               </div>
@@ -316,10 +313,7 @@ export default () => {
                     <p>$750000</p>
                   </div>
                   <div className="cat-info-three">
-                    <img
-                      src="assets/images/green-circle.png"
-                      alt="green-circle"
-                    />
+                    <img src="assets/images/green-circle.png" alt="green-circle" />
                   </div>
                 </div>
               </div>
@@ -335,10 +329,7 @@ export default () => {
                     <p>$750000</p>
                   </div>
                   <div className="cat-info-three">
-                    <img
-                      src="assets/images/green-circle.png"
-                      alt="green-circle"
-                    />
+                    <img src="assets/images/green-circle.png" alt="green-circle" />
                   </div>
                 </div>
               </div>
@@ -354,10 +345,7 @@ export default () => {
                     <p>$750000</p>
                   </div>
                   <div className="cat-info-three">
-                    <img
-                      src="assets/images/green-circle.png"
-                      alt="green-circle"
-                    />
+                    <img src="assets/images/green-circle.png" alt="green-circle" />
                   </div>
                 </div>
               </div>
@@ -373,10 +361,7 @@ export default () => {
                     <p>$750000</p>
                   </div>
                   <div className="cat-info-three">
-                    <img
-                      src="assets/images/green-circle.png"
-                      alt="green-circle"
-                    />
+                    <img src="assets/images/green-circle.png" alt="green-circle" />
                   </div>
                 </div>
               </div>
@@ -392,10 +377,7 @@ export default () => {
                     <p>$750000</p>
                   </div>
                   <div className="cat-info-three">
-                    <img
-                      src="assets/images/green-circle.png"
-                      alt="green-circle"
-                    />
+                    <img src="assets/images/green-circle.png" alt="green-circle" />
                   </div>
                 </div>
               </div>
@@ -411,10 +393,7 @@ export default () => {
                     <p>$750000</p>
                   </div>
                   <div className="cat-info-three">
-                    <img
-                      src="assets/images/green-circle.png"
-                      alt="green-circle"
-                    />
+                    <img src="assets/images/green-circle.png" alt="green-circle" />
                   </div>
                 </div>
               </div>
@@ -430,10 +409,7 @@ export default () => {
                     <p>$750000</p>
                   </div>
                   <div className="cat-info-three">
-                    <img
-                      src="assets/images/green-circle.png"
-                      alt="green-circle"
-                    />
+                    <img src="assets/images/green-circle.png" alt="green-circle" />
                   </div>
                 </div>
               </div>

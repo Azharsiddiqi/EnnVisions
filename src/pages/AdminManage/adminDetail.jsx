@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { PRIVATE_ROUTES } from "../../config";
-import ConfirmationAlert from "../../components/confirmationAlert";
+import React, {useState} from 'react';
+import {useHistory} from 'react-router-dom';
+import {PRIVATE_ROUTES} from '../../config';
+import ConfirmationAlert from '../../components/confirmationAlert';
 
 export default () => {
   const [show, setShow] = useState(false);
@@ -19,18 +19,12 @@ export default () => {
           <div className="dash-body">
             <div className="create-fleet-form admin-detail">
               <div className="edit-delete-form">
-                <span style={{ paddingRight: "5px" }}>
-                  <img
-                    onClick={handleShow}
-                    src="assets/images/ic_delete_white.svg"
-                    alt=""
-                  />
+                <span style={{paddingRight: '5px'}}>
+                  <img onClick={handleShow} src="assets/images/ic_delete_white.svg" alt="" />
                 </span>
                 <span>
                   <img
-                    onClick={() =>
-                      history.push(PRIVATE_ROUTES.adminManage.editAdmin.path)
-                    }
+                    onClick={() => history.push(PRIVATE_ROUTES.adminManage.editAdmin.path)}
                     src="assets/images/ic_edit_white.svg"
                     alt=""
                   />
@@ -50,19 +44,14 @@ export default () => {
                       <img src="assets/images/ic-logo.svg" alt="logo" />
                     </div>
                     <div className="modal-body">
-                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                      sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                      magna
+                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                      eirmod tempor invidunt ut labore et dolore magna
                     </div>
                     <div className="modal-footer">
                       <button type="button" className="btn btn-primary">
                         YES!
                       </button>
-                      <button
-                        type="button"
-                        className="btn btn-secondary"
-                        data-dismiss="modal"
-                      >
+                      <button type="button" className="btn btn-secondary" data-dismiss="modal">
                         CANCEL
                       </button>
                     </div>
@@ -129,10 +118,7 @@ export default () => {
                   <div className="col-sm-6">
                     <div className="form-group">
                       <label htmlFor="exampleFormControlInput1">Country</label>
-                      <select
-                        className="form-control"
-                        id="exampleFormControlSelect1"
-                      >
+                      <select className="form-control" id="exampleFormControlSelect1">
                         <option>Pakistan</option>
                         <option>USA</option>
                         <option>UK</option>
@@ -144,10 +130,7 @@ export default () => {
                   <div className="col-sm-6">
                     <div className="form-group">
                       <label htmlFor="exampleFormControlInput1">State</label>
-                      <select
-                        className="form-control"
-                        id="exampleFormControlSelect1"
-                      >
+                      <select className="form-control" id="exampleFormControlSelect1">
                         <option>Punjab</option>
                         <option>Sindh</option>
                         <option>KPK</option>
@@ -201,13 +184,8 @@ export default () => {
                   </div>
                   <div className="col-sm-6">
                     <div className="form-group">
-                      <label htmlFor="exampleFormControlInput1">
-                        Industry*
-                      </label>
-                      <select
-                        className="form-control"
-                        id="exampleFormControlSelect1"
-                      >
+                      <label htmlFor="exampleFormControlInput1">Industry*</label>
+                      <select className="form-control" id="exampleFormControlSelect1">
                         <option>EV Go, EV PLUS, EV BUSINESS</option>
                         <option>Sindh</option>
                         <option>KPK</option>
@@ -217,9 +195,7 @@ export default () => {
                   </div>
                   <div className="col-sm-6">
                     <div className="form-group">
-                      <label htmlFor="exampleFormControlInput1">
-                        Company Share
-                      </label>
+                      <label htmlFor="exampleFormControlInput1">Company Share</label>
                       <input
                         type="text"
                         className="form-control"
@@ -256,11 +232,7 @@ export default () => {
                         aria-describedby="emailHelp"
                         placeholder="Insurance Expiry Date"
                       />
-                      <img
-                        src="assets/images/ic_calendar.svg"
-                        className="calendar-icon"
-                        alt=""
-                      />
+                      <img src="assets/images/ic_calendar.svg" className="calendar-icon" alt="" />
                     </div>
                   </div>
                 </div>

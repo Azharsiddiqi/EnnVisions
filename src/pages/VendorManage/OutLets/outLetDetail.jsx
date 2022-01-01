@@ -1,40 +1,19 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import {PRIVATE_ROUTES} from '../../../config';
 
 export default function () {
   return (
-    <div className="content  d-flex flex-column flex-column-fluid" id="kt_content">
-      {/*begin::Subheader*/}
-      <div className="subheader py-2 py-lg-4  subheader-solid " id="kt_subheader">
-        <div className=" container-fluid  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
-          {/*begin::Info*/}
-          <div className="d-flex align-items-center flex-wrap mr-2">
-            {/*begin::Page Title*/}
-            <h5 className="dark-text main-breadcrumb gilroy-semibold mt-2 mb-2 mr-5">DASHBOARD</h5>
-            {/*end::Page Title*/}
-            {/*begin::Actions*/}
-            <div className="subheader-separator subheader-separator-ver mt-2 mb-2 mr-4 bg-gray-200" />
-            <span className="gilroy-medium inactive-breadcrumb semi-dark-text text-muted font-weight-bold mr-4">
-              OUT LET DETAIL
-            </span>
-            {/*end::Actions*/}
-          </div>
-        </div>
-      </div>
-      {/*end::Subheader*/}
-      {/*begin::Entry*/}
+    <div>
       <div className="d-flex flex-column-fluid">
         {/*begin::Container*/}
         <div className=" container ">
           <div className="vendor-body page-12-content">
             <div className="edit-delete-form">
-              <Link to="#" data-toggle="modal" data-target="#exampleModal">
+              <a href="#" data-toggle="modal" data-target="#exampleModal">
                 <img src="assets/images/ic_delete_white.svg" alt="" />
-              </Link>
-              <Link to={PRIVATE_ROUTES.vendorManage.editOutLet.path}>
+              </a>
+              <a href="create-fleet.html">
                 <img src="assets/images/ic_edit_white.svg" alt="" />
-              </Link>
+              </a>
             </div>
             <div className="create-vendor-info">
               <form action="#" method="post">
@@ -65,6 +44,7 @@ export default function () {
                   <div className="col-xl-5">
                     <div className="form-group">
                       <input
+                        disabled
                         type="text"
                         className="form-control"
                         id="exampleInputEmail1"
@@ -78,6 +58,7 @@ export default function () {
                       <div className="col-6">
                         <div className="form-group">
                           <input
+                            disabled
                             type="text"
                             className="form-control"
                             id="exampleInputEmail1"
@@ -89,6 +70,7 @@ export default function () {
                       <div className="col-6">
                         <div className="form-group">
                           <input
+                            disabled
                             type="text"
                             className="form-control"
                             id="exampleInputEmail1"
@@ -106,6 +88,7 @@ export default function () {
                       <div className="col-md-6">
                         <div className="form-group country-numbers">
                           <input
+                            disabled
                             className="form-control form-control-solid h-auto py-4 px-6 rounded-lg font-size-h6"
                             type="text"
                             placeholder="(617) 397 - 8483"
@@ -120,6 +103,7 @@ export default function () {
                       <div className="col-md-6">
                         <div className="form-group country-numbers">
                           <input
+                            disabled
                             className="form-control form-control-solid h-auto py-4 px-6 rounded-lg font-size-h6"
                             type="text"
                             placeholder="(617) 397 - 8483"
@@ -389,131 +373,129 @@ export default function () {
                       className="form-group timing-container"
                       id="timing-container-content create-vendor-timing"
                     >
-                      <div className="row" id="who-serve-options">
-                        <div className="col-sm-6 col-md-2">
-                          <div className="form-group">
-                            <div className="checkbox-inline">
-                              <label className="checkbox checkbox-lg">
-                                <input type="checkbox" name="owner" />
-                                <span />
-                                Monday
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-sm-6 col-md-2">
-                          <div className="form-group">
-                            <div className="checkbox-inline">
-                              <label className="checkbox checkbox-lg">
-                                <input type="checkbox" name="owner" />
-                                <span />
-                                Tuesday
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-sm-6 col-md-3 wednesday-label">
-                          <div className="form-group">
-                            <div className="checkbox-inline">
-                              <label className="checkbox checkbox-lg">
-                                <input type="checkbox" name="owner" />
-                                <span />
-                                Wednesday
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-sm-6 col-md-2 thursday-label">
-                          <div className="form-group">
-                            <div className="checkbox-inline">
-                              <label className="checkbox checkbox-lg">
-                                <input type="checkbox" name="owner" />
-                                <span />
-                                Thursday
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-sm-6 col-md-2">
-                          <div className="form-group">
-                            <div className="checkbox-inline">
-                              <label className="checkbox checkbox-lg">
-                                <input type="checkbox" name="owner" />
-                                <span />
-                                Friday
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-sm-6 col-md-2">
-                          <div className="form-group">
-                            <div className="checkbox-inline">
-                              <label className="checkbox checkbox-lg">
-                                <input type="checkbox" name="owner" />
-                                <span />
-                                Saturday
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-sm-6 col-md-2 sunday-label">
-                          <div className="form-group">
-                            <div className="checkbox-inline">
-                              <label className="checkbox checkbox-lg">
-                                <input type="checkbox" name="owner" />
-                                <span />
-                                Sunday
-                              </label>
-                            </div>
-                          </div>
-                        </div>
+                      {/* <div className="row" id="who-serve-options">
+                  <div className="col-sm-6 col-md-2">
+                    <div className="form-group">
+                      <div className="checkbox-inline">
+                        <label className="checkbox checkbox-lg">
+                          <input type="checkbox" name="owner" />
+                          <span />
+                          Monday
+                        </label>
                       </div>
+                    </div>
+                  </div>
+                  <div className="col-sm-6 col-md-2">
+                    <div className="form-group">
+                      <div className="checkbox-inline">
+                        <label className="checkbox checkbox-lg">
+                          <input type="checkbox" name="owner" />
+                          <span />
+                          Tuesday
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-sm-6 col-md-3 wednesday-label">
+                    <div className="form-group">
+                      <div className="checkbox-inline">
+                        <label className="checkbox checkbox-lg">
+                          <input type="checkbox" name="owner" />
+                          <span />
+                          Wednesday
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-sm-6 col-md-2 thursday-label">
+                    <div className="form-group">
+                      <div className="checkbox-inline">
+                        <label className="checkbox checkbox-lg">
+                          <input type="checkbox" name="owner" />
+                          <span />
+                          Thursday
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-sm-6 col-md-2">
+                    <div className="form-group">
+                      <div className="checkbox-inline">
+                        <label className="checkbox checkbox-lg">
+                          <input type="checkbox" name="owner" />
+                          <span />
+                          Friday
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-sm-6 col-md-2">
+                    <div className="form-group">
+                      <div className="checkbox-inline">
+                        <label className="checkbox checkbox-lg">
+                          <input type="checkbox" name="owner" />
+                          <span />
+                          Saturday
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-sm-6 col-md-2 sunday-label">
+                    <div className="form-group">
+                      <div className="checkbox-inline">
+                        <label className="checkbox checkbox-lg">
+                          <input type="checkbox" name="owner" />
+                          <span />
+                          Sunday
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div> */}
                       <div className="row">
                         <div className="col-sm-6 col-md-4">
-                          <label className="label-country">Start Time</label>
-                          <div className="form-group country-names country-time-select vendor-time-select">
-                            <select className="form-control">
-                              <option value="12:00">12:00 AM</option>
-                              <option value="01:00">01:00 AM</option>
-                              <option value="02:00">02:00 AM</option>
-                              <option value="03:00">03:00 AM</option>
-                              <option value="04:00">04:00 AM</option>
-                              <option value="05:00">05:00 AM</option>
-                              <option value="06:00">06:00 AM</option>
-                              <option value="07:00">07:00 AM</option>
-                              <option value="08:00">08:00 AM</option>
-                              <option value="09:00">09:00 AM</option>
-                              <option value="10:00">10:00 AM</option>
-                              <option value="11:00">11:00 AM</option>
-                              <option value="12:00">12:00 AM</option>
-                            </select>
-                          </div>
+                          {/* <label className="label-country">Start Time</label> */}
+                          {/* <div className="form-group country-names country-time-select vendor-time-select">
+                      <select className="form-control">
+                        <option value="12:00">12:00 AM</option>
+                        <option value="01:00">01:00 AM</option>
+                        <option value="02:00">02:00 AM</option>
+                        <option value="03:00">03:00 AM</option>
+                        <option value="04:00">04:00 AM</option>
+                        <option value="05:00">05:00 AM</option>
+                        <option value="06:00">06:00 AM</option>
+                        <option value="07:00">07:00 AM</option>
+                        <option value="08:00">08:00 AM</option>
+                        <option value="09:00">09:00 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="12:00">12:00 AM</option>
+                      </select>
+                    </div>  */}
                         </div>
-                        <div className="col-sm-6 col-md-4">
-                          <label className="label-country">Start Time</label>
-                          <div className="form-group country-names country-time-select vendor-time-select">
-                            <select className="form-control">
-                              <option value="12:00">12:00 AM</option>
-                              <option value="01:00">01:00 AM</option>
-                              <option value="02:00">02:00 AM</option>
-                              <option value="03:00">03:00 AM</option>
-                              <option value="04:00">04:00 AM</option>
-                              <option value="05:00">05:00 AM</option>
-                              <option value="06:00">06:00 AM</option>
-                              <option value="07:00">07:00 AM</option>
-                              <option value="08:00">08:00 AM</option>
-                              <option value="09:00"> 09:00 AM</option>
-                              <option value="10:00">10:00 AM</option>
-                              <option value="11:00">11:00 AM</option>
-                              <option value="12:00">12:00 AM</option>
-                            </select>
-                          </div>
+                        <div className="">
+                          {/* <label className="label-country">Start Time</label>
+                    <div className="form-group country-names country-time-select vendor-time-select">
+                      <select className="form-control">
+                        <option value="12:00">12:00 AM</option>
+                        <option value="01:00">01:00 AM</option>
+                        <option value="02:00">02:00 AM</option>
+                        <option value="03:00">03:00 AM</option>
+                        <option value="04:00">04:00 AM</option>
+                        <option value="05:00">05:00 AM</option>
+                        <option value="06:00">06:00 AM</option>
+                        <option value="07:00">07:00 AM</option>
+                        <option value="08:00">08:00 AM</option>
+                        <option value="09:00">	09:00 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="12:00">12:00 AM</option>
+                      </select>
+                    </div>  */}
                         </div>
                         <div className="col-sm-12 col-md-4">
                           <label className="label-country">&nbsp;</label>
-                          <button type="button" className="btn add-time-btn vendor-add-time">
-                            ADD TIME
-                          </button>
+                          {/* <button type="button" className="btn add-time-btn vendor-add-time">ADD TIME</button> */}
                         </div>
                       </div>
                       <div className="time-label-schedule create-vendor-time-label">
@@ -543,6 +525,42 @@ export default function () {
                           <img src="assets/images/ic_delete.svg" alt="delete" />
                         </span>
                       </div>
+                      <div className="time-label-schedule create-vendor-time-label">
+                        <label className="label-country day-label">Thursday</label>
+                        <label className="label-time">12:00 AM</label>
+                        <label className="label-time">09:00 PM</label>
+                        <label className="mark-label">Mark this day as closed</label>
+                        <span className="del-container">
+                          <img src="assets/images/ic_delete.svg" alt="delete" />
+                        </span>
+                      </div>
+                      <div className="time-label-schedule create-vendor-time-label">
+                        <label className="label-country day-label">Friday</label>
+                        <label className="label-time">12:00 AM</label>
+                        <label className="label-time">09:00 PM</label>
+                        <label className="mark-label">Mark this day as closed</label>
+                        <span className="del-container">
+                          <img src="assets/images/ic_delete.svg" alt="delete" />
+                        </span>
+                      </div>
+                      <div className="time-label-schedule create-vendor-time-label">
+                        <label className="label-country day-label">Saturday</label>
+                        <label className="label-time">12:00 AM</label>
+                        <label className="label-time">09:00 PM</label>
+                        <label className="mark-label">Mark this day as closed</label>
+                        <span className="del-container">
+                          <img src="assets/images/ic_delete.svg" alt="delete" />
+                        </span>
+                      </div>
+                      <div className="time-label-schedule create-vendor-time-label">
+                        <label className="label-country day-label">Sunday</label>
+                        <label className="label-time">12:00 AM</label>
+                        <label className="label-time">09:00 PM</label>
+                        <label className="mark-label">Mark this day as closed</label>
+                        <span className="del-container">
+                          <img src="assets/images/ic_delete.svg" alt="delete" />
+                        </span>
+                      </div>
                     </div>
                   </div>
                   <div className="col-xl-5 vendor-location-div">
@@ -558,12 +576,12 @@ export default function () {
                       <div className="map">
                         <iframe
                           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2602.344082631407!2d-123.1133149490098!3d49.28882477923052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5486719d24e2e021%3A0xb7057fe085c86109!2sCanada%20Place!5e0!3m2!1sen!2s!4v1601402609000!5m2!1sen!2s"
+                          title="outletdetail"
                           style={{border: 0, width: '100%'}}
                           allowFullScreen
                           width={600}
                           height={450}
                           frameBorder={0}
-                          title="google-map"
                         ></iframe>
                       </div>
                     </div>
