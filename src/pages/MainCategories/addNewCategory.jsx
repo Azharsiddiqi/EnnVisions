@@ -28,17 +28,115 @@ export default () => {
                   />
                 </div>
                 <div className="form-group">
-                  <label>Select Region</label>
+                  <label>Status</label>
                   <select className="form-control" id="exampleFormControlSelect1">
-                    <option value="Pakistan">PAKISTAN</option>
-                    <option value="India">INDIA</option>
-                    <option value="Canada">CANADA</option>
+                    <option value="Active">Active</option>
+                    <option value="in-active">In active</option>
                   </select>
                 </div>
 
-                <div className="creat-main-category-submit mt-5">
+                <div className="row">
+                  <div className="col-xl-6">
+                    <label className="r-u-owner who-serve">Display Title</label>
+                    <div className="row c-vendor-checboxes">
+                      <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
+                        <input type="checkbox" name="Checkboxes3_1" />
+                        <span />
+                        Active
+                      </label>
+                      <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
+                        <input type="checkbox" name="Checkboxes3_1" />
+                        <span />
+                        InActive
+                      </label>
+                    </div>
+                  </div>
+                  <div className="col-xl-6">
+                    <label className="r-u-owner who-serve">Display Description</label>
+                    <div className="row c-vendor-checboxes">
+                      <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
+                        <input type="checkbox" name="Checkboxes3_1" />
+                        <span />
+                        Active
+                      </label>
+                      <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
+                        <input type="checkbox" name="Checkboxes3_1" />
+                        <span />
+                        InActive
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-xl-6 mt-10">
+                    <label className="r-u-owner who-serve">Dropdown</label>
+                    <div className="row c-vendor-checboxes">
+                      <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
+                        <input type="checkbox" name="Checkboxes3_1" />
+                        <span />
+                        Active
+                      </label>
+                      <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
+                        <input type="checkbox" name="Checkboxes3_1" />
+                        <span />
+                        InActive
+                      </label>
+                    </div>
+                  </div>
+                  <div className="col-xl-6 mt-10">
+                    <label className="r-u-owner who-serve">Check Box</label>
+                    <div className="row c-vendor-checboxes">
+                      <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
+                        <input type="checkbox" name="Checkboxes3_1" />
+                        <span />
+                        Active
+                      </label>
+                      <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
+                        <input type="checkbox" name="Checkboxes3_1" />
+                        <span />
+                        InActive
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-xl-6 mt-10">
+                    <label className="r-u-owner who-serve">Multiple Selection</label>
+                    <div className="row c-vendor-checboxes">
+                      <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
+                        <input type="checkbox" name="Checkboxes3_1" />
+                        <span />
+                        Active
+                      </label>
+                      <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
+                        <input type="checkbox" name="Checkboxes3_1" />
+                        <span />
+                        InActive
+                      </label>
+                    </div>
+                  </div>
+                  <div className="col-xl-6 mt-10">
+                    <label className="r-u-owner who-serve">Required</label>
+                    <div className="row c-vendor-checboxes">
+                      <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
+                        <input type="checkbox" name="Checkboxes3_1" />
+                        <span />
+                        Active
+                      </label>
+                      <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
+                        <input type="checkbox" name="Checkboxes3_1" />
+                        <span />
+                        InActive
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="creat-main-category-submit  mt-5">
                   <button className="btn" type="button">
-                    SUBMIT
+                    UPDATE
                   </button>
                 </div>
               </div>
@@ -59,7 +157,7 @@ export default () => {
                           ITEM NAME
                         </th>
                         <th scope="col" className="pg-14-rest-name">
-                          PRICE
+                          DETAILS
                         </th>
                         <th scope="col" className="pg-14-status">
                           STATUS
@@ -78,7 +176,7 @@ export default () => {
                           Chicken Karaage
                         </td>
                         <td scope="col" className="pg-14-name">
-                          10.20
+                          For Only Food
                         </td>
                         <td scope="col" className="pg-14-name">
                           ACTIVE
@@ -136,7 +234,7 @@ export default () => {
                           8. Small Boat
                         </td>
                         <td scope="col" className="pg-14-name">
-                          10.20
+                          For Only Food
                         </td>
                         <td scope="col" className="pg-14-name">
                           ACTIVE
@@ -194,7 +292,7 @@ export default () => {
                           Spicy Salmon Roll
                         </td>
                         <td scope="col" className="pg-14-name">
-                          10.20
+                          For Only Food
                         </td>
                         <td scope="col" className="pg-14-name">
                           ACTIVE
@@ -252,7 +350,7 @@ export default () => {
                           Soup and Salad
                         </td>
                         <td scope="col" className="pg-14-name">
-                          10.20
+                          For Only Food
                         </td>
                         <td scope="col" className="pg-14-name">
                           ACTIVE
@@ -321,7 +419,7 @@ export default () => {
                             <input
                               type="text"
                               name="text"
-                              placeholder={0.1}
+                              placeholder="Details"
                               className="form-control"
                             />
                           </div>
