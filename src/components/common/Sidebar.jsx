@@ -209,7 +209,9 @@ export default () => {
                       <span className="menu-text">Create New</span>
                     </Link>
                   </li>
-                  <li className="menu-item  menu-item-submenu">
+                  <li  className={`menu-item ${
+                      pathname === adminManage.adminDetail.path ? 'menu-item-active' : ''
+                    }`}>
                     <Link to={adminManage.adminDetail.path} className="menu-link">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
