@@ -9,7 +9,10 @@
 .d-flex.flex-column.flex-root {
   height: 100%;
 }
-
+.selection-area {
+  width: auto;
+  height: 75px;
+}
 @media (min-width: 991px) {
   .side_bar_wrapper {
     width: 50%;
@@ -18,4 +21,15 @@
     position: fixed;
     height: 100%;
   }
+}
+
+.aside-menu-wrapper {
+  max-height: 100%;
+  overflow-y: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.table-data:hover {
+  cursor: pointer;
+  background-color: aquamarine;
 }

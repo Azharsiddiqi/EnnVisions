@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import ConfirmationAlert from "../../components/confirmationAlert";
+import React, {useState} from 'react';
+import ConfirmationAlert from '../../components/confirmationAlert';
 
 export default () => {
   const [show, setShow] = useState(false);
@@ -42,8 +42,8 @@ export default () => {
                       <span className="user-name">SUPER ADMIN</span>
                     </td>
                     <td className="user-message">
-                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                      sed diam nonumy eirmod
+                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                      eirmod
                     </td>
                     <td className="comm-percentage">1%</td>
                     <td className="rating">
@@ -54,11 +54,7 @@ export default () => {
                       <i className="fa fa-star" aria-hidden="true" />
                     </td>
                     <td className="action-btn">
-                      <button
-                        onClick={handleShow}
-                        type="button"
-                        className="btn btn-active"
-                      >
+                      <button onClick={handleShow} type="button" className="btn btn-active">
                         ACTIVE
                       </button>
                     </td>
@@ -69,8 +65,8 @@ export default () => {
                       <span className="user-name">ADMIN</span>
                     </td>
                     <td className="user-message">
-                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                      sed diam nonumy eirmod
+                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                      eirmod
                     </td>
                     <td className="comm-percentage">1%</td>
                     <td className="rating">
@@ -92,8 +88,8 @@ export default () => {
                       <span className="user-name">FLEET</span>
                     </td>
                     <td className="user-message">
-                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                      sed diam nonumy eirmod
+                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                      eirmod
                     </td>
                     <td className="comm-percentage">1%</td>
                     <td className="rating">
@@ -115,8 +111,8 @@ export default () => {
                       <span className="user-name">VENDOR</span>
                     </td>
                     <td className="user-message">
-                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                      sed diam nonumy eirmod
+                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                      eirmod
                     </td>
                     <td className="comm-percentage">1%</td>
                     <td className="rating">
@@ -138,8 +134,8 @@ export default () => {
                       <span className="user-name">LOCATION MANAGER</span>
                     </td>
                     <td className="user-message">
-                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                      sed diam nonumy eirmod
+                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                      eirmod
                     </td>
                     <td className="comm-percentage">1%</td>
                     <td className="rating">
@@ -161,8 +157,8 @@ export default () => {
                       <span className="user-name">DATA ANALYST</span>
                     </td>
                     <td className="user-message">
-                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                      sed diam nonumy eirmod
+                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                      eirmod
                     </td>
                     <td className="comm-percentage">1%</td>
                     <td className="rating">

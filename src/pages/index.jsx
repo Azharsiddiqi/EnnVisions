@@ -1,19 +1,19 @@
-import React from "react";
-import Routes from "./routes.jsx";
+import React from 'react';
+import Routes from './routes.jsx';
 
 // Components Import
-import HeaderMobile from "../components/common/HeaderMobile.jsx";
-import Sidebar from "../components/common/Sidebar.jsx";
-import Header from "../components/common/Header.jsx";
-import UserPanel from "../components/Dashboard/UserPanel.jsx";
-import QuickCart from "../components/Dashboard/QuickCart.jsx";
-import QuickPanel from "../components/Dashboard/QuickPanel.jsx";
-import ChatPanel from "../components/Dashboard/ChatPanel.jsx";
-import ScrollToTop from "../components/Dashboard/ScrollToTop.jsx";
-import DemoPanel from "../components/Dashboard/DemoPanel.jsx";
-import SubHeader from "../components/common/SubHeader.jsx";
+import HeaderMobile from '../components/common/HeaderMobile.jsx';
+import Sidebar from '../components/common/Sidebar.jsx';
+import Header from '../components/common/Header.jsx';
+import UserPanel from '../components/Dashboard/UserPanel.jsx';
+import QuickCart from '../components/Dashboard/QuickCart.jsx';
+import QuickPanel from '../components/Dashboard/QuickPanel.jsx';
+import ChatPanel from '../components/Dashboard/ChatPanel.jsx';
+import ScrollToTop from '../components/Dashboard/ScrollToTop.jsx';
+import DemoPanel from '../components/Dashboard/DemoPanel.jsx';
+import SubHeader from '../components/common/SubHeader.jsx';
 
-export default ({ menu, subMenu }) => {
+export default ({menu, subMenu}) => {
   return (
     <React.Fragment>
       <div>
@@ -28,19 +28,13 @@ export default ({ menu, subMenu }) => {
             <Sidebar />
             {/* end::Aside */}
             {/* begin::Wrapper */}
-            <div
-              className="d-flex flex-column flex-row-fluid wrapper"
-              id="kt_wrapper"
-            >
+            <div className="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
               {/* begin::Header */}
               <Header />
               {/* end::Header */}
 
               {/* begin::Content */}
-              <div
-                className="content  d-flex flex-column flex-column-fluid"
-                id="kt_content"
-              >
+              <div className="content  d-flex flex-column flex-column-fluid" id="kt_content">
                 {/* begin::Subheader */}
                 <SubHeader menu={menu} subMenu={subMenu} />
                 {/* end::Subheader */}

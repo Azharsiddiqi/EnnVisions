@@ -1,35 +1,41 @@
-import React, { useState } from "react";
-import { Route } from "react-router-dom";
-import { PRIVATE_ROUTES } from "../config";
+import React, {useState} from 'react';
+import {Route} from 'react-router-dom';
+import {PRIVATE_ROUTES} from '../config';
 
-import Index from "./Dashboard/dashboard.jsx";
+import Index from './Dashboard/dashboard.jsx';
 // start: ROLES Import
-import AddNewRoles from "./UserRoles/addNewRoles";
-import CreateRegistrationForm from "./UserRoles/createRegistrationForm";
-import UserRoleList from "./UserRoles/userRolesList";
+import AddNewRoles from './UserRoles/addNewRoles';
+import CreatePermissions from './UserRoles/createPermissions';
+import CreateRegistrationForm from './UserRoles/createRegistrationForm';
+import UserRoleList from './UserRoles/userRolesList';
+import SuperAdmin from './UserRoles/superAdmin';
+import AdminManagePer from './UserRoles/adminManagePer';
 // start: ADMIN Import
-import CreateAdmin from "./AdminManage/createAdmin";
-import AdminDetail from "./AdminManage/adminDetail";
+import CreateAdmin from './AdminManage/createAdmin';
+import AdminDetail from './AdminManage/adminDetail';
 // start: FLEET Import
-import CreateFleet from "./FleetManage/createFleet";
-import FleetDetail from "./FleetManage/fleetDetail";
+import CreateFleet from './FleetManage/createFleet';
+import FleetDetail from './FleetManage/fleetDetail';
 // start: DISPATCHER Import
-import CreateDispatcher from "./DispatcherManage/createDispatcher";
-import DispatcherDetail from "./DispatcherManage/dispatcherDetail";
+import CreateDispatcher from './DispatcherManage/createDispatcher';
+import DispatcherDetail from './DispatcherManage/dispatcherDetail';
 // start: VENDOR Import
-import CreateVendor from "./VendorManage/createVendor";
-import VendorDetail from "./VendorManage/vendorDetail";
-import VendorList from "./VendorManage/vendorList";
-import VendorOutlets from "./VendorManage/OutLets/vendorOutlets";
-import OutLetsDetail from "./VendorManage/OutLets/outLetsDetail";
-import EditOutLets from "./VendorManage/OutLets/editOutLets";
-import HelperList from "./VendorManage/helperList";
+import CreateVendor from './VendorManage/createVendor';
+import VendorDetail from './VendorManage/vendorDetail';
+import VendorList from './VendorManage/vendorList';
+import VendorOutlets from './VendorManage/OutLets/vendorOutlets';
+import OutLetsDetail from './VendorManage/OutLets/outLetsDetail';
+import EditOutLets from './VendorManage/OutLets/editOutLets';
+import HelperList from './VendorManage/helperList';
+import OutLetDetail from './VendorManage/OutLets/outLetDetail';
+// start: MAIN CATEGORIES
+import AddNewCategory from './MainCategories/addNewCategory';
 
 export default () => {
   const [routes] = useState([
-    { path: PRIVATE_ROUTES.dashboard.path, component: Index },
+    {path: PRIVATE_ROUTES.dashboard.path, component: Index},
 
-    { path: PRIVATE_ROUTES.userRoles.addNewRole.path, component: AddNewRoles },
+    {path: PRIVATE_ROUTES.userRoles.addNewRole.path, component: AddNewRoles},
     {
       path: PRIVATE_ROUTES.userRoles.createRegistrationForm.path,
       component: CreateRegistrationForm,
@@ -40,6 +46,19 @@ export default () => {
     },
 
     {
+      path: PRIVATE_ROUTES.userRoles.createPermissions.path,
+      component: CreatePermissions,
+    },
+    {
+      path: PRIVATE_ROUTES.userRoles.superAdmin.path,
+      component: SuperAdmin,
+    },
+    {
+      path: PRIVATE_ROUTES.userRoles.adminManagePer.path,
+      component: AdminManagePer,
+    },
+
+    {
       path: PRIVATE_ROUTES.adminManage.createAdmin.path,
       component: CreateAdmin,
     },
@@ -47,13 +66,13 @@ export default () => {
       path: PRIVATE_ROUTES.adminManage.adminDetail.path,
       component: AdminDetail,
     },
-    { path: PRIVATE_ROUTES.adminManage.editAdmin.path, component: CreateAdmin },
+    {path: PRIVATE_ROUTES.adminManage.editAdmin.path, component: CreateAdmin},
 
     {
       path: PRIVATE_ROUTES.fleetManage.createFleet.path,
       component: CreateFleet,
     },
-    { path: PRIVATE_ROUTES.fleetManage.editFleet.path, component: CreateFleet },
+    {path: PRIVATE_ROUTES.fleetManage.editFleet.path, component: CreateFleet},
     {
       path: PRIVATE_ROUTES.fleetManage.fleetDetail.path,
       component: FleetDetail,
@@ -104,11 +123,23 @@ export default () => {
       path: PRIVATE_ROUTES.vendorManage.helperList.path,
       component: HelperList,
     },
+    {
+      path: PRIVATE_ROUTES.vendorManage.outLetDetail.path,
+      component: OutLetDetail,
+    },
+    {
+      path: PRIVATE_ROUTES.vendorManage.outLetDetail.path,
+      component: OutLetDetail,
+    },
+    {
+      path: PRIVATE_ROUTES.mainCategories.addNewCategory.path,
+      component: AddNewCategory,
+    },
   ]);
 
   return (
     <>
-      {routes.map(({ path, component }, index) => (
+      {routes.map(({path, component}, index) => (
         <Route exact key={index} path={path} component={component} />
       ))}
     </>

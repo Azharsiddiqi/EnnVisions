@@ -1,6 +1,6 @@
-import React from "react";
-import { useHistory, Link } from "react-router-dom";
-import { PRIVATE_ROUTES } from "../../config";
+import React from 'react';
+import {useHistory, Link} from 'react-router-dom';
+import {PRIVATE_ROUTES} from '../../config';
 
 export default () => {
   const history = useHistory();
@@ -9,9 +9,7 @@ export default () => {
       {/* begin::Container */}
       <div className=" container ">
         <div className="vendor-body">
-          <button className="btn create-vendor-made-inactive-btn">
-            MADE INACTIVE?
-          </button>
+          <button className="btn create-vendor-made-inactive-btn">MADE INACTIVE?</button>
           <div className="create-vendor-info">
             <form action="#" method="post">
               <div className="row">
@@ -209,9 +207,7 @@ export default () => {
                   </div>
                 </div>
                 <div className="col-xl-5">
-                  <label className="label-country">
-                    Company Registration Number (SSM)
-                  </label>
+                  <label className="label-country">Company Registration Number (SSM)</label>
                   <div className="form-group country-names">
                     <select className="form-control">
                       <option>201901000005 (1312525-A</option>
@@ -235,9 +231,7 @@ export default () => {
                       </div>
                     </div>
                     <div className="col-6">
-                      <label className="label-country">
-                        House delivery services?
-                      </label>
+                      <label className="label-country">House delivery services?</label>
                       <div className="form-group country-names">
                         <select className="form-control">
                           <option>Yes</option>
@@ -588,10 +582,7 @@ export default () => {
                       </div>
                       <div className="col-sm-12 col-md-4">
                         <label className="label-country">&nbsp;</label>
-                        <button
-                          type="button"
-                          className="btn add-time-btn vendor-add-time"
-                        >
+                        <button type="button" className="btn add-time-btn vendor-add-time">
                           ADD TIME
                         </button>
                       </div>
@@ -600,9 +591,7 @@ export default () => {
                       <label className="label-country day-label">Monday</label>
                       <label className="label-time">12:00 AM</label>
                       <label className="label-time">09:00 PM</label>
-                      <label className="mark-label">
-                        Mark this day as closed
-                      </label>
+                      <label className="mark-label">Mark this day as closed</label>
                       <span className="del-container">
                         <img src="assets/images/ic_delete.svg" alt="delete" />
                       </span>
@@ -611,22 +600,16 @@ export default () => {
                       <label className="label-country day-label">Tuesday</label>
                       <label className="label-time">12:00 AM</label>
                       <label className="label-time">09:00 PM</label>
-                      <label className="mark-label">
-                        Mark this day as closed
-                      </label>
+                      <label className="mark-label">Mark this day as closed</label>
                       <span className="del-container">
                         <img src="assets/images/ic_delete.svg" alt="delete" />
                       </span>
                     </div>
                     <div className="time-label-schedule create-vendor-time-label">
-                      <label className="label-country day-label">
-                        Wednesday
-                      </label>
+                      <label className="label-country day-label">Wednesday</label>
                       <label className="label-time">12:00 AM</label>
                       <label className="label-time">09:00 PM</label>
-                      <label className="mark-label">
-                        Mark this day as closed
-                      </label>
+                      <label className="mark-label">Mark this day as closed</label>
                       <span className="del-container">
                         <img src="assets/images/ic_delete.svg" alt="delete" />
                       </span>
@@ -647,7 +630,7 @@ export default () => {
                       <iframe
                         title="Map"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2602.344082631407!2d-123.1133149490098!3d49.28882477923052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5486719d24e2e021%3A0xb7057fe085c86109!2sCanada%20Place!5e0!3m2!1sen!2s!4v1601402609000!5m2!1sen!2s"
-                        style={{ border: 0, width: "100%" }}
+                        style={{border: 0, width: '100%'}}
                         allowFullScreen
                         width={600}
                         height={450}
@@ -659,19 +642,16 @@ export default () => {
               </div>
               <div className="create-vendor-submit mt-15">
                 <button
-                  onClick={() =>
-                    history.push(PRIVATE_ROUTES.vendorManage.vendorList.path)
-                  }
+                  onClick={() => history.push(PRIVATE_ROUTES.dashboard.path)}
                   className="btn"
                   type="button"
                 >
                   SUBMIT
                 </button>
                 <div className="privacy-text">
-                  By proceeding, I agree that you can collect, use and disclose
-                  the information provided by me in accordance with your{" "}
-                  <Link to="#">Privacy Policy</Link> which I have read and
-                  understand
+                  By proceeding, I agree that you can collect, use and disclose the information
+                  provided by me in accordance with your <Link to="#">Privacy Policy</Link> which I
+                  have read and understand
                 </div>
               </div>
             </form>

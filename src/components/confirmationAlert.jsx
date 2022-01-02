@@ -1,7 +1,7 @@
-import React from "react";
-import { Modal } from "react-bootstrap";
+import React from 'react';
+import {Modal} from 'react-bootstrap';
 
-export default ({ show, handleClose }) => {
+export default ({show, handleClose}) => {
   return (
     <Modal centered show={show} onHide={handleClose}>
       <div className="page12-custom">
@@ -9,20 +9,16 @@ export default ({ show, handleClose }) => {
           <div className="logo-body-text">
             <img src="assets/images/ic-logo.svg" alt="Envision" />
             <p>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+              invidunt ut labore et dolore magna
             </p>
           </div>
           <div className="btn-container">
-            <button
-              onClick={handleClose}
-              type="button"
-              className="btn cancelBtn"
-            >
-              CANCEL
-            </button>
             <button onClick={handleClose} type="button" className="btn yesBtn">
               YES!
+            </button>
+            <button onClick={handleClose} type="button" className="btn cancelBtn">
+              CANCEL
             </button>
           </div>
         </div>
