@@ -35,6 +35,14 @@ export const privateRoutes = [
   PRIVATE_ROUTES.vendorManage.outLetDetail,
   PRIVATE_ROUTES.driverManage.createDriver,
   PRIVATE_ROUTES.driverManage.createDriver,
-  PRIVATE_ROUTES.mainCategories.addNewCategory,
-
+  PRIVATE_ROUTES.mainCategories.businessCategory,
+  PRIVATE_ROUTES.mainCategories.businessType,
+  PRIVATE_ROUTES.mainCategories.houseDeliveryService,
+  PRIVATE_ROUTES.mainCategories.openStatus,
+  PRIVATE_ROUTES.mainCategories.alcohol,
+  PRIVATE_ROUTES.mainCategories.whoYouServe,
+  PRIVATE_ROUTES.mainCategories.menuService,
+  PRIVATE_ROUTES.mainCategories.seating,
+  PRIVATE_ROUTES.mainCategories.paymentMethod,
+  PRIVATE_ROUTES.mainCategories.cuisine,
 ];

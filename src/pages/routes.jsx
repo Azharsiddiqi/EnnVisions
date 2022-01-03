@@ -29,7 +29,16 @@ import EditOutLets from './VendorManage/OutLets/editOutLets';
 import HelperList from './VendorManage/helperList';
 import OutLetDetail from './VendorManage/OutLets/outLetDetail';
 // start: MAIN CATEGORIES
-import AddNewCategory from './MainCategories/addNewCategory';
+import Alcohol from './MainCategories/alcohol';
+import BusinessCategory from './MainCategories/businessCategory';
+import BusinessType from './MainCategories/businessType';
+import Cuisine from './MainCategories/cuisine';
+import HouseDeliveryService from './MainCategories/houseDeliveryService';
+import MenuService from './MainCategories/menuService';
+import OpenStatus from './MainCategories/openStatus';
+import PaymentMethod from './MainCategories/paymentMethod';
+import Seating from './MainCategories/seating';
+import WhoYouServe from './MainCategories/whoYouServe';
 
 export default () => {
   const [routes] = useState([
@@ -128,12 +137,44 @@ export default () => {
       component: OutLetDetail,
     },
     {
-      path: PRIVATE_ROUTES.vendorManage.outLetDetail.path,
-      component: OutLetDetail,
+      path: PRIVATE_ROUTES.mainCategories.businessCategory.path,
+      component: BusinessCategory,
     },
     {
-      path: PRIVATE_ROUTES.mainCategories.addNewCategory.path,
-      component: AddNewCategory,
+      path: PRIVATE_ROUTES.mainCategories.businessType.path,
+      component: BusinessType,
+    },
+    {
+      path: PRIVATE_ROUTES.mainCategories.houseDeliveryService.path,
+      component: HouseDeliveryService,
+    },
+    {
+      path: PRIVATE_ROUTES.mainCategories.openStatus.path,
+      component: OpenStatus,
+    },
+    {
+      path: PRIVATE_ROUTES.mainCategories.alcohol.path,
+      component: Alcohol,
+    },
+    {
+      path: PRIVATE_ROUTES.mainCategories.whoYouServe.path,
+      component: WhoYouServe,
+    },
+    {
+      path: PRIVATE_ROUTES.mainCategories.menuService.path,
+      component: MenuService,
+    },
+    {
+      path: PRIVATE_ROUTES.mainCategories.seating.path,
+      component: Seating,
+    },
+    {
+      path: PRIVATE_ROUTES.mainCategories.paymentMethod.path,
+      component: PaymentMethod,
+    },
+    {
+      path: PRIVATE_ROUTES.mainCategories.cuisine.path,
+      component: Cuisine,
     },
   ]);
 

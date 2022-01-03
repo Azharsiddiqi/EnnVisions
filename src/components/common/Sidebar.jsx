@@ -64,7 +64,19 @@ export default () => {
     ) {
       setMainActive('driverManage');
       setSubActive('New Driver');
-    } else if (pathname === mainCategories.addNewCategory.path) {
+    } else if (
+      pathname === mainCategories.businessCategory.path ||
+      pathname === mainCategories.businessType.path ||
+      pathname === mainCategories.houseDeliveryService.path ||
+      pathname === mainCategories.businessType.path ||
+      pathname === mainCategories.openStatus.path ||
+      pathname === mainCategories.alcohol.path ||
+      pathname === mainCategories.whoYouServe.path ||
+      pathname === mainCategories.menuService.path ||
+      pathname === mainCategories.seating.path ||
+      pathname === mainCategories.paymentMethod.path ||
+      pathname === mainCategories.cuisine.path
+    ) {
       setMainActive('mainCategories');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -209,7 +221,8 @@ export default () => {
                       <span className="menu-text">Create New</span>
                     </Link>
                   </li>
-                  <li  className={`menu-item ${
+                  <li
+                    className={`menu-item ${
                       pathname === adminManage.adminDetail.path ? 'menu-item-active' : ''
                     }`}>
                     <Link to={adminManage.adminDetail.path} className="menu-link">
@@ -1842,508 +1855,124 @@ export default () => {
                 <ul className="menu-subnav">
                   <li
                     className={`menu-item ${
-                      pathname === mainCategories.addNewCategory.path ? 'menu-item-active' : ''
+                      pathname === mainCategories.businessCategory.path ? 'menu-item-active' : ''
                     }`}>
-                    <Link to={mainCategories.addNewCategory.path} className="menu-link">
-                      <i className="menu-bullet menu-bullet-line">
-                        <span />
-                      </i>
-                      <span className="menu-text">Add New Category</span>
-                    </Link>
-                  </li>
-                  <li
-                    className="menu-item  menu-item-submenu"
-                    aria-haspopup="true"
-                    data-menu-toggle="hover">
-                    <Link to="/" className="menu-link menu-toggle">
+                    <Link to={mainCategories.businessCategory.path} className="menu-link">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
                       <span className="menu-text">Business Category</span>
-                      <i className="menu-arrow" />
                     </Link>
-                    <div className="menu-submenu ">
-                      <i className="menu-arrow" />
-                      <ul className="menu-subnav">
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link
-                            to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">List - Columns 1</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link
-                            to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">List - Columns 2</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link
-                            to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">List - Columns 3</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link
-                            to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">List - Columns 4</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link
-                            to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">List - Datatable</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">View Project</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Add Project</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Edit Project</span>
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>{' '}
+                  </li>
+
                   <li
-                    className="menu-item  menu-item-submenu"
-                    aria-haspopup="true"
-                    data-menu-toggle="hover">
-                    <Link to="/" className="menu-link menu-toggle">
+                    className={`menu-item ${
+                      pathname === mainCategories.businessType.path ? 'menu-item-active' : ''
+                    }`}>
+                    <Link to={mainCategories.businessType.path} className="menu-link">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
                       <span className="menu-text">Business Type</span>
-                      <i className="menu-arrow" />
                     </Link>
-                    <div className="menu-submenu ">
-                      <i className="menu-arrow" />
-                      <ul className="menu-subnav">
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Home 1</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Home 2</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">FAQ 1</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">FAQ 2</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">FAQ 3</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link
-                            to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Feedback</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">License</span>
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
                   </li>
+
                   <li
-                    className="menu-item  menu-item-submenu"
-                    aria-haspopup="true"
-                    data-menu-toggle="hover">
-                    <Link to="/" className="menu-link menu-toggle">
+                    className={`menu-item ${
+                      pathname === mainCategories.houseDeliveryService.path
+                        ? 'menu-item-active'
+                        : ''
+                    }`}>
+                    <Link to={mainCategories.houseDeliveryService.path} className="menu-link">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
-                      <span className="menu-text">House delivery Service</span>
-                      <i className="menu-arrow" />
+                      <span className="menu-text">House Delivery Service </span>
                     </Link>
-                    <div className="menu-submenu ">
-                      <i className="menu-arrow" />
-                      <ul className="menu-subnav">
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Private</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Group</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Popup</span>
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
                   </li>
+
                   <li
-                    className="menu-item  menu-item-submenu"
-                    aria-haspopup="true"
-                    data-menu-toggle="hover">
-                    <Link to="/" className="menu-link menu-toggle">
+                    className={`menu-item ${
+                      pathname === mainCategories.openStatus.path ? 'menu-item-active' : ''
+                    }`}>
+                    <Link to={mainCategories.openStatus.path} className="menu-link">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
-                      <span className="menu-text">Open Status</span>
-                      <i className="menu-arrow" />
+                      <span className="menu-text">Open Status </span>
                     </Link>
-                    <div className="menu-submenu ">
-                      <i className="menu-arrow" />
-                      <ul className="menu-subnav">
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Private</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Group</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Popup</span>
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
                   </li>
+
                   <li
-                    className="menu-item  menu-item-submenu"
-                    aria-haspopup="true"
-                    data-menu-toggle="hover">
-                    <Link to="/" className="menu-link menu-toggle">
+                    className={`menu-item ${
+                      pathname === mainCategories.alcohol.path ? 'menu-item-active' : ''
+                    }`}>
+                    <Link to={mainCategories.alcohol.path} className="menu-link">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
-                      <span className="menu-text">Alcohol</span>
-                      <i className="menu-arrow" />
+                      <span className="menu-text">Alcohol </span>
                     </Link>
-                    <div className="menu-submenu ">
-                      <i className="menu-arrow" />
-                      <ul className="menu-subnav">
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Private</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Group</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Popup</span>
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
                   </li>
+
                   <li
-                    className="menu-item  menu-item-submenu"
-                    aria-haspopup="true"
-                    data-menu-toggle="hover">
-                    <Link to="/" className="menu-link menu-toggle">
+                    className={`menu-item ${
+                      pathname === mainCategories.whoYouServe.path ? 'menu-item-active' : ''
+                    }`}>
+                    <Link to={mainCategories.whoYouServe.path} className="menu-link">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
-                      <span className="menu-text">Who You Serve</span>
-                      <i className="menu-arrow" />
+                      <span className="menu-text">Who You Serve </span>
                     </Link>
-                    <div className="menu-submenu ">
-                      <i className="menu-arrow" />
-                      <ul className="menu-subnav">
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Private</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Group</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Popup</span>
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
                   </li>
+
                   <li
-                    className="menu-item  menu-item-submenu"
-                    aria-haspopup="true"
-                    data-menu-toggle="hover">
-                    <Link to="/" className="menu-link menu-toggle">
+                    className={`menu-item ${
+                      pathname === mainCategories.menuService.path ? 'menu-item-active' : ''
+                    }`}>
+                    <Link to={mainCategories.menuService.path} className="menu-link">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
-                      <span className="menu-text">Menu Service</span>
-                      <i className="menu-arrow" />
+                      <span className="menu-text">Menu Service </span>
                     </Link>
-                    <div className="menu-submenu ">
-                      <i className="menu-arrow" />
-                      <ul className="menu-subnav">
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Private</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Group</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Popup</span>
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
                   </li>
+
                   <li
-                    className="menu-item  menu-item-submenu"
-                    aria-haspopup="true"
-                    data-menu-toggle="hover">
-                    <Link to="/" className="menu-link menu-toggle">
+                    className={`menu-item ${
+                      pathname === mainCategories.seating.path ? 'menu-item-active' : ''
+                    }`}>
+                    <Link to={mainCategories.seating.path} className="menu-link">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
-                      <span className="menu-text">Seating</span>
-                      <i className="menu-arrow" />
+                      <span className="menu-text">Seating </span>
                     </Link>
-                    <div className="menu-submenu ">
-                      <i className="menu-arrow" />
-                      <ul className="menu-subnav">
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Private</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Group</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Popup</span>
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
                   </li>
+
                   <li
-                    className="menu-item  menu-item-submenu"
-                    aria-haspopup="true"
-                    data-menu-toggle="hover">
-                    <Link to="/" className="menu-link menu-toggle">
+                    className={`menu-item ${
+                      pathname === mainCategories.paymentMethod.path ? 'menu-item-active' : ''
+                    }`}>
+                    <Link to={mainCategories.paymentMethod.path} className="menu-link">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
-                      <span className="menu-text">Payment Mothed</span>
-                      <i className="menu-arrow" />
+                      <span className="menu-text">Patment Method </span>
                     </Link>
-                    <div className="menu-submenu ">
-                      <i className="menu-arrow" />
-                      <ul className="menu-subnav">
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Private</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Group</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Popup</span>
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
                   </li>
+
                   <li
-                    className="menu-item  menu-item-submenu"
-                    aria-haspopup="true"
-                    data-menu-toggle="hover">
-                    <Link to="/" className="menu-link menu-toggle">
+                    className={`menu-item ${
+                      pathname === mainCategories.cuisine.path ? 'menu-item-active' : ''
+                    }`}>
+                    <Link to={mainCategories.cuisine.path} className="menu-link">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
-                      <span className="menu-text">Cuisine</span>
-                      <i className="menu-arrow" />
+                      <span className="menu-text">Cuisine </span>
                     </Link>
-                    <div className="menu-submenu ">
-                      <i className="menu-arrow" />
-                      <ul className="menu-subnav">
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Private</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Group</span>
-                          </Link>
-                        </li>
-                        <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Popup</span>
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
                   </li>
                 </ul>
               </div>
