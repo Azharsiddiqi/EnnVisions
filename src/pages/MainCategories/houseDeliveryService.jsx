@@ -1,6 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {useDispatch} from 'react-redux';
+import {ACTION_addHouseDelivery} from '../../store/mainCategory/actions';
 
 export default () => {
+  const dispatch = useDispatch();
+
+  // begin item states
+  const [itemName, setItemName] = useState('');
+  const [itemDescription, setItemDescription] = useState('');
+  const [itemStatus, setItemStatus] = useState(1); // 0 mean false and 1 mean true
+
+  const addNewItemHandler = () => {
+    if (!itemName || itemName === '') return;
+    const reqPacket = {
+      name: itemName,
+      description: itemDescription,
+      status: itemStatus === 1 ? true : false,
+    };
+    console.log('checking reqPacket: ', reqPacket);
+    dispatch(ACTION_addHouseDelivery(reqPacket));
+  };
+
   return (
     <div>
       <div className="d-flex flex-column-fluid">
@@ -169,24 +189,18 @@ export default () => {
                     </thead>
                     <tbody>
                       <tr>
-                        <td scope="col" className="pg-14-id">
+                        <td className="pg-14-id">
                           <b>1</b>
                         </td>
-                        <td scope="col" className="pg-14-name">
-                          Chicken Karaage
-                        </td>
-                        <td scope="col" className="pg-14-name">
-                          For Only Food
-                        </td>
-                        <td scope="col" className="pg-14-name">
-                          ACTIVE
-                        </td>
-                        <td scope="col" className="td-action-icon">
+                        <td className="pg-14-name">Chicken Karaage</td>
+                        <td className="pg-14-name">For Only Food</td>
+                        <td className="pg-14-name">ACTIVE</td>
+                        <td className="td-action-icon">
                           <span
                             className="del-icon"
                             data-toggle="modal"
                             data-target="#exampleModal">
-                            <img src="assets/images/new-delete.svg" />
+                            <img src="assets/images/new-delete.svg" alt="" />
                           </span>
                           {/* Modal */}
                           <div
@@ -199,7 +213,7 @@ export default () => {
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
-                                  <img src="assets/images/ic-logo.svg" />
+                                  <img src="assets/images/ic-logo.svg" alt="" />
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
@@ -222,29 +236,23 @@ export default () => {
                             </div>
                           </div>
                           <span className="ic-edit">
-                            <img src="assets/images/new-edit.svg" />
+                            <img src="assets/images/new-edit.svg" alt="" />
                           </span>
                         </td>
                       </tr>
                       <tr>
-                        <td scope="col" className="pg-14-id">
+                        <td className="pg-14-id">
                           <b>1</b>
                         </td>
-                        <td scope="col" className="pg-14-name">
-                          8. Small Boat
-                        </td>
-                        <td scope="col" className="pg-14-name">
-                          For Only Food
-                        </td>
-                        <td scope="col" className="pg-14-name">
-                          ACTIVE
-                        </td>
-                        <td scope="col" className="td-action-icon">
+                        <td className="pg-14-name">8. Small Boat</td>
+                        <td className="pg-14-name">For Only Food</td>
+                        <td className="pg-14-name">ACTIVE</td>
+                        <td className="td-action-icon">
                           <span
                             className="del-icon"
                             data-toggle="modal"
                             data-target="#exampleModal">
-                            <img src="assets/images/new-delete.svg" />
+                            <img src="assets/images/new-delete.svg" alt="" />
                           </span>
                           {/* Modal */}
                           <div
@@ -257,7 +265,7 @@ export default () => {
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
-                                  <img src="assets/images/ic-logo.svg" />
+                                  <img src="assets/images/ic-logo.svg" alt="" />
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
@@ -280,29 +288,23 @@ export default () => {
                             </div>
                           </div>
                           <span className="ic-edit">
-                            <img src="assets/images/new-edit.svg" />
+                            <img src="assets/images/new-edit.svg" alt="" />
                           </span>
                         </td>
                       </tr>
                       <tr>
-                        <td scope="col" className="pg-14-id">
+                        <td className="pg-14-id">
                           <b>1</b>
                         </td>
-                        <td scope="col" className="pg-14-name">
-                          Spicy Salmon Roll
-                        </td>
-                        <td scope="col" className="pg-14-name">
-                          For Only Food
-                        </td>
-                        <td scope="col" className="pg-14-name">
-                          ACTIVE
-                        </td>
-                        <td scope="col" className="td-action-icon">
+                        <td className="pg-14-name">Spicy Salmon Roll</td>
+                        <td className="pg-14-name">For Only Food</td>
+                        <td className="pg-14-name">ACTIVE</td>
+                        <td className="td-action-icon">
                           <span
                             className="del-icon"
                             data-toggle="modal"
                             data-target="#exampleModal">
-                            <img src="assets/images/new-delete.svg" />
+                            <img src="assets/images/new-delete.svg" alt="" />
                           </span>
                           {/* Modal */}
                           <div
@@ -315,7 +317,7 @@ export default () => {
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
-                                  <img src="assets/images/ic-logo.svg" />
+                                  <img src="assets/images/ic-logo.svg" alt="" />
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
@@ -338,29 +340,23 @@ export default () => {
                             </div>
                           </div>
                           <span className="ic-edit">
-                            <img src="assets/images/new-edit.svg" />
+                            <img src="assets/images/new-edit.svg" alt="" />
                           </span>
                         </td>
                       </tr>
                       <tr>
-                        <td scope="col" className="pg-14-id">
+                        <td className="pg-14-id">
                           <b>1</b>
                         </td>
-                        <td scope="col" className="pg-14-name">
-                          Soup and Salad
-                        </td>
-                        <td scope="col" className="pg-14-name">
-                          For Only Food
-                        </td>
-                        <td scope="col" className="pg-14-name">
-                          ACTIVE
-                        </td>
-                        <td scope="col" className="td-action-icon">
+                        <td className="pg-14-name">Soup and Salad</td>
+                        <td className="pg-14-name">For Only Food</td>
+                        <td className="pg-14-name">ACTIVE</td>
+                        <td className="td-action-icon">
                           <span
                             className="del-icon"
                             data-toggle="modal"
                             data-target="#exampleModal">
-                            <img src="assets/images/new-delete.svg" />
+                            <img src="assets/images/new-delete.svg" alt="" />
                           </span>
                           {/* Modal */}
                           <div
@@ -373,7 +369,7 @@ export default () => {
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
-                                  <img src="assets/images/ic-logo.svg" />
+                                  <img src="assets/images/ic-logo.svg" alt="" />
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
@@ -396,46 +392,49 @@ export default () => {
                             </div>
                           </div>
                           <span className="ic-edit">
-                            <img src="assets/images/new-edit.svg" />
+                            <img src="assets/images/new-edit.svg" alt="" />
                           </span>
                         </td>
                       </tr>
                       <tr>
-                        <td scope="col" className="pg-14-id">
-                          <b>1</b>
-                        </td>
-                        <td scope="col" className="pg-14-name">
+                        <td className="pg-14-id"></td>
+                        <td className="pg-14-name">
                           <div className="form-group">
                             <input
                               type="text"
-                              name="text"
                               placeholder="Item name"
                               className="form-control"
+                              value={itemName}
+                              onChange={(e) => setItemName(e.target.value)}
                             />
                           </div>
                         </td>
-                        <td scope="col" className="pg-14-name">
+                        <td className="pg-14-name">
                           <div className="form-group">
                             <input
                               type="text"
-                              name="text"
                               placeholder="Details"
                               className="form-control"
+                              value={itemDescription}
+                              onChange={(e) => setItemDescription(e.target.value)}
                             />
                           </div>
                         </td>
-                        <td scope="col" className="pg-14-name">
+                        <td className="pg-14-name">
                           <div className="form-group">
-                            <select className="form-control">
-                              <option value="active">ACTIVE</option>
-                              <option value="inactive">IN-ACTIVE</option>
-                              <option value="active">ACTIVE</option>
-                              <option value="inactive">IN-ACTIVE</option>
+                            <select
+                              className="form-control"
+                              value={itemStatus}
+                              onChange={(e) => setItemStatus(e.target.value)}>
+                              <option value={1}>ACTIVE</option>
+                              <option value={0}>IN-ACTIVE</option>
                             </select>
                           </div>
                         </td>
-                        <td scope="col" className="td-action-icon">
-                          <span className="plus-sign">+ Add</span>
+                        <td className="td-action-icon">
+                          <span onClick={addNewItemHandler} className="plus-sign add-button">
+                            + Add
+                          </span>
                         </td>
                       </tr>
                     </tbody>

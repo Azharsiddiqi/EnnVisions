@@ -8,9 +8,9 @@ export default function () {
         <div className=" container ">
           <div className="vendor-body page-12-content">
             <div className="edit-delete-form">
-              <a href="#" data-toggle="modal" data-target="#exampleModal">
+              <link to="#" data-toggle="modal" data-target="#exampleModal">
                 <img src="assets/images/ic_delete_white.svg" alt="" />
-              </a>
+              </link>
               <a href="create-fleet.html">
                 <img src="assets/images/ic_edit_white.svg" alt="" />
               </a>
@@ -371,8 +371,7 @@ export default function () {
                     <label className="label-country">Timings</label>
                     <div
                       className="form-group timing-container"
-                      id="timing-container-content create-vendor-timing"
-                    >
+                      id="timing-container-content create-vendor-timing">
                       {/* <div className="row" id="who-serve-options">
                   <div className="col-sm-6 col-md-2">
                     <div className="form-group">
@@ -581,8 +580,7 @@ export default function () {
                           allowFullScreen
                           width={600}
                           height={450}
-                          frameBorder={0}
-                        ></iframe>
+                          frameBorder={0}></iframe>
                       </div>
                     </div>
                   </div>

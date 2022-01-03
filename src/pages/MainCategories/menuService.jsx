@@ -169,24 +169,18 @@ export default () => {
                     </thead>
                     <tbody>
                       <tr>
-                        <td scope="col" className="pg-14-id">
+                        <td className="pg-14-id">
                           <b>1</b>
                         </td>
-                        <td scope="col" className="pg-14-name">
-                          Chicken Karaage
-                        </td>
-                        <td scope="col" className="pg-14-name">
-                          For Only Food
-                        </td>
-                        <td scope="col" className="pg-14-name">
-                          ACTIVE
-                        </td>
-                        <td scope="col" className="td-action-icon">
+                        <td className="pg-14-name">Chicken Karaage</td>
+                        <td className="pg-14-name">For Only Food</td>
+                        <td className="pg-14-name">ACTIVE</td>
+                        <td className="td-action-icon">
                           <span
                             className="del-icon"
                             data-toggle="modal"
                             data-target="#exampleModal">
-                            <img src="assets/images/new-delete.svg" />
+                            <img src="assets/images/new-delete.svg" alt="" />
                           </span>
                           {/* Modal */}
                           <div
@@ -199,7 +193,7 @@ export default () => {
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
-                                  <img src="assets/images/ic-logo.svg" />
+                                  <img src="assets/images/ic-logo.svg" alt="" />
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
@@ -222,29 +216,23 @@ export default () => {
                             </div>
                           </div>
                           <span className="ic-edit">
-                            <img src="assets/images/new-edit.svg" />
+                            <img src="assets/images/new-edit.svg" alt="" />
                           </span>
                         </td>
                       </tr>
                       <tr>
-                        <td scope="col" className="pg-14-id">
+                        <td className="pg-14-id">
                           <b>1</b>
                         </td>
-                        <td scope="col" className="pg-14-name">
-                          8. Small Boat
-                        </td>
-                        <td scope="col" className="pg-14-name">
-                          For Only Food
-                        </td>
-                        <td scope="col" className="pg-14-name">
-                          ACTIVE
-                        </td>
-                        <td scope="col" className="td-action-icon">
+                        <td className="pg-14-name">8. Small Boat</td>
+                        <td className="pg-14-name">For Only Food</td>
+                        <td className="pg-14-name">ACTIVE</td>
+                        <td className="td-action-icon">
                           <span
                             className="del-icon"
                             data-toggle="modal"
                             data-target="#exampleModal">
-                            <img src="assets/images/new-delete.svg" />
+                            <img src="assets/images/new-delete.svg" alt="" />
                           </span>
                           {/* Modal */}
                           <div
@@ -257,7 +245,7 @@ export default () => {
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
-                                  <img src="assets/images/ic-logo.svg" />
+                                  <img src="assets/images/ic-logo.svg" alt="" />
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
@@ -280,29 +268,23 @@ export default () => {
                             </div>
                           </div>
                           <span className="ic-edit">
-                            <img src="assets/images/new-edit.svg" />
+                            <img src="assets/images/new-edit.svg" alt="" />
                           </span>
                         </td>
                       </tr>
                       <tr>
-                        <td scope="col" className="pg-14-id">
+                        <td className="pg-14-id">
                           <b>1</b>
                         </td>
-                        <td scope="col" className="pg-14-name">
-                          Spicy Salmon Roll
-                        </td>
-                        <td scope="col" className="pg-14-name">
-                          For Only Food
-                        </td>
-                        <td scope="col" className="pg-14-name">
-                          ACTIVE
-                        </td>
-                        <td scope="col" className="td-action-icon">
+                        <td className="pg-14-name">Spicy Salmon Roll</td>
+                        <td className="pg-14-name">For Only Food</td>
+                        <td className="pg-14-name">ACTIVE</td>
+                        <td className="td-action-icon">
                           <span
                             className="del-icon"
                             data-toggle="modal"
                             data-target="#exampleModal">
-                            <img src="assets/images/new-delete.svg" />
+                            <img src="assets/images/new-delete.svg" alt="" />
                           </span>
                           {/* Modal */}
                           <div
@@ -315,7 +297,7 @@ export default () => {
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
-                                  <img src="assets/images/ic-logo.svg" />
+                                  <img src="assets/images/ic-logo.svg" alt="" />
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
@@ -338,29 +320,23 @@ export default () => {
                             </div>
                           </div>
                           <span className="ic-edit">
-                            <img src="assets/images/new-edit.svg" />
+                            <img src="assets/images/new-edit.svg" alt="" />
                           </span>
                         </td>
                       </tr>
                       <tr>
-                        <td scope="col" className="pg-14-id">
+                        <td className="pg-14-id">
                           <b>1</b>
                         </td>
-                        <td scope="col" className="pg-14-name">
-                          Soup and Salad
-                        </td>
-                        <td scope="col" className="pg-14-name">
-                          For Only Food
-                        </td>
-                        <td scope="col" className="pg-14-name">
-                          ACTIVE
-                        </td>
-                        <td scope="col" className="td-action-icon">
+                        <td className="pg-14-name">Soup and Salad</td>
+                        <td className="pg-14-name">For Only Food</td>
+                        <td className="pg-14-name">ACTIVE</td>
+                        <td className="td-action-icon">
                           <span
                             className="del-icon"
                             data-toggle="modal"
                             data-target="#exampleModal">
-                            <img src="assets/images/new-delete.svg" />
+                            <img src="assets/images/new-delete.svg" alt="" />
                           </span>
                           {/* Modal */}
                           <div
@@ -373,7 +349,7 @@ export default () => {
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
-                                  <img src="assets/images/ic-logo.svg" />
+                                  <img src="assets/images/ic-logo.svg" alt="" />
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
@@ -396,15 +372,15 @@ export default () => {
                             </div>
                           </div>
                           <span className="ic-edit">
-                            <img src="assets/images/new-edit.svg" />
+                            <img src="assets/images/new-edit.svg" alt="" />
                           </span>
                         </td>
                       </tr>
                       <tr>
-                        <td scope="col" className="pg-14-id">
+                        <td className="pg-14-id">
                           <b>1</b>
                         </td>
-                        <td scope="col" className="pg-14-name">
+                        <td className="pg-14-name">
                           <div className="form-group">
                             <input
                               type="text"
@@ -414,7 +390,7 @@ export default () => {
                             />
                           </div>
                         </td>
-                        <td scope="col" className="pg-14-name">
+                        <td className="pg-14-name">
                           <div className="form-group">
                             <input
                               type="text"
@@ -424,7 +400,7 @@ export default () => {
                             />
                           </div>
                         </td>
-                        <td scope="col" className="pg-14-name">
+                        <td className="pg-14-name">
                           <div className="form-group">
                             <select className="form-control">
                               <option value="active">ACTIVE</option>
@@ -434,7 +410,7 @@ export default () => {
                             </select>
                           </div>
                         </td>
-                        <td scope="col" className="td-action-icon">
+                        <td className="td-action-icon">
                           <span className="plus-sign">+ Add</span>
                         </td>
                       </tr>
