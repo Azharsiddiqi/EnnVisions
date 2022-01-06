@@ -63,6 +63,7 @@ export default () => {
       status: itemStatus === 1 ? true : false,
     };
     dispatch(ACTION_addOpenStatus(reqPacket));
+    resetItem();
   };
   const updateItemHandler = (e) => {
     e.preventDefault();
