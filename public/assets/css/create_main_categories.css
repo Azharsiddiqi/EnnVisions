@@ -96,13 +96,13 @@
 	line-height: 22px;
 }
 
-.create_main_categories .td-action-icon .del-modal .modal-dialog .modal-btn {
+.del-modal .modal-dialog .modal-btn {
 	margin-top: 10px;
 	display: flex;
 	justify-content: space-between;
 }
 
-.create_main_categories .td-action-icon .del-modal .modal-dialog .modal-btn button {
+.del-modal .modal-dialog .modal-btn button {
 	width: 49%;
 	height: 43px;
 	border:none;
@@ -111,12 +111,12 @@
 	font-family: 'Roboto Condensed', sans-serif;
 }
 
-.create_main_categories .td-action-icon .del-modal .modal-dialog .modal-btn button.yes-btn {
+.del-modal .modal-dialog .modal-btn button.yes-btn {
 	background-color: #C7112B;
 	color: #fff;
 }
 
-.create_main_categories .td-action-icon .del-modal .modal-dialog .modal-btn button.cancel-btn {
+.del-modal .modal-dialog .modal-btn button.cancel-btn {
 	background-color: #ECF0F3;
 	color: #1B283F;
 }

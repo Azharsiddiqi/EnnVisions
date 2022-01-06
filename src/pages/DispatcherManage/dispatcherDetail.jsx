@@ -10,7 +10,14 @@ export default () => {
   const handleShow = () => setShow(true);
   return (
     <div className="d-flex flex-column-fluid">
-      <ConfirmationAlert show={show} handleClose={handleClose} />
+      <ConfirmationAlert
+        show={show}
+        description={
+          ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna'
+        }
+        handleSave={handleClose}
+        handleClose={handleClose}
+      />
       {/* begin::Container */}
       <div className=" container ">
         {/* begin::Dashboard */}
@@ -35,8 +42,7 @@ export default () => {
               tabIndex={-1}
               role="dialog"
               aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
+              aria-hidden="true">
               <div className="modal-dialog" role="document">
                 <div className="modal-content">
                   <div className="modal-header">

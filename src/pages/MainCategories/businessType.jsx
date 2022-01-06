@@ -1,15 +1,48 @@
-import React, {useState} from 'react';
-import {useDispatch} from 'react-redux';
-import {ACTION_addNewBusinessType} from '../../store/mainCategory/actions';
+import React, {useState, useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {
+  ACTION_addNewBusinessTypeItem,
+  ACTION_getBusinessTypeItems,
+  ACTION_deleteBusinessTypeItem,
+  ACTION_updateBusinessTypeItem,
+  ACTION_updateBusinessTypeDropdown,
+} from '../../store/mainCategory/actions';
+import Modal from '../../components/confirmationAlert';
+import {Dropdown, DropdownButton} from 'react-bootstrap';
 
 export default () => {
   const dispatch = useDispatch();
-
+  const {businessTypeItems} = useSelector((state) => state.mainCategory);
   // begin item states
   const [itemName, setItemName] = useState('');
   const [itemDescription, setItemDescription] = useState('');
   const [itemStatus, setItemStatus] = useState(1); // 0 mean false and 1 mean true
+  const [deleteItem, setDeleteItem] = useState(null);
+  const [editItem, setEditItem] = useState(null);
+  const [editItemName, setEditItemName] = useState('');
+  const [editItemDescription, setEditItemDescription] = useState('');
+  const [editItemStatus, setEditItemStatus] = useState(1); // 0 mean false and 1 mean true
+  const [show, setShow] = useState(false);
+  // Starting Business Type states
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [isDdisplayTitle, setIsDdisplayTitle] = useState(false);
+  const [isDisplayDescription, setIsDisplayDescription] = useState(false);
+  const [isDropdown, setIsDropdown] = useState(false);
+  const [isCheckBox, setIsCheckBox] = useState(false);
+  const [isMultipleSelection, setIsMultipleSelection] = useState(false);
+  const [isRequired, setIsRequired] = useState(false);
+  const [status, setStatus] = useState(1);
 
+  const handleShow = (_item) => {
+    setDeleteItem(_item);
+    setShow(true);
+  };
+
+  const handleClose = () => {
+    setShow(false);
+    setDeleteItem(null);
+  };
   const addNewItemHandler = () => {
     if (!itemName || itemName === '') return;
     const reqPacket = {
@@ -17,11 +50,32 @@ export default () => {
       description: itemDescription,
       status: itemStatus === 1 ? true : false,
     };
-    console.log('checking reqPacket: ', reqPacket);
-    dispatch(ACTION_addNewBusinessType(reqPacket));
+    dispatch(ACTION_addNewBusinessTypeItem(reqPacket));
   };
+
+  const deleteItemHandler = () => {
+    if (!deleteItem) return;
+    const reqPacket = {
+      id: deleteItem.id,
+    };
+    dispatch(ACTION_deleteBusinessTypeItem(reqPacket));
+    setShow(false);
+    setDeleteItem(null);
+  };
+
+  useEffect(() => {
+    dispatch(ACTION_getBusinessTypeItems());
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div>
+      <Modal
+        show={show}
+        description={`Do you want to delete "${deleteItem?.name}" item!`}
+        handleSave={deleteItemHandler}
+        handleClose={handleClose}
+      />
       <div className="d-flex flex-column-fluid">
         {/*begin::Container*/}
         <div className=" container ">
@@ -187,214 +241,34 @@ export default () => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td className="pg-14-id">
-                          <b>1</b>
-                        </td>
-                        <td className="pg-14-name">Chicken Karaage</td>
-                        <td className="pg-14-name">For Only Food</td>
-                        <td className="pg-14-name">ACTIVE</td>
-                        <td className="td-action-icon">
-                          <span
-                            className="del-icon"
-                            data-toggle="modal"
-                            data-target="#exampleModal">
-                            <img src="assets/images/new-delete.svg" alt="" />
-                          </span>
-                          {/* Modal */}
-                          <div
-                            className="modal fade del-modal"
-                            id="exampleModal"
-                            tabIndex={-1}
-                            role="dialog"
-                            aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div className="modal-dialog" role="document">
-                              <div className="modal-content">
-                                <div className="modal-header">
-                                  <img src="assets/images/ic-logo.svg" alt="" />
-                                </div>
-                                <div className="modal-body">
-                                  <div className="modal-text">
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                                    diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                                  </div>
-                                  <div className="modal-btn">
-                                    <button type="button" className="yes-btn">
-                                      YES!
-                                    </button>
-                                    <button
-                                      type="button"
-                                      data-dismiss="modal"
-                                      className="cancel-btn">
-                                      CANCEL
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <span className="ic-edit">
-                            <img src="assets/images/new-edit.svg" alt="" />
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="pg-14-id">
-                          <b>1</b>
-                        </td>
-                        <td className="pg-14-name">8. Small Boat</td>
-                        <td className="pg-14-name">For Only Food</td>
-                        <td className="pg-14-name">ACTIVE</td>
-                        <td className="td-action-icon">
-                          <span
-                            className="del-icon"
-                            data-toggle="modal"
-                            data-target="#exampleModal">
-                            <img src="assets/images/new-delete.svg" alt="" />
-                          </span>
-                          {/* Modal */}
-                          <div
-                            className="modal fade del-modal"
-                            id="exampleModal"
-                            tabIndex={-1}
-                            role="dialog"
-                            aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div className="modal-dialog" role="document">
-                              <div className="modal-content">
-                                <div className="modal-header">
-                                  <img src="assets/images/ic-logo.svg" alt="" />
-                                </div>
-                                <div className="modal-body">
-                                  <div className="modal-text">
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                                    diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                                  </div>
-                                  <div className="modal-btn">
-                                    <button type="button" className="yes-btn">
-                                      YES!
-                                    </button>
-                                    <button
-                                      type="button"
-                                      data-dismiss="modal"
-                                      className="cancel-btn">
-                                      CANCEL
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <span className="ic-edit">
-                            <img src="assets/images/new-edit.svg" alt="" />
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="pg-14-id">
-                          <b>1</b>
-                        </td>
-                        <td className="pg-14-name">Spicy Salmon Roll</td>
-                        <td className="pg-14-name">For Only Food</td>
-                        <td className="pg-14-name">ACTIVE</td>
-                        <td className="td-action-icon">
-                          <span
-                            className="del-icon"
-                            data-toggle="modal"
-                            data-target="#exampleModal">
-                            <img src="assets/images/new-delete.svg" alt="" />
-                          </span>
-                          {/* Modal */}
-                          <div
-                            className="modal fade del-modal"
-                            id="exampleModal"
-                            tabIndex={-1}
-                            role="dialog"
-                            aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div className="modal-dialog" role="document">
-                              <div className="modal-content">
-                                <div className="modal-header">
-                                  <img src="assets/images/ic-logo.svg" alt="" />
-                                </div>
-                                <div className="modal-body">
-                                  <div className="modal-text">
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                                    diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                                  </div>
-                                  <div className="modal-btn">
-                                    <button type="button" className="yes-btn">
-                                      YES!
-                                    </button>
-                                    <button
-                                      type="button"
-                                      data-dismiss="modal"
-                                      className="cancel-btn">
-                                      CANCEL
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <span className="ic-edit">
-                            <img src="assets/images/new-edit.svg" alt="" />
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="pg-14-id">
-                          <b>1</b>
-                        </td>
-                        <td className="pg-14-name">Soup and Salad</td>
-                        <td className="pg-14-name">For Only Food</td>
-                        <td className="pg-14-name">ACTIVE</td>
-                        <td className="td-action-icon">
-                          <span
-                            className="del-icon"
-                            data-toggle="modal"
-                            data-target="#exampleModal">
-                            <img src="assets/images/new-delete.svg" alt="" />
-                          </span>
-                          {/* Modal */}
-                          <div
-                            className="modal fade del-modal"
-                            id="exampleModal"
-                            tabIndex={-1}
-                            role="dialog"
-                            aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div className="modal-dialog" role="document">
-                              <div className="modal-content">
-                                <div className="modal-header">
-                                  <img src="assets/images/ic-logo.svg" alt="" />
-                                </div>
-                                <div className="modal-body">
-                                  <div className="modal-text">
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                                    diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                                  </div>
-                                  <div className="modal-btn">
-                                    <button type="button" className="yes-btn">
-                                      YES!
-                                    </button>
-                                    <button
-                                      type="button"
-                                      data-dismiss="modal"
-                                      className="cancel-btn">
-                                      CANCEL
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <span className="ic-edit">
-                            <img src="assets/images/new-edit.svg" alt="" />
-                          </span>
-                        </td>
-                      </tr>
+                      {businessTypeItems && businessTypeItems.length
+                        ? businessTypeItems.map((item) => (
+                            <tr>
+                              <td className="pg-14-id">
+                                <b>{item.id}</b>
+                              </td>
+                              <td className="pg-14-name">{item.name}</td>
+                              <td className="pg-14-name">{item.description}</td>
+                              <td className="pg-14-name">
+                                {item.status ? 'ACTIVE' : 'IN ACTIVE'}{' '}
+                              </td>
+                              <td className="td-action-icon">
+                                <span
+                                  onClick={() => handleShow(item)}
+                                  className="del-icon cursor-class"
+                                  data-toggle="modal"
+                                  data-target="#exampleModal">
+                                  <img src="assets/images/new-delete.svg" alt="" />
+                                </span>
+
+                                <span className="ic-edit">
+                                  <img src="assets/images/new-edit.svg" alt="" />
+                                </span>
+                              </td>
+                            </tr>
+                          ))
+                        : ''}
+
                       <tr>
                         <td className="pg-14-id"></td>
                         <td className="pg-14-name">
@@ -424,14 +298,14 @@ export default () => {
                             <select
                               className="form-control"
                               value={itemStatus}
-                              onChange={(e) => setItemStatus(e.target.value)}>
+                              onChange={(e) => setItemStatus(Number(e.target.value))}>
                               <option value={1}>ACTIVE</option>
                               <option value={0}>IN-ACTIVE</option>
                             </select>
                           </div>
                         </td>
                         <td className="td-action-icon">
-                          <span onClick={addNewItemHandler} className="plus-sign add-button">
+                          <span onClick={addNewItemHandler} className="plus-sign cursor-class">
                             + Add
                           </span>
                         </td>
