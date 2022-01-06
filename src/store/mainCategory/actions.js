@@ -157,7 +157,7 @@ export const ACTION_updateBusinessTypeDropdown = (reqPacket) => (dispatch) => {
     .post(BACKEND_BASE_URL + '/api/business/type/updateBusinessTypeDropdown', reqPacket)
     .then((res) => {
       console.log('checking res: ', res);
-      if (res.data.code === 500) {
+      if (res.data.code === 200) {
         dispatch({
           type: actionTypes.UPDATE_BUSINESS_TYPE_DROPDOWN_LIST,
           payload: res.data.result,
@@ -230,7 +230,7 @@ export const ACTION_updateHouseDelivery = (reqPacket) => (dispatch) => {
     .post(BACKEND_BASE_URL + '/api/houseDelivery/option/update', reqPacket)
     .then((res) => {
       console.log('checking res: ', res);
-      if (res.data.code === 201) {
+      if (res.data.code === 200) {
         dispatch({
           type: actionTypes.UPDATE_HOUSE_DELIVERY,
           payload: res.data.result,
@@ -247,7 +247,7 @@ export const ACTION_updateHouseDeliverySetup = (reqPacket) => (dispatch) => {
     .post(BACKEND_BASE_URL + '/api/houseDelivery/updateHouseDeliverySetup', reqPacket)
     .then((res) => {
       console.log('checking res: ', res);
-      if (res.data.code === 201) {
+      if (res.data.code === 200) {
         dispatch({
           type: actionTypes.UPDATE_HOUSE_DELIVERY_SETUP,
           payload: res.data.result,
@@ -320,7 +320,7 @@ export const ACTION_updateOpenStatus = (reqPacket) => (dispatch) => {
     .post(BACKEND_BASE_URL + '/api/opening/status/update', reqPacket)
     .then((res) => {
       console.log('checking res: ', res);
-      if (res.data.code === 500) {
+      if (res.data.code === 200) {
         dispatch({
           type: actionTypes.UPDATE_OPEN_STATUS,
           payload: res.data.result,
@@ -337,7 +337,7 @@ export const ACTION_updateOpeningStatusSetup = (reqPacket) => (dispatch) => {
     .post(BACKEND_BASE_URL + '/api/opening/status/updateOpeningStatusSetup', reqPacket)
     .then((res) => {
       console.log('checking res: ', res);
-      if (res.data.code === 500) {
+      if (res.data.code === 200) {
         dispatch({
           type: actionTypes.UPDATE_OPEN_STATUS_DROPDOWN_LIST,
           payload: res.data.result,
@@ -410,7 +410,7 @@ export const ACTION_updateAlcohol = (reqPacket) => (dispatch) => {
     .post(BACKEND_BASE_URL + '/api/alcohal/option/update', reqPacket)
     .then((res) => {
       console.log('checking res: ', res);
-      if (res.data.code === 500) {
+      if (res.data.code === 200) {
         dispatch({
           type: actionTypes.UPDATE_ALCOHOL,
           payload: res.data.result,
@@ -427,7 +427,7 @@ export const ACTION_updateAlcoholSetup = (reqPacket) => (dispatch) => {
     .post(BACKEND_BASE_URL + '/api/alcohal/updateAlcohalSetup', reqPacket)
     .then((res) => {
       console.log('checking res: ', res);
-      if (res.data.code === 500) {
+      if (res.data.code === 200) {
         dispatch({
           type: actionTypes.UPDATE_ALCOHOL_DROPDOWN_LIST,
           payload: res.data.result,

@@ -6,8 +6,11 @@ const initialState = {
   businessCategoriesItems: [],
   businessType: {},
   businessTypeItems: [],
+  houseDeliveryService: {},
   houseDeliveryServiceItems: [],
+  openingStatus: {},
   openingStatusItems: [],
+  alcohol: {},
   alcoholItems: [],
 };
 
@@ -95,6 +98,12 @@ export default (state = initialState, action) => {
     // <-----------------------Ending: Business Type Section----------------------->
 
     // <-----------------------Beginning: House Delivery Service Section----------------------->
+    case actionTypes.UPDATE_HOUSE_DELIVERY_SETUP:
+      return {
+        ...state,
+        houseDeliveryService: action.payload,
+      };
+
     case actionTypes.ADD_HOUSE_DELIVERY:
       return {
         ...state,
@@ -132,6 +141,11 @@ export default (state = initialState, action) => {
 
     // <-----------------------Beginning: Open Status Section----------------------->
 
+    case actionTypes.UPDATE_OPEN_STATUS_DROPDOWN_LIST:
+      return {
+        ...state,
+        openingStatus: action.payload,
+      };
     case actionTypes.ADD_OPEN_STATUS:
       return {
         ...state,
@@ -168,6 +182,11 @@ export default (state = initialState, action) => {
     // <-----------------------Ending: Open Status Section----------------------->
 
     // <-----------------------Beginning: Alcohol Section----------------------->
+    case actionTypes.UPDATE_ALCOHOL_DROPDOWN_LIST:
+      return {
+        ...state,
+        alcohol: action.payload,
+      };
     case actionTypes.ADD_ALCOHOL:
       return {
         ...state,

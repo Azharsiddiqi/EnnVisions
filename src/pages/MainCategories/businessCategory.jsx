@@ -25,7 +25,7 @@ export default () => {
   const [editItemDescription, setEditItemDescription] = useState('');
   const [editItemStatus, setEditItemStatus] = useState(1); // 0 mean false and 1 mean true
 
-  // Starting Business Type states
+  // Starting Business Category states
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [isDdisplayTitle, setIsDdisplayTitle] = useState(false);

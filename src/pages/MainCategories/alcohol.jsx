@@ -4,8 +4,11 @@ import {
   ACTION_addAlcohol,
   ACTION_getAlcohol,
   ACTION_deleteAlcoholSetup,
+  ACTION_updateAlcohol,
+  ACTION_updateAlcoholSetup,
 } from '../../store/mainCategory/actions';
 import Modal from '../../components/confirmationAlert';
+import {Dropdown, DropdownButton} from 'react-bootstrap';
 
 export default () => {
   const dispatch = useDispatch();
@@ -15,7 +18,21 @@ export default () => {
   const [itemDescription, setItemDescription] = useState('');
   const [itemStatus, setItemStatus] = useState(1); // 0 mean false and 1 mean true
   const [deleteItem, setDeleteItem] = useState(null);
+  const [editItem, setEditItem] = useState(null);
+  const [editItemName, setEditItemName] = useState('');
+  const [editItemDescription, setEditItemDescription] = useState('');
+  const [editItemStatus, setEditItemStatus] = useState(1); // 0 mean false and 1 mean true
   const [show, setShow] = useState(false);
+  // Starting Alcohol Service states
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [isDisplayTitle, setIsDisplayTitle] = useState(false);
+  const [isDisplayDescription, setIsDisplayDescription] = useState(false);
+  const [isDropdown, setIsDropdown] = useState(false);
+  const [isCheckBox, setIsCheckBox] = useState(false);
+  const [isMultipleSelection, setIsMultipleSelection] = useState(false);
+  const [isRequired, setIsRequired] = useState(false);
+  const [status, setStatus] = useState(1);
 
   const handleShow = (_item) => {
     setDeleteItem(_item);
@@ -26,6 +43,18 @@ export default () => {
     setShow(false);
     setDeleteItem(null);
   };
+  const resetItem = () => {
+    setItemName('');
+    setItemDescription('');
+    setItemStatus(1);
+  };
+  const resetEditItem = () => {
+    setEditItem(null);
+    setEditItemName('');
+    setEditItemDescription('');
+    setEditItemStatus(1);
+  };
+
   const addNewItemHandler = () => {
     if (!itemName || itemName === '') return;
     const reqPacket = {
@@ -34,6 +63,28 @@ export default () => {
       status: itemStatus === 1 ? true : false,
     };
     dispatch(ACTION_addAlcohol(reqPacket));
+  };
+  const updateItemHandler = (e) => {
+    e.preventDefault();
+    if (
+      !editItem ||
+      !editItemName ||
+      editItemName === '' ||
+      (editItem.title === editItemName &&
+        editItem.description === editItemDescription &&
+        ((editItem.status === true && editItemStatus === 1) ||
+          (editItem.status === false && editItemStatus === 0)))
+    )
+      return;
+
+    const reqPacket = {
+      id: editItem.id,
+      title: editItemName,
+      description: editItemDescription,
+      status: editItemStatus === 1 ? true : false,
+    };
+    dispatch(ACTION_updateAlcohol(reqPacket));
+    resetEditItem();
   };
 
   const deleteItemHandler = () => {
@@ -44,6 +95,36 @@ export default () => {
     dispatch(ACTION_deleteAlcoholSetup(reqPacket));
     setShow(false);
     setDeleteItem(null);
+  };
+  const editButtonHandler = (_item) => {
+    setEditItem(_item);
+    setEditItemName(_item.title);
+    setEditItemDescription(_item.description);
+    setEditItemStatus(_item.status === true ? 1 : 0);
+  };
+  const updateAlcoholHandler = () => {
+    if (!title) return;
+
+    const dtoAlcohalOptions = [];
+    alcoholItems.forEach((_item) => {
+      dtoAlcohalOptions.push({
+        id: _item.id,
+      });
+    });
+
+    const reqPacket = {
+      dtoAlcohalOptions,
+      title,
+      description,
+      isDisplayTitle,
+      isDisplayDescription,
+      isDropdown,
+      isCheckBox,
+      isMultipleSelection,
+      isRequired,
+    };
+
+    dispatch(ACTION_updateAlcoholSetup(reqPacket));
   };
 
   useEffect(() => {
@@ -74,6 +155,8 @@ export default () => {
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="Main Categories name"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
                   />
                 </div>
                 <div className="form-group">
@@ -81,13 +164,19 @@ export default () => {
                     className="form-control"
                     placeholder="Main Categories Details"
                     defaultValue={''}
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
                   />
                 </div>
                 <div className="form-group">
                   <label>Status</label>
-                  <select className="form-control" id="exampleFormControlSelect1">
-                    <option value="Active">Active</option>
-                    <option value="in-active">In active</option>
+                  <select
+                    className="form-control"
+                    id="exampleFormControlSelect1"
+                    value={status}
+                    onChange={(e) => setStatus(Number(e.target.value))}>
+                    <option value={1}>Active</option>
+                    <option value={0}>In active</option>
                   </select>
                 </div>
 
@@ -96,12 +185,22 @@ export default () => {
                     <label className="r-u-owner who-serve">Display Title</label>
                     <div className="row c-vendor-checboxes">
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={isDisplayTitle}
+                          onChange={() => setIsDisplayTitle(true)}
+                        />
                         <span />
                         Active
                       </label>
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={!isDisplayTitle}
+                          onChange={() => setIsDisplayTitle(false)}
+                        />
                         <span />
                         InActive
                       </label>
@@ -111,12 +210,22 @@ export default () => {
                     <label className="r-u-owner who-serve">Display Description</label>
                     <div className="row c-vendor-checboxes">
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={isDisplayDescription}
+                          onChange={() => setIsDisplayDescription(true)}
+                        />
                         <span />
                         Active
                       </label>
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={!isDisplayDescription}
+                          onChange={() => setIsDisplayDescription(false)}
+                        />
                         <span />
                         InActive
                       </label>
@@ -129,12 +238,22 @@ export default () => {
                     <label className="r-u-owner who-serve">Dropdown</label>
                     <div className="row c-vendor-checboxes">
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={isDropdown}
+                          onChange={() => setIsDropdown(true)}
+                        />
                         <span />
                         Active
                       </label>
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={!isDropdown}
+                          onChange={() => setIsDropdown(false)}
+                        />
                         <span />
                         InActive
                       </label>
@@ -144,12 +263,22 @@ export default () => {
                     <label className="r-u-owner who-serve">Check Box</label>
                     <div className="row c-vendor-checboxes">
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={isCheckBox}
+                          onChange={() => setIsCheckBox(true)}
+                        />
                         <span />
                         Active
                       </label>
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={!isCheckBox}
+                          onChange={() => setIsCheckBox(false)}
+                        />
                         <span />
                         InActive
                       </label>
@@ -162,12 +291,22 @@ export default () => {
                     <label className="r-u-owner who-serve">Multiple Selection</label>
                     <div className="row c-vendor-checboxes">
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={isMultipleSelection}
+                          onChange={() => setIsMultipleSelection(true)}
+                        />
                         <span />
                         Active
                       </label>
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={!isMultipleSelection}
+                          onChange={() => setIsMultipleSelection(false)}
+                        />
                         <span />
                         InActive
                       </label>
@@ -177,12 +316,22 @@ export default () => {
                     <label className="r-u-owner who-serve">Required</label>
                     <div className="row c-vendor-checboxes">
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={isRequired}
+                          onChange={() => setIsRequired(true)}
+                        />
                         <span />
                         Active
                       </label>
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={!isRequired}
+                          onChange={() => setIsRequired(false)}
+                        />
                         <span />
                         InActive
                       </label>
@@ -191,7 +340,7 @@ export default () => {
                 </div>
 
                 <div className="creat-main-category-submit  mt-5">
-                  <button className="btn" type="button">
+                  <button className="btn" type="button" onClick={updateAlcoholHandler}>
                     UPDATE
                   </button>
                 </div>
@@ -225,31 +374,86 @@ export default () => {
                     </thead>
                     <tbody>
                       {alcoholItems && alcoholItems.length
-                        ? alcoholItems.map((item) => (
-                            <tr>
-                              <td className="pg-14-id">
-                                <b>{item.id}</b>
-                              </td>
-                              <td className="pg-14-name">{item.title}</td>
-                              <td className="pg-14-name">{item.description}</td>
-                              <td className="pg-14-name">
-                                {item.status ? 'ACTIVE' : 'IN ACTIVE'}{' '}
-                              </td>
-                              <td className="td-action-icon">
-                                <span
-                                  onClick={() => handleShow(item)}
-                                  className="del-icon cursor-class"
-                                  data-toggle="modal"
-                                  data-target="#exampleModal">
-                                  <img src="assets/images/new-delete.svg" alt="" />
-                                </span>
+                        ? alcoholItems.map((item) =>
+                            editItem && editItem.id === item.id ? (
+                              <tr>
+                                <td className="pg-14-id">{item.id}</td>
+                                <td className="pg-14-name">
+                                  <div className="form-group">
+                                    <input
+                                      type="text"
+                                      placeholder="Item name"
+                                      className="form-control"
+                                      value={editItemName}
+                                      onChange={(e) => setEditItemName(e.target.value)}
+                                    />
+                                  </div>
+                                </td>
+                                <td className="pg-14-name">
+                                  <div className="form-group">
+                                    <input
+                                      type="text"
+                                      placeholder="Details"
+                                      className="form-control"
+                                      value={editItemDescription}
+                                      onChange={(e) => setEditItemDescription(e.target.value)}
+                                    />
+                                  </div>
+                                </td>
+                                <td className="pg-14-name">
+                                  <div className="form-group">
+                                    <select
+                                      className="form-control"
+                                      value={editItemStatus}
+                                      onChange={(e) => setEditItemStatus(Number(e.target.value))}>
+                                      <option value={1}>ACTIVE</option>
+                                      <option value={0}>IN-ACTIVE</option>
+                                    </select>
+                                  </div>
+                                </td>
+                                <td className="td-action-icon">
+                                  <DropdownButton id="dropdown-basic-button" title="Actions">
+                                    <Dropdown.Item onClick={updateItemHandler}>
+                                      Update
+                                    </Dropdown.Item>
+                                    <Dropdown.Item
+                                      onClick={(e) => {
+                                        e.preventDefault();
+                                        resetEditItem();
+                                      }}>
+                                      Cancel
+                                    </Dropdown.Item>
+                                  </DropdownButton>
+                                </td>
+                              </tr>
+                            ) : (
+                              <tr>
+                                <td className="pg-14-id">
+                                  <b>{item.id}</b>
+                                </td>
+                                <td className="pg-14-name">{item.title}</td>
+                                <td className="pg-14-name">{item.description}</td>
+                                <td className="pg-14-name">
+                                  {item.status ? 'ACTIVE' : 'IN ACTIVE'}{' '}
+                                </td>
+                                <td className="td-action-icon">
+                                  <span
+                                    onClick={() => handleShow(item)}
+                                    className="del-icon cursor-class"
+                                    data-toggle="modal"
+                                    data-target="#exampleModal">
+                                    <img src="assets/images/new-delete.svg" alt="" />
+                                  </span>
 
-                                <span className="ic-edit">
-                                  <img src="assets/images/new-edit.svg" alt="" />
-                                </span>
-                              </td>
-                            </tr>
-                          ))
+                                  <span
+                                    className="ic-edit cursor-class"
+                                    onClick={() => editButtonHandler(item)}>
+                                    <img src="assets/images/new-edit.svg" alt="" />
+                                  </span>
+                                </td>
+                              </tr>
+                            ),
+                          )
                         : ''}
 
                       <tr>

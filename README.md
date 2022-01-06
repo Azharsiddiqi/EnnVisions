@@ -69,4 +69,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 
 to disabled the cors run below command in the terminal
-google-chrome --disable-site-isolation-trials --disable-web-security --user-data-dir="~/tmp"
