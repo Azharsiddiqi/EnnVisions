@@ -52,7 +52,8 @@ export default () => {
       pathname === vendorManage.createVendor.path ||
       pathname === vendorManage.vendorList.path ||
       pathname === vendorManage.vendorDetail.path ||
-      pathname === vendorManage.vendorOutLets.path
+      pathname === vendorManage.vendorOutLets.path || 
+      pathname === vendorManage.helperList.path
     ) {
       setMainActive('vendorManage');
       setSubActive('vendorManageJawafa');
@@ -338,7 +339,11 @@ export default () => {
                       <span className="menu-text">Create New</span>
                     </Link>
                   </li>
-                  <li className="menu-item  menu-item-submenu">
+                  <li 
+                   className={`menu-item  menu-item-submenu ${
+                    pathname === dispatcherManage.dispatcherDetail.path ? 'menu-item-active' : ''
+                  }`}
+                  >
                     <Link to={dispatcherManage.dispatcherDetail.path} className="menu-link">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -484,15 +489,16 @@ export default () => {
                         <span />
                       </i>
                       <span className="menu-text">DoorBud</span>
+                      <i className="menu-arrow" />
                     </Link>
                   </li>
                   <li
                     className={`menu-item  menu-item-submenu ${
-                      subActive === 'adminManageJawafa' ? 'menu-item-open' : ''
+                      subActive === 'driverManageJawafa' ? 'menu-item-open' : ''
                     }`}>
                     <div
                       onClick={() =>
-                        setSubActive(subActive !== 'adminManageJawafa' ? 'adminManageJawafa' : '')
+                        setSubActive(subActive !== 'driverManageJawafa' ? 'driverManageJawafa' : '')
                       }
                       className="menu-link">
                       <i className="menu-bullet menu-bullet-line">
@@ -503,7 +509,7 @@ export default () => {
                     </div>
                     <div
                       className="menu-submenu"
-                      style={subActive === 'vendorManageJawafa' ? {} : hiddenStyle}>
+                      style={subActive === 'driverManageJawafa' ? {} : hiddenStyle}>
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li
@@ -542,29 +548,14 @@ export default () => {
                             <span className="menu-text">Helper List</span>
                           </Link>
                         </li>
-                        <li
-                          className={`menu-item  ${
-                            pathname === driverManage.createDriver.path ? 'menu-item-active' : ''
-                          }`}
-                          aria-haspopup="true">
-                          <Link to={driverManage.createDriver.path} className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">New Driver</span>
-                          </Link>
-                        </li>
+                        <li className={`menu-item  ${pathname ===driverManage.createDriver.path? "menu-item-active" : ""}`} aria-haspopup="true">
+                                                    <Link to={driverManage.createDriver.path} className="menu-link ">
+                                                        <i className="menu-bullet menu-bullet-dot"><span /></i>
+                                                        <span className="menu-text" >New Driver</span>
+                                                    </Link>
+                                                </li>
                       </ul>
                     </div>
-                  </li>
-
-                  <li className="menu-item  menu-item-submenu">
-                    <Link to={dispatcherManage.dispatcherDetail.path} className="menu-link ">
-                      <i className="menu-bullet menu-bullet-line">
-                        <span />
-                      </i>
-                      <span className="menu-text">Jimmy Guaco's</span>
-                    </Link>
                   </li>
                 </ul>
               </div>
