@@ -1,6 +1,6 @@
 import React from 'react';
-import {useHistory} from 'react-router-dom';
-import {PRIVATE_ROUTES} from '../../../config';
+import { useHistory } from 'react-router-dom';
+import { PRIVATE_ROUTES } from '../../../config';
 
 export default () => {
   const history = useHistory();

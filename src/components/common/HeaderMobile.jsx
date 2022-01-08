@@ -1,10 +1,13 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default () => {
   return (
     <React.Fragment>
-      <div id="kt_header_mobile" className="header-mobile align-items-center  header-mobile-fixed ">
+      <div
+        id="kt_header_mobile"
+        className="header-mobile align-items-center  header-mobile-fixed "
+      >
         {/* begin::Logo */}
         <Link to="index.html">
           <img alt="Logo" src="assets/images/ic-logo-white.svg" />
@@ -13,7 +16,10 @@ export default () => {
         {/* begin::Toolbar */}
         <div className="d-flex align-items-center">
           {/* begin::Aside Mobile Toggle */}
-          <button className="btn p-0 burger-icon burger-icon-left" id="kt_aside_mobile_toggle">
+          <button
+            className="btn p-0 burger-icon burger-icon-left"
+            id="kt_aside_mobile_toggle"
+          >
             <span />
           </button>
           <button

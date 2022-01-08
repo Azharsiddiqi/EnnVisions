@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default () => {
   return (
@@ -33,7 +33,10 @@ export default () => {
             <i className="symbol-badge bg-success" />
           </div>
           <div className="d-flex flex-column">
-            <Link to="#" className="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">
+            <Link
+              to="#"
+              className="font-weight-bold font-size-h5 text-dark-75 text-hover-primary"
+            >
               James Jones
             </Link>
             <div className="text-muted mt-1">Application Developer</div>
@@ -51,22 +54,38 @@ export default () => {
                         viewBox="0 0 24 24"
                         version="1.1"
                       >
-                        <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
+                        <g
+                          stroke="none"
+                          strokeWidth={1}
+                          fill="none"
+                          fillRule="evenodd"
+                        >
                           <rect x={0} y={0} width={24} height={24} />
                           <path
                             d="M21,12.0829584 C20.6747915,12.0283988 20.3407122,12 20,12 C16.6862915,12 14,14.6862915 14,18 C14,18.3407122 14.0283988,18.6747915 14.0829584,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,8 C3,6.8954305 3.8954305,6 5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,12.0829584 Z M18.1444251,7.83964668 L12,11.1481833 L5.85557487,7.83964668 C5.4908718,7.6432681 5.03602525,7.77972206 4.83964668,8.14442513 C4.6432681,8.5091282 4.77972206,8.96397475 5.14442513,9.16035332 L11.6444251,12.6603533 C11.8664074,12.7798822 12.1335926,12.7798822 12.3555749,12.6603533 L18.8555749,9.16035332 C19.2202779,8.96397475 19.3567319,8.5091282 19.1603533,8.14442513 C18.9639747,7.77972206 18.5091282,7.6432681 18.1444251,7.83964668 Z"
                             fill="#000000"
                           />
-                          <circle fill="#000000" opacity="0.3" cx="19.5" cy="17.5" r="2.5" />
+                          <circle
+                            fill="#000000"
+                            opacity="0.3"
+                            cx="19.5"
+                            cy="17.5"
+                            r="2.5"
+                          />
                         </g>
                       </svg>
                       {/* end::Svg Icon */}
                     </span>
                   </span>
-                  <span className="navi-text text-muted text-hover-primary">jm@softplus.com</span>
+                  <span className="navi-text text-muted text-hover-primary">
+                    jm@softplus.com
+                  </span>
                 </span>
               </Link>
-              <Link to="#" className="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">
+              <Link
+                to="#"
+                className="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5"
+              >
                 Sign Out
               </Link>
             </div>
@@ -79,7 +98,10 @@ export default () => {
         {/* begin::Nav */}
         <div className="navi navi-spacer-x-0 p-0">
           {/* begin::Item */}
-          <Link to="custom/apps/user/profile-1/personal-information.html" className="navi-item">
+          <Link
+            to="custom/apps/user/profile-1/personal-information.html"
+            className="navi-item"
+          >
             <div className="navi-link">
               <div className="symbol symbol-40 bg-light mr-3">
                 <div className="symbol-label">
@@ -93,13 +115,24 @@ export default () => {
                       viewBox="0 0 24 24"
                       version="1.1"
                     >
-                      <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
+                      <g
+                        stroke="none"
+                        strokeWidth={1}
+                        fill="none"
+                        fillRule="evenodd"
+                      >
                         <rect x={0} y={0} width={24} height={24} />
                         <path
                           d="M13.2070325,4 C13.0721672,4.47683179 13,4.97998812 13,5.5 C13,8.53756612 15.4624339,11 18.5,11 C19.0200119,11 19.5231682,10.9278328 20,10.7929675 L20,17 C20,18.6568542 18.6568542,20 17,20 L7,20 C5.34314575,20 4,18.6568542 4,17 L4,7 C4,5.34314575 5.34314575,4 7,4 L13.2070325,4 Z"
                           fill="#000000"
                         />
-                        <circle fill="#000000" opacity="0.3" cx="18.5" cy="5.5" r="2.5" />
+                        <circle
+                          fill="#000000"
+                          opacity="0.3"
+                          cx="18.5"
+                          cy="5.5"
+                          r="2.5"
+                        />
                       </g>
                     </svg>
                     {/* end::Svg Icon */}
@@ -133,7 +166,12 @@ export default () => {
                       viewBox="0 0 24 24"
                       version="1.1"
                     >
-                      <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
+                      <g
+                        stroke="none"
+                        strokeWidth={1}
+                        fill="none"
+                        fillRule="evenodd"
+                      >
                         <rect x={0} y={0} width={24} height={24} />
                         <rect
                           fill="#000000"
@@ -195,7 +233,12 @@ export default () => {
                       viewBox="0 0 24 24"
                       version="1.1"
                     >
-                      <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
+                      <g
+                        stroke="none"
+                        strokeWidth={1}
+                        fill="none"
+                        fillRule="evenodd"
+                      >
                         <polygon points="0 0 24 0 24 24 0 24" />
                         <path
                           d="M4.85714286,1 L11.7364114,1 C12.0910962,1 12.4343066,1.12568431 12.7051108,1.35473959 L17.4686994,5.3839416 C17.8056532,5.66894833 18,6.08787823 18,6.52920201 L18,19.0833333 C18,20.8738751 17.9795521,21 16.1428571,21 L4.85714286,21 C3.02044787,21 3,20.8738751 3,19.0833333 L3,2.91666667 C3,1.12612489 3.02044787,1 4.85714286,1 Z M8,12 C7.44771525,12 7,12.4477153 7,13 C7,13.5522847 7.44771525,14 8,14 L15,14 C15.5522847,14 16,13.5522847 16,13 C16,12.4477153 15.5522847,12 15,12 L8,12 Z M8,16 C7.44771525,16 7,16.4477153 7,17 C7,17.5522847 7.44771525,18 8,18 L11,18 C11.5522847,18 12,17.5522847 12,17 C12,16.4477153 11.5522847,16 11,16 L8,16 Z"
@@ -222,7 +265,10 @@ export default () => {
           </Link>
           {/* end:Item */}
           {/* begin::Item */}
-          <Link to="custom/apps/userprofile-1/overview.html" className="navi-item">
+          <Link
+            to="custom/apps/userprofile-1/overview.html"
+            className="navi-item"
+          >
             <div className="navi-link">
               <div className="symbol symbol-40 bg-light mr-3">
                 <div className="symbol-label">
@@ -236,7 +282,12 @@ export default () => {
                       viewBox="0 0 24 24"
                       version="1.1"
                     >
-                      <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
+                      <g
+                        stroke="none"
+                        strokeWidth={1}
+                        fill="none"
+                        fillRule="evenodd"
+                      >
                         <rect x={0} y={0} width={24} height={24} />
                         <path
                           d="M6,2 L18,2 C18.5522847,2 19,2.44771525 19,3 L19,12 C19,12.5522847 18.5522847,13 18,13 L6,13 C5.44771525,13 5,12.5522847 5,12 L5,3 C5,2.44771525 5.44771525,2 6,2 Z M7.5,5 C7.22385763,5 7,5.22385763 7,5.5 C7,5.77614237 7.22385763,6 7.5,6 L13.5,6 C13.7761424,6 14,5.77614237 14,5.5 C14,5.22385763 13.7761424,5 13.5,5 L7.5,5 Z M7.5,7 C7.22385763,7 7,7.22385763 7,7.5 C7,7.77614237 7.22385763,8 7.5,8 L10.5,8 C10.7761424,8 11,7.77614237 11,7.5 C11,7.22385763 10.7761424,7 10.5,7 L7.5,7 Z"
@@ -283,7 +334,12 @@ export default () => {
                   viewBox="0 0 24 24"
                   version="1.1"
                 >
-                  <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
+                  <g
+                    stroke="none"
+                    strokeWidth={1}
+                    fill="none"
+                    fillRule="evenodd"
+                  >
                     <rect x={0} y={0} width={24} height={24} />
                     <path
                       d="M5,3 L6,3 C6.55228475,3 7,3.44771525 7,4 L7,20 C7,20.5522847 6.55228475,21 6,21 L5,21 C4.44771525,21 4,20.5522847 4,20 L4,4 C4,3.44771525 4.44771525,3 5,3 Z M10,3 L11,3 C11.5522847,3 12,3.44771525 12,4 L12,20 C12,20.5522847 11.5522847,21 11,21 L10,21 C9.44771525,21 9,20.5522847 9,20 L9,4 C9,3.44771525 9.44771525,3 10,3 Z"
@@ -313,7 +369,9 @@ export default () => {
               </Link>
               <span className="text-muted font-size-sm">Due in 2 Days</span>
             </div>
-            <span className="font-weight-bolder text-warning py-1 font-size-lg">+28%</span>
+            <span className="font-weight-bolder text-warning py-1 font-size-lg">
+              +28%
+            </span>
           </div>
           {/* end::Item */}
           {/* begin::Item */}
@@ -329,7 +387,12 @@ export default () => {
                   viewBox="0 0 24 24"
                   version="1.1"
                 >
-                  <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
+                  <g
+                    stroke="none"
+                    strokeWidth={1}
+                    fill="none"
+                    fillRule="evenodd"
+                  >
                     <rect x={0} y={0} width={24} height={24} />
                     <path
                       d="M12.2674799,18.2323597 L12.0084872,5.45852451 C12.0004303,5.06114792 12.1504154,4.6768183 12.4255037,4.38993949 L15.0030167,1.70195304 L17.5910752,4.40093695 C17.8599071,4.6812911 18.0095067,5.05499603 18.0083938,5.44341307 L17.9718262,18.2062508 C17.9694575,19.0329966 17.2985816,19.701953 16.4718324,19.701953 L13.7671717,19.701953 C12.9505952,19.701953 12.2840328,19.0487684 12.2674799,18.2323597 Z"
@@ -357,7 +420,9 @@ export default () => {
               </Link>
               <span className="text-muted font-size-sm">Due in 2 Days</span>
             </div>
-            <span className="font-weight-bolder text-success py-1 font-size-lg">+50%</span>
+            <span className="font-weight-bolder text-success py-1 font-size-lg">
+              +50%
+            </span>
           </div>
           {/* end::Item */}
           {/* begin::Item */}
@@ -373,7 +438,12 @@ export default () => {
                   viewBox="0 0 24 24"
                   version="1.1"
                 >
-                  <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
+                  <g
+                    stroke="none"
+                    strokeWidth={1}
+                    fill="none"
+                    fillRule="evenodd"
+                  >
                     <rect x={0} y={0} width={24} height={24} />
                     <path
                       d="M16,15.6315789 L16,12 C16,10.3431458 14.6568542,9 13,9 L6.16183229,9 L6.16183229,5.52631579 C6.16183229,4.13107011 7.29290239,3 8.68814808,3 L20.4776218,3 C21.8728674,3 23.0039375,4.13107011 23.0039375,5.52631579 L23.0039375,13.1052632 L23.0206157,17.786793 C23.0215995,18.0629336 22.7985408,18.2875874 22.5224001,18.2885711 C22.3891754,18.2890457 22.2612702,18.2363324 22.1670655,18.1421277 L19.6565168,15.6315789 L16,15.6315789 Z"
@@ -398,7 +468,9 @@ export default () => {
               </Link>
               <span className="text-muted font-size-sm">Due in 2 Days</span>
             </div>
-            <span className="font-weight-bolder text-danger py-1 font-size-lg">-27%</span>
+            <span className="font-weight-bolder text-danger py-1 font-size-lg">
+              -27%
+            </span>
           </div>
           {/* end::Item */}
           {/* begin::Item */}
@@ -414,7 +486,12 @@ export default () => {
                   viewBox="0 0 24 24"
                   version="1.1"
                 >
-                  <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
+                  <g
+                    stroke="none"
+                    strokeWidth={1}
+                    fill="none"
+                    fillRule="evenodd"
+                  >
                     <rect x={0} y={0} width={24} height={24} />
                     <path
                       d="M11.7573593,15.2426407 L8.75735931,15.2426407 C8.20507456,15.2426407 7.75735931,15.6903559 7.75735931,16.2426407 C7.75735931,16.7949254 8.20507456,17.2426407 8.75735931,17.2426407 L11.7573593,17.2426407 L11.7573593,18.2426407 C11.7573593,19.3472102 10.8619288,20.2426407 9.75735931,20.2426407 L5.75735931,20.2426407 C4.65278981,20.2426407 3.75735931,19.3472102 3.75735931,18.2426407 L3.75735931,14.2426407 C3.75735931,13.1380712 4.65278981,12.2426407 5.75735931,12.2426407 L9.75735931,12.2426407 C10.8619288,12.2426407 11.7573593,13.1380712 11.7573593,14.2426407 L11.7573593,15.2426407 Z"
@@ -453,7 +530,9 @@ export default () => {
               </Link>
               <span className="text-muted font-size-sm">Due in 2 Days</span>
             </div>
-            <span className="font-weight-bolder text-info py-1 font-size-lg">+8%</span>
+            <span className="font-weight-bolder text-info py-1 font-size-lg">
+              +8%
+            </span>
           </div>
           {/* end::Item */}
         </div>

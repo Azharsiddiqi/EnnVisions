@@ -1,6 +1,6 @@
 import React from 'react';
-import {Link, useHistory} from 'react-router-dom';
-import {PUBLIC_ROUTES} from '../../../config';
+import { Link, useHistory } from 'react-router-dom';
+import { PUBLIC_ROUTES } from '../../../config';
 
 export default () => {
   const history = useHistory();
@@ -12,13 +12,24 @@ export default () => {
           {/* begin::Signin */}
           <div className="login-form login-signin">
             {/* begin::Form */}
-            <img src="assets/images/ic-logo.svg" alt="logo" className="envision-red-logo" />
-            <form className="form" noValidate="novalidate" id="kt_login_signin_form">
+            <img
+              src="assets/images/ic-logo.svg"
+              alt="logo"
+              className="envision-red-logo"
+            />
+            <form
+              className="form"
+              noValidate="novalidate"
+              id="kt_login_signin_form"
+            >
               {/* begin::Title */}
               <div className="pb-7 pt-lg-0 pt-5">
-                <h3 className="forgot-title">WANT TO BE A EnnVisions MERCHANT? (CANADA)</h3>
+                <h3 className="forgot-title">
+                  WANT TO BE A EnnVisions MERCHANT? (CANADA)
+                </h3>
                 <span className="leave-text gilroy-regular">
-                  Leave your restaurant details here and we will be in touch shortly.
+                  Leave your restaurant details here and we will be in touch
+                  shortly.
                 </span>
               </div>
               {/* begin::Title */}
@@ -50,7 +61,11 @@ export default () => {
           {/* begin::Signup */}
           <div className="login-form login-signup">
             {/* begin::Form */}
-            <form className="form" noValidate="novalidate" id="kt_login_signup_form">
+            <form
+              className="form"
+              noValidate="novalidate"
+              id="kt_login_signup_form"
+            >
               {/* begin::Title */}
               <div className="pb-13 pt-lg-0 pt-5">
                 <h3 className="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">
@@ -139,7 +154,11 @@ export default () => {
           {/* begin::Forgot */}
           <div className="login-form login-forgot">
             {/* begin::Form */}
-            <form className="form" noValidate="novalidate" id="kt_login_forgot_form">
+            <form
+              className="form"
+              noValidate="novalidate"
+              id="kt_login_forgot_form"
+            >
               {/* begin::Title */}
               <div className="pb-13 pt-lg-0 pt-5">
                 <h3 className="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">
@@ -187,13 +206,22 @@ export default () => {
         {/* end::Content body */}
         {/* begin::Content footer */}
         <div className="footer-links d-flex justify-content-center align-items-end py-7 py-lg-0">
-          <Link className="gilroy-medium text-primary font-weight-bolder font-size-h5" to="#">
+          <Link
+            className="gilroy-medium text-primary font-weight-bolder font-size-h5"
+            to="#"
+          >
             TERMS
           </Link>
-          <Link className="gilroy-medium text-primary ml-10 font-weight-bolder font-size-h5" to="#">
+          <Link
+            className="gilroy-medium text-primary ml-10 font-weight-bolder font-size-h5"
+            to="#"
+          >
             PLANS
           </Link>
-          <Link className="gilroy-medium text-primary ml-10 font-weight-bolder font-size-h5" to="#">
+          <Link
+            className="gilroy-medium text-primary ml-10 font-weight-bolder font-size-h5"
+            to="#"
+          >
             CONTACT US
           </Link>
         </div>

@@ -20,7 +20,11 @@ export default function () {
                 <div className="row">
                   <div className="col-xl-5">
                     <div className="form-group">
-                      <img src="assets/images/032-boy-13.svg" className="pg-12-avatar" alt="" />
+                      <img
+                        src="assets/images/032-boy-13.svg"
+                        className="pg-12-avatar"
+                        alt=""
+                      />
                       <p className="pg-12-avatar-title">ADNAN QURESHI</p>
                       <div className="pg-12-avatar-rating">
                         <img src="assets/images/ic_star_yellow.svg" alt="" />
@@ -34,7 +38,9 @@ export default function () {
                   <div className="col-xl-5">
                     <div className="row">
                       <div className="top-personal-info">
-                        <p className="personal-email">adnan.ahsan21@gmail.com</p>
+                        <p className="personal-email">
+                          adnan.ahsan21@gmail.com
+                        </p>
                         <p className="personal-no">+923008134076</p>
                       </div>
                     </div>
@@ -308,7 +314,9 @@ export default function () {
                 </div>
                 <div className="row">
                   <div className="col-xl-5">
-                    <label className="r-u-owner who-serve">PAYMENT MOTHER</label>
+                    <label className="r-u-owner who-serve">
+                      PAYMENT MOTHER
+                    </label>
                     <div className="row c-vendor-checboxes">
                       <div className="col-lg-2">
                         <div className="form-group">
@@ -371,7 +379,8 @@ export default function () {
                     <label className="label-country">Timings</label>
                     <div
                       className="form-group timing-container"
-                      id="timing-container-content create-vendor-timing">
+                      id="timing-container-content create-vendor-timing"
+                    >
                       {/* <div className="row" id="who-serve-options">
                   <div className="col-sm-6 col-md-2">
                     <div className="form-group">
@@ -498,64 +507,92 @@ export default function () {
                         </div>
                       </div>
                       <div className="time-label-schedule create-vendor-time-label">
-                        <label className="label-country day-label">Monday</label>
+                        <label className="label-country day-label">
+                          Monday
+                        </label>
                         <label className="label-time">12:00 AM</label>
                         <label className="label-time">09:00 PM</label>
-                        <label className="mark-label">Mark this day as closed</label>
+                        <label className="mark-label">
+                          Mark this day as closed
+                        </label>
                         <span className="del-container">
                           <img src="assets/images/ic_delete.svg" alt="delete" />
                         </span>
                       </div>
                       <div className="time-label-schedule create-vendor-time-label">
-                        <label className="label-country day-label">Tuesday</label>
+                        <label className="label-country day-label">
+                          Tuesday
+                        </label>
                         <label className="label-time">12:00 AM</label>
                         <label className="label-time">09:00 PM</label>
-                        <label className="mark-label">Mark this day as closed</label>
+                        <label className="mark-label">
+                          Mark this day as closed
+                        </label>
                         <span className="del-container">
                           <img src="assets/images/ic_delete.svg" alt="delete" />
                         </span>
                       </div>
                       <div className="time-label-schedule create-vendor-time-label">
-                        <label className="label-country day-label">Wednesday</label>
+                        <label className="label-country day-label">
+                          Wednesday
+                        </label>
                         <label className="label-time">12:00 AM</label>
                         <label className="label-time">09:00 PM</label>
-                        <label className="mark-label">Mark this day as closed</label>
+                        <label className="mark-label">
+                          Mark this day as closed
+                        </label>
                         <span className="del-container">
                           <img src="assets/images/ic_delete.svg" alt="delete" />
                         </span>
                       </div>
                       <div className="time-label-schedule create-vendor-time-label">
-                        <label className="label-country day-label">Thursday</label>
+                        <label className="label-country day-label">
+                          Thursday
+                        </label>
                         <label className="label-time">12:00 AM</label>
                         <label className="label-time">09:00 PM</label>
-                        <label className="mark-label">Mark this day as closed</label>
+                        <label className="mark-label">
+                          Mark this day as closed
+                        </label>
                         <span className="del-container">
                           <img src="assets/images/ic_delete.svg" alt="delete" />
                         </span>
                       </div>
                       <div className="time-label-schedule create-vendor-time-label">
-                        <label className="label-country day-label">Friday</label>
+                        <label className="label-country day-label">
+                          Friday
+                        </label>
                         <label className="label-time">12:00 AM</label>
                         <label className="label-time">09:00 PM</label>
-                        <label className="mark-label">Mark this day as closed</label>
+                        <label className="mark-label">
+                          Mark this day as closed
+                        </label>
                         <span className="del-container">
                           <img src="assets/images/ic_delete.svg" alt="delete" />
                         </span>
                       </div>
                       <div className="time-label-schedule create-vendor-time-label">
-                        <label className="label-country day-label">Saturday</label>
+                        <label className="label-country day-label">
+                          Saturday
+                        </label>
                         <label className="label-time">12:00 AM</label>
                         <label className="label-time">09:00 PM</label>
-                        <label className="mark-label">Mark this day as closed</label>
+                        <label className="mark-label">
+                          Mark this day as closed
+                        </label>
                         <span className="del-container">
                           <img src="assets/images/ic_delete.svg" alt="delete" />
                         </span>
                       </div>
                       <div className="time-label-schedule create-vendor-time-label">
-                        <label className="label-country day-label">Sunday</label>
+                        <label className="label-country day-label">
+                          Sunday
+                        </label>
                         <label className="label-time">12:00 AM</label>
                         <label className="label-time">09:00 PM</label>
-                        <label className="mark-label">Mark this day as closed</label>
+                        <label className="mark-label">
+                          Mark this day as closed
+                        </label>
                         <span className="del-container">
                           <img src="assets/images/ic_delete.svg" alt="delete" />
                         </span>
@@ -576,11 +613,12 @@ export default function () {
                         <iframe
                           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2602.344082631407!2d-123.1133149490098!3d49.28882477923052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5486719d24e2e021%3A0xb7057fe085c86109!2sCanada%20Place!5e0!3m2!1sen!2s!4v1601402609000!5m2!1sen!2s"
                           title="outletdetail"
-                          style={{border: 0, width: '100%'}}
+                          style={{ border: 0, width: '100%' }}
                           allowFullScreen
                           width={600}
                           height={450}
-                          frameBorder={0}></iframe>
+                          frameBorder={0}
+                        ></iframe>
                       </div>
                     </div>
                   </div>

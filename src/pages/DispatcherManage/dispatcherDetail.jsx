@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {useHistory} from 'react-router-dom';
-import {PRIVATE_ROUTES} from '../../config';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { PRIVATE_ROUTES } from '../../config';
 import ConfirmationAlert from '../../components/confirmationAlert';
 
 export default () => {
@@ -25,12 +25,20 @@ export default () => {
         <div className="row">
           <div className="dash-body">
             <div className="edit-delete-form">
-              <span style={{cursor: 'pointer', paddingRight: '5px'}}>
-                <img onClick={handleShow} src="assets/images/ic_delete_white.svg" alt="" />
-              </span>
-              <span style={{cursor: 'pointer'}}>
+              <span style={{ cursor: 'pointer', paddingRight: '5px' }}>
                 <img
-                  onClick={() => history.push(PRIVATE_ROUTES.dispatcherManage.editDispatcher.path)}
+                  onClick={handleShow}
+                  src="assets/images/ic_delete_white.svg"
+                  alt=""
+                />
+              </span>
+              <span style={{ cursor: 'pointer' }}>
+                <img
+                  onClick={() =>
+                    history.push(
+                      PRIVATE_ROUTES.dispatcherManage.editDispatcher.path,
+                    )
+                  }
                   src="assets/images/ic_edit_white.svg"
                   alt=""
                 />
@@ -42,21 +50,26 @@ export default () => {
               tabIndex={-1}
               role="dialog"
               aria-labelledby="exampleModalLabel"
-              aria-hidden="true">
+              aria-hidden="true"
+            >
               <div className="modal-dialog" role="document">
                 <div className="modal-content">
                   <div className="modal-header">
                     <img src="assets/images/ic-logo.svg" alt="logo" />
                   </div>
                   <div className="modal-body">
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                    tempor invidunt ut labore et dolore magna
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                    diam nonumy eirmod tempor invidunt ut labore et dolore magna
                   </div>
                   <div className="modal-footer">
                     <button type="button" className="btn btn-primary">
                       YES!
                     </button>
-                    <button type="button" className="btn btn-secondary" data-dismiss="modal">
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      data-dismiss="modal"
+                    >
                       CANCEL
                     </button>
                   </div>
@@ -124,7 +137,10 @@ export default () => {
                   <div className="col-sm-6">
                     <div className="form-group">
                       <label htmlFor="exampleFormControlInput1">Country</label>
-                      <select className="form-control" id="exampleFormControlSelect1">
+                      <select
+                        className="form-control"
+                        id="exampleFormControlSelect1"
+                      >
                         <option>Pakistan</option>
                         <option>USA</option>
                         <option>UK</option>
@@ -136,7 +152,10 @@ export default () => {
                   <div className="col-sm-6">
                     <div className="form-group">
                       <label htmlFor="exampleFormControlInput1">State</label>
-                      <select className="form-control" id="exampleFormControlSelect1">
+                      <select
+                        className="form-control"
+                        id="exampleFormControlSelect1"
+                      >
                         <option>Punjab</option>
                         <option>Sindh</option>
                         <option>KPK</option>
@@ -234,7 +253,10 @@ export default () => {
                       </div>
                       <div className="fakefile">
                         <span className="placeholder" />
-                        <input className="form-control" placeholder="complete" />
+                        <input
+                          className="form-control"
+                          placeholder="complete"
+                        />
                         <span className="complete">IN REIVEW</span>
                       </div>
                     </div>
@@ -252,8 +274,13 @@ export default () => {
                   </div>
                   <div className="col-sm-6">
                     <div className="form-group">
-                      <label htmlFor="exampleFormControlInput1">Vehicle Type*</label>
-                      <select className="form-control" id="exampleFormControlSelect1">
+                      <label htmlFor="exampleFormControlInput1">
+                        Vehicle Type*
+                      </label>
+                      <select
+                        className="form-control"
+                        id="exampleFormControlSelect1"
+                      >
                         <option>EV Go, EV PLUS, EV BUSINESS</option>
                         <option>Sindh</option>
                         <option>KPK</option>
@@ -263,7 +290,9 @@ export default () => {
                   </div>
                   <div className="col-sm-6">
                     <div className="form-group">
-                      <label htmlFor="exampleFormControlInput1">Company Share</label>
+                      <label htmlFor="exampleFormControlInput1">
+                        Company Share
+                      </label>
                       <input
                         type="text"
                         className="form-control"

@@ -1,7 +1,7 @@
 import React from 'react';
-import {Form} from 'react-bootstrap';
-import {useHistory} from 'react-router-dom';
-import {PRIVATE_ROUTES} from '../../config';
+import { Form } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
+import { PRIVATE_ROUTES } from '../../config';
 
 export default () => {
   const history = useHistory();
@@ -203,7 +203,11 @@ export default () => {
 
             <div className="col-md-11  text-right  add-document-btn">
               <button
-                onClick={() => history.push(PRIVATE_ROUTES.userRoles.createRegistrationForm.path)}
+                onClick={() =>
+                  history.push(
+                    PRIVATE_ROUTES.userRoles.createRegistrationForm.path,
+                  )
+                }
                 type="button"
                 className="submit-btn"
               >

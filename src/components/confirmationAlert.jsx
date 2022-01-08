@@ -1,7 +1,7 @@
 import React from 'react';
-import {Modal} from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 
-export default ({show, handleSave, handleClose, description}) => {
+export default ({ show, handleSave, handleClose, description }) => {
   return (
     <Modal centered show={show} onHide={handleClose}>
       <div className="page12-custom">
@@ -14,7 +14,11 @@ export default ({show, handleSave, handleClose, description}) => {
             <button onClick={handleSave} type="button" className="btn yesBtn">
               YES!
             </button>
-            <button onClick={handleClose} type="button" className="btn cancelBtn">
+            <button
+              onClick={handleClose}
+              type="button"
+              className="btn cancelBtn"
+            >
               CANCEL
             </button>
           </div>

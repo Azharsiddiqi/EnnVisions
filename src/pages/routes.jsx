@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {Route} from 'react-router-dom';
-import {PRIVATE_ROUTES} from '../config';
+import React, { useState } from 'react';
+import { Route } from 'react-router-dom';
+import { PRIVATE_ROUTES } from '../config';
 
 import Index from './Dashboard/dashboard.jsx';
 // start: ROLES Import
@@ -42,9 +42,9 @@ import WhoYouServe from './MainCategories/whoYouServe';
 
 export default () => {
   const [routes] = useState([
-    {path: PRIVATE_ROUTES.dashboard.path, component: Index},
+    { path: PRIVATE_ROUTES.dashboard.path, component: Index },
 
-    {path: PRIVATE_ROUTES.userRoles.addNewRole.path, component: AddNewRoles},
+    { path: PRIVATE_ROUTES.userRoles.addNewRole.path, component: AddNewRoles },
     {
       path: PRIVATE_ROUTES.userRoles.createRegistrationForm.path,
       component: CreateRegistrationForm,
@@ -75,13 +75,13 @@ export default () => {
       path: PRIVATE_ROUTES.adminManage.adminDetail.path,
       component: AdminDetail,
     },
-    {path: PRIVATE_ROUTES.adminManage.editAdmin.path, component: CreateAdmin},
+    { path: PRIVATE_ROUTES.adminManage.editAdmin.path, component: CreateAdmin },
 
     {
       path: PRIVATE_ROUTES.fleetManage.createFleet.path,
       component: CreateFleet,
     },
-    {path: PRIVATE_ROUTES.fleetManage.editFleet.path, component: CreateFleet},
+    { path: PRIVATE_ROUTES.fleetManage.editFleet.path, component: CreateFleet },
     {
       path: PRIVATE_ROUTES.fleetManage.fleetDetail.path,
       component: FleetDetail,
@@ -180,7 +180,7 @@ export default () => {
 
   return (
     <>
-      {routes.map(({path, component}, index) => (
+      {routes.map(({ path, component }, index) => (
         <Route exact key={index} path={path} component={component} />
       ))}
     </>

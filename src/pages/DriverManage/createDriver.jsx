@@ -1,18 +1,23 @@
 import React from 'react';
-import {useHistory} from 'react-router-dom';
 
 export default function () {
-  const history = useHistory();
-
   return (
-    <div className="content  d-flex flex-column flex-column-fluid" id="kt_content">
+    <div
+      className="content  d-flex flex-column flex-column-fluid"
+      id="kt_content"
+    >
       {/*begin::Subheader*/}
-      <div className="subheader py-2 py-lg-4  subheader-solid " id="kt_subheader">
+      <div
+        className="subheader py-2 py-lg-4  subheader-solid "
+        id="kt_subheader"
+      >
         <div className=" container-fluid  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
           {/*begin::Info*/}
           <div className="d-flex align-items-center flex-wrap mr-2">
             {/*begin::Page Title*/}
-            <h5 className="dark-text main-breadcrumb gilroy-semibold mt-2 mb-2 mr-5">DASHBOARD</h5>
+            <h5 className="dark-text main-breadcrumb gilroy-semibold mt-2 mb-2 mr-5">
+              DASHBOARD
+            </h5>
             {/*end::Page Title*/}
             {/*begin::Actions*/}
             <div className="subheader-separator subheader-separator-ver mt-2 mb-2 mr-4 bg-gray-200" />
@@ -87,7 +92,10 @@ export default function () {
                   <div className="row">
                     <div className="col-sm-6">
                       <div className="form-group">
-                        <select className="form-control" id="exampleFormControlSelect1">
+                        <select
+                          className="form-control"
+                          id="exampleFormControlSelect1"
+                        >
                           <option>Ontario</option>
                           <option>Alberta</option>
                           <option>Sasweitch</option>
@@ -96,7 +104,10 @@ export default function () {
                     </div>
                     <div className="col-sm-6">
                       <div className="form-group">
-                        <select className="form-control" id="exampleFormControlSelect1">
+                        <select
+                          className="form-control"
+                          id="exampleFormControlSelect1"
+                        >
                           <option>Toronto</option>
                           <option>Toronto</option>
                           <option>Toronto</option>
@@ -147,8 +158,13 @@ export default function () {
                   <div className="row">
                     <div className="col-sm-12">
                       <div className="form-group">
-                        <label htmlFor="exampleFormControlInput1">Choose your vehicle type</label>
-                        <select className="form-control" id="exampleFormControlSelect1">
+                        <label htmlFor="exampleFormControlInput1">
+                          Choose your vehicle type
+                        </label>
+                        <select
+                          className="form-control"
+                          id="exampleFormControlSelect1"
+                        >
                           <option>EV Go</option>
                           <option>TESLA</option>
                           <option>FORD</option>
@@ -159,35 +175,50 @@ export default function () {
                   <div className="row">
                     <div className="col-sm-12">
                       <div className="driver-license">
-                        <img src="assets/images/ic_document.svg" alt="Document" />
+                        <img
+                          src="assets/images/ic_document.svg"
+                          alt="Document"
+                        />
                         <p>Driver's License- (Back/Reverse)</p>
                         <button type="button" className="btn process-btn">
                           PROCESS
                         </button>
                       </div>
                       <div className="driver-license">
-                        <img src="assets/images/ic_document.svg" alt="Document" />
+                        <img
+                          src="assets/images/ic_document.svg"
+                          alt="Document"
+                        />
                         <p>Driver's License- (Back/Reverse)</p>
                         <button type="button" className="btn uploaded-btn">
                           UPLOADED
                         </button>
                       </div>
                       <div className="driver-license">
-                        <img src="assets/images/ic_document.svg" alt="Document" />
+                        <img
+                          src="assets/images/ic_document.svg"
+                          alt="Document"
+                        />
                         <p>Driver's License- (Back/Reverse)</p>
                         <button type="button" className="btn uploaded-btn">
                           UPLOADED
                         </button>
                       </div>
                       <div className="driver-license">
-                        <img src="assets/images/ic_document.svg" alt="Document" />
+                        <img
+                          src="assets/images/ic_document.svg"
+                          alt="Document"
+                        />
                         <p>Driver's License- (Back/Reverse)</p>
                         <button type="button" className="btn process-btn">
                           PROCESS
                         </button>
                       </div>
                       <div className="driver-license">
-                        <img src="assets/images/ic_document.svg" alt="Document" />
+                        <img
+                          src="assets/images/ic_document.svg"
+                          alt="Document"
+                        />
                         <p>Driver's License- (Back/Reverse)</p>
                         <button type="button" className="btn upload-btn">
                           UPLOAD

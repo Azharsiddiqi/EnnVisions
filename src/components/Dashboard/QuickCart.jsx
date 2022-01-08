@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default () => {
   return (
@@ -29,12 +29,21 @@ export default () => {
               >
                 iBlender
               </Link>
-              <span className="text-muted">The best kitchen gadget in 2020</span>
+              <span className="text-muted">
+                The best kitchen gadget in 2020
+              </span>
               <div className="d-flex align-items-center mt-2">
-                <span className="font-weight-bold mr-1 text-dark-75 font-size-lg">$ 350</span>
+                <span className="font-weight-bold mr-1 text-dark-75 font-size-lg">
+                  $ 350
+                </span>
                 <span className="text-muted mr-1">for</span>
-                <span className="font-weight-bold mr-2 text-dark-75 font-size-lg">5</span>
-                <Link to="#" className="btn btn-xs btn-light-success btn-icon mr-2">
+                <span className="font-weight-bold mr-2 text-dark-75 font-size-lg">
+                  5
+                </span>
+                <Link
+                  to="#"
+                  className="btn btn-xs btn-light-success btn-icon mr-2"
+                >
                   <i className="ki ki-minus icon-xs" />
                 </Link>
                 <Link to="#" className="btn btn-xs btn-light-success btn-icon">
@@ -61,10 +70,17 @@ export default () => {
               </Link>
               <span className="text-muted">Smart tool for cooking</span>
               <div className="d-flex align-items-center mt-2">
-                <span className="font-weight-bold mr-1 text-dark-75 font-size-lg">$ 650</span>
+                <span className="font-weight-bold mr-1 text-dark-75 font-size-lg">
+                  $ 650
+                </span>
                 <span className="text-muted mr-1">for</span>
-                <span className="font-weight-bold mr-2 text-dark-75 font-size-lg">4</span>
-                <Link to="#" className="btn btn-xs btn-light-success btn-icon mr-2">
+                <span className="font-weight-bold mr-2 text-dark-75 font-size-lg">
+                  4
+                </span>
+                <Link
+                  to="#"
+                  className="btn btn-xs btn-light-success btn-icon mr-2"
+                >
                   <i className="ki ki-minus icon-xs" />
                 </Link>
                 <Link to="#" className="btn btn-xs btn-light-success btn-icon">
@@ -89,12 +105,21 @@ export default () => {
               >
                 CameraMax
               </Link>
-              <span className="text-muted">Professional camera for edge cutting shots</span>
+              <span className="text-muted">
+                Professional camera for edge cutting shots
+              </span>
               <div className="d-flex align-items-center mt-2">
-                <span className="font-weight-bold mr-1 text-dark-75 font-size-lg">$ 150</span>
+                <span className="font-weight-bold mr-1 text-dark-75 font-size-lg">
+                  $ 150
+                </span>
                 <span className="text-muted mr-1">for</span>
-                <span className="font-weight-bold mr-2 text-dark-75 font-size-lg">3</span>
-                <Link to="#" className="btn btn-xs btn-light-success btn-icon mr-2">
+                <span className="font-weight-bold mr-2 text-dark-75 font-size-lg">
+                  3
+                </span>
+                <Link
+                  to="#"
+                  className="btn btn-xs btn-light-success btn-icon mr-2"
+                >
                   <i className="ki ki-minus icon-xs" />
                 </Link>
                 <Link to="#" className="btn btn-xs btn-light-success btn-icon">
@@ -113,15 +138,25 @@ export default () => {
           {/* begin::Item */}
           <div className="d-flex align-items-center justify-content-between py-8">
             <div className="d-flex flex-column mr-2">
-              <Link to="#" className="font-weight-bold text-dark text-hover-primary">
+              <Link
+                to="#"
+                className="font-weight-bold text-dark text-hover-primary"
+              >
                 4D Printer
               </Link>
               <span className="text-muted">Manufactoring unique objects</span>
               <div className="d-flex align-items-center mt-2">
-                <span className="font-weight-bold mr-1 text-dark-75 font-size-lg">$ 1450</span>
+                <span className="font-weight-bold mr-1 text-dark-75 font-size-lg">
+                  $ 1450
+                </span>
                 <span className="text-muted mr-1">for</span>
-                <span className="font-weight-bold mr-2 text-dark-75 font-size-lg">7</span>
-                <Link to="#" className="btn btn-xs btn-light-success btn-icon mr-2">
+                <span className="font-weight-bold mr-2 text-dark-75 font-size-lg">
+                  7
+                </span>
+                <Link
+                  to="#"
+                  className="btn btn-xs btn-light-success btn-icon mr-2"
+                >
                   <i className="ki ki-minus icon-xs" />
                 </Link>
                 <Link to="#" className="btn btn-xs btn-light-success btn-icon">
@@ -140,15 +175,25 @@ export default () => {
           {/* begin::Item */}
           <div className="d-flex align-items-center justify-content-between py-8">
             <div className="d-flex flex-column mr-2">
-              <Link to="#" className="font-weight-bold text-dark text-hover-primary">
+              <Link
+                to="#"
+                className="font-weight-bold text-dark text-hover-primary"
+              >
                 MotionWire
               </Link>
               <span className="text-muted">Perfect animation tool</span>
               <div className="d-flex align-items-center mt-2">
-                <span className="font-weight-bold mr-1 text-dark-75 font-size-lg">$ 650</span>
+                <span className="font-weight-bold mr-1 text-dark-75 font-size-lg">
+                  $ 650
+                </span>
                 <span className="text-muted mr-1">for</span>
-                <span className="font-weight-bold mr-2 text-dark-75 font-size-lg">7</span>
-                <Link to="#" className="btn btn-xs btn-light-success btn-icon mr-2">
+                <span className="font-weight-bold mr-2 text-dark-75 font-size-lg">
+                  7
+                </span>
+                <Link
+                  to="#"
+                  className="btn btn-xs btn-light-success btn-icon mr-2"
+                >
                   <i className="ki ki-minus icon-xs" />
                 </Link>
                 <Link to="#" className="btn btn-xs btn-light-success btn-icon">
@@ -166,12 +211,20 @@ export default () => {
         {/* begin::Purchase */}
         <div className="offcanvas-footer">
           <div className="d-flex align-items-center justify-content-between mb-4">
-            <span className="font-weight-bold text-muted font-size-sm mr-2">Total</span>
-            <span className="font-weight-bolder text-dark-50 text-right">$1840.00</span>
+            <span className="font-weight-bold text-muted font-size-sm mr-2">
+              Total
+            </span>
+            <span className="font-weight-bolder text-dark-50 text-right">
+              $1840.00
+            </span>
           </div>
           <div className="d-flex align-items-center justify-content-between mb-7">
-            <span className="font-weight-bold text-muted font-size-sm mr-2">Sub total</span>
-            <span className="font-weight-bolder text-primary text-right">$5640.00</span>
+            <span className="font-weight-bold text-muted font-size-sm mr-2">
+              Sub total
+            </span>
+            <span className="font-weight-bolder text-primary text-right">
+              $5640.00
+            </span>
           </div>
           <div className="text-right">
             <button type="button" className="btn btn-primary text-weight-bold">

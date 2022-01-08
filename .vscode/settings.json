@@ -1,18 +1,25 @@
 {
-    "cSpell.words": [
-        "ADNAN",
-        "checboxes",
-        "fullname",
-        "loginform",
-        "phonecode",
-        "QURESHI",
-        "semibold",
-        "signin"
-    ],
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    },
-    "editor.formatOnSave": true,
-    "eslint.alwaysShowStatus": true,
-    "files.autoSave": "onFocusChange"
+  "cSpell.words": [
+    "ADNAN",
+    "checboxes",
+    "fullname",
+    "loginform",
+    "phonecode",
+    "QURESHI",
+    "semibold",
+    "signin"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": true,
+  "eslint.alwaysShowStatus": true,
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/node_modules": true
+  },
+  "search.exclude": {
+    "**/node_modules": true
+  }
 }

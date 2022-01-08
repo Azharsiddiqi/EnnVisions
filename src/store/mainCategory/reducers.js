@@ -25,7 +25,10 @@ export default (state = initialState, action) => {
     case actionTypes.ADD_NEW_BUSINESS_CATEGORY_ITEM:
       return {
         ...state,
-        businessCategoriesItems: [...state.businessCategoriesItems, action.payload],
+        businessCategoriesItems: [
+          ...state.businessCategoriesItems,
+          action.payload,
+        ],
       };
     case actionTypes.GET_BUSINESS_CATEGORY_ITEMS:
       return {
@@ -33,7 +36,9 @@ export default (state = initialState, action) => {
         businessCategoriesItems: [...action.payload],
       };
     case actionTypes.DELETE_BUSINESS_CATEGORY_ITEM: {
-      const updatedBusinessCategoriesItems = _.cloneDeep(state.businessCategoriesItems);
+      const updatedBusinessCategoriesItems = _.cloneDeep(
+        state.businessCategoriesItems,
+      );
       _.remove(updatedBusinessCategoriesItems, {
         id: action.payload.id,
       });
@@ -43,12 +48,14 @@ export default (state = initialState, action) => {
       };
     }
     case actionTypes.UPDATE_BUSINESS_CATEGORY_ITEM: {
-      const updatedBusinessCategoriesItems = _.cloneDeep(state.businessCategoriesItems);
+      const updatedBusinessCategoriesItems = _.cloneDeep(
+        state.businessCategoriesItems,
+      );
       const index = updatedBusinessCategoriesItems.findIndex(
         (object) => object.id === action.payload.id,
       );
       if (index >= 0) {
-        updatedBusinessCategoriesItems[index] = {...action.payload};
+        updatedBusinessCategoriesItems[index] = { ...action.payload };
       }
       return {
         ...state,
@@ -85,9 +92,11 @@ export default (state = initialState, action) => {
     }
     case actionTypes.UPDATE_BUSINESS_TYPE_ITEM: {
       const updatedBusinessTypeItems = _.cloneDeep(state.businessTypeItems);
-      const index = updatedBusinessTypeItems.findIndex((object) => object.id === action.payload.id);
+      const index = updatedBusinessTypeItems.findIndex(
+        (object) => object.id === action.payload.id,
+      );
       if (index >= 0) {
-        updatedBusinessTypeItems[index] = {...action.payload};
+        updatedBusinessTypeItems[index] = { ...action.payload };
       }
       return {
         ...state,
@@ -107,7 +116,10 @@ export default (state = initialState, action) => {
     case actionTypes.ADD_HOUSE_DELIVERY:
       return {
         ...state,
-        houseDeliveryServiceItems: [...state.houseDeliveryServiceItems, action.payload],
+        houseDeliveryServiceItems: [
+          ...state.houseDeliveryServiceItems,
+          action.payload,
+        ],
       };
     case actionTypes.GET_HOUSE_DELIVERY:
       return {
@@ -115,7 +127,9 @@ export default (state = initialState, action) => {
         houseDeliveryServiceItems: [...action.payload],
       };
     case actionTypes.DELETE_HOUSE_DELIVERY_OPTION: {
-      const updatedHouseDeliveryServiceItems = _.cloneDeep(state.houseDeliveryServiceItems);
+      const updatedHouseDeliveryServiceItems = _.cloneDeep(
+        state.houseDeliveryServiceItems,
+      );
       _.remove(updatedHouseDeliveryServiceItems, {
         id: action.payload.id,
       });
@@ -125,12 +139,14 @@ export default (state = initialState, action) => {
       };
     }
     case actionTypes.UPDATE_HOUSE_DELIVERY: {
-      const updatedHouseDeliveryServiceItems = _.cloneDeep(state.houseDeliveryServiceItems);
+      const updatedHouseDeliveryServiceItems = _.cloneDeep(
+        state.houseDeliveryServiceItems,
+      );
       const index = updatedHouseDeliveryServiceItems.findIndex(
         (object) => object.id === action.payload.id,
       );
       if (index >= 0) {
-        updatedHouseDeliveryServiceItems[index] = {...action.payload};
+        updatedHouseDeliveryServiceItems[index] = { ...action.payload };
       }
       return {
         ...state,
@@ -172,7 +188,7 @@ export default (state = initialState, action) => {
         (object) => object.id === action.payload.id,
       );
       if (index >= 0) {
-        updatedOpeningStatusItems[index] = {...action.payload};
+        updatedOpeningStatusItems[index] = { ...action.payload };
       }
       return {
         ...state,
@@ -209,9 +225,11 @@ export default (state = initialState, action) => {
     }
     case actionTypes.UPDATE_ALCOHOL: {
       const updatedAlcoholItems = _.cloneDeep(state.alcoholItems);
-      const index = updatedAlcoholItems.findIndex((object) => object.id === action.payload.id);
+      const index = updatedAlcoholItems.findIndex(
+        (object) => object.id === action.payload.id,
+      );
       if (index >= 0) {
-        updatedAlcoholItems[index] = {...action.payload};
+        updatedAlcoholItems[index] = { ...action.payload };
       }
       return {
         ...state,

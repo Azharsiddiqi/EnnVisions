@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({formShowHandler}) => {
+export default ({ formShowHandler }) => {
   return (
     <div className="create-admin-form">
       <form>
@@ -110,7 +110,7 @@ export default ({formShowHandler}) => {
               <iframe
                 title="map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2602.344082631407!2d-123.1133149490098!3d49.28882477923052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5486719d24e2e021%3A0xb7057fe085c86109!2sCanada%20Place!5e0!3m2!1sen!2s!4v1601402609000!5m2!1sen!2s"
-                style={{border: 0, width: '100%'}}
+                style={{ border: 0, width: '100%' }}
                 allowFullScreen
                 width={600}
                 height={450}
@@ -191,12 +191,20 @@ export default ({formShowHandler}) => {
                 aria-describedby="emailHelp"
                 placeholder="Insurance Expiry Date"
               />
-              <img src="assets/images/ic_calendar.svg" className="calendar-icon" alt="" />
+              <img
+                src="assets/images/ic_calendar.svg"
+                className="calendar-icon"
+                alt=""
+              />
             </div>
           </div>
         </div>
         <div className="btn-fleet-submit">
-          <button type="submit" onClick={() => formShowHandler(1)} className="btn">
+          <button
+            type="submit"
+            onClick={() => formShowHandler(1)}
+            className="btn"
+          >
             NEXT
           </button>
         </div>

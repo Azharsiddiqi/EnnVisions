@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {Link, useHistory} from 'react-router-dom';
-import {PUBLIC_ROUTES} from '../../../config';
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { PUBLIC_ROUTES } from '../../../config';
 import AddMoreOptions from './components/addMoreInfo';
 
 export default () => {
@@ -14,12 +14,23 @@ export default () => {
           {/* begin::Signin */}
           <div className="login-form login-signin">
             {/* begin::Form */}
-            <img src="assets/images/ic-logo.svg" alt="logo" className="envision-red-logo" />
-            <form className="form" noValidate="novalidate" id="kt_login_signin_form">
+            <img
+              src="assets/images/ic-logo.svg"
+              alt="logo"
+              className="envision-red-logo"
+            />
+            <form
+              className="form"
+              noValidate="novalidate"
+              id="kt_login_signin_form"
+            >
               <div className="pb-7 pt-lg-0 pt-5">
-                <h3 className="signup-title">WANT TO BE A EnnVisions MERCHANT? (CANADA)</h3>
+                <h3 className="signup-title">
+                  WANT TO BE A EnnVisions MERCHANT? (CANADA)
+                </h3>
                 <p className="gilroy-regular signup-leave-text">
-                  Leave your restaurant details here and we will be in touch shortly.
+                  Leave your restaurant details here and we will be in touch
+                  shortly.
                 </p>
               </div>
               {/* end::Title */}
@@ -142,7 +153,9 @@ export default () => {
                   autoComplete="off"
                 />
               </div>
-              <div className="r-u-owner">ARE YOU THE OWNER OR MANAGER OF THIS PLACE?*</div>
+              <div className="r-u-owner">
+                ARE YOU THE OWNER OR MANAGER OF THIS PLACE?*
+              </div>
               {/* end::Form group */}
               {/* begin::Form group */}
               <div className="row">
@@ -215,7 +228,9 @@ export default () => {
                   </div>
                 </div>
                 <div className="col-md-6">
-                  <label className="label-country">House delivery services?</label>
+                  <label className="label-country">
+                    House delivery services?
+                  </label>
                   <div className="form-group country-names">
                     <select className="form-control">
                       <option>Yes</option>
@@ -245,7 +260,9 @@ export default () => {
               <div className="form-group">
                 <button
                   type="button"
-                  onClick={() => history.push(PUBLIC_ROUTES.confirmationPassword.path)}
+                  onClick={() =>
+                    history.push(PUBLIC_ROUTES.confirmationPassword.path)
+                  }
                   id="sign-submit-btn"
                   className="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 mr-4"
                 >
@@ -255,8 +272,9 @@ export default () => {
               {/* end::Action */}
             </form>
             <div className="privacy-text">
-              By proceeding, I agree that you can collect, use and disclose the information provided
-              by me in accordance with your <Link to="#">Privacy Policy</Link> which I have read and
+              By proceeding, I agree that you can collect, use and disclose the
+              information provided by me in accordance with your{' '}
+              <Link to="#">Privacy Policy</Link> which I have read and
               understand
             </div>
             {/* end::Form */}
@@ -267,13 +285,22 @@ export default () => {
         {/* begin::Content footer */}
         {/* end::Content footer */}
         <div className="footer-links d-flex justify-content-center align-items-end py-7 py-lg-0">
-          <Link to="#" className="gilroy-medium text-primary font-weight-bolder font-size-h5">
+          <Link
+            to="#"
+            className="gilroy-medium text-primary font-weight-bolder font-size-h5"
+          >
             TERMS
           </Link>
-          <Link to="#" className="gilroy-medium text-primary ml-10 font-weight-bolder font-size-h5">
+          <Link
+            to="#"
+            className="gilroy-medium text-primary ml-10 font-weight-bolder font-size-h5"
+          >
             PLANS
           </Link>
-          <Link to="#" className="gilroy-medium text-primary ml-10 font-weight-bolder font-size-h5">
+          <Link
+            to="#"
+            className="gilroy-medium text-primary ml-10 font-weight-bolder font-size-h5"
+          >
             CONTACT US
           </Link>
         </div>

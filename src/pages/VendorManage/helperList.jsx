@@ -1,6 +1,6 @@
 import React from 'react';
-import {useHistory} from 'react-router-dom';
-import {PRIVATE_ROUTES} from '../../config';
+import { useHistory } from 'react-router-dom';
+import { PRIVATE_ROUTES } from '../../config';
 
 export default () => {
   const history = useHistory();
@@ -49,7 +49,11 @@ export default () => {
                 <tbody>
                   <tr
                     className="table-data"
-                    onClick={() => history.push(PRIVATE_ROUTES.vendorManage.outLetsDetail.path)}
+                    onClick={() =>
+                      history.push(
+                        PRIVATE_ROUTES.vendorManage.outLetsDetail.path,
+                      )
+                    }
                   >
                     <td className="user-id">1</td>
                     <td className="user-name-td">ADNAN QURESHI</td>
@@ -67,8 +71,16 @@ export default () => {
                     </td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/new-delete.svg" className="delete" alt="" />
-                        <img src="assets/images/new-edit.svg" className="edit" alt="" />
+                        <img
+                          src="assets/images/new-delete.svg"
+                          className="delete"
+                          alt=""
+                        />
+                        <img
+                          src="assets/images/new-edit.svg"
+                          className="edit"
+                          alt=""
+                        />
                       </div>
                     </td>
                   </tr>
@@ -89,8 +101,16 @@ export default () => {
                     </td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/new-delete.svg" className="delete" alt="" />
-                        <img src="assets/images/new-edit.svg" className="edit" alt="" />
+                        <img
+                          src="assets/images/new-delete.svg"
+                          className="delete"
+                          alt=""
+                        />
+                        <img
+                          src="assets/images/new-edit.svg"
+                          className="edit"
+                          alt=""
+                        />
                       </div>
                     </td>
                   </tr>
@@ -111,8 +131,16 @@ export default () => {
                     </td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/new-delete.svg" className="delete" alt="" />
-                        <img src="assets/images/new-edit.svg" className="edit" alt="" />
+                        <img
+                          src="assets/images/new-delete.svg"
+                          className="delete"
+                          alt=""
+                        />
+                        <img
+                          src="assets/images/new-edit.svg"
+                          className="edit"
+                          alt=""
+                        />
                       </div>
                     </td>
                   </tr>
@@ -133,8 +161,16 @@ export default () => {
                     </td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/new-delete.svg" className="delete" alt="" />
-                        <img src="assets/images/new-edit.svg" className="edit" alt="" />
+                        <img
+                          src="assets/images/new-delete.svg"
+                          className="delete"
+                          alt=""
+                        />
+                        <img
+                          src="assets/images/new-edit.svg"
+                          className="edit"
+                          alt=""
+                        />
                       </div>
                     </td>
                   </tr>
@@ -155,8 +191,16 @@ export default () => {
                     </td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/new-delete.svg" className="delete" alt="" />
-                        <img src="assets/images/new-edit.svg" className="edit" alt="" />
+                        <img
+                          src="assets/images/new-delete.svg"
+                          className="delete"
+                          alt=""
+                        />
+                        <img
+                          src="assets/images/new-edit.svg"
+                          className="edit"
+                          alt=""
+                        />
                       </div>
                     </td>
                   </tr>
@@ -177,8 +221,16 @@ export default () => {
                     </td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/new-delete.svg" className="delete" alt="" />
-                        <img src="assets/images/new-edit.svg" className="edit" alt="" />
+                        <img
+                          src="assets/images/new-delete.svg"
+                          className="delete"
+                          alt=""
+                        />
+                        <img
+                          src="assets/images/new-edit.svg"
+                          className="edit"
+                          alt=""
+                        />
                       </div>
                     </td>
                   </tr>
@@ -199,8 +251,16 @@ export default () => {
                     </td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/new-delete.svg" className="delete" alt="" />
-                        <img src="assets/images/new-edit.svg" className="edit" alt="" />
+                        <img
+                          src="assets/images/new-delete.svg"
+                          className="delete"
+                          alt=""
+                        />
+                        <img
+                          src="assets/images/new-edit.svg"
+                          className="edit"
+                          alt=""
+                        />
                       </div>
                     </td>
                   </tr>
@@ -221,8 +281,16 @@ export default () => {
                     </td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/new-delete.svg" className="delete" alt="" />
-                        <img src="assets/images/new-edit.svg" className="edit" alt="" />
+                        <img
+                          src="assets/images/new-delete.svg"
+                          className="delete"
+                          alt=""
+                        />
+                        <img
+                          src="assets/images/new-edit.svg"
+                          className="edit"
+                          alt=""
+                        />
                       </div>
                     </td>
                   </tr>
@@ -243,8 +311,16 @@ export default () => {
                     </td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/new-delete.svg" className="delete" alt="" />
-                        <img src="assets/images/new-edit.svg" className="edit" alt="" />
+                        <img
+                          src="assets/images/new-delete.svg"
+                          className="delete"
+                          alt=""
+                        />
+                        <img
+                          src="assets/images/new-edit.svg"
+                          className="edit"
+                          alt=""
+                        />
                       </div>
                     </td>
                   </tr>
@@ -265,8 +341,16 @@ export default () => {
                     </td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/new-delete.svg" className="delete" alt="" />
-                        <img src="assets/images/new-edit.svg" className="edit" alt="" />
+                        <img
+                          src="assets/images/new-delete.svg"
+                          className="delete"
+                          alt=""
+                        />
+                        <img
+                          src="assets/images/new-edit.svg"
+                          className="edit"
+                          alt=""
+                        />
                       </div>
                     </td>
                   </tr>
@@ -287,8 +371,16 @@ export default () => {
                     </td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/new-delete.svg" className="delete" alt="" />
-                        <img src="assets/images/new-edit.svg" className="edit" alt="" />
+                        <img
+                          src="assets/images/new-delete.svg"
+                          className="delete"
+                          alt=""
+                        />
+                        <img
+                          src="assets/images/new-edit.svg"
+                          className="edit"
+                          alt=""
+                        />
                       </div>
                     </td>
                   </tr>
@@ -309,8 +401,16 @@ export default () => {
                     </td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/new-delete.svg" className="delete" alt="" />
-                        <img src="assets/images/new-edit.svg" className="edit" alt="" />
+                        <img
+                          src="assets/images/new-delete.svg"
+                          className="delete"
+                          alt=""
+                        />
+                        <img
+                          src="assets/images/new-edit.svg"
+                          className="edit"
+                          alt=""
+                        />
                       </div>
                     </td>
                   </tr>
@@ -331,8 +431,16 @@ export default () => {
                     </td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/new-delete.svg" className="delete" alt="" />
-                        <img src="assets/images/new-edit.svg" className="edit" alt="" />
+                        <img
+                          src="assets/images/new-delete.svg"
+                          className="delete"
+                          alt=""
+                        />
+                        <img
+                          src="assets/images/new-edit.svg"
+                          className="edit"
+                          alt=""
+                        />
                       </div>
                     </td>
                   </tr>
@@ -353,8 +461,16 @@ export default () => {
                     </td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/new-delete.svg" className="delete" alt="" />
-                        <img src="assets/images/new-edit.svg" className="edit" alt="" />
+                        <img
+                          src="assets/images/new-delete.svg"
+                          className="delete"
+                          alt=""
+                        />
+                        <img
+                          src="assets/images/new-edit.svg"
+                          className="edit"
+                          alt=""
+                        />
                       </div>
                     </td>
                   </tr>
@@ -375,8 +491,16 @@ export default () => {
                     </td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/new-delete.svg" className="delete" alt="" />
-                        <img src="assets/images/new-edit.svg" className="edit" alt="" />
+                        <img
+                          src="assets/images/new-delete.svg"
+                          className="delete"
+                          alt=""
+                        />
+                        <img
+                          src="assets/images/new-edit.svg"
+                          className="edit"
+                          alt=""
+                        />
                       </div>
                     </td>
                   </tr>

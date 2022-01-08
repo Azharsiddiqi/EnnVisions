@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   ACTION_addNewBusinessCategoryItem,
   ACTION_getBusinessCategoryItems,
@@ -8,11 +8,13 @@ import {
   ACTION_updateBusinessCategoriesDropdownList,
 } from '../../store/mainCategory/actions';
 import Modal from '../../components/confirmationAlert';
-import {Dropdown, DropdownButton} from 'react-bootstrap';
+import { Dropdown, DropdownButton } from 'react-bootstrap';
 
 export default () => {
   const dispatch = useDispatch();
-  const {businessCategoriesItems} = useSelector((state) => state.mainCategory);
+  const { businessCategoriesItems } = useSelector(
+    (state) => state.mainCategory,
+  );
   // begin item states
   const [itemName, setItemName] = useState('');
   const [itemDescription, setItemDescription] = useState('');
@@ -182,7 +184,8 @@ export default () => {
                     className="form-control"
                     id="exampleFormControlSelect1"
                     value={status}
-                    onChange={(e) => setStatus(Number(e.target.value))}>
+                    onChange={(e) => setStatus(Number(e.target.value))}
+                  >
                     <option value={1}>Active</option>
                     <option value={0}>In active</option>
                   </select>
@@ -215,7 +218,9 @@ export default () => {
                     </div>
                   </div>
                   <div className="col-xl-6">
-                    <label className="r-u-owner who-serve">Display Description</label>
+                    <label className="r-u-owner who-serve">
+                      Display Description
+                    </label>
                     <div className="row c-vendor-checboxes">
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
                         <input
@@ -296,7 +301,9 @@ export default () => {
 
                 <div className="row">
                   <div className="col-xl-6 mt-10">
-                    <label className="r-u-owner who-serve">Multiple Selection</label>
+                    <label className="r-u-owner who-serve">
+                      Multiple Selection
+                    </label>
                     <div className="row c-vendor-checboxes">
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
                         <input
@@ -348,7 +355,11 @@ export default () => {
                 </div>
 
                 <div className="creat-main-category-submit  mt-5">
-                  <button className="btn" type="button" onClick={updateBusinessCategoryHandler}>
+                  <button
+                    className="btn"
+                    type="button"
+                    onClick={updateBusinessCategoryHandler}
+                  >
                     UPDATE
                   </button>
                 </div>
@@ -381,7 +392,8 @@ export default () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {businessCategoriesItems && businessCategoriesItems.length ? (
+                      {businessCategoriesItems &&
+                      businessCategoriesItems.length ? (
                         businessCategoriesItems.map((item, index) =>
                           editItem && editItem.id === item.id ? (
                             <tr key={index}>
@@ -393,7 +405,9 @@ export default () => {
                                     placeholder="Item name"
                                     className="form-control"
                                     value={editItemName}
-                                    onChange={(e) => setEditItemName(e.target.value)}
+                                    onChange={(e) =>
+                                      setEditItemName(e.target.value)
+                                    }
                                   />
                                 </div>
                               </td>
@@ -404,7 +418,9 @@ export default () => {
                                     placeholder="Details"
                                     className="form-control"
                                     value={editItemDescription}
-                                    onChange={(e) => setEditItemDescription(e.target.value)}
+                                    onChange={(e) =>
+                                      setEditItemDescription(e.target.value)
+                                    }
                                   />
                                 </div>
                               </td>
@@ -413,20 +429,29 @@ export default () => {
                                   <select
                                     className="form-control"
                                     value={editItemStatus}
-                                    onChange={(e) => setEditItemStatus(Number(e.target.value))}>
+                                    onChange={(e) =>
+                                      setEditItemStatus(Number(e.target.value))
+                                    }
+                                  >
                                     <option value={1}>ACTIVE</option>
                                     <option value={0}>IN-ACTIVE</option>
                                   </select>
                                 </div>
                               </td>
                               <td className="td-action-icon">
-                                <DropdownButton id="dropdown-basic-button" title="Actions">
-                                  <Dropdown.Item onClick={updateItemHandler}>Update</Dropdown.Item>
+                                <DropdownButton
+                                  id="dropdown-basic-button"
+                                  title="Actions"
+                                >
+                                  <Dropdown.Item onClick={updateItemHandler}>
+                                    Update
+                                  </Dropdown.Item>
                                   <Dropdown.Item
                                     onClick={(e) => {
                                       e.preventDefault();
                                       resetEditItem();
-                                    }}>
+                                    }}
+                                  >
                                     Cancel
                                   </Dropdown.Item>
                                 </DropdownButton>
@@ -447,14 +472,22 @@ export default () => {
                                   onClick={() => handleShow(item)}
                                   className="del-icon cursor-class"
                                   data-toggle="modal"
-                                  data-target="#exampleModal">
-                                  <img src="assets/images/new-delete.svg" alt="" />
+                                  data-target="#exampleModal"
+                                >
+                                  <img
+                                    src="assets/images/new-delete.svg"
+                                    alt=""
+                                  />
                                 </span>
 
                                 <span
                                   className="ic-edit cursor-class"
-                                  onClick={() => editButtonHandler(item)}>
-                                  <img src="assets/images/new-edit.svg" alt="" />
+                                  onClick={() => editButtonHandler(item)}
+                                >
+                                  <img
+                                    src="assets/images/new-edit.svg"
+                                    alt=""
+                                  />
                                 </span>
                               </td>
                             </tr>
@@ -486,7 +519,9 @@ export default () => {
                               placeholder="Details"
                               className="form-control"
                               value={itemDescription}
-                              onChange={(e) => setItemDescription(e.target.value)}
+                              onChange={(e) =>
+                                setItemDescription(e.target.value)
+                              }
                             />
                           </div>
                         </td>
@@ -495,14 +530,20 @@ export default () => {
                             <select
                               className="form-control"
                               value={itemStatus}
-                              onChange={(e) => setItemStatus(Number(e.target.value))}>
+                              onChange={(e) =>
+                                setItemStatus(Number(e.target.value))
+                              }
+                            >
                               <option value={1}>ACTIVE</option>
                               <option value={0}>IN-ACTIVE</option>
                             </select>
                           </div>
                         </td>
                         <td className="td-action-icon">
-                          <span onClick={addNewItemHandler} className="plus-sign cursor-class">
+                          <span
+                            onClick={addNewItemHandler}
+                            className="plus-sign cursor-class"
+                          >
                             + Add
                           </span>
                         </td>

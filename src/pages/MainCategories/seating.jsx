@@ -29,7 +29,10 @@ export default () => {
                 </div>
                 <div className="form-group">
                   <label>Status</label>
-                  <select className="form-control" id="exampleFormControlSelect1">
+                  <select
+                    className="form-control"
+                    id="exampleFormControlSelect1"
+                  >
                     <option value="Active">Active</option>
                     <option value="in-active">In active</option>
                   </select>
@@ -52,7 +55,9 @@ export default () => {
                     </div>
                   </div>
                   <div className="col-xl-6">
-                    <label className="r-u-owner who-serve">Display Description</label>
+                    <label className="r-u-owner who-serve">
+                      Display Description
+                    </label>
                     <div className="row c-vendor-checboxes">
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
                         <input type="checkbox" name="Checkboxes3_1" />
@@ -103,7 +108,9 @@ export default () => {
 
                 <div className="row">
                   <div className="col-xl-6 mt-10">
-                    <label className="r-u-owner who-serve">Multiple Selection</label>
+                    <label className="r-u-owner who-serve">
+                      Multiple Selection
+                    </label>
                     <div className="row c-vendor-checboxes">
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
                         <input type="checkbox" name="Checkboxes3_1" />
@@ -179,7 +186,8 @@ export default () => {
                           <span
                             className="del-icon"
                             data-toggle="modal"
-                            data-target="#exampleModal">
+                            data-target="#exampleModal"
+                          >
                             <img src="assets/images/new-delete.svg" alt="" />
                           </span>
                           {/* Modal */}
@@ -189,7 +197,8 @@ export default () => {
                             tabIndex={-1}
                             role="dialog"
                             aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
+                            aria-hidden="true"
+                          >
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
@@ -197,8 +206,9 @@ export default () => {
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                                    diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                                    Lorem ipsum dolor sit amet, consetetur
+                                    sadipscing elitr, sed diam nonumy eirmod
+                                    tempor invidunt ut labore et dolore magna
                                   </div>
                                   <div className="modal-btn">
                                     <button type="button" className="yes-btn">
@@ -207,7 +217,8 @@ export default () => {
                                     <button
                                       type="button"
                                       data-dismiss="modal"
-                                      className="cancel-btn">
+                                      className="cancel-btn"
+                                    >
                                       CANCEL
                                     </button>
                                   </div>
@@ -231,7 +242,8 @@ export default () => {
                           <span
                             className="del-icon"
                             data-toggle="modal"
-                            data-target="#exampleModal">
+                            data-target="#exampleModal"
+                          >
                             <img src="assets/images/new-delete.svg" alt="" />
                           </span>
                           {/* Modal */}
@@ -241,7 +253,8 @@ export default () => {
                             tabIndex={-1}
                             role="dialog"
                             aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
+                            aria-hidden="true"
+                          >
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
@@ -249,8 +262,9 @@ export default () => {
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                                    diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                                    Lorem ipsum dolor sit amet, consetetur
+                                    sadipscing elitr, sed diam nonumy eirmod
+                                    tempor invidunt ut labore et dolore magna
                                   </div>
                                   <div className="modal-btn">
                                     <button type="button" className="yes-btn">
@@ -259,7 +273,8 @@ export default () => {
                                     <button
                                       type="button"
                                       data-dismiss="modal"
-                                      className="cancel-btn">
+                                      className="cancel-btn"
+                                    >
                                       CANCEL
                                     </button>
                                   </div>
@@ -283,7 +298,8 @@ export default () => {
                           <span
                             className="del-icon"
                             data-toggle="modal"
-                            data-target="#exampleModal">
+                            data-target="#exampleModal"
+                          >
                             <img src="assets/images/new-delete.svg" alt="" />
                           </span>
                           {/* Modal */}
@@ -293,7 +309,8 @@ export default () => {
                             tabIndex={-1}
                             role="dialog"
                             aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
+                            aria-hidden="true"
+                          >
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
@@ -301,8 +318,9 @@ export default () => {
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                                    diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                                    Lorem ipsum dolor sit amet, consetetur
+                                    sadipscing elitr, sed diam nonumy eirmod
+                                    tempor invidunt ut labore et dolore magna
                                   </div>
                                   <div className="modal-btn">
                                     <button type="button" className="yes-btn">
@@ -311,7 +329,8 @@ export default () => {
                                     <button
                                       type="button"
                                       data-dismiss="modal"
-                                      className="cancel-btn">
+                                      className="cancel-btn"
+                                    >
                                       CANCEL
                                     </button>
                                   </div>
@@ -335,7 +354,8 @@ export default () => {
                           <span
                             className="del-icon"
                             data-toggle="modal"
-                            data-target="#exampleModal">
+                            data-target="#exampleModal"
+                          >
                             <img src="assets/images/new-delete.svg" alt="" />
                           </span>
                           {/* Modal */}
@@ -345,7 +365,8 @@ export default () => {
                             tabIndex={-1}
                             role="dialog"
                             aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
+                            aria-hidden="true"
+                          >
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
@@ -353,8 +374,9 @@ export default () => {
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                                    diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                                    Lorem ipsum dolor sit amet, consetetur
+                                    sadipscing elitr, sed diam nonumy eirmod
+                                    tempor invidunt ut labore et dolore magna
                                   </div>
                                   <div className="modal-btn">
                                     <button type="button" className="yes-btn">
@@ -363,7 +385,8 @@ export default () => {
                                     <button
                                       type="button"
                                       data-dismiss="modal"
-                                      className="cancel-btn">
+                                      className="cancel-btn"
+                                    >
                                       CANCEL
                                     </button>
                                   </div>

@@ -1,18 +1,26 @@
 import React from 'react';
-import {PRIVATE_ROUTES} from '../../../config';
-import {useHistory} from 'react-router-dom';
+import { PRIVATE_ROUTES } from '../../../config';
+import { useHistory } from 'react-router-dom';
 
 export default function () {
   const history = useHistory();
   return (
-    <div className="content  d-flex flex-column flex-column-fluid" id="kt_content">
+    <div
+      className="content  d-flex flex-column flex-column-fluid"
+      id="kt_content"
+    >
       {/*begin::Subheader*/}
-      <div className="subheader py-2 py-lg-4  subheader-solid " id="kt_subheader">
+      <div
+        className="subheader py-2 py-lg-4  subheader-solid "
+        id="kt_subheader"
+      >
         <div className=" container-fluid  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
           {/*begin::Info*/}
           <div className="d-flex align-items-center flex-wrap mr-2">
             {/*begin::Page Title*/}
-            <h5 className="dark-text main-breadcrumb gilroy-semibold mt-2 mb-2 mr-5">DASHBOARD</h5>
+            <h5 className="dark-text main-breadcrumb gilroy-semibold mt-2 mb-2 mr-5">
+              DASHBOARD
+            </h5>
             {/*end::Page Title*/}
             {/*begin::Actions*/}
             <div className="subheader-separator subheader-separator-ver mt-2 mb-2 mr-4 bg-gray-200" />
@@ -65,7 +73,9 @@ export default function () {
                   <tbody>
                     <tr
                       onClick={() => {
-                        history.push(PRIVATE_ROUTES.vendorManage.outLetDetail.path);
+                        history.push(
+                          PRIVATE_ROUTES.vendorManage.outLetDetail.path,
+                        );
                       }}
                     >
                       <td className="pg-14-id">
@@ -80,7 +90,10 @@ export default function () {
                       <td className="td-action-icon">
                         <a href="outlet-schedule.html">
                           <span className="preparation-t">
-                            <img src="assets/images/ic_prepration_time.svg" alt="" />
+                            <img
+                              src="assets/images/ic_prepration_time.svg"
+                              alt=""
+                            />
                           </span>
                         </a>
                         <a href="outlet-menu-page131.html">
@@ -107,7 +120,10 @@ export default function () {
                           <div className="modal-dialog" role="document">
                             <div className="modal-content">
                               <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">
+                                <h5
+                                  className="modal-title"
+                                  id="exampleModalLabel"
+                                >
                                   MANAGE OPEN TIME
                                 </h5>
                                 <button
@@ -136,42 +152,74 @@ export default function () {
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value="Monday">Monday</option>
-                                              <option value="Tuesday">Tuesday</option>
-                                              <option value="Wednesday">Wednesday</option>
-                                              <option value="Thursday">Thursday</option>
-                                              <option value="Friday">Friday</option>
-                                              <option value="Saturday">Saturday</option>
-                                              <option value="Sunday">Sunday</option>
+                                              <option value="Monday">
+                                                Monday
+                                              </option>
+                                              <option value="Tuesday">
+                                                Tuesday
+                                              </option>
+                                              <option value="Wednesday">
+                                                Wednesday
+                                              </option>
+                                              <option value="Thursday">
+                                                Thursday
+                                              </option>
+                                              <option value="Friday">
+                                                Friday
+                                              </option>
+                                              <option value="Saturday">
+                                                Saturday
+                                              </option>
+                                              <option value="Sunday">
+                                                Sunday
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value={8}>08:00 AM</option>
-                                              <option value={9}>09:00 AM</option>
-                                              <option value={10}>10:00 AM</option>
+                                              <option value={8}>
+                                                08:00 AM
+                                              </option>
+                                              <option value={9}>
+                                                09:00 AM
+                                              </option>
+                                              <option value={10}>
+                                                10:00 AM
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value={11}>11:00 AM</option>
-                                              <option value={9}>12:00 AM</option>
-                                              <option value={10}>01:00 AM</option>
+                                              <option value={11}>
+                                                11:00 AM
+                                              </option>
+                                              <option value={9}>
+                                                12:00 AM
+                                              </option>
+                                              <option value={10}>
+                                                01:00 AM
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
-                                          <button type="button" className="inactive-btn">
+                                          <button
+                                            type="button"
+                                            className="inactive-btn"
+                                          >
                                             INACTIVE
                                           </button>
                                         </td>
                                         <td>
                                           <span className="delete-icon">
-                                            <img src="assets/images/new-delete.svg" alt="" />
+                                            <img
+                                              src="assets/images/new-delete.svg"
+                                              alt=""
+                                            />
                                           </span>
                                         </td>
                                       </tr>
@@ -188,42 +236,74 @@ export default function () {
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value="Tuesday">Tuesday</option>
-                                              <option value="Monday">Monday</option>
-                                              <option value="Wednesday">Wednesday</option>
-                                              <option value="Thursday">Thursday</option>
-                                              <option value="Friday">Friday</option>
-                                              <option value="Saturday">Saturday</option>
-                                              <option value="Sunday">Sunday</option>
+                                              <option value="Tuesday">
+                                                Tuesday
+                                              </option>
+                                              <option value="Monday">
+                                                Monday
+                                              </option>
+                                              <option value="Wednesday">
+                                                Wednesday
+                                              </option>
+                                              <option value="Thursday">
+                                                Thursday
+                                              </option>
+                                              <option value="Friday">
+                                                Friday
+                                              </option>
+                                              <option value="Saturday">
+                                                Saturday
+                                              </option>
+                                              <option value="Sunday">
+                                                Sunday
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value={8}>12:00 AM</option>
-                                              <option value={9}>09:00 AM</option>
-                                              <option value={10}>10:00 AM</option>
+                                              <option value={8}>
+                                                12:00 AM
+                                              </option>
+                                              <option value={9}>
+                                                09:00 AM
+                                              </option>
+                                              <option value={10}>
+                                                10:00 AM
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value={11}>12:00 AM</option>
-                                              <option value={9}>12:00 AM</option>
-                                              <option value={10}>01:00 AM</option>
+                                              <option value={11}>
+                                                12:00 AM
+                                              </option>
+                                              <option value={9}>
+                                                12:00 AM
+                                              </option>
+                                              <option value={10}>
+                                                01:00 AM
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
-                                          <button type="button" className="active-btn">
+                                          <button
+                                            type="button"
+                                            className="active-btn"
+                                          >
                                             INACTIVE
                                           </button>
                                         </td>
                                         <td>
                                           <span className="delete-icon">
-                                            <img src="assets/images/new-delete.svg" alt="" />
+                                            <img
+                                              src="assets/images/new-delete.svg"
+                                              alt=""
+                                            />
                                           </span>
                                         </td>
                                       </tr>
@@ -240,42 +320,74 @@ export default function () {
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value="Wednesday">Wednesday</option>
-                                              <option value="Tuesday">Tuesday</option>
-                                              <option value="Monday">Monday</option>
-                                              <option value="Thursday">Thursday</option>
-                                              <option value="Friday">Friday</option>
-                                              <option value="Saturday">Saturday</option>
-                                              <option value="Sunday">Sunday</option>
+                                              <option value="Wednesday">
+                                                Wednesday
+                                              </option>
+                                              <option value="Tuesday">
+                                                Tuesday
+                                              </option>
+                                              <option value="Monday">
+                                                Monday
+                                              </option>
+                                              <option value="Thursday">
+                                                Thursday
+                                              </option>
+                                              <option value="Friday">
+                                                Friday
+                                              </option>
+                                              <option value="Saturday">
+                                                Saturday
+                                              </option>
+                                              <option value="Sunday">
+                                                Sunday
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value={12}>12:00 AM</option>
-                                              <option value={9}>09:00 AM</option>
-                                              <option value={10}>10:00 AM</option>
+                                              <option value={12}>
+                                                12:00 AM
+                                              </option>
+                                              <option value={9}>
+                                                09:00 AM
+                                              </option>
+                                              <option value={10}>
+                                                10:00 AM
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value={12}>12:00 AM</option>
-                                              <option value={9}>12:00 AM</option>
-                                              <option value={10}>01:00 AM</option>
+                                              <option value={12}>
+                                                12:00 AM
+                                              </option>
+                                              <option value={9}>
+                                                12:00 AM
+                                              </option>
+                                              <option value={10}>
+                                                01:00 AM
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
-                                          <button type="button" className="active-btn">
+                                          <button
+                                            type="button"
+                                            className="active-btn"
+                                          >
                                             INACTIVE
                                           </button>
                                         </td>
                                         <td>
                                           <span className="delete-icon">
-                                            <img src="assets/images/new-delete.svg" alt="" />
+                                            <img
+                                              src="assets/images/new-delete.svg"
+                                              alt=""
+                                            />
                                           </span>
                                         </td>
                                       </tr>
@@ -292,42 +404,74 @@ export default function () {
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value="Friday">Friday</option>
-                                              <option value="Tuesday">Tuesday</option>
-                                              <option value="Wednesday">Wednesday</option>
-                                              <option value="Thursday">Thursday</option>
-                                              <option value="Monday">Monday</option>
-                                              <option value="Saturday">Saturday</option>
-                                              <option value="Sunday">Sunday</option>
+                                              <option value="Friday">
+                                                Friday
+                                              </option>
+                                              <option value="Tuesday">
+                                                Tuesday
+                                              </option>
+                                              <option value="Wednesday">
+                                                Wednesday
+                                              </option>
+                                              <option value="Thursday">
+                                                Thursday
+                                              </option>
+                                              <option value="Monday">
+                                                Monday
+                                              </option>
+                                              <option value="Saturday">
+                                                Saturday
+                                              </option>
+                                              <option value="Sunday">
+                                                Sunday
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value={12}>12:00 AM</option>
-                                              <option value={9}>09:00 AM</option>
-                                              <option value={10}>10:00 AM</option>
+                                              <option value={12}>
+                                                12:00 AM
+                                              </option>
+                                              <option value={9}>
+                                                09:00 AM
+                                              </option>
+                                              <option value={10}>
+                                                10:00 AM
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value={12}>12:00 AM</option>
-                                              <option value={9}>12:00 AM</option>
-                                              <option value={10}>01:00 AM</option>
+                                              <option value={12}>
+                                                12:00 AM
+                                              </option>
+                                              <option value={9}>
+                                                12:00 AM
+                                              </option>
+                                              <option value={10}>
+                                                01:00 AM
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
-                                          <button type="button" className="inactive-btn">
+                                          <button
+                                            type="button"
+                                            className="inactive-btn"
+                                          >
                                             INACTIVE
                                           </button>
                                         </td>
                                         <td>
                                           <span className="delete-icon">
-                                            <img src="assets/images/new-delete.svg" alt="" />
+                                            <img
+                                              src="assets/images/new-delete.svg"
+                                              alt=""
+                                            />
                                           </span>
                                         </td>
                                       </tr>
@@ -364,7 +508,10 @@ export default function () {
                       <td className="td-action-icon">
                         <a href="outlet-schedule.html">
                           <span className="preparation-t">
-                            <img src="assets/images/ic_prepration_time.svg" alt="" />
+                            <img
+                              src="assets/images/ic_prepration_time.svg"
+                              alt=""
+                            />
                           </span>
                         </a>
                         <a href="outlet-menu-page131.html">
@@ -391,7 +538,10 @@ export default function () {
                           <div className="modal-dialog" role="document">
                             <div className="modal-content">
                               <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">
+                                <h5
+                                  className="modal-title"
+                                  id="exampleModalLabel"
+                                >
                                   MANAGE OPEN TIME
                                 </h5>
                                 <button
@@ -420,42 +570,74 @@ export default function () {
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value="Monday">Monday</option>
-                                              <option value="Tuesday">Tuesday</option>
-                                              <option value="Wednesday">Wednesday</option>
-                                              <option value="Thursday">Thursday</option>
-                                              <option value="Friday">Friday</option>
-                                              <option value="Saturday">Saturday</option>
-                                              <option value="Sunday">Sunday</option>
+                                              <option value="Monday">
+                                                Monday
+                                              </option>
+                                              <option value="Tuesday">
+                                                Tuesday
+                                              </option>
+                                              <option value="Wednesday">
+                                                Wednesday
+                                              </option>
+                                              <option value="Thursday">
+                                                Thursday
+                                              </option>
+                                              <option value="Friday">
+                                                Friday
+                                              </option>
+                                              <option value="Saturday">
+                                                Saturday
+                                              </option>
+                                              <option value="Sunday">
+                                                Sunday
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value={8}>08:00 AM</option>
-                                              <option value={9}>09:00 AM</option>
-                                              <option value={10}>10:00 AM</option>
+                                              <option value={8}>
+                                                08:00 AM
+                                              </option>
+                                              <option value={9}>
+                                                09:00 AM
+                                              </option>
+                                              <option value={10}>
+                                                10:00 AM
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value={11}>11:00 AM</option>
-                                              <option value={9}>12:00 AM</option>
-                                              <option value={10}>01:00 AM</option>
+                                              <option value={11}>
+                                                11:00 AM
+                                              </option>
+                                              <option value={9}>
+                                                12:00 AM
+                                              </option>
+                                              <option value={10}>
+                                                01:00 AM
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
-                                          <button type="button" className="inactive-btn">
+                                          <button
+                                            type="button"
+                                            className="inactive-btn"
+                                          >
                                             INACTIVE
                                           </button>
                                         </td>
                                         <td>
                                           <span className="delete-icon">
-                                            <img src="assets/images/new-delete.svg" alt="" />
+                                            <img
+                                              src="assets/images/new-delete.svg"
+                                              alt=""
+                                            />
                                           </span>
                                         </td>
                                       </tr>
@@ -472,42 +654,74 @@ export default function () {
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value="Tuesday">Tuesday</option>
-                                              <option value="Monday">Monday</option>
-                                              <option value="Wednesday">Wednesday</option>
-                                              <option value="Thursday">Thursday</option>
-                                              <option value="Friday">Friday</option>
-                                              <option value="Saturday">Saturday</option>
-                                              <option value="Sunday">Sunday</option>
+                                              <option value="Tuesday">
+                                                Tuesday
+                                              </option>
+                                              <option value="Monday">
+                                                Monday
+                                              </option>
+                                              <option value="Wednesday">
+                                                Wednesday
+                                              </option>
+                                              <option value="Thursday">
+                                                Thursday
+                                              </option>
+                                              <option value="Friday">
+                                                Friday
+                                              </option>
+                                              <option value="Saturday">
+                                                Saturday
+                                              </option>
+                                              <option value="Sunday">
+                                                Sunday
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value={8}>12:00 AM</option>
-                                              <option value={9}>09:00 AM</option>
-                                              <option value={10}>10:00 AM</option>
+                                              <option value={8}>
+                                                12:00 AM
+                                              </option>
+                                              <option value={9}>
+                                                09:00 AM
+                                              </option>
+                                              <option value={10}>
+                                                10:00 AM
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value={11}>12:00 AM</option>
-                                              <option value={9}>12:00 AM</option>
-                                              <option value={10}>01:00 AM</option>
+                                              <option value={11}>
+                                                12:00 AM
+                                              </option>
+                                              <option value={9}>
+                                                12:00 AM
+                                              </option>
+                                              <option value={10}>
+                                                01:00 AM
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
-                                          <button type="button" className="active-btn">
+                                          <button
+                                            type="button"
+                                            className="active-btn"
+                                          >
                                             INACTIVE
                                           </button>
                                         </td>
                                         <td>
                                           <span className="delete-icon">
-                                            <img src="assets/images/new-delete.svg" alt="" />
+                                            <img
+                                              src="assets/images/new-delete.svg"
+                                              alt=""
+                                            />
                                           </span>
                                         </td>
                                       </tr>
@@ -524,42 +738,74 @@ export default function () {
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value="Wednesday">Wednesday</option>
-                                              <option value="Tuesday">Tuesday</option>
-                                              <option value="Monday">Monday</option>
-                                              <option value="Thursday">Thursday</option>
-                                              <option value="Friday">Friday</option>
-                                              <option value="Saturday">Saturday</option>
-                                              <option value="Sunday">Sunday</option>
+                                              <option value="Wednesday">
+                                                Wednesday
+                                              </option>
+                                              <option value="Tuesday">
+                                                Tuesday
+                                              </option>
+                                              <option value="Monday">
+                                                Monday
+                                              </option>
+                                              <option value="Thursday">
+                                                Thursday
+                                              </option>
+                                              <option value="Friday">
+                                                Friday
+                                              </option>
+                                              <option value="Saturday">
+                                                Saturday
+                                              </option>
+                                              <option value="Sunday">
+                                                Sunday
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value={12}>12:00 AM</option>
-                                              <option value={9}>09:00 AM</option>
-                                              <option value={10}>10:00 AM</option>
+                                              <option value={12}>
+                                                12:00 AM
+                                              </option>
+                                              <option value={9}>
+                                                09:00 AM
+                                              </option>
+                                              <option value={10}>
+                                                10:00 AM
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value={12}>12:00 AM</option>
-                                              <option value={9}>12:00 AM</option>
-                                              <option value={10}>01:00 AM</option>
+                                              <option value={12}>
+                                                12:00 AM
+                                              </option>
+                                              <option value={9}>
+                                                12:00 AM
+                                              </option>
+                                              <option value={10}>
+                                                01:00 AM
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
-                                          <button type="button" className="active-btn">
+                                          <button
+                                            type="button"
+                                            className="active-btn"
+                                          >
                                             INACTIVE
                                           </button>
                                         </td>
                                         <td>
                                           <span className="delete-icon">
-                                            <img src="assets/images/new-delete.svg" alt="" />
+                                            <img
+                                              src="assets/images/new-delete.svg"
+                                              alt=""
+                                            />
                                           </span>
                                         </td>
                                       </tr>
@@ -576,42 +822,74 @@ export default function () {
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value="Friday">Friday</option>
-                                              <option value="Tuesday">Tuesday</option>
-                                              <option value="Wednesday">Wednesday</option>
-                                              <option value="Thursday">Thursday</option>
-                                              <option value="Monday">Monday</option>
-                                              <option value="Saturday">Saturday</option>
-                                              <option value="Sunday">Sunday</option>
+                                              <option value="Friday">
+                                                Friday
+                                              </option>
+                                              <option value="Tuesday">
+                                                Tuesday
+                                              </option>
+                                              <option value="Wednesday">
+                                                Wednesday
+                                              </option>
+                                              <option value="Thursday">
+                                                Thursday
+                                              </option>
+                                              <option value="Monday">
+                                                Monday
+                                              </option>
+                                              <option value="Saturday">
+                                                Saturday
+                                              </option>
+                                              <option value="Sunday">
+                                                Sunday
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value={12}>12:00 AM</option>
-                                              <option value={9}>09:00 AM</option>
-                                              <option value={10}>10:00 AM</option>
+                                              <option value={12}>
+                                                12:00 AM
+                                              </option>
+                                              <option value={9}>
+                                                09:00 AM
+                                              </option>
+                                              <option value={10}>
+                                                10:00 AM
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
                                           <div className="form-group pg-6-time">
                                             <select className="form-control">
-                                              <option value={12}>12:00 AM</option>
-                                              <option value={9}>12:00 AM</option>
-                                              <option value={10}>01:00 AM</option>
+                                              <option value={12}>
+                                                12:00 AM
+                                              </option>
+                                              <option value={9}>
+                                                12:00 AM
+                                              </option>
+                                              <option value={10}>
+                                                01:00 AM
+                                              </option>
                                             </select>
                                           </div>
                                         </td>
                                         <td>
-                                          <button type="button" className="inactive-btn">
+                                          <button
+                                            type="button"
+                                            className="inactive-btn"
+                                          >
                                             INACTIVE
                                           </button>
                                         </td>
                                         <td>
                                           <span className="delete-icon">
-                                            <img src="assets/images/new-delete.svg" alt="" />
+                                            <img
+                                              src="assets/images/new-delete.svg"
+                                              alt=""
+                                            />
                                           </span>
                                         </td>
                                       </tr>

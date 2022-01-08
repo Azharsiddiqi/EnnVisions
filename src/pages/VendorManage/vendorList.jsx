@@ -1,7 +1,7 @@
 import ConfirmationAlert from '../../components/confirmationAlert';
-import {PRIVATE_ROUTES} from '../../config';
-import {useHistory} from 'react-router-dom';
-import React, {useState} from 'react';
+import { PRIVATE_ROUTES } from '../../config';
+import { useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
 
 export default () => {
   const [show, setShow] = useState(false);
@@ -66,7 +66,9 @@ export default () => {
                           src="assets/images/009-boy-4.svg"
                           alt=""
                           onClick={() => {
-                            history.push(PRIVATE_ROUTES.vendorManage.vendorDetail.path);
+                            history.push(
+                              PRIVATE_ROUTES.vendorManage.vendorDetail.path,
+                            );
                           }}
                         />
                       </span>
@@ -78,8 +80,11 @@ export default () => {
                     <td className="vendor-outlet-t">
                       <span
                         onClick={() => {
-                          history.push(PRIVATE_ROUTES.vendorManage.vendorOutLets.path);
-                        }}>
+                          history.push(
+                            PRIVATE_ROUTES.vendorManage.vendorOutLets.path,
+                          );
+                        }}
+                      >
                         {' '}
                         TWO (2){' '}
                       </span>
@@ -100,7 +105,11 @@ export default () => {
                   </tr>
                   <tr className="active-btn-tr">
                     <td colSpan={9} className="active-td">
-                      <button type="button" className="btn made-active" onClick={handleShow}>
+                      <button
+                        type="button"
+                        className="btn made-active"
+                        onClick={handleShow}
+                      >
                         Made Active?
                       </button>
                     </td>
@@ -113,7 +122,9 @@ export default () => {
                           src="assets/images/009-boy-4.svg"
                           alt=""
                           onClick={() => {
-                            history.push(PRIVATE_ROUTES.vendorManage.vendorDetail.path);
+                            history.push(
+                              PRIVATE_ROUTES.vendorManage.vendorDetail.path,
+                            );
                           }}
                         />
                       </span>
@@ -125,8 +136,11 @@ export default () => {
                     <td className="vendor-outlet-t">
                       <span
                         onClick={() => {
-                          history.push(PRIVATE_ROUTES.vendorManage.vendorOutLets.path);
-                        }}>
+                          history.push(
+                            PRIVATE_ROUTES.vendorManage.vendorOutLets.path,
+                          );
+                        }}
+                      >
                         TWO (2)
                       </span>
                     </td>
@@ -153,7 +167,9 @@ export default () => {
                           src="assets/images/009-boy-4.svg"
                           alt=""
                           onClick={() => {
-                            history.push(PRIVATE_ROUTES.vendorManage.vendorDetail.path);
+                            history.push(
+                              PRIVATE_ROUTES.vendorManage.vendorDetail.path,
+                            );
                           }}
                         />
                       </span>
@@ -165,8 +181,11 @@ export default () => {
                     <td className="vendor-outlet-t">
                       <span
                         onClick={() => {
-                          history.push(PRIVATE_ROUTES.vendorManage.vendorOutLets.path);
-                        }}>
+                          history.push(
+                            PRIVATE_ROUTES.vendorManage.vendorOutLets.path,
+                          );
+                        }}
+                      >
                         TWO (2)
                       </span>
                     </td>
@@ -193,7 +212,9 @@ export default () => {
                           src="assets/images/009-boy-4.svg"
                           alt=""
                           onClick={() => {
-                            history.push(PRIVATE_ROUTES.vendorManage.vendorDetail.path);
+                            history.push(
+                              PRIVATE_ROUTES.vendorManage.vendorDetail.path,
+                            );
                           }}
                         />
                       </span>
@@ -205,8 +226,11 @@ export default () => {
                     <td className="vendor-outlet-t">
                       <span
                         onClick={() => {
-                          history.push(PRIVATE_ROUTES.vendorManage.vendorOutLets.path);
-                        }}>
+                          history.push(
+                            PRIVATE_ROUTES.vendorManage.vendorOutLets.path,
+                          );
+                        }}
+                      >
                         TWO (2)
                       </span>
                     </td>
@@ -233,7 +257,9 @@ export default () => {
                           src="assets/images/009-boy-4.svg"
                           alt=""
                           onClick={() => {
-                            history.push(PRIVATE_ROUTES.vendorManage.vendorDetail.path);
+                            history.push(
+                              PRIVATE_ROUTES.vendorManage.vendorDetail.path,
+                            );
                           }}
                         />
                       </span>
@@ -245,8 +271,11 @@ export default () => {
                     <td className="vendor-outlet-t">
                       <span
                         onClick={() => {
-                          history.push(PRIVATE_ROUTES.vendorManage.vendorOutLets.path);
-                        }}>
+                          history.push(
+                            PRIVATE_ROUTES.vendorManage.vendorOutLets.path,
+                          );
+                        }}
+                      >
                         TWO (2)
                       </span>
                     </td>
@@ -273,7 +302,9 @@ export default () => {
                           src="assets/images/009-boy-4.svg"
                           alt=""
                           onClick={() => {
-                            history.push(PRIVATE_ROUTES.vendorManage.vendorDetail.path);
+                            history.push(
+                              PRIVATE_ROUTES.vendorManage.vendorDetail.path,
+                            );
                           }}
                         />
                       </span>
@@ -285,8 +316,11 @@ export default () => {
                     <td className="vendor-outlet-t">
                       <span
                         onClick={() => {
-                          history.push(PRIVATE_ROUTES.vendorManage.vendorOutLets.path);
-                        }}>
+                          history.push(
+                            PRIVATE_ROUTES.vendorManage.vendorOutLets.path,
+                          );
+                        }}
+                      >
                         TWO (2)
                       </span>
                     </td>
@@ -313,7 +347,9 @@ export default () => {
                           src="assets/images/009-boy-4.svg"
                           alt=""
                           onClick={() => {
-                            history.push(PRIVATE_ROUTES.vendorManage.vendorDetail.path);
+                            history.push(
+                              PRIVATE_ROUTES.vendorManage.vendorDetail.path,
+                            );
                           }}
                         />
                       </span>
@@ -325,8 +361,11 @@ export default () => {
                     <td className="vendor-outlet-t">
                       <span
                         onClick={() => {
-                          history.push(PRIVATE_ROUTES.vendorManage.vendorOutLets.path);
-                        }}>
+                          history.push(
+                            PRIVATE_ROUTES.vendorManage.vendorOutLets.path,
+                          );
+                        }}
+                      >
                         TWO (2)
                       </span>
                     </td>
@@ -353,7 +392,9 @@ export default () => {
                           src="assets/images/009-boy-4.svg"
                           alt=""
                           onClick={() => {
-                            history.push(PRIVATE_ROUTES.vendorManage.vendorDetail.path);
+                            history.push(
+                              PRIVATE_ROUTES.vendorManage.vendorDetail.path,
+                            );
                           }}
                         />
                       </span>
@@ -365,8 +406,11 @@ export default () => {
                     <td className="vendor-outlet-t">
                       <span
                         onClick={() => {
-                          history.push(PRIVATE_ROUTES.vendorManage.vendorOutLets.path);
-                        }}>
+                          history.push(
+                            PRIVATE_ROUTES.vendorManage.vendorOutLets.path,
+                          );
+                        }}
+                      >
                         TWO (2)
                       </span>
                     </td>
@@ -393,7 +437,9 @@ export default () => {
                           src="assets/images/009-boy-4.svg"
                           alt=""
                           onClick={() => {
-                            history.push(PRIVATE_ROUTES.vendorManage.vendorDetail.path);
+                            history.push(
+                              PRIVATE_ROUTES.vendorManage.vendorDetail.path,
+                            );
                           }}
                         />
                       </span>
@@ -405,8 +451,11 @@ export default () => {
                     <td className="vendor-outlet-t">
                       <span
                         onClick={() => {
-                          history.push(PRIVATE_ROUTES.vendorManage.vendorOutLets.path);
-                        }}>
+                          history.push(
+                            PRIVATE_ROUTES.vendorManage.vendorOutLets.path,
+                          );
+                        }}
+                      >
                         TWO (2)
                       </span>
                     </td>

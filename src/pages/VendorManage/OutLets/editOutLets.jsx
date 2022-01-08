@@ -1,18 +1,26 @@
 import React from 'react';
-import {useHistory} from 'react-router-dom';
-import {PRIVATE_ROUTES} from '../../../config';
+import { useHistory } from 'react-router-dom';
+import { PRIVATE_ROUTES } from '../../../config';
 
 export default function () {
   const history = useHistory();
   return (
-    <div className="content  d-flex flex-column flex-column-fluid" id="kt_content">
+    <div
+      className="content  d-flex flex-column flex-column-fluid"
+      id="kt_content"
+    >
       {/*begin::Subheader*/}
-      <div className="subheader py-2 py-lg-4  subheader-solid " id="kt_subheader">
+      <div
+        className="subheader py-2 py-lg-4  subheader-solid "
+        id="kt_subheader"
+      >
         <div className=" container-fluid  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
           {/*begin::Info*/}
           <div className="d-flex align-items-center flex-wrap mr-2">
             {/*begin::Page Title*/}
-            <h5 className="dark-text main-breadcrumb gilroy-semibold mt-2 mb-2 mr-5">DASHBOARD</h5>
+            <h5 className="dark-text main-breadcrumb gilroy-semibold mt-2 mb-2 mr-5">
+              DASHBOARD
+            </h5>
             {/*end::Page Title*/}
             {/*begin::Actions*/}
             <div className="subheader-separator subheader-separator-ver mt-2 mb-2 mr-4 bg-gray-200" />
@@ -34,7 +42,11 @@ export default function () {
                 <div className="row">
                   <div className="col-xl-5">
                     <div className="form-group">
-                      <img src="assets/images/032-boy-13.svg" className="pg-12-avatar" alt="" />
+                      <img
+                        src="assets/images/032-boy-13.svg"
+                        className="pg-12-avatar"
+                        alt=""
+                      />
                       <p className="pg-12-avatar-title">ADNAN QURESHI</p>
                       <div className="pg-12-avatar-rating">
                         <img src="assets/images/ic_star_yellow.svg" alt="" />
@@ -48,7 +60,9 @@ export default function () {
                   <div className="col-xl-5">
                     <div className="row">
                       <div className="top-personal-info">
-                        <p className="personal-email">adnan.ahsan21@gmail.com</p>
+                        <p className="personal-email">
+                          adnan.ahsan21@gmail.com
+                        </p>
                         <p className="personal-no">+923008134076</p>
                         <div className="edit-delete-form">
                           <a href="create-fleet.html">
@@ -322,7 +336,9 @@ export default function () {
                 </div>
                 <div className="row">
                   <div className="col-xl-5">
-                    <label className="r-u-owner who-serve">PAYMENT MOTHER</label>
+                    <label className="r-u-owner who-serve">
+                      PAYMENT MOTHER
+                    </label>
                     <div className="row c-vendor-checboxes">
                       <div className="col-lg-2">
                         <div className="form-group">
@@ -509,34 +525,49 @@ export default function () {
                         </div>
                         <div className="col-sm-12 col-md-4">
                           <label className="label-country">&nbsp;</label>
-                          <button type="button" className="btn add-time-btn vendor-add-time">
+                          <button
+                            type="button"
+                            className="btn add-time-btn vendor-add-time"
+                          >
                             ADD TIME
                           </button>
                         </div>
                       </div>
                       <div className="time-label-schedule create-vendor-time-label">
-                        <label className="label-country day-label">Monday</label>
+                        <label className="label-country day-label">
+                          Monday
+                        </label>
                         <label className="label-time">12:00 AM</label>
                         <label className="label-time">09:00 PM</label>
-                        <label className="mark-label">Mark this day as closed</label>
+                        <label className="mark-label">
+                          Mark this day as closed
+                        </label>
                         <span className="del-container">
                           <img src="assets/images/ic_delete.svg" alt="delete" />
                         </span>
                       </div>
                       <div className="time-label-schedule create-vendor-time-label">
-                        <label className="label-country day-label">Tuesday</label>
+                        <label className="label-country day-label">
+                          Tuesday
+                        </label>
                         <label className="label-time">12:00 AM</label>
                         <label className="label-time">09:00 PM</label>
-                        <label className="mark-label">Mark this day as closed</label>
+                        <label className="mark-label">
+                          Mark this day as closed
+                        </label>
                         <span className="del-container">
                           <img src="assets/images/ic_delete.svg" alt="delete" />
                         </span>
                       </div>
                       <div className="time-label-schedule create-vendor-time-label">
-                        <label className="label-country day-label">Wednesday</label>
+                        <label className="label-country day-label">
+                          Wednesday
+                        </label>
                         <label className="label-time">12:00 AM</label>
                         <label className="label-time">09:00 PM</label>
-                        <label className="mark-label">Mark this day as closed</label>
+                        <label className="mark-label">
+                          Mark this day as closed
+                        </label>
                         <span className="del-container">
                           <img src="assets/images/ic_delete.svg" alt="delete" />
                         </span>
@@ -556,7 +587,7 @@ export default function () {
                       <div className="map">
                         <iframe
                           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2602.344082631407!2d-123.1133149490098!3d49.28882477923052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5486719d24e2e021%3A0xb7057fe085c86109!2sCanada%20Place!5e0!3m2!1sen!2s!4v1601402609000!5m2!1sen!2s"
-                          style={{border: 0, width: '100%'}}
+                          style={{ border: 0, width: '100%' }}
                           allowFullScreen
                           width={600}
                           height={450}
@@ -568,7 +599,9 @@ export default function () {
                         <button
                           className="btn"
                           type="submit"
-                          onClick={() => history.push(PRIVATE_ROUTES.dashboard.path)}
+                          onClick={() =>
+                            history.push(PRIVATE_ROUTES.dashboard.path)
+                          }
                         >
                           {' '}
                           SUBMIT{' '}

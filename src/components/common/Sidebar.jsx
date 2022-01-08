@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react';
-import {Link, useLocation} from 'react-router-dom';
-import {PRIVATE_ROUTES} from '../../config';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { PRIVATE_ROUTES } from '../../config';
 
 export default () => {
-  const {pathname} = useLocation();
+  const { pathname } = useLocation();
   console.log('checking pathname: ', pathname);
   const {
     userRoles,
@@ -17,6 +17,8 @@ export default () => {
   } = PRIVATE_ROUTES;
   const [mainActive, setMainActive] = useState('');
   const [subActive, setSubActive] = useState('');
+  // eslint-disable-next-line no-unused-vars
+  const [subOfSubActive, setSubOfSubActive] = useState('');
   const hiddenStyle = {
     display: 'none',
     overflow: 'hidden',
@@ -52,17 +54,12 @@ export default () => {
       pathname === vendorManage.createVendor.path ||
       pathname === vendorManage.vendorList.path ||
       pathname === vendorManage.vendorDetail.path ||
-      pathname === vendorManage.vendorOutLets.path || 
+      pathname === vendorManage.vendorOutLets.path ||
       pathname === vendorManage.helperList.path
     ) {
       setMainActive('vendorManage');
       setSubActive('vendorManageJawafa');
-    } else if (
-      pathname === driverManage.createDriver.path
-      // ||
-      // pathname === adminManage.editAdmin.path ||
-      // pathname === adminManage.adminDetail.path
-    ) {
+    } else if (pathname === driverManage.createDriver.path) {
       setMainActive('driverManage');
       setSubActive('New Driver');
     } else if (
@@ -80,11 +77,13 @@ export default () => {
     ) {
       setMainActive('mainCategories');
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   return (
-    <div className="aside aside-left  aside-fixed  d-flex flex-column flex-row-auto" id="kt_aside">
+    <div
+      className="aside aside-left  aside-fixed  d-flex flex-column flex-row-auto"
+      id="kt_aside"
+    >
       {/*begin::Brand*/}
       <div className="brand flex-column-auto " id="kt_brand">
         {/*begin::Logo*/}
@@ -102,7 +101,8 @@ export default () => {
               width="24px"
               height="24px"
               viewBox="0 0 24 24"
-              version="1.1">
+              version="1.1"
+            >
               <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
                 <polygon points="0 0 24 0 24 24 0 24" />
                 <path
@@ -127,19 +127,26 @@ export default () => {
       </div>
       {/*end::Brand*/}
       {/*begin::Aside Menu*/}
-      <div className="aside-menu-wrapper flex-column-fluid" id="kt_aside_menu_wrapper">
+      <div
+        className="aside-menu-wrapper flex-column-fluid"
+        id="kt_aside_menu_wrapper"
+      >
         {/*begin::Menu Container*/}
         <div
           id="kt_aside_menu"
           className="aside-menu my-4 "
           data-menu-vertical={1}
           data-menu-scroll={1}
-          data-menu-dropdown-timeout={500}>
+          data-menu-dropdown-timeout={500}
+        >
           {/*begin::Menu Nav*/}
           <ul className="menu-nav ">
             <li
-              className={`menu-item ${pathname === dashboard.path ? 'menu-item-active' : ''}`}
-              aria-haspopup="true">
+              className={`menu-item ${
+                pathname === dashboard.path ? 'menu-item-active' : ''
+              }`}
+              aria-haspopup="true"
+            >
               <Link to={dashboard.path} className="menu-link ">
                 <span className="menu-text">Dashboard</span>
               </Link>
@@ -148,14 +155,21 @@ export default () => {
             <li
               className={`menu-item  menu-item-submenu ${
                 mainActive === 'userRoles' ? 'menu-item-open' : ''
-              }`}>
+              }`}
+            >
               <div
-                onClick={() => setMainActive(mainActive !== 'userRoles' ? 'userRoles' : '')}
-                className="menu-link">
+                onClick={() =>
+                  setMainActive(mainActive !== 'userRoles' ? 'userRoles' : '')
+                }
+                className="menu-link"
+              >
                 <span className="menu-text">User Roles</span>
                 <i className="menu-arrow" />
               </div>
-              <div className="menu-submenu" style={mainActive === 'userRoles' ? {} : hiddenStyle}>
+              <div
+                className="menu-submenu"
+                style={mainActive === 'userRoles' ? {} : hiddenStyle}
+              >
                 <i className="menu-arrow" />
                 <ul className="menu-subnav">
                   <li
@@ -164,7 +178,8 @@ export default () => {
                       pathname === userRoles.createRegistrationForm.path
                         ? 'menu-item-active'
                         : ''
-                    }`}>
+                    }`}
+                  >
                     <Link to={userRoles.addNewRole.path} className="menu-link">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -174,9 +189,15 @@ export default () => {
                   </li>
                   <li
                     className={`menu-item ${
-                      pathname === userRoles.userRoleList.path ? 'menu-item-active' : ''
-                    }`}>
-                    <Link to={userRoles.userRoleList.path} className="menu-link">
+                      pathname === userRoles.userRoleList.path
+                        ? 'menu-item-active'
+                        : ''
+                    }`}
+                  >
+                    <Link
+                      to={userRoles.userRoleList.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -185,9 +206,15 @@ export default () => {
                   </li>
                   <li
                     className={`menu-item ${
-                      pathname === userRoles.createPermissions.path ? 'menu-item-active' : ''
-                    }`}>
-                    <Link to={userRoles.createPermissions.path} className="menu-link">
+                      pathname === userRoles.createPermissions.path
+                        ? 'menu-item-active'
+                        : ''
+                    }`}
+                  >
+                    <Link
+                      to={userRoles.createPermissions.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -201,10 +228,16 @@ export default () => {
             <li
               className={`menu-item  menu-item-submenu ${
                 mainActive === 'adminManage' ? 'menu-item-open' : ''
-              }`}>
+              }`}
+            >
               <div
-                onClick={() => setMainActive(mainActive !== 'adminManage' ? 'adminManage' : '')}
-                className="menu-link ">
+                onClick={() =>
+                  setMainActive(
+                    mainActive !== 'adminManage' ? 'adminManage' : '',
+                  )
+                }
+                className="menu-link "
+              >
                 <span className="menu-text">Admin Manage</span>
                 <i className="menu-arrow" />
               </div>
@@ -213,9 +246,15 @@ export default () => {
                 <ul className="menu-subnav">
                   <li
                     className={`menu-item ${
-                      pathname === adminManage.createAdmin.path ? 'menu-item-active' : ''
-                    }`}>
-                    <Link to={adminManage.createAdmin.path} className="menu-link">
+                      pathname === adminManage.createAdmin.path
+                        ? 'menu-item-active'
+                        : ''
+                    }`}
+                  >
+                    <Link
+                      to={adminManage.createAdmin.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -224,9 +263,15 @@ export default () => {
                   </li>
                   <li
                     className={`menu-item ${
-                      pathname === adminManage.adminDetail.path ? 'menu-item-active' : ''
-                    }`}>
-                    <Link to={adminManage.adminDetail.path} className="menu-link">
+                      pathname === adminManage.adminDetail.path
+                        ? 'menu-item-active'
+                        : ''
+                    }`}
+                  >
+                    <Link
+                      to={adminManage.adminDetail.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -234,7 +279,10 @@ export default () => {
                     </Link>
                   </li>
                   <li className="menu-item  menu-item-submenu">
-                    <Link to={adminManage.adminDetail.path} className="menu-link">
+                    <Link
+                      to={adminManage.adminDetail.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -242,7 +290,10 @@ export default () => {
                     </Link>
                   </li>
                   <li className="menu-item  menu-item-submenu">
-                    <Link to={adminManage.adminDetail.path} className="menu-link ">
+                    <Link
+                      to={adminManage.adminDetail.path}
+                      className="menu-link "
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -250,7 +301,10 @@ export default () => {
                     </Link>
                   </li>
                   <li className="menu-item  menu-item-submenu">
-                    <Link to={adminManage.adminDetail.path} className="menu-link menu-toggle">
+                    <Link
+                      to={adminManage.adminDetail.path}
+                      className="menu-link menu-toggle"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -264,10 +318,16 @@ export default () => {
             <li
               className={`menu-item  menu-item-submenu ${
                 mainActive === 'fleetManage' ? 'menu-item-open' : ''
-              }`}>
+              }`}
+            >
               <div
-                onClick={() => setMainActive(mainActive !== 'fleetManage' ? 'fleetManage' : '')}
-                className="menu-link ">
+                onClick={() =>
+                  setMainActive(
+                    mainActive !== 'fleetManage' ? 'fleetManage' : '',
+                  )
+                }
+                className="menu-link "
+              >
                 <span className="menu-text">Fleet Manage</span>
                 <i className="menu-arrow" />
               </div>
@@ -276,9 +336,15 @@ export default () => {
                 <ul className="menu-subnav">
                   <li
                     className={`menu-item ${
-                      pathname === fleetManage.createFleet.path ? 'menu-item-active' : ''
-                    }`}>
-                    <Link to={fleetManage.createFleet.path} className="menu-link">
+                      pathname === fleetManage.createFleet.path
+                        ? 'menu-item-active'
+                        : ''
+                    }`}
+                  >
+                    <Link
+                      to={fleetManage.createFleet.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -286,7 +352,10 @@ export default () => {
                     </Link>
                   </li>
                   <li className="menu-item  menu-item-submenu">
-                    <Link to={fleetManage.fleetDetail.path} className="menu-link">
+                    <Link
+                      to={fleetManage.fleetDetail.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -294,7 +363,10 @@ export default () => {
                     </Link>
                   </li>
                   <li className="menu-item  menu-item-submenu">
-                    <Link to={fleetManage.fleetDetail.path} className="menu-link">
+                    <Link
+                      to={fleetManage.fleetDetail.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -302,7 +374,10 @@ export default () => {
                     </Link>
                   </li>
                   <li className="menu-item  menu-item-submenu">
-                    <Link to={fleetManage.fleetDetail.path} className="menu-link ">
+                    <Link
+                      to={fleetManage.fleetDetail.path}
+                      className="menu-link "
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -316,12 +391,16 @@ export default () => {
             <li
               className={`menu-item  menu-item-submenu ${
                 mainActive === 'dispatcherManage' ? 'menu-item-open' : ''
-              }`}>
+              }`}
+            >
               <div
                 onClick={() =>
-                  setMainActive(mainActive !== 'dispatcherManage' ? 'dispatcherManage' : '')
+                  setMainActive(
+                    mainActive !== 'dispatcherManage' ? 'dispatcherManage' : '',
+                  )
                 }
-                className="menu-link ">
+                className="menu-link "
+              >
                 <span className="menu-text">Dispatcher Manage</span>
                 <i className="menu-arrow" />
               </div>
@@ -330,21 +409,32 @@ export default () => {
                 <ul className="menu-subnav">
                   <li
                     className={`menu-item ${
-                      pathname === dispatcherManage.createDispatcher.path ? 'menu-item-active' : ''
-                    }`}>
-                    <Link to={dispatcherManage.createDispatcher.path} className="menu-link">
+                      pathname === dispatcherManage.createDispatcher.path
+                        ? 'menu-item-active'
+                        : ''
+                    }`}
+                  >
+                    <Link
+                      to={dispatcherManage.createDispatcher.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
                       <span className="menu-text">Create New</span>
                     </Link>
                   </li>
-                  <li 
-                   className={`menu-item  menu-item-submenu ${
-                    pathname === dispatcherManage.dispatcherDetail.path ? 'menu-item-active' : ''
-                  }`}
+                  <li
+                    className={`menu-item  menu-item-submenu ${
+                      pathname === dispatcherManage.dispatcherDetail.path
+                        ? 'menu-item-active'
+                        : ''
+                    }`}
                   >
-                    <Link to={dispatcherManage.dispatcherDetail.path} className="menu-link">
+                    <Link
+                      to={dispatcherManage.dispatcherDetail.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -352,7 +442,10 @@ export default () => {
                     </Link>
                   </li>
                   <li className="menu-item  menu-item-submenu">
-                    <Link to={dispatcherManage.dispatcherDetail.path} className="menu-link">
+                    <Link
+                      to={dispatcherManage.dispatcherDetail.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -360,7 +453,10 @@ export default () => {
                     </Link>
                   </li>
                   <li className="menu-item  menu-item-submenu">
-                    <Link to={dispatcherManage.dispatcherDetail.path} className="menu-link ">
+                    <Link
+                      to={dispatcherManage.dispatcherDetail.path}
+                      className="menu-link "
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -374,10 +470,16 @@ export default () => {
             <li
               className={`menu-item  menu-item-submenu ${
                 mainActive === 'vendorManage' ? 'menu-item-open' : ''
-              }`}>
+              }`}
+            >
               <div
-                onClick={() => setMainActive(mainActive !== 'vendorManage' ? 'vendorManage' : '')}
-                className="menu-link ">
+                onClick={() =>
+                  setMainActive(
+                    mainActive !== 'vendorManage' ? 'vendorManage' : '',
+                  )
+                }
+                className="menu-link "
+              >
                 <span className="menu-text">Vendor Manage</span>
                 <i className="menu-arrow" />
               </div>
@@ -385,7 +487,10 @@ export default () => {
                 <i className="menu-arrow" />
                 <ul className="menu-subnav">
                   <li className="menu-item  menu-item-submenu">
-                    <Link to={dispatcherManage.dispatcherDetail.path} className="menu-link">
+                    <Link
+                      to={dispatcherManage.dispatcherDetail.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -395,12 +500,18 @@ export default () => {
                   <li
                     className={`menu-item  menu-item-submenu ${
                       subActive === 'vendorManageJawafa' ? 'menu-item-open' : ''
-                    }`}>
+                    }`}
+                  >
                     <div
                       onClick={() =>
-                        setSubActive(subActive !== 'vendorManageJawafa' ? 'vendorManageJawafa' : '')
+                        setSubActive(
+                          subActive !== 'vendorManageJawafa'
+                            ? 'vendorManageJawafa'
+                            : '',
+                        )
                       }
-                      className="menu-link">
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -409,15 +520,24 @@ export default () => {
                     </div>
                     <div
                       className="menu-submenu"
-                      style={subActive === 'vendorManageJawafa' ? {} : hiddenStyle}>
+                      style={
+                        subActive === 'vendorManageJawafa' ? {} : hiddenStyle
+                      }
+                    >
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li
                           className={`menu-item  ${
-                            pathname === vendorManage.createVendor.path ? 'menu-item-active' : ''
+                            pathname === vendorManage.createVendor.path
+                              ? 'menu-item-active'
+                              : ''
                           }`}
-                          aria-haspopup="true">
-                          <Link to={vendorManage.createVendor.path} className="menu-link ">
+                          aria-haspopup="true"
+                        >
+                          <Link
+                            to={vendorManage.createVendor.path}
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -426,10 +546,16 @@ export default () => {
                         </li>
                         <li
                           className={`menu-item  ${
-                            pathname === vendorManage.vendorList.path ? 'menu-item-active' : ''
+                            pathname === vendorManage.vendorList.path
+                              ? 'menu-item-active'
+                              : ''
                           }`}
-                          aria-haspopup="true">
-                          <Link to={vendorManage.vendorList.path} className="menu-link ">
+                          aria-haspopup="true"
+                        >
+                          <Link
+                            to={vendorManage.vendorList.path}
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -438,10 +564,16 @@ export default () => {
                         </li>
                         <li
                           className={`menu-item  ${
-                            pathname === vendorManage.helperList.path ? 'menu-item-active' : ''
+                            pathname === vendorManage.helperList.path
+                              ? 'menu-item-active'
+                              : ''
                           }`}
-                          aria-haspopup="true">
-                          <Link to={vendorManage.helperList.path} className="menu-link ">
+                          aria-haspopup="true"
+                        >
+                          <Link
+                            to={vendorManage.helperList.path}
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -459,7 +591,10 @@ export default () => {
                   </li>
 
                   <li className="menu-item  menu-item-submenu">
-                    <Link to={dispatcherManage.dispatcherDetail.path} className="menu-link ">
+                    <Link
+                      to={dispatcherManage.dispatcherDetail.path}
+                      className="menu-link "
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -473,10 +608,16 @@ export default () => {
             <li
               className={`menu-item  menu-item-submenu ${
                 mainActive === 'driverManage' ? 'menu-item-open' : ''
-              }`}>
+              }`}
+            >
               <div
-                onClick={() => setMainActive(mainActive !== 'driverManage' ? 'driverManage' : '')}
-                className="menu-link ">
+                onClick={() =>
+                  setMainActive(
+                    mainActive !== 'driverManage' ? 'driverManage' : '',
+                  )
+                }
+                className="menu-link "
+              >
                 <span className="menu-text">Driver Manage</span>
                 <i className="menu-arrow" />
               </div>
@@ -484,7 +625,10 @@ export default () => {
                 <i className="menu-arrow" />
                 <ul className="menu-subnav">
                   <li className="menu-item  menu-item-submenu">
-                    <Link to={dispatcherManage.dispatcherDetail.path} className="menu-link">
+                    <Link
+                      to={dispatcherManage.dispatcherDetail.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -495,12 +639,18 @@ export default () => {
                   <li
                     className={`menu-item  menu-item-submenu ${
                       subActive === 'driverManageJawafa' ? 'menu-item-open' : ''
-                    }`}>
+                    }`}
+                  >
                     <div
                       onClick={() =>
-                        setSubActive(subActive !== 'driverManageJawafa' ? 'driverManageJawafa' : '')
+                        setSubActive(
+                          subActive !== 'driverManageJawafa'
+                            ? 'driverManageJawafa'
+                            : '',
+                        )
                       }
-                      className="menu-link">
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -509,51 +659,124 @@ export default () => {
                     </div>
                     <div
                       className="menu-submenu"
-                      style={subActive === 'driverManageJawafa' ? {} : hiddenStyle}>
+                      style={
+                        subActive === 'driverManageJawafa' ? {} : hiddenStyle
+                      }
+                    >
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li
                           className={`menu-item  ${
-                            pathname === vendorManage.createVendor.path ? 'menu-item-active' : ''
+                            subOfSubActive === 'driverManageJawafaAdminDriver'
+                              ? 'menu-item-active'
+                              : ''
                           }`}
-                          aria-haspopup="true">
-                          <Link to={vendorManage.createVendor.path} className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
+                          aria-haspopup="true"
+                        >
+                          <div
+                            onClick={() =>
+                              setSubActive(
+                                subOfSubActive !==
+                                  'driverManageJawafaAdminDriver'
+                                  ? 'driverManageJawafaAdminDriver'
+                                  : '',
+                              )
+                            }
+                            className="menu-link"
+                          >
+                            <i className="menu-bullet menu-bullet-line">
                               <span />
                             </i>
-                            <span className="menu-text">Create Vendor</span>
-                          </Link>
+                            <span className="menu-text">Admin Driver</span>
+                            <i className="menu-arrow" />
+                          </div>
+                          <div
+                            className="menu-submenu"
+                            style={
+                              subOfSubActive === 'driverManageJawafaAdminDriver'
+                                ? {}
+                                : hiddenStyle
+                            }
+                          >
+                            <i className="menu-arrow" />
+                            <ul className="menu-subnav">
+                              <li
+                                className={`menu-item  ${
+                                  pathname === vendorManage.createVendor.path
+                                    ? 'menu-item-active'
+                                    : ''
+                                }`}
+                                aria-haspopup="true"
+                              >
+                                <Link
+                                  to={vendorManage.createVendor.path}
+                                  className="menu-link "
+                                >
+                                  <i className="menu-bullet menu-bullet-dot">
+                                    <span />
+                                  </i>
+                                  <span className="menu-text">
+                                    Create Vendor
+                                  </span>
+                                </Link>
+                              </li>
+                              <li
+                                className={`menu-item  ${
+                                  pathname === vendorManage.vendorList.path
+                                    ? 'menu-item-active'
+                                    : ''
+                                }`}
+                                aria-haspopup="true"
+                              >
+                                <Link
+                                  to={vendorManage.vendorList.path}
+                                  className="menu-link "
+                                >
+                                  <i className="menu-bullet menu-bullet-dot">
+                                    <span />
+                                  </i>
+                                  <span className="menu-text">Vendor List</span>
+                                </Link>
+                              </li>
+                              <li
+                                className={`menu-item  ${
+                                  pathname === vendorManage.helperList.path
+                                    ? 'menu-item-active'
+                                    : ''
+                                }`}
+                                aria-haspopup="true"
+                              >
+                                <Link
+                                  to={vendorManage.helperList.path}
+                                  className="menu-link "
+                                >
+                                  <i className="menu-bullet menu-bullet-dot">
+                                    <span />
+                                  </i>
+                                  <span className="menu-text">Helper List</span>
+                                </Link>
+                              </li>
+                              <li
+                                className={`menu-item  ${
+                                  pathname === driverManage.createDriver.path
+                                    ? 'menu-item-active'
+                                    : ''
+                                }`}
+                                aria-haspopup="true"
+                              >
+                                <Link
+                                  to={driverManage.createDriver.path}
+                                  className="menu-link "
+                                >
+                                  <i className="menu-bullet menu-bullet-dot">
+                                    <span />
+                                  </i>
+                                  <span className="menu-text">New Driver</span>
+                                </Link>
+                              </li>
+                            </ul>
+                          </div>
                         </li>
-                        <li
-                          className={`menu-item  ${
-                            pathname === vendorManage.vendorList.path ? 'menu-item-active' : ''
-                          }`}
-                          aria-haspopup="true">
-                          <Link to={vendorManage.vendorList.path} className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Vendor List</span>
-                          </Link>
-                        </li>
-                        <li
-                          className={`menu-item  ${
-                            pathname === vendorManage.helperList.path ? 'menu-item-active' : ''
-                          }`}
-                          aria-haspopup="true">
-                          <Link to={vendorManage.helperList.path} className="menu-link ">
-                            <i className="menu-bullet menu-bullet-dot">
-                              <span />
-                            </i>
-                            <span className="menu-text">Helper List</span>
-                          </Link>
-                        </li>
-                        <li className={`menu-item  ${pathname ===driverManage.createDriver.path? "menu-item-active" : ""}`} aria-haspopup="true">
-                                                    <Link to={driverManage.createDriver.path} className="menu-link ">
-                                                        <i className="menu-bullet menu-bullet-dot"><span /></i>
-                                                        <span className="menu-text" >New Driver</span>
-                                                    </Link>
-                                                </li>
                       </ul>
                     </div>
                   </li>
@@ -564,7 +787,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Waiter Manage</span>
                 <i className="menu-arrow" />
@@ -575,7 +799,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -589,7 +814,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -599,7 +825,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -609,7 +836,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -619,7 +847,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -629,7 +858,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -637,7 +867,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -645,7 +878,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -653,7 +889,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -666,7 +905,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -678,7 +918,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -686,7 +929,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -694,7 +940,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -702,7 +951,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -710,7 +962,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -720,7 +975,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -728,7 +984,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -741,7 +1000,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -753,7 +1013,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -761,7 +1024,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -769,7 +1035,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -777,7 +1046,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -785,7 +1057,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -795,7 +1070,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -803,7 +1079,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -816,7 +1095,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -828,7 +1108,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -836,7 +1119,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -844,7 +1130,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -852,7 +1141,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -860,7 +1152,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -870,7 +1165,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -878,7 +1174,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -891,7 +1190,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -903,7 +1203,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -911,7 +1214,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -919,7 +1225,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -932,7 +1241,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -944,7 +1254,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -952,7 +1265,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -960,7 +1276,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -976,7 +1295,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Vendor Manage</span>
                 <i className="menu-arrow" />
@@ -987,7 +1307,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -1001,7 +1322,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1011,7 +1333,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1021,7 +1344,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1031,7 +1355,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1041,7 +1366,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1049,7 +1375,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1057,7 +1386,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1065,7 +1397,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1078,7 +1413,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -1090,7 +1426,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1098,7 +1437,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1106,7 +1448,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1114,7 +1459,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1122,7 +1470,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1132,7 +1483,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1140,7 +1492,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1153,7 +1508,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -1165,7 +1521,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1173,7 +1532,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1181,7 +1543,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1189,7 +1554,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1197,7 +1565,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1207,7 +1578,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1215,7 +1587,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1228,7 +1603,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -1240,7 +1616,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1248,7 +1627,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1256,7 +1638,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1264,7 +1649,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1272,7 +1660,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1282,7 +1673,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1290,7 +1682,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1303,7 +1698,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -1315,7 +1711,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1323,7 +1722,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1331,7 +1733,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1344,7 +1749,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -1356,7 +1762,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1364,7 +1773,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1372,7 +1784,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1388,7 +1803,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">User Manage</span>
                 <i className="menu-arrow" />
@@ -1399,7 +1815,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -1413,7 +1830,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1423,7 +1841,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1433,7 +1852,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1443,7 +1863,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1453,7 +1874,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1461,7 +1883,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1469,7 +1894,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1477,7 +1905,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1490,7 +1921,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -1502,7 +1934,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1510,7 +1945,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1518,7 +1956,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1526,7 +1967,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1534,7 +1978,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1544,7 +1991,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1552,7 +2000,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1565,7 +2016,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -1577,7 +2029,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1585,7 +2040,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1593,7 +2051,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1609,7 +2070,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Rider Manage</span>
                 <i className="menu-arrow" />
@@ -1620,7 +2082,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -1634,7 +2097,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1644,7 +2108,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1654,7 +2119,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1664,7 +2130,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1674,7 +2141,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1682,7 +2150,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1690,7 +2161,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1698,7 +2172,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1711,7 +2188,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -1723,7 +2201,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1731,7 +2212,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1739,7 +2223,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1747,7 +2234,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1755,7 +2245,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1765,7 +2258,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1773,7 +2267,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1786,7 +2283,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -1798,7 +2296,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1806,7 +2307,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1814,7 +2318,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -1830,25 +2337,36 @@ export default () => {
             <li
               className={`menu-item  menu-item-submenu ${
                 mainActive === 'mainCategories' ? 'menu-item-open' : ''
-              }`}>
+              }`}
+            >
               <div
                 onClick={() =>
-                  setMainActive(mainActive !== 'mainCategories' ? 'mainCategories' : '')
+                  setMainActive(
+                    mainActive !== 'mainCategories' ? 'mainCategories' : '',
+                  )
                 }
-                className="menu-link ">
+                className="menu-link "
+              >
                 <span className="menu-text">Main Categories</span>
                 <i className="menu-arrow" />
               </div>
               <div
                 className="menu-submenu"
-                style={mainActive === 'mainCategories' ? {} : hiddenStyle}>
+                style={mainActive === 'mainCategories' ? {} : hiddenStyle}
+              >
                 <i className="menu-arrow" />
                 <ul className="menu-subnav">
                   <li
                     className={`menu-item ${
-                      pathname === mainCategories.businessCategory.path ? 'menu-item-active' : ''
-                    }`}>
-                    <Link to={mainCategories.businessCategory.path} className="menu-link">
+                      pathname === mainCategories.businessCategory.path
+                        ? 'menu-item-active'
+                        : ''
+                    }`}
+                  >
+                    <Link
+                      to={mainCategories.businessCategory.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -1858,9 +2376,15 @@ export default () => {
 
                   <li
                     className={`menu-item ${
-                      pathname === mainCategories.businessType.path ? 'menu-item-active' : ''
-                    }`}>
-                    <Link to={mainCategories.businessType.path} className="menu-link">
+                      pathname === mainCategories.businessType.path
+                        ? 'menu-item-active'
+                        : ''
+                    }`}
+                  >
+                    <Link
+                      to={mainCategories.businessType.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -1873,8 +2397,12 @@ export default () => {
                       pathname === mainCategories.houseDeliveryService.path
                         ? 'menu-item-active'
                         : ''
-                    }`}>
-                    <Link to={mainCategories.houseDeliveryService.path} className="menu-link">
+                    }`}
+                  >
+                    <Link
+                      to={mainCategories.houseDeliveryService.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -1884,9 +2412,15 @@ export default () => {
 
                   <li
                     className={`menu-item ${
-                      pathname === mainCategories.openStatus.path ? 'menu-item-active' : ''
-                    }`}>
-                    <Link to={mainCategories.openStatus.path} className="menu-link">
+                      pathname === mainCategories.openStatus.path
+                        ? 'menu-item-active'
+                        : ''
+                    }`}
+                  >
+                    <Link
+                      to={mainCategories.openStatus.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -1896,9 +2430,15 @@ export default () => {
 
                   <li
                     className={`menu-item ${
-                      pathname === mainCategories.alcohol.path ? 'menu-item-active' : ''
-                    }`}>
-                    <Link to={mainCategories.alcohol.path} className="menu-link">
+                      pathname === mainCategories.alcohol.path
+                        ? 'menu-item-active'
+                        : ''
+                    }`}
+                  >
+                    <Link
+                      to={mainCategories.alcohol.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -1908,9 +2448,15 @@ export default () => {
 
                   <li
                     className={`menu-item ${
-                      pathname === mainCategories.whoYouServe.path ? 'menu-item-active' : ''
-                    }`}>
-                    <Link to={mainCategories.whoYouServe.path} className="menu-link">
+                      pathname === mainCategories.whoYouServe.path
+                        ? 'menu-item-active'
+                        : ''
+                    }`}
+                  >
+                    <Link
+                      to={mainCategories.whoYouServe.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -1920,9 +2466,15 @@ export default () => {
 
                   <li
                     className={`menu-item ${
-                      pathname === mainCategories.menuService.path ? 'menu-item-active' : ''
-                    }`}>
-                    <Link to={mainCategories.menuService.path} className="menu-link">
+                      pathname === mainCategories.menuService.path
+                        ? 'menu-item-active'
+                        : ''
+                    }`}
+                  >
+                    <Link
+                      to={mainCategories.menuService.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -1932,9 +2484,15 @@ export default () => {
 
                   <li
                     className={`menu-item ${
-                      pathname === mainCategories.seating.path ? 'menu-item-active' : ''
-                    }`}>
-                    <Link to={mainCategories.seating.path} className="menu-link">
+                      pathname === mainCategories.seating.path
+                        ? 'menu-item-active'
+                        : ''
+                    }`}
+                  >
+                    <Link
+                      to={mainCategories.seating.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -1944,9 +2502,15 @@ export default () => {
 
                   <li
                     className={`menu-item ${
-                      pathname === mainCategories.paymentMethod.path ? 'menu-item-active' : ''
-                    }`}>
-                    <Link to={mainCategories.paymentMethod.path} className="menu-link">
+                      pathname === mainCategories.paymentMethod.path
+                        ? 'menu-item-active'
+                        : ''
+                    }`}
+                  >
+                    <Link
+                      to={mainCategories.paymentMethod.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -1956,9 +2520,15 @@ export default () => {
 
                   <li
                     className={`menu-item ${
-                      pathname === mainCategories.cuisine.path ? 'menu-item-active' : ''
-                    }`}>
-                    <Link to={mainCategories.cuisine.path} className="menu-link">
+                      pathname === mainCategories.cuisine.path
+                        ? 'menu-item-active'
+                        : ''
+                    }`}
+                  >
+                    <Link
+                      to={mainCategories.cuisine.path}
+                      className="menu-link"
+                    >
                       <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
@@ -1972,7 +2542,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Location Manage</span>
                 <i className="menu-arrow" />
@@ -1983,7 +2554,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -1997,7 +2569,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2007,7 +2580,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2017,7 +2591,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2027,7 +2602,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2037,7 +2613,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2045,7 +2622,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2053,7 +2633,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2061,7 +2644,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2074,7 +2660,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -2086,7 +2673,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2094,7 +2684,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2102,7 +2695,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2110,7 +2706,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2118,7 +2717,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2128,7 +2730,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2136,7 +2739,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2149,7 +2755,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -2161,7 +2768,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2169,7 +2779,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2177,7 +2790,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2190,7 +2806,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -2202,7 +2819,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2210,7 +2830,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2218,7 +2841,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2234,7 +2860,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Menu Manage</span>
                 <i className="menu-arrow" />
@@ -2245,7 +2872,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -2259,7 +2887,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2269,7 +2898,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2279,7 +2909,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2289,7 +2920,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2299,7 +2931,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2307,7 +2940,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2315,7 +2951,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2323,7 +2962,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2336,7 +2978,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -2348,7 +2991,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2356,7 +3002,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2364,7 +3013,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2372,7 +3024,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2380,7 +3035,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2390,7 +3048,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2398,7 +3057,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2411,7 +3073,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -2423,7 +3086,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2431,7 +3097,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2439,7 +3108,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2452,7 +3124,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -2464,7 +3137,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2472,7 +3148,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2480,7 +3159,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2496,7 +3178,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Order Manage</span>
                 <i className="menu-arrow" />
@@ -2507,7 +3190,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -2521,7 +3205,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2531,7 +3216,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2541,7 +3227,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2551,7 +3238,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2561,7 +3249,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2569,7 +3258,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2577,7 +3269,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2585,7 +3280,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2598,7 +3296,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -2610,7 +3309,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2618,7 +3320,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2626,7 +3331,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2634,7 +3342,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2642,7 +3353,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2652,7 +3366,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2660,7 +3375,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2673,7 +3391,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -2685,7 +3404,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2693,7 +3415,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2701,7 +3426,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2714,7 +3442,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -2726,7 +3455,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2734,7 +3466,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2742,7 +3477,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2758,7 +3496,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Document Manage</span>
                 <i className="menu-arrow" />
@@ -2769,7 +3508,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -2783,7 +3523,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2793,7 +3534,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2803,7 +3545,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2813,7 +3556,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2823,7 +3567,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2831,7 +3576,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2839,7 +3587,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2847,7 +3598,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2860,7 +3614,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -2872,7 +3627,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2880,7 +3638,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2888,7 +3649,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2896,7 +3660,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2904,7 +3671,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2914,7 +3684,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2922,7 +3693,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2935,7 +3709,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -2947,7 +3722,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2955,7 +3733,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2963,7 +3744,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2976,7 +3760,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -2988,7 +3773,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -2996,7 +3784,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3004,7 +3795,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3017,7 +3811,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -3029,7 +3824,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3037,7 +3835,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3045,7 +3846,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3061,7 +3865,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Vehicle Manage</span>
                 <i className="menu-arrow" />
@@ -3072,7 +3877,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -3086,7 +3892,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3096,7 +3903,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3106,7 +3914,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3116,7 +3925,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3126,7 +3936,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3134,7 +3945,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3142,7 +3956,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3150,7 +3967,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3163,7 +3983,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -3175,7 +3996,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3183,7 +4007,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3191,7 +4018,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3199,7 +4029,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3207,7 +4040,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3217,7 +4053,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3225,7 +4062,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3238,7 +4078,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -3250,7 +4091,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3258,7 +4102,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3266,7 +4113,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3282,7 +4132,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Fare Manage</span>
                 <i className="menu-arrow" />
@@ -3293,7 +4144,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -3307,7 +4159,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3317,7 +4170,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3327,7 +4181,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3337,7 +4192,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3347,7 +4203,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3355,7 +4212,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3363,7 +4223,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3371,7 +4234,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3384,7 +4250,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -3396,7 +4263,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3404,7 +4274,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3412,7 +4285,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3420,7 +4296,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3428,7 +4307,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3438,7 +4320,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3446,7 +4329,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3462,7 +4348,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Commission Manage</span>
                 <i className="menu-arrow" />
@@ -3473,7 +4360,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -3487,7 +4375,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3497,7 +4386,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3507,7 +4397,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3517,7 +4408,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3527,7 +4419,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3535,7 +4428,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3543,7 +4439,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3551,7 +4450,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3564,7 +4466,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -3576,7 +4479,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3584,7 +4490,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3592,7 +4501,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3600,7 +4512,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3608,7 +4523,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3618,7 +4536,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3626,7 +4545,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3639,7 +4561,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -3651,7 +4574,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3659,7 +4585,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3667,7 +4596,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3680,7 +4612,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -3692,7 +4625,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3700,7 +4636,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3708,7 +4647,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3721,7 +4663,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -3733,7 +4676,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3741,7 +4687,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3749,7 +4698,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3762,7 +4714,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -3774,7 +4727,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3782,7 +4738,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3790,7 +4749,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3803,7 +4765,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -3815,7 +4778,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3823,7 +4789,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3831,7 +4800,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3844,7 +4816,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -3856,7 +4829,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3864,7 +4840,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3872,7 +4851,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3885,7 +4867,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -3897,7 +4880,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3905,7 +4891,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3913,7 +4902,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3929,7 +4921,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Referral Manage</span>
                 <i className="menu-arrow" />
@@ -3940,7 +4933,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -3954,7 +4948,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3964,7 +4959,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3974,7 +4970,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3984,7 +4981,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -3994,7 +4992,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4002,7 +5001,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4010,7 +5012,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4018,7 +5023,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4031,7 +5039,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -4043,7 +5052,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4051,7 +5063,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4059,7 +5074,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4067,7 +5085,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4075,7 +5096,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4085,7 +5109,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4093,7 +5118,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4106,7 +5134,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -4118,7 +5147,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4126,7 +5158,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4134,7 +5169,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4147,7 +5185,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -4159,7 +5198,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4167,7 +5209,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4175,7 +5220,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4188,7 +5236,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -4200,7 +5249,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4208,7 +5260,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4216,7 +5271,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4229,7 +5287,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -4241,7 +5300,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4249,7 +5311,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4257,7 +5322,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4270,7 +5338,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -4282,7 +5351,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4290,7 +5362,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4298,7 +5373,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4311,7 +5389,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -4323,7 +5402,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4331,7 +5413,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4339,7 +5424,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4352,7 +5440,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -4364,7 +5453,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4372,7 +5464,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4380,7 +5475,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4396,7 +5494,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Statements Manage</span>
                 <i className="menu-arrow" />
@@ -4407,7 +5506,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -4421,7 +5521,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4431,7 +5532,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4441,7 +5543,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4451,7 +5554,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4461,7 +5565,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4469,7 +5574,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4477,7 +5585,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4485,7 +5596,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4498,7 +5612,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -4510,7 +5625,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4518,7 +5636,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4526,7 +5647,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4534,7 +5658,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4542,7 +5669,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4552,7 +5682,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4560,7 +5691,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4573,7 +5707,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -4585,7 +5720,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4593,7 +5731,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4601,7 +5742,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4614,7 +5758,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -4626,7 +5771,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4634,7 +5782,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4642,7 +5793,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4655,7 +5809,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -4667,7 +5822,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4675,7 +5833,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4683,7 +5844,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4696,7 +5860,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -4708,7 +5873,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4716,7 +5884,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4724,7 +5895,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4737,7 +5911,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -4749,7 +5924,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4757,7 +5935,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4765,7 +5946,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4778,7 +5962,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -4790,7 +5975,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4798,7 +5986,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4806,7 +5997,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4819,7 +6013,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -4831,7 +6026,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4839,7 +6037,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4847,7 +6048,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4863,7 +6067,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Cancelation Reason Manage</span>
                 <i className="menu-arrow" />
@@ -4874,7 +6079,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -4888,7 +6094,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4898,7 +6105,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4908,7 +6116,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4918,7 +6127,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4928,7 +6138,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4936,7 +6147,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4944,7 +6158,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4952,7 +6169,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4965,7 +6185,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -4977,7 +6198,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4985,7 +6209,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -4993,7 +6220,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5001,7 +6231,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5009,7 +6242,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5019,7 +6255,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5027,7 +6264,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5040,7 +6280,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -5052,7 +6293,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5060,7 +6304,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5068,7 +6315,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5081,7 +6331,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -5093,7 +6344,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5101,7 +6355,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5109,7 +6366,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5122,7 +6382,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -5134,7 +6395,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5142,7 +6406,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5150,7 +6417,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5163,7 +6433,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -5175,7 +6446,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5183,7 +6457,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5191,7 +6468,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5204,7 +6484,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -5216,7 +6497,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5224,7 +6508,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5232,7 +6519,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5245,7 +6535,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -5257,7 +6548,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5265,7 +6559,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5273,7 +6570,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5286,7 +6586,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -5298,7 +6599,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5306,7 +6610,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5314,7 +6621,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5330,7 +6640,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Complaints Manage</span>
                 <i className="menu-arrow" />
@@ -5341,7 +6652,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -5355,7 +6667,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5365,7 +6678,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5375,7 +6689,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5385,7 +6700,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5395,7 +6711,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5403,7 +6720,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5411,7 +6731,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5419,7 +6742,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5432,7 +6758,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -5444,7 +6771,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5452,7 +6782,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5460,7 +6793,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5468,7 +6804,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5476,7 +6815,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5486,7 +6828,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5494,7 +6837,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5507,7 +6853,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -5519,7 +6866,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5527,7 +6877,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5535,7 +6888,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5548,7 +6904,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -5560,7 +6917,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5568,7 +6928,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5576,7 +6939,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5589,7 +6955,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -5601,7 +6968,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5609,7 +6979,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5617,7 +6990,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5630,7 +7006,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -5642,7 +7019,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5650,7 +7030,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5658,7 +7041,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5671,7 +7057,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -5683,7 +7070,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5691,7 +7081,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5699,7 +7092,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5712,7 +7108,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -5724,7 +7121,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5732,7 +7132,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5740,7 +7143,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5753,7 +7159,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -5765,7 +7172,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5773,7 +7183,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5781,7 +7194,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5797,7 +7213,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Help &amp; Support Manage</span>
                 <i className="menu-arrow" />
@@ -5808,7 +7225,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -5822,7 +7240,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5832,7 +7251,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5842,7 +7262,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5852,7 +7273,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5862,7 +7284,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5870,7 +7293,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5878,7 +7304,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5886,7 +7315,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5899,7 +7331,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -5911,7 +7344,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5919,7 +7355,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5927,7 +7366,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5935,7 +7377,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5943,7 +7388,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5953,7 +7401,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5961,7 +7410,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5974,7 +7426,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -5986,7 +7439,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -5994,7 +7450,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6002,7 +7461,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6015,7 +7477,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -6027,7 +7490,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6035,7 +7501,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6043,7 +7512,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6056,7 +7528,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -6068,7 +7541,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6076,7 +7552,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6084,7 +7563,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6097,7 +7579,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -6109,7 +7592,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6117,7 +7603,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6125,7 +7614,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6138,7 +7630,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -6150,7 +7643,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6158,7 +7654,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6166,7 +7665,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6179,7 +7681,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -6191,7 +7694,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6199,7 +7705,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6207,7 +7716,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6220,7 +7732,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -6232,7 +7745,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6240,7 +7756,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6248,7 +7767,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6264,7 +7786,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Account Manage</span>
                 <i className="menu-arrow" />
@@ -6275,7 +7798,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -6289,7 +7813,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6299,7 +7824,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6309,7 +7835,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6319,7 +7846,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6329,7 +7857,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6337,7 +7866,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6345,7 +7877,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6353,7 +7888,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6366,7 +7904,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -6378,7 +7917,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6386,7 +7928,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6394,7 +7939,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6402,7 +7950,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6410,7 +7961,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6420,7 +7974,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6428,7 +7983,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6441,7 +7999,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -6453,7 +8012,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6461,7 +8023,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6469,7 +8034,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6482,7 +8050,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -6494,7 +8063,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6502,7 +8074,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6510,7 +8085,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6523,7 +8101,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -6535,7 +8114,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6543,7 +8125,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6551,7 +8136,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6564,7 +8152,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -6576,7 +8165,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6584,7 +8176,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6592,7 +8187,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6605,7 +8203,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -6617,7 +8216,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6625,7 +8227,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6633,7 +8238,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6646,7 +8254,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -6658,7 +8267,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6666,7 +8278,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6674,7 +8289,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6687,7 +8305,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -6699,7 +8318,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6707,7 +8329,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6715,7 +8340,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6731,7 +8359,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Reports Manage</span>
                 <i className="menu-arrow" />
@@ -6742,7 +8371,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -6756,7 +8386,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6766,7 +8397,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6776,7 +8408,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6786,7 +8419,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6796,7 +8430,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6804,7 +8439,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6812,7 +8450,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6820,7 +8461,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6833,7 +8477,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -6845,7 +8490,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6853,7 +8501,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6861,7 +8512,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6869,7 +8523,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6877,7 +8534,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6887,7 +8547,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6895,7 +8556,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6908,7 +8572,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -6920,7 +8585,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6928,7 +8596,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6936,7 +8607,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6949,7 +8623,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -6961,7 +8636,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6969,7 +8647,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6977,7 +8658,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -6990,7 +8674,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -7002,7 +8687,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7010,7 +8698,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7018,7 +8709,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7031,7 +8725,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -7043,7 +8738,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7051,7 +8749,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7059,7 +8760,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7072,7 +8776,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -7084,7 +8789,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7092,7 +8800,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7100,7 +8811,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7113,7 +8827,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -7125,7 +8840,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7133,7 +8851,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7141,7 +8862,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7154,7 +8878,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -7166,7 +8891,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7174,7 +8902,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7182,7 +8913,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7198,7 +8932,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Data Analyst Manage</span>
                 <i className="menu-arrow" />
@@ -7209,7 +8944,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -7223,7 +8959,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7233,7 +8970,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7243,7 +8981,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7253,7 +8992,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7263,7 +9003,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7271,7 +9012,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7279,7 +9023,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7287,7 +9034,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7300,7 +9050,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -7312,7 +9063,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7320,7 +9074,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7328,7 +9085,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7336,7 +9096,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7344,7 +9107,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7354,7 +9120,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7362,7 +9129,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7375,7 +9145,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -7387,7 +9158,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7395,7 +9169,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7403,7 +9180,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7416,7 +9196,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -7428,7 +9209,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7436,7 +9220,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7444,7 +9231,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7457,7 +9247,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -7469,7 +9260,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7477,7 +9271,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7485,7 +9282,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7498,7 +9298,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -7510,7 +9311,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7518,7 +9322,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7526,7 +9333,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7539,7 +9349,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -7551,7 +9362,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7559,7 +9373,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7567,7 +9384,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7580,7 +9400,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -7592,7 +9413,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7600,7 +9424,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7608,7 +9435,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7621,7 +9451,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -7633,7 +9464,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7641,7 +9475,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7649,7 +9486,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7665,7 +9505,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Media Gallery</span>
                 <i className="menu-arrow" />
@@ -7676,7 +9517,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -7690,7 +9532,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7700,7 +9543,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7710,7 +9554,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7720,7 +9565,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7730,7 +9576,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7738,7 +9585,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7746,7 +9596,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7754,7 +9607,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7767,7 +9623,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -7779,7 +9636,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7787,7 +9647,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7795,7 +9658,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7803,7 +9669,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7811,7 +9680,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7821,7 +9693,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7829,7 +9702,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7842,7 +9718,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -7854,7 +9731,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7862,7 +9742,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7870,7 +9753,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7883,7 +9769,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -7895,7 +9782,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7903,7 +9793,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7911,7 +9804,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7927,7 +9823,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Offer Manage</span>
                 <i className="menu-arrow" />
@@ -7938,7 +9835,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -7952,7 +9850,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7962,7 +9861,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7972,7 +9872,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7982,7 +9883,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -7992,7 +9894,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8000,7 +9903,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8008,7 +9914,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8016,7 +9925,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8029,7 +9941,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -8041,7 +9954,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8049,7 +9965,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8057,7 +9976,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8065,7 +9987,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8073,7 +9998,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8083,7 +10011,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8091,7 +10020,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8104,7 +10036,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -8116,7 +10049,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8124,7 +10060,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8132,7 +10071,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8145,7 +10087,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -8157,7 +10100,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8165,7 +10111,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8173,7 +10122,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8186,7 +10138,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -8198,7 +10151,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8206,7 +10162,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8214,7 +10173,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8227,7 +10189,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -8239,7 +10202,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8247,7 +10213,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8255,7 +10224,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8268,7 +10240,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -8280,7 +10253,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8288,7 +10264,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8296,7 +10275,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8309,7 +10291,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -8321,7 +10304,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8329,7 +10315,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8337,7 +10326,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8350,7 +10342,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -8362,7 +10355,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8370,7 +10366,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8378,7 +10377,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8394,7 +10396,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Promotion Manage</span>
                 <i className="menu-arrow" />
@@ -8405,7 +10408,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -8419,7 +10423,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8429,7 +10434,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8439,7 +10445,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8449,7 +10456,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8459,7 +10467,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8467,7 +10476,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8475,7 +10487,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8483,7 +10498,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8496,7 +10514,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -8508,7 +10527,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8516,7 +10538,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8524,7 +10549,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8532,7 +10560,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8540,7 +10571,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8550,7 +10584,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8558,7 +10593,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8571,7 +10609,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -8583,7 +10622,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8591,7 +10633,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8599,7 +10644,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8612,7 +10660,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -8624,7 +10673,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8632,7 +10684,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8640,7 +10695,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8653,7 +10711,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -8665,7 +10724,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8673,7 +10735,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8681,7 +10746,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8694,7 +10762,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -8706,7 +10775,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8714,7 +10786,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8722,7 +10797,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8735,7 +10813,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -8747,7 +10826,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8755,7 +10837,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8763,7 +10848,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8776,7 +10864,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -8788,7 +10877,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8796,7 +10888,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8804,7 +10899,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8817,7 +10915,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -8829,7 +10928,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8837,7 +10939,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8845,7 +10950,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8861,7 +10969,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">SMS Manage</span>
                 <i className="menu-arrow" />
@@ -8872,7 +10981,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -8886,7 +10996,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8896,7 +11007,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8906,7 +11018,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8916,7 +11029,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8926,7 +11040,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8934,7 +11049,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8942,7 +11060,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8950,7 +11071,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8963,7 +11087,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -8975,7 +11100,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8983,7 +11111,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8991,7 +11122,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -8999,7 +11133,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9007,7 +11144,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9017,7 +11157,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9025,7 +11166,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9038,7 +11182,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -9050,7 +11195,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9058,7 +11206,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9066,7 +11217,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9079,7 +11233,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -9091,7 +11246,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9099,7 +11257,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9107,7 +11268,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9120,7 +11284,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -9132,7 +11297,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9140,7 +11308,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9148,7 +11319,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9161,7 +11335,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -9173,7 +11348,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9181,7 +11359,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9189,7 +11370,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9202,7 +11386,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -9214,7 +11399,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9222,7 +11410,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9230,7 +11421,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9243,7 +11437,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -9255,7 +11450,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9263,7 +11461,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9271,7 +11472,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9284,7 +11488,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -9296,7 +11501,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9304,7 +11512,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9312,7 +11523,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9328,7 +11542,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Email Manage</span>
                 <i className="menu-arrow" />
@@ -9339,7 +11554,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -9353,7 +11569,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9363,7 +11580,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9373,7 +11591,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9383,7 +11602,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9393,7 +11613,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9401,7 +11622,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9409,7 +11633,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9417,7 +11644,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9430,7 +11660,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -9442,7 +11673,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9450,7 +11684,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9458,7 +11695,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9466,7 +11706,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9474,7 +11717,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9484,7 +11730,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9492,7 +11739,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9505,7 +11755,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -9517,7 +11768,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9525,7 +11779,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9533,7 +11790,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9546,7 +11806,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -9558,7 +11819,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9566,7 +11830,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9574,7 +11841,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9587,7 +11857,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -9599,7 +11870,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9607,7 +11881,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9615,7 +11892,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9628,7 +11908,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -9640,7 +11921,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9648,7 +11932,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9656,7 +11943,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9669,7 +11959,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -9681,7 +11972,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9689,7 +11983,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9697,7 +11994,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9710,7 +12010,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -9722,7 +12023,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9730,7 +12034,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9738,7 +12045,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9751,7 +12061,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -9763,7 +12074,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9771,7 +12085,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9779,7 +12096,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9795,7 +12115,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Penalty Manage</span>
                 <i className="menu-arrow" />
@@ -9806,7 +12127,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -9820,7 +12142,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9830,7 +12153,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9840,7 +12164,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9850,7 +12175,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9860,7 +12186,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9868,7 +12195,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9876,7 +12206,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9884,7 +12217,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9897,7 +12233,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -9909,7 +12246,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9917,7 +12257,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9925,7 +12268,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9933,7 +12279,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9941,7 +12290,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9951,7 +12303,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9959,7 +12312,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9972,7 +12328,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -9984,7 +12341,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -9992,7 +12352,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10000,7 +12363,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10013,7 +12379,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -10025,7 +12392,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10033,7 +12403,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10041,7 +12414,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10054,7 +12430,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -10066,7 +12443,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10074,7 +12454,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10082,7 +12465,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10095,7 +12481,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -10107,7 +12494,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10115,7 +12505,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10123,7 +12516,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10136,7 +12532,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -10148,7 +12545,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10156,7 +12556,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10164,7 +12567,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10177,7 +12583,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -10189,7 +12596,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10197,7 +12607,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10205,7 +12618,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10218,7 +12634,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -10230,7 +12647,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10238,7 +12658,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10246,7 +12669,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10262,7 +12688,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Tips Manage</span>
                 <i className="menu-arrow" />
@@ -10273,7 +12700,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -10287,7 +12715,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10297,7 +12726,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10307,7 +12737,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10317,7 +12748,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10327,7 +12759,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10335,7 +12768,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10343,7 +12779,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10351,7 +12790,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10364,7 +12806,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -10376,7 +12819,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10384,7 +12830,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10392,7 +12841,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10400,7 +12852,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10408,7 +12863,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10418,7 +12876,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10426,7 +12885,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10439,7 +12901,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -10451,7 +12914,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10459,7 +12925,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10467,7 +12936,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10480,7 +12952,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -10492,7 +12965,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10500,7 +12976,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10508,7 +12987,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10521,7 +13003,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -10533,7 +13016,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10541,7 +13027,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10549,7 +13038,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10562,7 +13054,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -10574,7 +13067,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10582,7 +13078,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10590,7 +13089,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10606,7 +13108,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">Peak Base Fare Manage</span>
                 <i className="menu-arrow" />
@@ -10617,7 +13120,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -10631,7 +13135,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10641,7 +13146,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10651,7 +13157,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10661,7 +13168,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10671,7 +13179,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10679,7 +13188,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10687,7 +13199,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10695,7 +13210,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10708,7 +13226,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -10720,7 +13239,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10728,7 +13250,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10736,7 +13261,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10744,7 +13272,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10752,7 +13283,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10762,7 +13296,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10770,7 +13305,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10783,7 +13321,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -10795,7 +13334,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10803,7 +13345,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10811,7 +13356,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10824,7 +13372,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -10836,7 +13385,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10844,7 +13396,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10852,7 +13407,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10865,7 +13423,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -10877,7 +13436,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10885,7 +13447,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10893,7 +13458,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10909,7 +13477,8 @@ export default () => {
             <li
               className="menu-item  menu-item-submenu"
               aria-haspopup="true"
-              data-menu-toggle="hover">
+              data-menu-toggle="hover"
+            >
               <Link to="/" className="menu-link menu-toggle">
                 <span className="menu-text">FAQ Manage</span>
                 <i className="menu-arrow" />
@@ -10920,7 +13489,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -10934,7 +13504,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-1.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10944,7 +13515,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-2.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10954,7 +13526,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-3.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10964,7 +13537,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-columns-4.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10974,7 +13548,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/projects/list-datatable.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10982,7 +13557,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/view-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/view-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10990,7 +13568,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/add-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/add-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -10998,7 +13579,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/projects/edit-project.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/projects/edit-project.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11011,7 +13595,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -11023,7 +13608,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11031,7 +13619,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/home-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/home-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11039,7 +13630,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-1.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-1.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11047,7 +13641,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-2.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-2.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11055,7 +13652,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/faq-3.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/faq-3.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11065,7 +13665,8 @@ export default () => {
                         <li className="menu-item " aria-haspopup="true">
                           <Link
                             to="custom/apps/support-center/feedback.html"
-                            className="menu-link ">
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11073,7 +13674,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/support-center/license.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/support-center/license.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11086,7 +13690,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -11098,7 +13703,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11106,7 +13714,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11114,7 +13725,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11127,7 +13741,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -11139,7 +13754,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11147,7 +13765,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11155,7 +13776,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11168,7 +13792,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -11180,7 +13805,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11188,7 +13816,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11196,7 +13827,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11209,7 +13843,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -11221,7 +13856,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11229,7 +13867,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11237,7 +13878,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11250,7 +13894,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -11262,7 +13907,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11270,7 +13918,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11278,7 +13929,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11291,7 +13945,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -11303,7 +13958,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11311,7 +13969,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11319,7 +13980,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11332,7 +13996,8 @@ export default () => {
                   <li
                     className="menu-item  menu-item-submenu"
                     aria-haspopup="true"
-                    data-menu-toggle="hover">
+                    data-menu-toggle="hover"
+                  >
                     <Link to="/" className="menu-link menu-toggle">
                       <i className="menu-bullet menu-bullet-line">
                         <span />
@@ -11344,7 +14009,10 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/private.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/private.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11352,7 +14020,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/group.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/group.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>
@@ -11360,7 +14031,10 @@ export default () => {
                           </Link>
                         </li>
                         <li className="menu-item " aria-haspopup="true">
-                          <Link to="custom/apps/chat/popup.html" className="menu-link ">
+                          <Link
+                            to="custom/apps/chat/popup.html"
+                            className="menu-link "
+                          >
                             <i className="menu-bullet menu-bullet-dot">
                               <span />
                             </i>

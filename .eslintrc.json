@@ -5,8 +5,8 @@
         "jest": true
     },
     "extends": [
+        "eslint:recommended",
         "plugin:react/recommended",
-        "standard",
         "plugin:prettier/recommended"
     ],
     "parserOptions": {
@@ -19,10 +19,26 @@
     "plugins": [
         "react"
     ],
+    "globals": {
+        "process": true
+    },
     "rules": {
         "react/react-in-jsx-scope": "off",
         "react/prop-types": 0,
-        "react/display-name":0,
-        "react/no-unescaped-entities": "off"
+        "react/display-name": 0,
+        "react/no-unescaped-entities": "off",
+        "prettier/prettier": [
+            "error",
+            {
+                "semi": true,
+                "trailingComma": "all",
+                "singleQuote": true,
+                "useTabs": false,
+                "printWidth": 80,
+                "tabWidth": 2,
+                "bracketSpacing": true,
+                "endOfLine": "auto"
+            }
+        ]
     }
 }

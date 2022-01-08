@@ -1,4 +1,4 @@
-import {createStore, applyMiddleware, compose, combineReducers} from 'redux';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
 // importing redux
@@ -10,4 +10,7 @@ const rootReducer = combineReducers({
   mainCategory: mainCategoryReducer,
 });
 
-export const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
+export const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk)),
+);

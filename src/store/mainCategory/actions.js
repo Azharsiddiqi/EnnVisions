@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {BACKEND_BASE_URL} from '../../config';
+import { BACKEND_BASE_URL } from '../../config';
 
 import * as actionTypes from './types';
 
@@ -78,23 +78,28 @@ export const ACTION_updateBusinessCategoryItem = (reqPacket) => (dispatch) => {
     .catch((error) => console.log('error: ', error));
 };
 
-export const ACTION_updateBusinessCategoriesDropdownList = (reqPacket) => (dispatch) => {
-  axios
-    .post(BACKEND_BASE_URL + '/api/business/category/updateBusinesscategoriesDropdown', reqPacket)
-    .then((res) => {
-      console.log('checking res: ', res);
-      if (res.data.code === 200) {
-        dispatch({
-          type: actionTypes.UPDATE_BUSINESS_CATEGORIES_DROPDOWN_LIST,
-          payload: res.data.result,
-        });
-        toastify.Success(res.data.message);
-      } else {
-        toastify.Error('Something went wrong! Please try again.');
-      }
-    })
-    .catch((error) => console.log('error: ', error));
-};
+export const ACTION_updateBusinessCategoriesDropdownList =
+  (reqPacket) => (dispatch) => {
+    axios
+      .post(
+        BACKEND_BASE_URL +
+          '/api/business/category/updateBusinesscategoriesDropdown',
+        reqPacket,
+      )
+      .then((res) => {
+        console.log('checking res: ', res);
+        if (res.data.code === 200) {
+          dispatch({
+            type: actionTypes.UPDATE_BUSINESS_CATEGORIES_DROPDOWN_LIST,
+            payload: res.data.result,
+          });
+          toastify.Success(res.data.message);
+        } else {
+          toastify.Error('Something went wrong! Please try again.');
+        }
+      })
+      .catch((error) => console.log('error: ', error));
+  };
 
 // <-----------------------Ending: Business Category Section----------------------->
 
@@ -154,7 +159,10 @@ export const ACTION_updateBusinessTypeItem = (reqPacket) => (dispatch) => {
 };
 export const ACTION_updateBusinessTypeDropdown = (reqPacket) => (dispatch) => {
   axios
-    .post(BACKEND_BASE_URL + '/api/business/type/updateBusinessTypeDropdown', reqPacket)
+    .post(
+      BACKEND_BASE_URL + '/api/business/type/updateBusinessTypeDropdown',
+      reqPacket,
+    )
     .then((res) => {
       console.log('checking res: ', res);
       if (res.data.code === 200) {
@@ -244,7 +252,10 @@ export const ACTION_updateHouseDelivery = (reqPacket) => (dispatch) => {
 };
 export const ACTION_updateHouseDeliverySetup = (reqPacket) => (dispatch) => {
   axios
-    .post(BACKEND_BASE_URL + '/api/houseDelivery/updateHouseDeliverySetup', reqPacket)
+    .post(
+      BACKEND_BASE_URL + '/api/houseDelivery/updateHouseDeliverySetup',
+      reqPacket,
+    )
     .then((res) => {
       console.log('checking res: ', res);
       if (res.data.code === 200) {
@@ -334,7 +345,10 @@ export const ACTION_updateOpenStatus = (reqPacket) => (dispatch) => {
 };
 export const ACTION_updateOpeningStatusSetup = (reqPacket) => (dispatch) => {
   axios
-    .post(BACKEND_BASE_URL + '/api/opening/status/updateOpeningStatusSetup', reqPacket)
+    .post(
+      BACKEND_BASE_URL + '/api/opening/status/updateOpeningStatusSetup',
+      reqPacket,
+    )
     .then((res) => {
       console.log('checking res: ', res);
       if (res.data.code === 200) {

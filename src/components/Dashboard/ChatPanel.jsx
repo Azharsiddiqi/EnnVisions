@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default () => {
   return (
@@ -35,7 +35,12 @@ export default () => {
                         viewBox="0 0 24 24"
                         version="1.1"
                       >
-                        <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
+                        <g
+                          stroke="none"
+                          strokeWidth={1}
+                          fill="none"
+                          fillRule="evenodd"
+                        >
                           <polygon points="0 0 24 0 24 24 0 24" />
                           <path
                             d="M18,8 L16,8 C15.4477153,8 15,7.55228475 15,7 C15,6.44771525 15.4477153,6 16,6 L18,6 L18,4 C18,3.44771525 18.4477153,3 19,3 C19.5522847,3 20,3.44771525 20,4 L20,6 L22,6 C22.5522847,6 23,6.44771525 23,7 C23,7.55228475 22.5522847,8 22,8 L20,8 L20,10 C20,10.5522847 19.5522847,11 19,11 C18.4477153,11 18,10.5522847 18,10 L18,8 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z"
@@ -130,10 +135,14 @@ export default () => {
                 {/* end::Dropdown Menu */}
               </div>
               <div className="text-center flex-grow-1">
-                <div className="text-dark-75 font-weight-bold font-size-h5">Matt Pears</div>
+                <div className="text-dark-75 font-weight-bold font-size-h5">
+                  Matt Pears
+                </div>
                 <div>
                   <span className="label label-dot label-success" />
-                  <span className="font-weight-bold text-muted font-size-sm">Active</span>
+                  <span className="font-weight-bold text-muted font-size-sm">
+                    Active
+                  </span>
                 </div>
               </div>
               <div className="text-right flex-grow-1">
@@ -150,7 +159,11 @@ export default () => {
             {/* begin::Body */}
             <div className="card-body">
               {/* begin::Scroll */}
-              <div className="scroll scroll-pull" data-height={375} data-mobile-height={300}>
+              <div
+                className="scroll scroll-pull"
+                data-height={375}
+                data-mobile-height={300}
+              >
                 {/* begin::Messages */}
                 <div className="messages">
                   {/* begin::Message In */}
@@ -170,7 +183,8 @@ export default () => {
                       </div>
                     </div>
                     <div className="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">
-                      How likely are you to recommend our company to your friends and family?
+                      How likely are you to recommend our company to your
+                      friends and family?
                     </div>
                   </div>
                   {/* end::Message In */}
@@ -178,7 +192,9 @@ export default () => {
                   <div className="d-flex flex-column mb-5 align-items-end">
                     <div className="d-flex align-items-center">
                       <div>
-                        <span className="text-muted font-size-sm">3 minutes</span>
+                        <span className="text-muted font-size-sm">
+                          3 minutes
+                        </span>
                         <Link
                           to="#"
                           className="text-dark-75 text-hover-primary font-weight-bold font-size-h6"
@@ -191,8 +207,8 @@ export default () => {
                       </div>
                     </div>
                     <div className="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                      Hey there, we’re just writing to let you know that you’ve been subscribed to a
-                      repository on GitHub.
+                      Hey there, we’re just writing to let you know that you’ve
+                      been subscribed to a repository on GitHub.
                     </div>
                   </div>
                   {/* end::Message Out */}
@@ -209,7 +225,9 @@ export default () => {
                         >
                           Matt Pears
                         </Link>
-                        <span className="text-muted font-size-sm">40 seconds</span>
+                        <span className="text-muted font-size-sm">
+                          40 seconds
+                        </span>
                       </div>
                     </div>
                     <div className="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">
@@ -221,7 +239,9 @@ export default () => {
                   <div className="d-flex flex-column mb-5 align-items-end">
                     <div className="d-flex align-items-center">
                       <div>
-                        <span className="text-muted font-size-sm">Just now</span>
+                        <span className="text-muted font-size-sm">
+                          Just now
+                        </span>
                         <Link
                           to="#"
                           className="text-dark-75 text-hover-primary font-weight-bold font-size-h6"
@@ -234,7 +254,8 @@ export default () => {
                       </div>
                     </div>
                     <div className="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                      You’ll receive notifications for all issues, pull requests!
+                      You’ll receive notifications for all issues, pull
+                      requests!
                     </div>
                   </div>
                   {/* end::Message Out */}
@@ -251,12 +272,14 @@ export default () => {
                         >
                           Matt Pears
                         </Link>
-                        <span className="text-muted font-size-sm">40 seconds</span>
+                        <span className="text-muted font-size-sm">
+                          40 seconds
+                        </span>
                       </div>
                     </div>
                     <div className="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">
-                      You can unwatch this repository immediately by clicking here:{' '}
-                      <Link to="#">https://github.com</Link>
+                      You can unwatch this repository immediately by clicking
+                      here: <Link to="#">https://github.com</Link>
                     </div>
                   </div>
                   {/* end::Message In */}
@@ -264,7 +287,9 @@ export default () => {
                   <div className="d-flex flex-column mb-5 align-items-end">
                     <div className="d-flex align-items-center">
                       <div>
-                        <span className="text-muted font-size-sm">Just now</span>
+                        <span className="text-muted font-size-sm">
+                          Just now
+                        </span>
                         <Link
                           to="#"
                           className="text-dark-75 text-hover-primary font-weight-bold font-size-h6"
@@ -277,8 +302,8 @@ export default () => {
                       </div>
                     </div>
                     <div className="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                      Discover what students who viewed Learn Figma - UI/UX Design. Essential
-                      Training also viewed
+                      Discover what students who viewed Learn Figma - UI/UX
+                      Design. Essential Training also viewed
                     </div>
                   </div>
                   {/* end::Message Out */}
@@ -295,7 +320,9 @@ export default () => {
                         >
                           Matt Pears
                         </Link>
-                        <span className="text-muted font-size-sm">40 seconds</span>
+                        <span className="text-muted font-size-sm">
+                          40 seconds
+                        </span>
                       </div>
                     </div>
                     <div className="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">
@@ -307,7 +334,9 @@ export default () => {
                   <div className="d-flex flex-column mb-5 align-items-end">
                     <div className="d-flex align-items-center">
                       <div>
-                        <span className="text-muted font-size-sm">Just now</span>
+                        <span className="text-muted font-size-sm">
+                          Just now
+                        </span>
                         <Link
                           to="#"
                           className="text-dark-75 text-hover-primary font-weight-bold font-size-h6"
@@ -320,8 +349,8 @@ export default () => {
                       </div>
                     </div>
                     <div className="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                      Company BBQ to celebrate the last quater achievements and goals. Food and
-                      drinks provided
+                      Company BBQ to celebrate the last quater achievements and
+                      goals. Food and drinks provided
                     </div>
                   </div>
                   {/* end::Message Out */}

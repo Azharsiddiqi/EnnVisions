@@ -1,4 +1,4 @@
-import {PRIVATE_ROUTES, PUBLIC_ROUTES} from './config';
+import { PRIVATE_ROUTES, PUBLIC_ROUTES } from './config';
 export const authRoutes = [
   PUBLIC_ROUTES.login.path,
   PUBLIC_ROUTES.forgotPasswordEmail.path,
