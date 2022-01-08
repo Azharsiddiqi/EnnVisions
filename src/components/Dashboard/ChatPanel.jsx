@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default () => {
+const ChatPanel = () => {
   return (
     <div
       className="modal modal-sticky modal-sticky-bottom-right"
@@ -397,3 +397,5 @@ export default () => {
     </div>
   );
 };
+
+export default ChatPanel;

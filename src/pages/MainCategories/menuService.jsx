@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default () => {
+const MenuService = () => {
   return (
     <div>
       <div className="d-flex flex-column-fluid">
@@ -448,3 +448,5 @@ export default () => {
     </div>
   );
 };
+
+export default MenuService;

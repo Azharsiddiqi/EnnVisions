@@ -13,7 +13,7 @@ import ScrollToTop from '../components/Dashboard/ScrollToTop.jsx';
 import DemoPanel from '../components/Dashboard/DemoPanel.jsx';
 import SubHeader from '../components/common/SubHeader.jsx';
 
-export default ({ menu, subMenu }) => {
+const pagesIndex = ({ menu, subMenu }) => {
   return (
     <React.Fragment>
       <div>
@@ -73,3 +73,5 @@ export default ({ menu, subMenu }) => {
     </React.Fragment>
   );
 };
+
+export default pagesIndex;

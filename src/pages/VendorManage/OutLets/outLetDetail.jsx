@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function () {
+const outLetDetail = () => {
   return (
     <div>
       <div className="d-flex flex-column-fluid">
@@ -630,4 +630,6 @@ export default function () {
       </div>
     </div>
   );
-}
+};
+
+export default outLetDetail;

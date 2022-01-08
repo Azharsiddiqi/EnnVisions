@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default () => {
+const Header = () => {
   return (
     <div id="kt_header" className="header  header-fixed ">
       {/* begin::Container */}
@@ -177,3 +177,5 @@ export default () => {
     </div>
   );
 };
+
+export default Header;

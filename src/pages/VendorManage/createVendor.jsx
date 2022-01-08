@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { PRIVATE_ROUTES } from '../../config';
 
-export default () => {
+const createVendor = () => {
   const history = useHistory();
   return (
     <div className="d-flex flex-column-fluid">
@@ -679,3 +679,5 @@ export default () => {
     </div>
   );
 };
+
+export default createVendor;

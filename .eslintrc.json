@@ -7,8 +7,14 @@
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:prettier/recommended"
+        "plugin:@typescript-eslint/recommended"
     ],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -17,28 +23,28 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "@typescript-eslint"
     ],
-    "globals": {
-        "process": true
-    },
     "rules": {
         "react/react-in-jsx-scope": "off",
-        "react/prop-types": 0,
-        "react/display-name": 0,
         "react/no-unescaped-entities": "off",
-        "prettier/prettier": [
+        "react/prop-types": 0,
+        "indent": [
             "error",
-            {
-                "semi": true,
-                "trailingComma": "all",
-                "singleQuote": true,
-                "useTabs": false,
-                "printWidth": 80,
-                "tabWidth": 2,
-                "bracketSpacing": true,
-                "endOfLine": "auto"
-            }
+            2
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
         ]
     }
 }

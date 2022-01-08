@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { PRIVATE_ROUTES } from '../../../config';
 
-export default function () {
+const editOutLets = () => {
   const history = useHistory();
   return (
     <div
@@ -617,4 +617,6 @@ export default function () {
       </div>
     </div>
   );
-}
+};
+
+export default editOutLets;

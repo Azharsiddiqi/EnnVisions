@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default ({ menu, subMenu }) => {
+const SubHeader = ({ menu, subMenu }) => {
   return (
     <div className="subheader py-2 py-lg-4  subheader-solid " id="kt_subheader">
       <div className=" container-fluid  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
@@ -52,3 +52,5 @@ export default ({ menu, subMenu }) => {
     </div>
   );
 };
+
+export default SubHeader;

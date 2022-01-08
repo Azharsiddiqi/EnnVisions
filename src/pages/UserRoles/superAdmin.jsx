@@ -3,7 +3,7 @@ import { Form } from 'react-bootstrap';
 import { PRIVATE_ROUTES } from '../../config';
 import { useHistory } from 'react-router-dom';
 
-export default () => {
+const superAdmin = () => {
   const history = useHistory();
   return (
     <div>
@@ -253,3 +253,5 @@ export default () => {
     </div>
   );
 };
+
+export default superAdmin;

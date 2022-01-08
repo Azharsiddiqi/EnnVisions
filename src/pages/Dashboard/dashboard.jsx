@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default () => {
+const Dashboard = () => {
   return (
     <div className="d-flex flex-column-fluid">
       {/* begin::Container */}
@@ -444,3 +444,5 @@ export default () => {
     </div>
   );
 };
+
+export default Dashboard;

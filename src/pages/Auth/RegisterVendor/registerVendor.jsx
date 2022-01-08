@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { PUBLIC_ROUTES } from '../../../config';
 import AddMoreOptions from './components/addMoreInfo';
 
-export default () => {
+const RegisterVendor = () => {
   const [showAddMoreOptions, setShowAddMoreOptions] = useState(false);
   const history = useHistory();
   return (
@@ -308,3 +308,5 @@ export default () => {
     </React.Fragment>
   );
 };
+
+export default RegisterVendor;

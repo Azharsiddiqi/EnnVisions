@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { PRIVATE_ROUTES } from '../../config';
 import ConfirmationAlert from '../../components/confirmationAlert';
 
-export default () => {
+const FleetDetail = () => {
   const history = useHistory();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -309,3 +309,5 @@ export default () => {
     </div>
   );
 };
+
+export default FleetDetail;

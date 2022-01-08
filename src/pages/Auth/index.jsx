@@ -3,7 +3,7 @@ import Routes from './routes.jsx';
 
 import Aside from './components/Aside.jsx';
 
-export default () => {
+const AuthIndex = () => {
   return (
     <React.Fragment>
       {/* begin::Main */}
@@ -26,3 +26,5 @@ export default () => {
     </React.Fragment>
   );
 };
+
+export default AuthIndex;

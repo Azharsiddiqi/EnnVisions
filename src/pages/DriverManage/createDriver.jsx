@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function () {
+const CreateDriver = () => {
   return (
     <div
       className="content  d-flex flex-column flex-column-fluid"
@@ -239,4 +239,6 @@ export default function () {
       </div>
     </div>
   );
-}
+};
+
+export default CreateDriver;

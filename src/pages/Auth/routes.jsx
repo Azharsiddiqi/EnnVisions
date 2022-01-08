@@ -8,7 +8,7 @@ import ResetPassword from './ResetPassword/resetPassword.jsx';
 import RegisterVendor from './RegisterVendor/registerVendor.jsx';
 import ConfirmationMessage from './RegisterVendor/components/confirmationMessage.jsx';
 
-export default () => {
+const AuthRoutes = () => {
   const [routes] = useState([
     { path: PUBLIC_ROUTES.login.path, component: Login },
     {
@@ -30,3 +30,5 @@ export default () => {
     </>
   );
 };
+
+export default AuthRoutes;

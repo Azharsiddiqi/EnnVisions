@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { PRIVATE_ROUTES } from '../../config';
 
-export default () => {
+const SideBar = () => {
   const { pathname } = useLocation();
   console.log('checking pathname: ', pathname);
   const {
@@ -142,8 +142,7 @@ export default () => {
           {/*begin::Menu Nav*/}
           <ul className="menu-nav ">
             <li
-              className={`menu-item ${
-                pathname === dashboard.path ? 'menu-item-active' : ''
+              className={`menu-item ${pathname === dashboard.path ? 'menu-item-active' : ''
               }`}
               aria-haspopup="true"
             >
@@ -153,8 +152,7 @@ export default () => {
             </li>
 
             <li
-              className={`menu-item  menu-item-submenu ${
-                mainActive === 'userRoles' ? 'menu-item-open' : ''
+              className={`menu-item  menu-item-submenu ${mainActive === 'userRoles' ? 'menu-item-open' : ''
               }`}
             >
               <div
@@ -173,11 +171,10 @@ export default () => {
                 <i className="menu-arrow" />
                 <ul className="menu-subnav">
                   <li
-                    className={`menu-item ${
-                      pathname === userRoles.addNewRole.path ||
+                    className={`menu-item ${pathname === userRoles.addNewRole.path ||
                       pathname === userRoles.createRegistrationForm.path
-                        ? 'menu-item-active'
-                        : ''
+                      ? 'menu-item-active'
+                      : ''
                     }`}
                   >
                     <Link to={userRoles.addNewRole.path} className="menu-link">
@@ -188,10 +185,9 @@ export default () => {
                     </Link>
                   </li>
                   <li
-                    className={`menu-item ${
-                      pathname === userRoles.userRoleList.path
-                        ? 'menu-item-active'
-                        : ''
+                    className={`menu-item ${pathname === userRoles.userRoleList.path
+                      ? 'menu-item-active'
+                      : ''
                     }`}
                   >
                     <Link
@@ -205,10 +201,9 @@ export default () => {
                     </Link>
                   </li>
                   <li
-                    className={`menu-item ${
-                      pathname === userRoles.createPermissions.path
-                        ? 'menu-item-active'
-                        : ''
+                    className={`menu-item ${pathname === userRoles.createPermissions.path
+                      ? 'menu-item-active'
+                      : ''
                     }`}
                   >
                     <Link
@@ -226,14 +221,13 @@ export default () => {
             </li>
 
             <li
-              className={`menu-item  menu-item-submenu ${
-                mainActive === 'adminManage' ? 'menu-item-open' : ''
+              className={`menu-item  menu-item-submenu ${mainActive === 'adminManage' ? 'menu-item-open' : ''
               }`}
             >
               <div
                 onClick={() =>
                   setMainActive(
-                    mainActive !== 'adminManage' ? 'adminManage' : '',
+                    mainActive !== 'adminManage' ? 'adminManage' : ''
                   )
                 }
                 className="menu-link "
@@ -245,10 +239,9 @@ export default () => {
                 <i className="menu-arrow" />
                 <ul className="menu-subnav">
                   <li
-                    className={`menu-item ${
-                      pathname === adminManage.createAdmin.path
-                        ? 'menu-item-active'
-                        : ''
+                    className={`menu-item ${pathname === adminManage.createAdmin.path
+                      ? 'menu-item-active'
+                      : ''
                     }`}
                   >
                     <Link
@@ -262,10 +255,9 @@ export default () => {
                     </Link>
                   </li>
                   <li
-                    className={`menu-item ${
-                      pathname === adminManage.adminDetail.path
-                        ? 'menu-item-active'
-                        : ''
+                    className={`menu-item ${pathname === adminManage.adminDetail.path
+                      ? 'menu-item-active'
+                      : ''
                     }`}
                   >
                     <Link
@@ -316,14 +308,13 @@ export default () => {
             </li>
 
             <li
-              className={`menu-item  menu-item-submenu ${
-                mainActive === 'fleetManage' ? 'menu-item-open' : ''
+              className={`menu-item  menu-item-submenu ${mainActive === 'fleetManage' ? 'menu-item-open' : ''
               }`}
             >
               <div
                 onClick={() =>
                   setMainActive(
-                    mainActive !== 'fleetManage' ? 'fleetManage' : '',
+                    mainActive !== 'fleetManage' ? 'fleetManage' : ''
                   )
                 }
                 className="menu-link "
@@ -335,10 +326,9 @@ export default () => {
                 <i className="menu-arrow" />
                 <ul className="menu-subnav">
                   <li
-                    className={`menu-item ${
-                      pathname === fleetManage.createFleet.path
-                        ? 'menu-item-active'
-                        : ''
+                    className={`menu-item ${pathname === fleetManage.createFleet.path
+                      ? 'menu-item-active'
+                      : ''
                     }`}
                   >
                     <Link
@@ -389,14 +379,13 @@ export default () => {
             </li>
 
             <li
-              className={`menu-item  menu-item-submenu ${
-                mainActive === 'dispatcherManage' ? 'menu-item-open' : ''
+              className={`menu-item  menu-item-submenu ${mainActive === 'dispatcherManage' ? 'menu-item-open' : ''
               }`}
             >
               <div
                 onClick={() =>
                   setMainActive(
-                    mainActive !== 'dispatcherManage' ? 'dispatcherManage' : '',
+                    mainActive !== 'dispatcherManage' ? 'dispatcherManage' : ''
                   )
                 }
                 className="menu-link "
@@ -408,10 +397,9 @@ export default () => {
                 <i className="menu-arrow" />
                 <ul className="menu-subnav">
                   <li
-                    className={`menu-item ${
-                      pathname === dispatcherManage.createDispatcher.path
-                        ? 'menu-item-active'
-                        : ''
+                    className={`menu-item ${pathname === dispatcherManage.createDispatcher.path
+                      ? 'menu-item-active'
+                      : ''
                     }`}
                   >
                     <Link
@@ -425,10 +413,9 @@ export default () => {
                     </Link>
                   </li>
                   <li
-                    className={`menu-item  menu-item-submenu ${
-                      pathname === dispatcherManage.dispatcherDetail.path
-                        ? 'menu-item-active'
-                        : ''
+                    className={`menu-item  menu-item-submenu ${pathname === dispatcherManage.dispatcherDetail.path
+                      ? 'menu-item-active'
+                      : ''
                     }`}
                   >
                     <Link
@@ -468,14 +455,13 @@ export default () => {
             </li>
 
             <li
-              className={`menu-item  menu-item-submenu ${
-                mainActive === 'vendorManage' ? 'menu-item-open' : ''
+              className={`menu-item  menu-item-submenu ${mainActive === 'vendorManage' ? 'menu-item-open' : ''
               }`}
             >
               <div
                 onClick={() =>
                   setMainActive(
-                    mainActive !== 'vendorManage' ? 'vendorManage' : '',
+                    mainActive !== 'vendorManage' ? 'vendorManage' : ''
                   )
                 }
                 className="menu-link "
@@ -498,8 +484,7 @@ export default () => {
                     </Link>
                   </li>
                   <li
-                    className={`menu-item  menu-item-submenu ${
-                      subActive === 'vendorManageJawafa' ? 'menu-item-open' : ''
+                    className={`menu-item  menu-item-submenu ${subActive === 'vendorManageJawafa' ? 'menu-item-open' : ''
                     }`}
                   >
                     <div
@@ -507,7 +492,7 @@ export default () => {
                         setSubActive(
                           subActive !== 'vendorManageJawafa'
                             ? 'vendorManageJawafa'
-                            : '',
+                            : ''
                         )
                       }
                       className="menu-link"
@@ -527,10 +512,9 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li
-                          className={`menu-item  ${
-                            pathname === vendorManage.createVendor.path
-                              ? 'menu-item-active'
-                              : ''
+                          className={`menu-item  ${pathname === vendorManage.createVendor.path
+                            ? 'menu-item-active'
+                            : ''
                           }`}
                           aria-haspopup="true"
                         >
@@ -545,10 +529,9 @@ export default () => {
                           </Link>
                         </li>
                         <li
-                          className={`menu-item  ${
-                            pathname === vendorManage.vendorList.path
-                              ? 'menu-item-active'
-                              : ''
+                          className={`menu-item  ${pathname === vendorManage.vendorList.path
+                            ? 'menu-item-active'
+                            : ''
                           }`}
                           aria-haspopup="true"
                         >
@@ -563,10 +546,9 @@ export default () => {
                           </Link>
                         </li>
                         <li
-                          className={`menu-item  ${
-                            pathname === vendorManage.helperList.path
-                              ? 'menu-item-active'
-                              : ''
+                          className={`menu-item  ${pathname === vendorManage.helperList.path
+                            ? 'menu-item-active'
+                            : ''
                           }`}
                           aria-haspopup="true"
                         >
@@ -606,14 +588,13 @@ export default () => {
             </li>
 
             <li
-              className={`menu-item  menu-item-submenu ${
-                mainActive === 'driverManage' ? 'menu-item-open' : ''
+              className={`menu-item  menu-item-submenu ${mainActive === 'driverManage' ? 'menu-item-open' : ''
               }`}
             >
               <div
                 onClick={() =>
                   setMainActive(
-                    mainActive !== 'driverManage' ? 'driverManage' : '',
+                    mainActive !== 'driverManage' ? 'driverManage' : ''
                   )
                 }
                 className="menu-link "
@@ -637,8 +618,7 @@ export default () => {
                     </Link>
                   </li>
                   <li
-                    className={`menu-item  menu-item-submenu ${
-                      subActive === 'driverManageJawafa' ? 'menu-item-open' : ''
+                    className={`menu-item  menu-item-submenu ${subActive === 'driverManageJawafa' ? 'menu-item-open' : ''
                     }`}
                   >
                     <div
@@ -646,7 +626,7 @@ export default () => {
                         setSubActive(
                           subActive !== 'driverManageJawafa'
                             ? 'driverManageJawafa'
-                            : '',
+                            : ''
                         )
                       }
                       className="menu-link"
@@ -666,10 +646,9 @@ export default () => {
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
                         <li
-                          className={`menu-item  ${
-                            subOfSubActive === 'driverManageJawafaAdminDriver'
-                              ? 'menu-item-active'
-                              : ''
+                          className={`menu-item  ${subOfSubActive === 'driverManageJawafaAdminDriver'
+                            ? 'menu-item-active'
+                            : ''
                           }`}
                           aria-haspopup="true"
                         >
@@ -679,7 +658,7 @@ export default () => {
                                 subOfSubActive !==
                                   'driverManageJawafaAdminDriver'
                                   ? 'driverManageJawafaAdminDriver'
-                                  : '',
+                                  : ''
                               )
                             }
                             className="menu-link"
@@ -701,10 +680,9 @@ export default () => {
                             <i className="menu-arrow" />
                             <ul className="menu-subnav">
                               <li
-                                className={`menu-item  ${
-                                  pathname === vendorManage.createVendor.path
-                                    ? 'menu-item-active'
-                                    : ''
+                                className={`menu-item  ${pathname === vendorManage.createVendor.path
+                                  ? 'menu-item-active'
+                                  : ''
                                 }`}
                                 aria-haspopup="true"
                               >
@@ -721,10 +699,9 @@ export default () => {
                                 </Link>
                               </li>
                               <li
-                                className={`menu-item  ${
-                                  pathname === vendorManage.vendorList.path
-                                    ? 'menu-item-active'
-                                    : ''
+                                className={`menu-item  ${pathname === vendorManage.vendorList.path
+                                  ? 'menu-item-active'
+                                  : ''
                                 }`}
                                 aria-haspopup="true"
                               >
@@ -739,10 +716,9 @@ export default () => {
                                 </Link>
                               </li>
                               <li
-                                className={`menu-item  ${
-                                  pathname === vendorManage.helperList.path
-                                    ? 'menu-item-active'
-                                    : ''
+                                className={`menu-item  ${pathname === vendorManage.helperList.path
+                                  ? 'menu-item-active'
+                                  : ''
                                 }`}
                                 aria-haspopup="true"
                               >
@@ -757,10 +733,9 @@ export default () => {
                                 </Link>
                               </li>
                               <li
-                                className={`menu-item  ${
-                                  pathname === driverManage.createDriver.path
-                                    ? 'menu-item-active'
-                                    : ''
+                                className={`menu-item  ${pathname === driverManage.createDriver.path
+                                  ? 'menu-item-active'
+                                  : ''
                                 }`}
                                 aria-haspopup="true"
                               >
@@ -2335,14 +2310,13 @@ export default () => {
               </div>
             </li>
             <li
-              className={`menu-item  menu-item-submenu ${
-                mainActive === 'mainCategories' ? 'menu-item-open' : ''
+              className={`menu-item  menu-item-submenu ${mainActive === 'mainCategories' ? 'menu-item-open' : ''
               }`}
             >
               <div
                 onClick={() =>
                   setMainActive(
-                    mainActive !== 'mainCategories' ? 'mainCategories' : '',
+                    mainActive !== 'mainCategories' ? 'mainCategories' : ''
                   )
                 }
                 className="menu-link "
@@ -2357,10 +2331,9 @@ export default () => {
                 <i className="menu-arrow" />
                 <ul className="menu-subnav">
                   <li
-                    className={`menu-item ${
-                      pathname === mainCategories.businessCategory.path
-                        ? 'menu-item-active'
-                        : ''
+                    className={`menu-item ${pathname === mainCategories.businessCategory.path
+                      ? 'menu-item-active'
+                      : ''
                     }`}
                   >
                     <Link
@@ -2375,10 +2348,9 @@ export default () => {
                   </li>
 
                   <li
-                    className={`menu-item ${
-                      pathname === mainCategories.businessType.path
-                        ? 'menu-item-active'
-                        : ''
+                    className={`menu-item ${pathname === mainCategories.businessType.path
+                      ? 'menu-item-active'
+                      : ''
                     }`}
                   >
                     <Link
@@ -2393,10 +2365,9 @@ export default () => {
                   </li>
 
                   <li
-                    className={`menu-item ${
-                      pathname === mainCategories.houseDeliveryService.path
-                        ? 'menu-item-active'
-                        : ''
+                    className={`menu-item ${pathname === mainCategories.houseDeliveryService.path
+                      ? 'menu-item-active'
+                      : ''
                     }`}
                   >
                     <Link
@@ -2411,10 +2382,9 @@ export default () => {
                   </li>
 
                   <li
-                    className={`menu-item ${
-                      pathname === mainCategories.openStatus.path
-                        ? 'menu-item-active'
-                        : ''
+                    className={`menu-item ${pathname === mainCategories.openStatus.path
+                      ? 'menu-item-active'
+                      : ''
                     }`}
                   >
                     <Link
@@ -2429,10 +2399,9 @@ export default () => {
                   </li>
 
                   <li
-                    className={`menu-item ${
-                      pathname === mainCategories.alcohol.path
-                        ? 'menu-item-active'
-                        : ''
+                    className={`menu-item ${pathname === mainCategories.alcohol.path
+                      ? 'menu-item-active'
+                      : ''
                     }`}
                   >
                     <Link
@@ -2447,10 +2416,9 @@ export default () => {
                   </li>
 
                   <li
-                    className={`menu-item ${
-                      pathname === mainCategories.whoYouServe.path
-                        ? 'menu-item-active'
-                        : ''
+                    className={`menu-item ${pathname === mainCategories.whoYouServe.path
+                      ? 'menu-item-active'
+                      : ''
                     }`}
                   >
                     <Link
@@ -2465,10 +2433,9 @@ export default () => {
                   </li>
 
                   <li
-                    className={`menu-item ${
-                      pathname === mainCategories.menuService.path
-                        ? 'menu-item-active'
-                        : ''
+                    className={`menu-item ${pathname === mainCategories.menuService.path
+                      ? 'menu-item-active'
+                      : ''
                     }`}
                   >
                     <Link
@@ -2483,10 +2450,9 @@ export default () => {
                   </li>
 
                   <li
-                    className={`menu-item ${
-                      pathname === mainCategories.seating.path
-                        ? 'menu-item-active'
-                        : ''
+                    className={`menu-item ${pathname === mainCategories.seating.path
+                      ? 'menu-item-active'
+                      : ''
                     }`}
                   >
                     <Link
@@ -2501,10 +2467,9 @@ export default () => {
                   </li>
 
                   <li
-                    className={`menu-item ${
-                      pathname === mainCategories.paymentMethod.path
-                        ? 'menu-item-active'
-                        : ''
+                    className={`menu-item ${pathname === mainCategories.paymentMethod.path
+                      ? 'menu-item-active'
+                      : ''
                     }`}
                   >
                     <Link
@@ -2519,10 +2484,9 @@ export default () => {
                   </li>
 
                   <li
-                    className={`menu-item ${
-                      pathname === mainCategories.cuisine.path
-                        ? 'menu-item-active'
-                        : ''
+                    className={`menu-item ${pathname === mainCategories.cuisine.path
+                      ? 'menu-item-active'
+                      : ''
                     }`}
                   >
                     <Link
@@ -14056,3 +14020,5 @@ export default () => {
     </div>
   );
 };
+
+export default SideBar;

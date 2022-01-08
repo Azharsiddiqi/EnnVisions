@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { PRIVATE_ROUTES } from '../../config';
 
-export default () => {
+const CreateDispatcher = () => {
   const history = useHistory();
   return (
     <div className="d-flex flex-column-fluid">
@@ -292,3 +292,4 @@ export default () => {
     </div>
   );
 };
+export default CreateDispatcher;

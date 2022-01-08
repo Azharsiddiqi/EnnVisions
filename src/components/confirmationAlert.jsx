@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal } from 'react-bootstrap';
 
-export default ({ show, handleSave, handleClose, description }) => {
+const ConfirmationAlert = ({ show, handleSave, handleClose, description }) => {
   return (
     <Modal centered show={show} onHide={handleClose}>
       <div className="page12-custom">
@@ -27,3 +27,5 @@ export default ({ show, handleSave, handleClose, description }) => {
     </Modal>
   );
 };
+
+export default ConfirmationAlert;

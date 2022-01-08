@@ -3,7 +3,7 @@ import { PRIVATE_ROUTES } from '../../config';
 import { useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
 
-export default () => {
+const vendorList = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -483,3 +483,5 @@ export default () => {
     </div>
   );
 };
+
+export default vendorList;

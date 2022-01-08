@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ConfirmationAlert from '../../components/confirmationAlert';
 
-export default () => {
+const userRolesList = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -194,3 +194,5 @@ export default () => {
     </div>
   );
 };
+
+export default userRolesList;

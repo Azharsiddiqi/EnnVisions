@@ -2,7 +2,7 @@ import React from 'react';
 import { PRIVATE_ROUTES } from '../../../config';
 import { useHistory } from 'react-router-dom';
 
-export default function () {
+const vendorOutlets = () => {
   const history = useHistory();
   return (
     <div
@@ -922,4 +922,7 @@ export default function () {
       </div>
     </div>
   );
-}
+};
+
+
+export default vendorOutlets;

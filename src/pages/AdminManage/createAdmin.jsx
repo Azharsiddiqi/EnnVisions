@@ -3,7 +3,7 @@ import Form1 from './CreateAdmin/form1.jsx';
 import Form2 from './CreateAdmin/form2.jsx';
 import Form3 from './CreateAdmin/form3.jsx';
 
-export default () => {
+const CreateAdmin = () => {
   const [formShow, setFormShow] = useState(0);
 
   return (
@@ -72,3 +72,5 @@ export default () => {
     </div>
   );
 };
+
+export default CreateAdmin;

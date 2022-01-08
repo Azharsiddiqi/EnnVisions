@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { PRIVATE_ROUTES } from '../../../config';
 
-export default function () {
+const outLetsDetail = () => {
   return (
     <div
       className="content  d-flex flex-column flex-column-fluid"
@@ -607,4 +607,7 @@ export default function () {
       </div>
     </div>
   );
-}
+};
+
+
+export default outLetsDetail;

@@ -10,7 +10,7 @@ import {
 import Modal from '../../components/confirmationAlert';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 
-export default () => {
+const Alcohol = () => {
   const dispatch = useDispatch();
   const { alcoholItems } = useSelector((state) => state.mainCategory);
   // begin item states
@@ -385,107 +385,107 @@ export default () => {
                     <tbody>
                       {alcoholItems && alcoholItems.length
                         ? alcoholItems.map((item) =>
-                            editItem && editItem.id === item.id ? (
-                              <tr>
-                                <td className="pg-14-id">{item.id}</td>
-                                <td className="pg-14-name">
-                                  <div className="form-group">
-                                    <input
-                                      type="text"
-                                      placeholder="Item name"
-                                      className="form-control"
-                                      value={editItemName}
-                                      onChange={(e) =>
-                                        setEditItemName(e.target.value)
-                                      }
-                                    />
-                                  </div>
-                                </td>
-                                <td className="pg-14-name">
-                                  <div className="form-group">
-                                    <input
-                                      type="text"
-                                      placeholder="Details"
-                                      className="form-control"
-                                      value={editItemDescription}
-                                      onChange={(e) =>
-                                        setEditItemDescription(e.target.value)
-                                      }
-                                    />
-                                  </div>
-                                </td>
-                                <td className="pg-14-name">
-                                  <div className="form-group">
-                                    <select
-                                      className="form-control"
-                                      value={editItemStatus}
-                                      onChange={(e) =>
-                                        setEditItemStatus(
-                                          Number(e.target.value),
-                                        )
-                                      }
-                                    >
-                                      <option value={1}>ACTIVE</option>
-                                      <option value={0}>IN-ACTIVE</option>
-                                    </select>
-                                  </div>
-                                </td>
-                                <td className="td-action-icon">
-                                  <DropdownButton
-                                    id="dropdown-basic-button"
-                                    title="Actions"
+                          editItem && editItem.id === item.id ? (
+                            <tr>
+                              <td className="pg-14-id">{item.id}</td>
+                              <td className="pg-14-name">
+                                <div className="form-group">
+                                  <input
+                                    type="text"
+                                    placeholder="Item name"
+                                    className="form-control"
+                                    value={editItemName}
+                                    onChange={(e) =>
+                                      setEditItemName(e.target.value)
+                                    }
+                                  />
+                                </div>
+                              </td>
+                              <td className="pg-14-name">
+                                <div className="form-group">
+                                  <input
+                                    type="text"
+                                    placeholder="Details"
+                                    className="form-control"
+                                    value={editItemDescription}
+                                    onChange={(e) =>
+                                      setEditItemDescription(e.target.value)
+                                    }
+                                  />
+                                </div>
+                              </td>
+                              <td className="pg-14-name">
+                                <div className="form-group">
+                                  <select
+                                    className="form-control"
+                                    value={editItemStatus}
+                                    onChange={(e) =>
+                                      setEditItemStatus(
+                                        Number(e.target.value),
+                                      )
+                                    }
                                   >
-                                    <Dropdown.Item onClick={updateItemHandler}>
-                                      Update
-                                    </Dropdown.Item>
-                                    <Dropdown.Item
-                                      onClick={(e) => {
-                                        e.preventDefault();
-                                        resetEditItem();
-                                      }}
-                                    >
-                                      Cancel
-                                    </Dropdown.Item>
-                                  </DropdownButton>
-                                </td>
-                              </tr>
-                            ) : (
-                              <tr>
-                                <td className="pg-14-id">
-                                  <b>{item.id}</b>
-                                </td>
-                                <td className="pg-14-name">{item.title}</td>
-                                <td className="pg-14-name">
-                                  {item.description}
-                                </td>
-                                <td className="pg-14-name">
-                                  {item.status ? 'ACTIVE' : 'IN ACTIVE'}{' '}
-                                </td>
-                                <td className="td-action-icon">
-                                  <span
-                                    onClick={() => handleShow(item)}
-                                    className="del-icon cursor-class"
-                                    data-toggle="modal"
-                                    data-target="#exampleModal"
+                                    <option value={1}>ACTIVE</option>
+                                    <option value={0}>IN-ACTIVE</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td className="td-action-icon">
+                                <DropdownButton
+                                  id="dropdown-basic-button"
+                                  title="Actions"
+                                >
+                                  <Dropdown.Item onClick={updateItemHandler}>
+                                    Update
+                                  </Dropdown.Item>
+                                  <Dropdown.Item
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      resetEditItem();
+                                    }}
                                   >
-                                    <img
-                                      src="assets/images/new-delete.svg"
-                                      alt=""
-                                    />
-                                  </span>
-                                  <span
-                                    className="ic-edit cursor-class"
-                                    onClick={() => editButtonHandler(item)}
-                                  >
-                                    <img
-                                      src="assets/images/new-edit.svg"
-                                      alt=""
-                                    />
-                                  </span>
-                                </td>
-                              </tr>
-                            ),
-                          )
+                                    Cancel
+                                  </Dropdown.Item>
+                                </DropdownButton>
+                              </td>
+                            </tr>
+                          ) : (
+                            <tr>
+                              <td className="pg-14-id">
+                                <b>{item.id}</b>
+                              </td>
+                              <td className="pg-14-name">{item.title}</td>
+                              <td className="pg-14-name">
+                                {item.description}
+                              </td>
+                              <td className="pg-14-name">
+                                {item.status ? 'ACTIVE' : 'IN ACTIVE'}{' '}
+                              </td>
+                              <td className="td-action-icon">
+                                <span
+                                  onClick={() => handleShow(item)}
+                                  className="del-icon cursor-class"
+                                  data-toggle="modal"
+                                  data-target="#exampleModal"
+                                >
+                                  <img
+                                    src="assets/images/new-delete.svg"
+                                    alt=""
+                                  />
+                                </span>
+                                <span
+                                  className="ic-edit cursor-class"
+                                  onClick={() => editButtonHandler(item)}
+                                >
+                                  <img
+                                    src="assets/images/new-edit.svg"
+                                    alt=""
+                                  />
+                                </span>
+                              </td>
+                            </tr>
+                          ),
+                        )
                         : ''}
 
                       <tr>
@@ -548,3 +548,5 @@ export default () => {
     </div>
   );
 };
+
+export default Alcohol;

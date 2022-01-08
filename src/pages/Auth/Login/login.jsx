@@ -5,7 +5,7 @@ import { useHistory, Link } from 'react-router-dom';
 import IC_LOGO from '../../../assets/images/ic-logo.svg';
 import { PRIVATE_ROUTES, PUBLIC_ROUTES } from '../../../config';
 
-export default () => {
+const Login = () => {
   const history = useHistory();
   return (
     <React.Fragment>
@@ -142,3 +142,5 @@ export default () => {
     </React.Fragment>
   );
 };
+
+export default Login;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default () => {
+const ScrollToTop = () => {
   return (
     <div id="kt_scrolltop" className="scrolltop">
       <span className="svg-icon">
@@ -36,3 +36,5 @@ export default () => {
     </div>
   );
 };
+
+export default ScrollToTop;

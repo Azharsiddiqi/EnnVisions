@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { PRIVATE_ROUTES } from '../../../config';
 
-export default () => {
+const Form3 = () => {
   const history = useHistory();
   return (
     <div className="create-admin-form">
@@ -94,3 +94,5 @@ export default () => {
     </div>
   );
 };
+
+export default Form3;

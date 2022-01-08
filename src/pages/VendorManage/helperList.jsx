@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { PRIVATE_ROUTES } from '../../config';
 
-export default () => {
+const helperList = () => {
   const history = useHistory();
 
   return (
@@ -513,3 +513,5 @@ export default () => {
     </div>
   );
 };
+
+export default helperList;

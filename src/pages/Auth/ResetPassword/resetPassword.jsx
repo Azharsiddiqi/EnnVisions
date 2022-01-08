@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { PUBLIC_ROUTES } from '../../../config';
 
-export default () => {
+const ResetPassword = () => {
   const history = useHistory();
   return (
     <React.Fragment>
@@ -92,3 +92,5 @@ export default () => {
     </React.Fragment>
   );
 };
+
+export default ResetPassword;

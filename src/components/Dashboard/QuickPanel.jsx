@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default () => {
+const QuickPanel = () => {
   return (
     <div id="kt_quick_panel" className="offcanvas offcanvas-right pt-5 pb-10">
       {/* begin::Header */}
@@ -833,3 +833,5 @@ export default () => {
     </div>
   );
 };
+
+export default QuickPanel;

@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { PRIVATE_ROUTES } from '../../config';
 import ConfirmationAlert from '../../components/confirmationAlert';
 
-export default () => {
+const AdminDetail = () => {
   const [show, setShow] = useState(false);
   const history = useHistory();
   const handleClose = () => setShow(false);
@@ -279,3 +279,5 @@ export default () => {
     </div>
   );
 };
+
+export default AdminDetail;

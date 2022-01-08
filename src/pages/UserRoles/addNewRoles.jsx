@@ -3,7 +3,7 @@ import { Form } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { PRIVATE_ROUTES } from '../../config';
 
-export default () => {
+const AddNewRoles = () => {
   const history = useHistory();
   return (
     <div className="d-flex">
@@ -220,3 +220,5 @@ export default () => {
     </div>
   );
 };
+
+export default AddNewRoles;

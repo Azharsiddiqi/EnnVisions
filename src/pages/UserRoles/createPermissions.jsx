@@ -2,7 +2,7 @@ import React from 'react';
 import { PRIVATE_ROUTES } from '../../config';
 import { useHistory } from 'react-router-dom';
 
-export default () => {
+const createPermissions = () => {
   const history = useHistory();
   return (
     <div>
@@ -344,3 +344,5 @@ export default () => {
     </div>
   );
 };
+
+export default createPermissions;

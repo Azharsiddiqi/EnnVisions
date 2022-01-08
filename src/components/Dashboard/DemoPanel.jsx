@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default () => {
+const DemoPanel = () => {
   return (
     <div id="kt_demo_panel" className="offcanvas offcanvas-right p-10">
       {/* begin::Header */}
@@ -670,3 +670,5 @@ export default () => {
     </div>
   );
 };
+
+export default DemoPanel;

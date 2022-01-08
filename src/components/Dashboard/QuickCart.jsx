@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default () => {
+const QuickCart = () => {
   return (
     <div id="kt_quick_cart" className="offcanvas offcanvas-right p-10">
       {/* begin::Header */}
@@ -238,3 +238,5 @@ export default () => {
     </div>
   );
 };
+
+export default QuickCart;

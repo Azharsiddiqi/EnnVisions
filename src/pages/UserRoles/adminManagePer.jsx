@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { PRIVATE_ROUTES } from '../../config';
 
-export default () => {
+const adminManagePer = () => {
   const history = useHistory();
   return (
     <div>
@@ -217,3 +217,5 @@ export default () => {
     </div>
   );
 };
+
+export default adminManagePer;

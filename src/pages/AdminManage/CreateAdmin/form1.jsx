@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ formShowHandler }) => {
+const Form1 = ({ formShowHandler }) => {
   return (
     <div className="create-admin-form">
       <form>
@@ -212,3 +212,5 @@ export default ({ formShowHandler }) => {
     </div>
   );
 };
+
+export default Form1;

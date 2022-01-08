@@ -40,7 +40,7 @@ import PaymentMethod from './MainCategories/paymentMethod';
 import Seating from './MainCategories/seating';
 import WhoYouServe from './MainCategories/whoYouServe';
 
-export default () => {
+const privateRoutes = () => {
   const [routes] = useState([
     { path: PRIVATE_ROUTES.dashboard.path, component: Index },
 
@@ -186,3 +186,5 @@ export default () => {
     </>
   );
 };
+
+export default privateRoutes;

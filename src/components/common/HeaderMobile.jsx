@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default () => {
+const HeaderMobile = () => {
   return (
     <React.Fragment>
       <div
@@ -61,3 +61,5 @@ export default () => {
     </React.Fragment>
   );
 };
+
+export default HeaderMobile;

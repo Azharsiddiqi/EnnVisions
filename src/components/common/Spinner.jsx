@@ -1,7 +1,7 @@
 import React from 'react';
 import spinner from './spinner.gif';
 
-export default () => {
+const Spinner = () => {
   return (
     <div style={{ position: 'absolute', top: '40%', left: '50%' }}>
       <img
@@ -12,3 +12,4 @@ export default () => {
     </div>
   );
 };
+export default Spinner;

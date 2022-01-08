@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default () => {
+const AddMoreInfo = () => {
   return (
     <>
       <label className="label-country">Locations</label>
@@ -374,3 +374,5 @@ export default () => {
     </>
   );
 };
+
+export default AddMoreInfo;

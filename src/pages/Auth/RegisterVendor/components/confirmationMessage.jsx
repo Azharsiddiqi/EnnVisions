@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default () => {
+const ConfirmationMessage = () => {
   return (
     <div className="confirmation-container">
       <div className="confirmation-container-content">
@@ -26,3 +26,5 @@ export default () => {
     </div>
   );
 };
+
+export default ConfirmationMessage;

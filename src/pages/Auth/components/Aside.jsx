@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default () => {
+const Aside = () => {
   return (
     <React.Fragment>
       <div className="login-aside-container">
@@ -31,3 +31,5 @@ export default () => {
     </React.Fragment>
   );
 };
+
+export default Aside;
