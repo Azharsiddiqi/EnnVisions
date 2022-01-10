@@ -1,14 +1,40 @@
-import React from 'react';
-import { Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-import { PRIVATE_ROUTES } from '../../config';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+
+
+import {ACTION_createUserRole} from '../../store/userRoles/actions';
 
 const AddNewRoles = () => {
-  const navigate = useNavigate();
+  
+  const dispatch = useDispatch();
+  const [roleName, setRoleName] = useState('');
+  const [displayName, setDisplayName] = useState('');
+  const [commission, setCommission] = useState('');
+  const [roleDescription, setRoleDescription] = useState('');
+  // const [status, setStatus] = useState(1);
+
+
+
+
+  const createNewItemHandler = () => {
+    console.log('checking i am here');
+    if (!roleName || roleName === '') return;
+    const reqPacket = {
+      name: roleName,
+      display:displayName,
+      commission:commission,
+      description: roleDescription,
+      // status: status === 1 ? true : false,
+    };
+    dispatch(ACTION_createUserRole(reqPacket));
+    // resetItem();
+  };
+
   return (
     <div className="d-flex">
       {/* begin::Container */}
-      <div className=" container ">
+      <div className="container">
         {/* begin::Dashboard */}
         {/* begin::Row */}
         <div className="add-edit-role dash-body">
@@ -23,9 +49,11 @@ const AddNewRoles = () => {
                     <input
                       type="text"
                       className="form-control"
-                      id="exampleInputEmail1"
+                      d="exampleInputEmail1"
                       aria-describedby="emailHelp"
                       placeholder="ROLE NAME"
+                      value={roleName}
+                      onChange={(e)=> setRoleName(e.target.value)}
                     />
                   </div>
                 </div>
@@ -37,6 +65,8 @@ const AddNewRoles = () => {
                       id="exampleInputEmail1"
                       aria-describedby="emailHelp"
                       placeholder="DISPLAY NAME"
+                      value={displayName}
+                      onChange={(e)=>setDisplayName(e.target.value)}
                     />
                   </div>
                 </div>
@@ -48,6 +78,8 @@ const AddNewRoles = () => {
                       id="exampleInputEmail1"
                       aria-describedby="emailHelp"
                       placeholder="COMMISSION"
+                      value={commission}
+                      onChange={(e)=> setCommission(e.target.value)}
                     />
                   </div>
                 </div>
@@ -60,6 +92,8 @@ const AddNewRoles = () => {
                       rowSpan={5}
                       className="form-control"
                       defaultValue={''}
+                      value={roleDescription}
+                      onChange={(e)=> setRoleDescription (e.target.value)}
                     />
                   </div>
                 </div>
@@ -81,7 +115,10 @@ const AddNewRoles = () => {
                         CREATE NEW
                       </label>
                       <div className="form-check form-switch">
-                        <Form.Check type="switch" label="" id="1" />
+                        <label className="custom-switch">
+                          <input className="custom-switch-input" type="checkbox" />
+                          <span className="custom-switch-slider custom-switch-round"></span>
+                        </label>
                       </div>
                     </div>
                   </div>
@@ -96,7 +133,10 @@ const AddNewRoles = () => {
                         VIEW LIST
                       </label>
                       <div className="form-check form-switch">
-                        <Form.Check type="switch" label="" id="2" />
+                        <label className="custom-switch">
+                          <input className="custom-switch-input" type="checkbox" />
+                          <span className="custom-switch-slider custom-switch-round"></span>
+                        </label>
                       </div>
                     </div>
                   </div>
@@ -111,7 +151,10 @@ const AddNewRoles = () => {
                         UPDATE
                       </label>
                       <div className="form-check form-switch">
-                        <Form.Check type="switch" label="" id="3" />
+                        <label className="custom-switch">
+                          <input className="custom-switch-input" type="checkbox" />
+                          <span className="custom-switch-slider custom-switch-round"></span>
+                        </label>
                       </div>
                     </div>
                   </div>
@@ -126,7 +169,10 @@ const AddNewRoles = () => {
                         EDIT
                       </label>
                       <div className="form-check form-switch">
-                        <Form.Check type="switch" label="" id="4" />
+                        <label className="custom-switch">
+                          <input className="custom-switch-input" type="checkbox" />
+                          <span className="custom-switch-slider custom-switch-round"></span>
+                        </label>
                       </div>
                     </div>
                   </div>
@@ -147,7 +193,10 @@ const AddNewRoles = () => {
                         CREATE NEW
                       </label>
                       <div className="form-check form-switch">
-                        <Form.Check type="switch" label="" id="5" />
+                        <label className="custom-switch">
+                          <input className="custom-switch-input" type="checkbox" />
+                          <span className="custom-switch-slider custom-switch-round"></span>
+                        </label>
                       </div>
                     </div>
                   </div>
@@ -162,7 +211,10 @@ const AddNewRoles = () => {
                         VIEW LIST
                       </label>
                       <div className="form-check form-switch">
-                        <Form.Check type="switch" label="" id="6" />
+                        <label className="custom-switch">
+                          <input className="custom-switch-input" type="checkbox" />
+                          <span className="custom-switch-slider custom-switch-round"></span>
+                        </label>
                       </div>
                     </div>
                   </div>
@@ -177,7 +229,10 @@ const AddNewRoles = () => {
                         UPDATE
                       </label>
                       <div className="form-check form-switch">
-                        <Form.Switch id="7" />
+                        <label className="custom-switch">
+                          <input className="custom-switch-input" type="checkbox" />
+                          <span className="custom-switch-slider custom-switch-round"></span>
+                        </label>
                       </div>
                     </div>
                   </div>
@@ -193,7 +248,10 @@ const AddNewRoles = () => {
                       </label>
 
                       <div className="form-check form-switch">
-                        <Form.Check type="switch" label="" id="custom-switch" />
+                        <label className="custom-switch">
+                          <input className="custom-switch-input" type="checkbox" />
+                          <span className="custom-switch-slider custom-switch-round"></span>
+                        </label>
                       </div>
                     </div>
                   </div>
@@ -203,11 +261,8 @@ const AddNewRoles = () => {
 
             <div className="col-md-11  text-right  add-document-btn">
               <button
-                onClick={() =>
-                  navigate(
-                    PRIVATE_ROUTES.userRoles.createRegistrationForm.path,
-                  )
-                }
+                onClick={createNewItemHandler}
+                
                 type="button"
                 className="submit-btn"
               >
