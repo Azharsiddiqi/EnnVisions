@@ -1,6 +1,6 @@
-import React from "react";
-import { PRIVATE_ROUTES } from "../../config";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { PRIVATE_ROUTES } from '../../config';
+import { useNavigate } from 'react-router-dom';
 
 const createPermissions = () => {
   const navigate = useNavigate();
