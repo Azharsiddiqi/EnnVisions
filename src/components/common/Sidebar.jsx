@@ -4,7 +4,6 @@ import { PRIVATE_ROUTES } from '../../config';
 
 const SideBar = () => {
   const { pathname } = useLocation();
-  console.log('checking pathname: ', pathname);
   const {
     userRoles,
     dashboard,

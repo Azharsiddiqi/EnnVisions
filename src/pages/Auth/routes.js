@@ -6,7 +6,7 @@ import ResetPassword from './ResetPassword/resetPassword.jsx';
 import RegisterVendor from './RegisterVendor/registerVendor.jsx';
 import ConfirmationMessage from './RegisterVendor/components/confirmationMessage.jsx';
 
-export const AuthRoutes = [
+export const AuthRoutesComponent = [
   { path: PUBLIC_ROUTES.login.path, Component: Login },
   {
     path: PUBLIC_ROUTES.forgotPasswordEmail.path,

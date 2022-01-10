@@ -1,5 +1,6 @@
-import React from 'react';
-import Routes from './routes.jsx';
+import React, { useState, useEffect } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
+import { privateRoutes } from '../routes';
 
 // Components Import
 import HeaderMobile from '../components/common/HeaderMobile.jsx';
@@ -13,7 +14,17 @@ import ScrollToTop from '../components/Dashboard/ScrollToTop.jsx';
 import DemoPanel from '../components/Dashboard/DemoPanel.jsx';
 import SubHeader from '../components/common/SubHeader.jsx';
 
-const pagesIndex = ({ menu, subMenu }) => {
+const pagesIndex = () => {
+  const location = useLocation();
+  const [menu, setMenu] = useState('');
+  const [subMenu, setSubMenu] = useState('');
+  useEffect(() => {
+    const index = privateRoutes.findIndex(data => data.path === location.pathname);
+    if (index < 0) return;
+    setMenu(privateRoutes[index].menu);
+    setSubMenu(privateRoutes[index].subMenu);
+  }, [location]);
+
   return (
     <React.Fragment>
       <div>
@@ -44,7 +55,7 @@ const pagesIndex = ({ menu, subMenu }) => {
                 {/* begin::Subheader */}
                 <SubHeader menu={menu} subMenu={subMenu} />
                 {/* end::Subheader */}
-                <Routes />
+                <Outlet />
               </div>
               {/* end::Wrapper */}
             </div>
