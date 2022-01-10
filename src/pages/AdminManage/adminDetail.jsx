@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { PRIVATE_ROUTES } from '../../config';
 import ConfirmationAlert from '../../components/confirmationAlert';
 
 const AdminDetail = () => {
   const [show, setShow] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
@@ -29,16 +29,16 @@ const AdminDetail = () => {
                 <span style={{ paddingRight: '5px' }}>
                   <img
                     onClick={handleShow}
-                    src="assets/images/ic_delete_white.svg"
+                    src="/assets/images/ic_delete_white.svg"
                     alt=""
                   />
                 </span>
                 <span>
                   <img
                     onClick={() =>
-                      history.push(PRIVATE_ROUTES.adminManage.editAdmin.path)
+                      navigate(PRIVATE_ROUTES.adminManage.editAdmin.path)
                     }
-                    src="assets/images/ic_edit_white.svg"
+                    src="/assets/images/ic_edit_white.svg"
                     alt=""
                   />
                 </span>
@@ -54,7 +54,7 @@ const AdminDetail = () => {
                 <div className="modal-dialog" role="document">
                   <div className="modal-content">
                     <div className="modal-header">
-                      <img src="assets/images/ic-logo.svg" alt="logo" />
+                      <img src="/assets/images/ic-logo.svg" alt="logo" />
                     </div>
                     <div className="modal-body">
                       Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
@@ -250,7 +250,7 @@ const AdminDetail = () => {
                           Insurance <span className="light">(Photo)</span>
                         </span>
                         <input />
-                        <img src="assets/images/ic_upload.svg" alt="" />
+                        <img src="/assets/images/ic_upload.svg" alt="" />
                       </div>
                     </div>
                   </div>
@@ -264,7 +264,7 @@ const AdminDetail = () => {
                         placeholder="Insurance Expiry Date"
                       />
                       <img
-                        src="assets/images/ic_calendar.svg"
+                        src="/assets/images/ic_calendar.svg"
                         className="calendar-icon"
                         alt=""
                       />

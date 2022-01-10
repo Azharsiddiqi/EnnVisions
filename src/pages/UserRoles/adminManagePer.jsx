@@ -1,9 +1,9 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { PRIVATE_ROUTES } from '../../config';
 
 const adminManagePer = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <div>
       <div
@@ -205,7 +205,7 @@ const adminManagePer = () => {
                 type="button"
                 className="submit-btn"
                 onClick={() => {
-                  history.push(PRIVATE_ROUTES.dashboard.path);
+                  navigate(PRIVATE_ROUTES.dashboard.path);
                 }}
               >
                 SAVE

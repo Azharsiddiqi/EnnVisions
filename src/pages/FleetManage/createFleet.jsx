@@ -1,9 +1,9 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { PRIVATE_ROUTES } from '../../config';
 
 const CreateFleet = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <div className="d-flex flex-column-fluid">
       {/* begin::Container */}
@@ -24,7 +24,7 @@ const CreateFleet = () => {
                 <div className="modal-dialog" role="document">
                   <div className="modal-content">
                     <div className="modal-header">
-                      <img src="assets/images/ic-logo.svg" alt="logo" />
+                      <img src="/assets/images/ic-logo.svg" alt="logo" />
                     </div>
                     <div className="modal-body">
                       Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
@@ -190,7 +190,7 @@ const CreateFleet = () => {
                           License <span className="light">(Photo)</span>
                         </span>
                         <input />
-                        <img src="assets/images/ic_upload.svg" alt="" />
+                        <img src="/assets/images/ic_upload.svg" alt="" />
                       </div>
                     </div>
                   </div>
@@ -205,7 +205,7 @@ const CreateFleet = () => {
                       />
                       <img
                         alt=""
-                        src="assets/images/ic_calendar.svg"
+                        src="/assets/images/ic_calendar.svg"
                         className="calendar-icon"
                       />
                     </div>
@@ -224,7 +224,7 @@ const CreateFleet = () => {
                           Insurance <span className="light">(Photo)</span>
                         </span>
                         <input />
-                        <img src="assets/images/ic_upload.svg" alt="" />
+                        <img src="/assets/images/ic_upload.svg" alt="" />
                       </div>
                     </div>
                   </div>
@@ -238,7 +238,7 @@ const CreateFleet = () => {
                         placeholder="Insurance Expiry Date"
                       />
                       <img
-                        src="assets/images/ic_calendar.svg"
+                        src="/assets/images/ic_calendar.svg"
                         alt=""
                         className="calendar-icon"
                       />
@@ -278,7 +278,7 @@ const CreateFleet = () => {
                 <div className="btn-fleet-submit">
                   <button
                     type="submit"
-                    onClick={() => history.push(PRIVATE_ROUTES.dashboard.path)}
+                    onClick={() => navigate(PRIVATE_ROUTES.dashboard.path)}
                     className="btn"
                   >
                     SUBMIT

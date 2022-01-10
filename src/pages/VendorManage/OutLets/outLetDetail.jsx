@@ -9,10 +9,10 @@ const outLetDetail = () => {
           <div className="vendor-body page-12-content">
             <div className="edit-delete-form">
               <link to="#" data-toggle="modal" data-target="#exampleModal">
-                <img src="assets/images/ic_delete_white.svg" alt="" />
+                <img src="/assets/images/ic_delete_white.svg" alt="" />
               </link>
               <a href="create-fleet.html">
-                <img src="assets/images/ic_edit_white.svg" alt="" />
+                <img src="/assets/images/ic_edit_white.svg" alt="" />
               </a>
             </div>
             <div className="create-vendor-info">
@@ -21,17 +21,17 @@ const outLetDetail = () => {
                   <div className="col-xl-5">
                     <div className="form-group">
                       <img
-                        src="assets/images/032-boy-13.svg"
+                        src="/assets/images/032-boy-13.svg"
                         className="pg-12-avatar"
                         alt=""
                       />
                       <p className="pg-12-avatar-title">ADNAN QURESHI</p>
                       <div className="pg-12-avatar-rating">
-                        <img src="assets/images/ic_star_yellow.svg" alt="" />
-                        <img src="assets/images/ic_star_yellow.svg" alt="" />
-                        <img src="assets/images/ic_star_yellow.svg" alt="" />
-                        <img src="assets/images/ic_star_yellow.svg" alt="" />
-                        <img src="assets/images/ic_star_yellow.svg" alt="" />
+                        <img src="/assets/images/ic_star_yellow.svg" alt="" />
+                        <img src="/assets/images/ic_star_yellow.svg" alt="" />
+                        <img src="/assets/images/ic_star_yellow.svg" alt="" />
+                        <img src="/assets/images/ic_star_yellow.svg" alt="" />
+                        <img src="/assets/images/ic_star_yellow.svg" alt="" />
                       </div>
                     </div>
                   </div>
@@ -102,7 +102,7 @@ const outLetDetail = () => {
                             autoComplete="off"
                           />
                           <span className="country-code">
-                            <img src="assets/images/053-canada.svg" alt="" /> +1
+                            <img src="/assets/images/053-canada.svg" alt="" /> +1
                           </span>
                         </div>
                       </div>
@@ -117,7 +117,7 @@ const outLetDetail = () => {
                             autoComplete="off"
                           />
                           <span className="country-code">
-                            <img src="assets/images/053-canada.svg" alt="" /> +1
+                            <img src="/assets/images/053-canada.svg" alt="" /> +1
                           </span>
                         </div>
                       </div>
@@ -516,7 +516,7 @@ const outLetDetail = () => {
                           Mark this day as closed
                         </label>
                         <span className="del-container">
-                          <img src="assets/images/ic_delete.svg" alt="delete" />
+                          <img src="/assets/images/ic_delete.svg" alt="delete" />
                         </span>
                       </div>
                       <div className="time-label-schedule create-vendor-time-label">
@@ -529,7 +529,7 @@ const outLetDetail = () => {
                           Mark this day as closed
                         </label>
                         <span className="del-container">
-                          <img src="assets/images/ic_delete.svg" alt="delete" />
+                          <img src="/assets/images/ic_delete.svg" alt="delete" />
                         </span>
                       </div>
                       <div className="time-label-schedule create-vendor-time-label">
@@ -542,7 +542,7 @@ const outLetDetail = () => {
                           Mark this day as closed
                         </label>
                         <span className="del-container">
-                          <img src="assets/images/ic_delete.svg" alt="delete" />
+                          <img src="/assets/images/ic_delete.svg" alt="delete" />
                         </span>
                       </div>
                       <div className="time-label-schedule create-vendor-time-label">
@@ -555,7 +555,7 @@ const outLetDetail = () => {
                           Mark this day as closed
                         </label>
                         <span className="del-container">
-                          <img src="assets/images/ic_delete.svg" alt="delete" />
+                          <img src="/assets/images/ic_delete.svg" alt="delete" />
                         </span>
                       </div>
                       <div className="time-label-schedule create-vendor-time-label">
@@ -568,7 +568,7 @@ const outLetDetail = () => {
                           Mark this day as closed
                         </label>
                         <span className="del-container">
-                          <img src="assets/images/ic_delete.svg" alt="delete" />
+                          <img src="/assets/images/ic_delete.svg" alt="delete" />
                         </span>
                       </div>
                       <div className="time-label-schedule create-vendor-time-label">
@@ -581,7 +581,7 @@ const outLetDetail = () => {
                           Mark this day as closed
                         </label>
                         <span className="del-container">
-                          <img src="assets/images/ic_delete.svg" alt="delete" />
+                          <img src="/assets/images/ic_delete.svg" alt="delete" />
                         </span>
                       </div>
                       <div className="time-label-schedule create-vendor-time-label">
@@ -594,7 +594,7 @@ const outLetDetail = () => {
                           Mark this day as closed
                         </label>
                         <span className="del-container">
-                          <img src="assets/images/ic_delete.svg" alt="delete" />
+                          <img src="/assets/images/ic_delete.svg" alt="delete" />
                         </span>
                       </div>
                     </div>

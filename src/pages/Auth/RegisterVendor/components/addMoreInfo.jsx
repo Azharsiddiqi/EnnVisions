@@ -349,7 +349,7 @@ const AddMoreInfo = () => {
           <label className="label-time">09:00 PM</label>
           <label className="mark-label">Mark this day as closed</label>
           <span className="del-container">
-            <img src="assets/images/ic_delete.svg" alt="delete" />
+            <img src="/assets/images/ic_delete.svg" alt="delete" />
           </span>
         </div>
         <div className="time-label-schedule">
@@ -358,7 +358,7 @@ const AddMoreInfo = () => {
           <label className="label-time">09:00 PM</label>
           <label className="mark-label">Mark this day as closed</label>
           <span className="del-container">
-            <img src="assets/images/ic_delete.svg" alt="delete" />
+            <img src="/assets/images/ic_delete.svg" alt="delete" />
           </span>
         </div>
         <div className="time-label-schedule">
@@ -367,7 +367,7 @@ const AddMoreInfo = () => {
           <label className="label-time">09:00 PM</label>
           <label className="mark-label">Mark this day as closed</label>
           <span className="del-container">
-            <img src="assets/images/ic_delete.svg" alt="delete" />
+            <img src="/assets/images/ic_delete.svg" alt="delete" />
           </span>
         </div>
       </div>

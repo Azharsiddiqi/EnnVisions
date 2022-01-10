@@ -1,9 +1,9 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { PRIVATE_ROUTES } from '../../config';
 
 const helperList = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   return (
     <div className="d-flex flex-column-fluid">
@@ -50,7 +50,7 @@ const helperList = () => {
                   <tr
                     className="table-data"
                     onClick={() =>
-                      history.push(
+                      navigate(
                         PRIVATE_ROUTES.vendorManage.outLetsDetail.path,
                       )
                     }
@@ -72,12 +72,12 @@ const helperList = () => {
                     <td className="action-btn">
                       <div className="edit-delete-form">
                         <img
-                          src="assets/images/new-delete.svg"
+                          src="/assets/images/new-delete.svg"
                           className="delete"
                           alt=""
                         />
                         <img
-                          src="assets/images/new-edit.svg"
+                          src="/assets/images/new-edit.svg"
                           className="edit"
                           alt=""
                         />
@@ -102,12 +102,12 @@ const helperList = () => {
                     <td className="action-btn">
                       <div className="edit-delete-form">
                         <img
-                          src="assets/images/new-delete.svg"
+                          src="/assets/images/new-delete.svg"
                           className="delete"
                           alt=""
                         />
                         <img
-                          src="assets/images/new-edit.svg"
+                          src="/assets/images/new-edit.svg"
                           className="edit"
                           alt=""
                         />
@@ -132,12 +132,12 @@ const helperList = () => {
                     <td className="action-btn">
                       <div className="edit-delete-form">
                         <img
-                          src="assets/images/new-delete.svg"
+                          src="/assets/images/new-delete.svg"
                           className="delete"
                           alt=""
                         />
                         <img
-                          src="assets/images/new-edit.svg"
+                          src="/assets/images/new-edit.svg"
                           className="edit"
                           alt=""
                         />
@@ -162,12 +162,12 @@ const helperList = () => {
                     <td className="action-btn">
                       <div className="edit-delete-form">
                         <img
-                          src="assets/images/new-delete.svg"
+                          src="/assets/images/new-delete.svg"
                           className="delete"
                           alt=""
                         />
                         <img
-                          src="assets/images/new-edit.svg"
+                          src="/assets/images/new-edit.svg"
                           className="edit"
                           alt=""
                         />
@@ -192,12 +192,12 @@ const helperList = () => {
                     <td className="action-btn">
                       <div className="edit-delete-form">
                         <img
-                          src="assets/images/new-delete.svg"
+                          src="/assets/images/new-delete.svg"
                           className="delete"
                           alt=""
                         />
                         <img
-                          src="assets/images/new-edit.svg"
+                          src="/assets/images/new-edit.svg"
                           className="edit"
                           alt=""
                         />
@@ -222,12 +222,12 @@ const helperList = () => {
                     <td className="action-btn">
                       <div className="edit-delete-form">
                         <img
-                          src="assets/images/new-delete.svg"
+                          src="/assets/images/new-delete.svg"
                           className="delete"
                           alt=""
                         />
                         <img
-                          src="assets/images/new-edit.svg"
+                          src="/assets/images/new-edit.svg"
                           className="edit"
                           alt=""
                         />
@@ -252,12 +252,12 @@ const helperList = () => {
                     <td className="action-btn">
                       <div className="edit-delete-form">
                         <img
-                          src="assets/images/new-delete.svg"
+                          src="/assets/images/new-delete.svg"
                           className="delete"
                           alt=""
                         />
                         <img
-                          src="assets/images/new-edit.svg"
+                          src="/assets/images/new-edit.svg"
                           className="edit"
                           alt=""
                         />
@@ -282,12 +282,12 @@ const helperList = () => {
                     <td className="action-btn">
                       <div className="edit-delete-form">
                         <img
-                          src="assets/images/new-delete.svg"
+                          src="/assets/images/new-delete.svg"
                           className="delete"
                           alt=""
                         />
                         <img
-                          src="assets/images/new-edit.svg"
+                          src="/assets/images/new-edit.svg"
                           className="edit"
                           alt=""
                         />
@@ -312,12 +312,12 @@ const helperList = () => {
                     <td className="action-btn">
                       <div className="edit-delete-form">
                         <img
-                          src="assets/images/new-delete.svg"
+                          src="/assets/images/new-delete.svg"
                           className="delete"
                           alt=""
                         />
                         <img
-                          src="assets/images/new-edit.svg"
+                          src="/assets/images/new-edit.svg"
                           className="edit"
                           alt=""
                         />
@@ -342,12 +342,12 @@ const helperList = () => {
                     <td className="action-btn">
                       <div className="edit-delete-form">
                         <img
-                          src="assets/images/new-delete.svg"
+                          src="/assets/images/new-delete.svg"
                           className="delete"
                           alt=""
                         />
                         <img
-                          src="assets/images/new-edit.svg"
+                          src="/assets/images/new-edit.svg"
                           className="edit"
                           alt=""
                         />
@@ -372,12 +372,12 @@ const helperList = () => {
                     <td className="action-btn">
                       <div className="edit-delete-form">
                         <img
-                          src="assets/images/new-delete.svg"
+                          src="/assets/images/new-delete.svg"
                           className="delete"
                           alt=""
                         />
                         <img
-                          src="assets/images/new-edit.svg"
+                          src="/assets/images/new-edit.svg"
                           className="edit"
                           alt=""
                         />
@@ -402,12 +402,12 @@ const helperList = () => {
                     <td className="action-btn">
                       <div className="edit-delete-form">
                         <img
-                          src="assets/images/new-delete.svg"
+                          src="/assets/images/new-delete.svg"
                           className="delete"
                           alt=""
                         />
                         <img
-                          src="assets/images/new-edit.svg"
+                          src="/assets/images/new-edit.svg"
                           className="edit"
                           alt=""
                         />
@@ -432,12 +432,12 @@ const helperList = () => {
                     <td className="action-btn">
                       <div className="edit-delete-form">
                         <img
-                          src="assets/images/new-delete.svg"
+                          src="/assets/images/new-delete.svg"
                           className="delete"
                           alt=""
                         />
                         <img
-                          src="assets/images/new-edit.svg"
+                          src="/assets/images/new-edit.svg"
                           className="edit"
                           alt=""
                         />
@@ -462,12 +462,12 @@ const helperList = () => {
                     <td className="action-btn">
                       <div className="edit-delete-form">
                         <img
-                          src="assets/images/new-delete.svg"
+                          src="/assets/images/new-delete.svg"
                           className="delete"
                           alt=""
                         />
                         <img
-                          src="assets/images/new-edit.svg"
+                          src="/assets/images/new-edit.svg"
                           className="edit"
                           alt=""
                         />
@@ -492,12 +492,12 @@ const helperList = () => {
                     <td className="action-btn">
                       <div className="edit-delete-form">
                         <img
-                          src="assets/images/new-delete.svg"
+                          src="/assets/images/new-delete.svg"
                           className="delete"
                           alt=""
                         />
                         <img
-                          src="assets/images/new-edit.svg"
+                          src="/assets/images/new-edit.svg"
                           className="edit"
                           alt=""
                         />

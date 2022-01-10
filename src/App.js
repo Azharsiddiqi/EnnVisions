@@ -1,35 +1,43 @@
 import React from 'react';
 
 // Router Import
-import { Route, withRouter, Switch, Redirect } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 // Custom index for all pages
 import Index from './pages/index.jsx';
 import AuthIndex from './pages/Auth/index.jsx';
-import { authRoutes, privateRoutes } from './routes';
+import { privateRoutes } from './routes';
 import { PUBLIC_ROUTES } from './config';
+
+import { AuthRoutes } from './pages/Auth/routes';
 
 const App = () => {
   return (
-    <Switch>
+    <Routes>
       {/* Start: public routes */}
-      {authRoutes.map((path, index) => (
-        <Route exact key={index} path={path} component={AuthIndex} />
-      ))}
+      <Route path="/auth" element={<AuthIndex />}>
+        {AuthRoutes.map(({ path, Component }, index) =>
+          <Route key={index} path={path} element={<Component />} />
+        )}
+      </Route>
       {/* End: public routes */}
 
       {/* Start: private routes */}
-      {privateRoutes.map((data, index) => (
-        <Route
-          exact
-          key={index}
-          path={data.path}
-          component={() => <Index menu={data.menu} subMenu={data.subMenu} />}
-        />
-      ))}
+      <Route path="/" element={<Index menu={data.menu} subMenu={data.subMenu} />}>
+        {privateRoutes.map((data, index) => (
+          <Route
+            key={index}
+            path={data.path}
+            element={<Index menu={data.menu} subMenu={data.subMenu} />}
+          />
+        ))}
+      </Route>
       {/* End: private routes */}
-      <Redirect to={PUBLIC_ROUTES.login.path} />
-    </Switch>
+      <Route
+        path="*"
+        element={<Navigate replace to={'/auth/' + PUBLIC_ROUTES.login.path} />}
+      />
+    </Routes>
   );
 };
 
-export default withRouter(App);
+export default App;

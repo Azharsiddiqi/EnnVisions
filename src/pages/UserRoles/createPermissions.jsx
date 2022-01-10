@@ -1,9 +1,9 @@
 import React from 'react';
 import { PRIVATE_ROUTES } from '../../config';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const createPermissions = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <div>
       <div className="d-flex flex-column-fluid">
@@ -51,7 +51,7 @@ const createPermissions = () => {
                     type="button"
                     className="submit-btn"
                     onClick={() => {
-                      history.push(PRIVATE_ROUTES.userRoles.superAdmin.path);
+                      navigate(PRIVATE_ROUTES.userRoles.superAdmin.path);
                     }}
                   >
                     SUBMIT
@@ -84,7 +84,7 @@ const createPermissions = () => {
                             data-toggle="modal"
                             data-target="#exampleModal"
                           >
-                            <img src="assets/images/new-delete.svg" alt="" />
+                            <img src="/assets/images/new-delete.svg" alt="" />
                           </span>
                           {/* Modal */}
                           <div
@@ -98,7 +98,7 @@ const createPermissions = () => {
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
-                                  <img src="assets/images/ic-logo.svg" alt="" />
+                                  <img src="/assets/images/ic-logo.svg" alt="" />
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
@@ -123,7 +123,7 @@ const createPermissions = () => {
                             </div>
                           </div>
                           <span className="ic-edit">
-                            <img src="assets/images/new-edit.svg" alt="" />
+                            <img src="/assets/images/new-edit.svg" alt="" />
                           </span>
                         </th>
                       </tr>
@@ -140,7 +140,7 @@ const createPermissions = () => {
                             data-toggle="modal"
                             data-target="#exampleModal"
                           >
-                            <img src="assets/images/new-delete.svg" alt="" />
+                            <img src="/assets/images/new-delete.svg" alt="" />
                           </span>
                           {/* Modal */}
                           <div
@@ -154,7 +154,7 @@ const createPermissions = () => {
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
-                                  <img src="assets/images/ic-logo.svg" alt="" />
+                                  <img src="/assets/images/ic-logo.svg" alt="" />
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
@@ -179,7 +179,7 @@ const createPermissions = () => {
                             </div>
                           </div>
                           <span className="ic-edit">
-                            <img src="assets/images/new-edit.svg" alt="" />
+                            <img src="/assets/images/new-edit.svg" alt="" />
                           </span>
                         </th>
                       </tr>
@@ -196,7 +196,7 @@ const createPermissions = () => {
                             data-toggle="modal"
                             data-target="#exampleModal"
                           >
-                            <img src="assets/images/new-delete.svg" alt="" />
+                            <img src="/assets/images/new-delete.svg" alt="" />
                           </span>
                           {/* Modal */}
                           <div
@@ -210,7 +210,7 @@ const createPermissions = () => {
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
-                                  <img src="assets/images/ic-logo.svg" alt="" />
+                                  <img src="/assets/images/ic-logo.svg" alt="" />
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
@@ -235,7 +235,7 @@ const createPermissions = () => {
                             </div>
                           </div>
                           <span className="ic-edit">
-                            <img src="assets/images/new-edit.svg" alt="" />
+                            <img src="/assets/images/new-edit.svg" alt="" />
                           </span>
                         </th>
                       </tr>
@@ -252,7 +252,7 @@ const createPermissions = () => {
                             data-toggle="modal"
                             data-target="#exampleModal"
                           >
-                            <img src="assets/images/new-delete.svg" alt="" />
+                            <img src="/assets/images/new-delete.svg" alt="" />
                           </span>
                           {/* Modal */}
                           <div
@@ -266,7 +266,7 @@ const createPermissions = () => {
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
-                                  <img src="assets/images/ic-logo.svg" alt="" />
+                                  <img src="/assets/images/ic-logo.svg" alt="" />
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
@@ -291,7 +291,7 @@ const createPermissions = () => {
                             </div>
                           </div>
                           <span className="ic-edit">
-                            <img src="assets/images/new-edit.svg" alt="" />
+                            <img src="/assets/images/new-edit.svg" alt="" />
                           </span>
                         </th>
                       </tr>

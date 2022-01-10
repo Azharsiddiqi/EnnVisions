@@ -1,12 +1,12 @@
 import React from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 // Importing assets
 import IC_LOGO from '../../../assets/images/ic-logo.svg';
 import { PRIVATE_ROUTES, PUBLIC_ROUTES } from '../../../config';
 
 const Login = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <React.Fragment>
       <div className="login-content flex-row-fluid d-flex flex-column justify-content-center position-relative overflow-hidden p-7 mx-auto">
@@ -27,7 +27,7 @@ const Login = () => {
                 <span className="text-muted gilroy-medium">
                   New Here?{' '}
                   <Link
-                    to={PUBLIC_ROUTES.registerVendor.path}
+                    to={'/auth/' + PUBLIC_ROUTES.registerVendor.path}
                     className="text-primary gilroy-semi-bold"
                   >
                     Create an Account
@@ -57,7 +57,7 @@ const Login = () => {
                 />
                 <div className="d-flex justify-content-between mt-n5">
                   <Link
-                    to={PUBLIC_ROUTES.forgotPasswordEmail.path}
+                    to={'/auth/' + PUBLIC_ROUTES.forgotPasswordEmail.path}
                     className="gilroy-medium forgot-password text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5"
                   >
                     FORGOT PASSWORD ?
@@ -69,7 +69,7 @@ const Login = () => {
               <div className="pb-lg-0 pb-5">
                 <button
                   type="submit"
-                  onClick={() => history.push(PRIVATE_ROUTES.dashboard.path)}
+                  onClick={() => navigate(PRIVATE_ROUTES.dashboard.path)}
                   className="gilroy-medium btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3"
                 >
                   SIGN IN

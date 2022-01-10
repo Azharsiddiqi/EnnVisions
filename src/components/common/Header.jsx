@@ -78,7 +78,7 @@ const Header = () => {
               <div className="btn btn-icon btn-clean btn-dropdown btn-lg mr-1">
                 <img
                   className="h-20px w-20px rounded-sm"
-                  src="assets/media/svg/flags/226-united-states.svg"
+                  src="/assets/media/svg/flags/226-united-states.svg"
                   alt=""
                 />
               </div>
@@ -93,7 +93,7 @@ const Header = () => {
                   <Link to="#" className="navi-link">
                     <span className="symbol symbol-20 mr-3">
                       <img
-                        src="assets/media/svg/flags/226-united-states.svg"
+                        src="/assets/media/svg/flags/226-united-states.svg"
                         alt=""
                       />
                     </span>
@@ -105,7 +105,7 @@ const Header = () => {
                 <li className="navi-item active">
                   <Link to="#" className="navi-link">
                     <span className="symbol symbol-20 mr-3">
-                      <img src="assets/media/svg/flags/128-spain.svg" alt="" />
+                      <img src="/assets/media/svg/flags/128-spain.svg" alt="" />
                     </span>
                     <span className="navi-text">Spanish</span>
                   </Link>
@@ -116,7 +116,7 @@ const Header = () => {
                   <Link to="#" className="navi-link">
                     <span className="symbol symbol-20 mr-3">
                       <img
-                        src="assets/media/svg/flags/162-germany.svg"
+                        src="/assets/media/svg/flags/162-germany.svg"
                         alt=""
                       />
                     </span>
@@ -128,7 +128,7 @@ const Header = () => {
                 <li className="navi-item">
                   <Link to="#" className="navi-link">
                     <span className="symbol symbol-20 mr-3">
-                      <img src="assets/media/svg/flags/063-japan.svg" alt="" />
+                      <img src="/assets/media/svg/flags/063-japan.svg" alt="" />
                     </span>
                     <span className="navi-text">Japanese</span>
                   </Link>
@@ -138,7 +138,7 @@ const Header = () => {
                 <li className="navi-item">
                   <Link to="#" className="navi-link">
                     <span className="symbol symbol-20 mr-3">
-                      <img src="assets/media/svg/flags/195-france.svg" alt="" />
+                      <img src="/assets/media/svg/flags/195-france.svg" alt="" />
                     </span>
                     <span className="navi-text">French</span>
                   </Link>

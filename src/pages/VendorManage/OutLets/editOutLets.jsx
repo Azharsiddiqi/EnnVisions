@@ -1,9 +1,9 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { PRIVATE_ROUTES } from '../../../config';
 
 const editOutLets = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <div
       className="content  d-flex flex-column flex-column-fluid"
@@ -43,17 +43,17 @@ const editOutLets = () => {
                   <div className="col-xl-5">
                     <div className="form-group">
                       <img
-                        src="assets/images/032-boy-13.svg"
+                        src="/assets/images/032-boy-13.svg"
                         className="pg-12-avatar"
                         alt=""
                       />
                       <p className="pg-12-avatar-title">ADNAN QURESHI</p>
                       <div className="pg-12-avatar-rating">
-                        <img src="assets/images/ic_star_yellow.svg" alt="" />
-                        <img src="assets/images/ic_star_yellow.svg" alt="" />
-                        <img src="assets/images/ic_star_yellow.svg" alt="" />
-                        <img src="assets/images/ic_star_yellow.svg" alt="" />
-                        <img src="assets/images/ic_star_yellow.svg" alt="" />
+                        <img src="/assets/images/ic_star_yellow.svg" alt="" />
+                        <img src="/assets/images/ic_star_yellow.svg" alt="" />
+                        <img src="/assets/images/ic_star_yellow.svg" alt="" />
+                        <img src="/assets/images/ic_star_yellow.svg" alt="" />
+                        <img src="/assets/images/ic_star_yellow.svg" alt="" />
                       </div>
                     </div>
                   </div>
@@ -66,7 +66,7 @@ const editOutLets = () => {
                         <p className="personal-no">+923008134076</p>
                         <div className="edit-delete-form">
                           <a href="create-fleet.html">
-                            <img src="assets/images/ic_edit_white.svg" alt="" />
+                            <img src="/assets/images/ic_edit_white.svg" alt="" />
                           </a>
                         </div>
                       </div>
@@ -125,7 +125,7 @@ const editOutLets = () => {
                             autoComplete="off"
                           />
                           <span className="country-code">
-                            <img src="assets/images/053-canada.svg" alt="" /> +1
+                            <img src="/assets/images/053-canada.svg" alt="" /> +1
                           </span>
                         </div>
                       </div>
@@ -139,7 +139,7 @@ const editOutLets = () => {
                             autoComplete="off"
                           />
                           <span className="country-code">
-                            <img src="assets/images/053-canada.svg" alt="" /> +1
+                            <img src="/assets/images/053-canada.svg" alt="" /> +1
                           </span>
                         </div>
                       </div>
@@ -543,7 +543,7 @@ const editOutLets = () => {
                           Mark this day as closed
                         </label>
                         <span className="del-container">
-                          <img src="assets/images/ic_delete.svg" alt="delete" />
+                          <img src="/assets/images/ic_delete.svg" alt="delete" />
                         </span>
                       </div>
                       <div className="time-label-schedule create-vendor-time-label">
@@ -556,7 +556,7 @@ const editOutLets = () => {
                           Mark this day as closed
                         </label>
                         <span className="del-container">
-                          <img src="assets/images/ic_delete.svg" alt="delete" />
+                          <img src="/assets/images/ic_delete.svg" alt="delete" />
                         </span>
                       </div>
                       <div className="time-label-schedule create-vendor-time-label">
@@ -569,7 +569,7 @@ const editOutLets = () => {
                           Mark this day as closed
                         </label>
                         <span className="del-container">
-                          <img src="assets/images/ic_delete.svg" alt="delete" />
+                          <img src="/assets/images/ic_delete.svg" alt="delete" />
                         </span>
                       </div>
                     </div>
@@ -600,7 +600,7 @@ const editOutLets = () => {
                           className="btn"
                           type="submit"
                           onClick={() =>
-                            history.push(PRIVATE_ROUTES.dashboard.path)
+                            navigate(PRIVATE_ROUTES.dashboard.path)
                           }
                         >
                           {' '}

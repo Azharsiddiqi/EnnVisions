@@ -1,9 +1,9 @@
 import React from 'react';
 import { PRIVATE_ROUTES } from '../../../config';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const vendorOutlets = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <div
       className="content  d-flex flex-column flex-column-fluid"
@@ -73,7 +73,7 @@ const vendorOutlets = () => {
                   <tbody>
                     <tr
                       onClick={() => {
-                        history.push(
+                        navigate(
                           PRIVATE_ROUTES.vendorManage.outLetDetail.path,
                         );
                       }}
@@ -91,14 +91,14 @@ const vendorOutlets = () => {
                         <a href="outlet-schedule.html">
                           <span className="preparation-t">
                             <img
-                              src="assets/images/ic_prepration_time.svg"
+                              src="/assets/images/ic_prepration_time.svg"
                               alt=""
                             />
                           </span>
                         </a>
                         <a href="outlet-menu-page131.html">
                           <span className="item-list">
-                            <img src="assets/images/ic_item_list.svg" alt="" />
+                            <img src="/assets/images/ic_item_list.svg" alt="" />
                           </span>
                         </a>
                         <span
@@ -106,7 +106,7 @@ const vendorOutlets = () => {
                           data-toggle="modal"
                           data-target="#exampleModal"
                         >
-                          <img src="assets/images/ic_schedule.svg" alt="" />
+                          <img src="/assets/images/ic_schedule.svg" alt="" />
                         </span>
                         {/* Modal */}
                         <div
@@ -217,7 +217,7 @@ const vendorOutlets = () => {
                                         <td>
                                           <span className="delete-icon">
                                             <img
-                                              src="assets/images/new-delete.svg"
+                                              src="/assets/images/new-delete.svg"
                                               alt=""
                                             />
                                           </span>
@@ -301,7 +301,7 @@ const vendorOutlets = () => {
                                         <td>
                                           <span className="delete-icon">
                                             <img
-                                              src="assets/images/new-delete.svg"
+                                              src="/assets/images/new-delete.svg"
                                               alt=""
                                             />
                                           </span>
@@ -385,7 +385,7 @@ const vendorOutlets = () => {
                                         <td>
                                           <span className="delete-icon">
                                             <img
-                                              src="assets/images/new-delete.svg"
+                                              src="/assets/images/new-delete.svg"
                                               alt=""
                                             />
                                           </span>
@@ -469,7 +469,7 @@ const vendorOutlets = () => {
                                         <td>
                                           <span className="delete-icon">
                                             <img
-                                              src="assets/images/new-delete.svg"
+                                              src="/assets/images/new-delete.svg"
                                               alt=""
                                             />
                                           </span>
@@ -488,10 +488,10 @@ const vendorOutlets = () => {
                           </div>
                         </div>
                         <span className="ic-delete">
-                          <img src="assets/images/new-delete.svg" alt="" />
+                          <img src="/assets/images/new-delete.svg" alt="" />
                         </span>
                         <span className="ic-edit">
-                          <img src="assets/images/new-edit.svg" alt="" />
+                          <img src="/assets/images/new-edit.svg" alt="" />
                         </span>
                       </td>
                     </tr>
@@ -509,14 +509,14 @@ const vendorOutlets = () => {
                         <a href="outlet-schedule.html">
                           <span className="preparation-t">
                             <img
-                              src="assets/images/ic_prepration_time.svg"
+                              src="/assets/images/ic_prepration_time.svg"
                               alt=""
                             />
                           </span>
                         </a>
                         <a href="outlet-menu-page131.html">
                           <span className="item-list">
-                            <img src="assets/images/ic_item_list.svg" alt="" />
+                            <img src="/assets/images/ic_item_list.svg" alt="" />
                           </span>
                         </a>
                         <span
@@ -524,7 +524,7 @@ const vendorOutlets = () => {
                           data-toggle="modal"
                           data-target="#exampleModal"
                         >
-                          <img src="assets/images/ic_schedule.svg" alt="" />
+                          <img src="/assets/images/ic_schedule.svg" alt="" />
                         </span>
                         {/* Modal */}
                         <div
@@ -635,7 +635,7 @@ const vendorOutlets = () => {
                                         <td>
                                           <span className="delete-icon">
                                             <img
-                                              src="assets/images/new-delete.svg"
+                                              src="/assets/images/new-delete.svg"
                                               alt=""
                                             />
                                           </span>
@@ -719,7 +719,7 @@ const vendorOutlets = () => {
                                         <td>
                                           <span className="delete-icon">
                                             <img
-                                              src="assets/images/new-delete.svg"
+                                              src="/assets/images/new-delete.svg"
                                               alt=""
                                             />
                                           </span>
@@ -803,7 +803,7 @@ const vendorOutlets = () => {
                                         <td>
                                           <span className="delete-icon">
                                             <img
-                                              src="assets/images/new-delete.svg"
+                                              src="/assets/images/new-delete.svg"
                                               alt=""
                                             />
                                           </span>
@@ -887,7 +887,7 @@ const vendorOutlets = () => {
                                         <td>
                                           <span className="delete-icon">
                                             <img
-                                              src="assets/images/new-delete.svg"
+                                              src="/assets/images/new-delete.svg"
                                               alt=""
                                             />
                                           </span>
@@ -906,10 +906,10 @@ const vendorOutlets = () => {
                           </div>
                         </div>
                         <span className="ic-delete">
-                          <img src="assets/images/new-delete.svg" alt="" />
+                          <img src="/assets/images/new-delete.svg" alt="" />
                         </span>
                         <span className="ic-edit">
-                          <img src="assets/images/new-edit.svg" alt="" />
+                          <img src="/assets/images/new-edit.svg" alt="" />
                         </span>
                       </td>
                     </tr>

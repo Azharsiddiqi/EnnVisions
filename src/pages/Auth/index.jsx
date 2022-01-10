@@ -1,8 +1,6 @@
 import React from 'react';
-import Routes from './routes.jsx';
-
 import Aside from './components/Aside.jsx';
-
+import { Outlet } from 'react-router-dom';
 const AuthIndex = () => {
   return (
     <React.Fragment>
@@ -17,7 +15,7 @@ const AuthIndex = () => {
           <Aside />
           {/* begin::Aside */}
           {/* begin::Content */}
-          <Routes />
+          <Outlet />
           {/* end::Content */}
         </div>
         {/* end::Login */}

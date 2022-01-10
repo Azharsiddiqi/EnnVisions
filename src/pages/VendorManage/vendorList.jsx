@@ -1,13 +1,13 @@
 import ConfirmationAlert from '../../components/confirmationAlert';
 import { PRIVATE_ROUTES } from '../../config';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 
 const vendorList = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <div className="d-flex flex-column-fluid">
       <ConfirmationAlert
@@ -63,10 +63,10 @@ const vendorList = () => {
                       1
                       <span className="vendor-image">
                         <img
-                          src="assets/images/009-boy-4.svg"
+                          src="/assets/images/009-boy-4.svg"
                           alt=""
                           onClick={() => {
-                            history.push(
+                            navigate(
                               PRIVATE_ROUTES.vendorManage.vendorDetail.path,
                             );
                           }}
@@ -80,7 +80,7 @@ const vendorList = () => {
                     <td className="vendor-outlet-t">
                       <span
                         onClick={() => {
-                          history.push(
+                          navigate(
                             PRIVATE_ROUTES.vendorManage.vendorOutLets.path,
                           );
                         }}
@@ -119,10 +119,10 @@ const vendorList = () => {
                       1
                       <span className="vendor-image">
                         <img
-                          src="assets/images/009-boy-4.svg"
+                          src="/assets/images/009-boy-4.svg"
                           alt=""
                           onClick={() => {
-                            history.push(
+                            navigate(
                               PRIVATE_ROUTES.vendorManage.vendorDetail.path,
                             );
                           }}
@@ -136,7 +136,7 @@ const vendorList = () => {
                     <td className="vendor-outlet-t">
                       <span
                         onClick={() => {
-                          history.push(
+                          navigate(
                             PRIVATE_ROUTES.vendorManage.vendorOutLets.path,
                           );
                         }}
@@ -154,8 +154,8 @@ const vendorList = () => {
                     <td className="vendor-commission">20%</td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/ic_delete_white.svg" alt="" />
-                        <img src="assets/images/ic_edit_white.svg" alt="" />
+                        <img src="/assets/images/ic_delete_white.svg" alt="" />
+                        <img src="/assets/images/ic_edit_white.svg" alt="" />
                       </div>
                     </td>
                   </tr>
@@ -164,10 +164,10 @@ const vendorList = () => {
                       1
                       <span className="vendor-image">
                         <img
-                          src="assets/images/009-boy-4.svg"
+                          src="/assets/images/009-boy-4.svg"
                           alt=""
                           onClick={() => {
-                            history.push(
+                            navigate(
                               PRIVATE_ROUTES.vendorManage.vendorDetail.path,
                             );
                           }}
@@ -181,7 +181,7 @@ const vendorList = () => {
                     <td className="vendor-outlet-t">
                       <span
                         onClick={() => {
-                          history.push(
+                          navigate(
                             PRIVATE_ROUTES.vendorManage.vendorOutLets.path,
                           );
                         }}
@@ -199,8 +199,8 @@ const vendorList = () => {
                     <td className="vendor-commission">20%</td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/ic_delete_white.svg" alt="" />
-                        <img src="assets/images/ic_edit_white.svg" alt="" />
+                        <img src="/assets/images/ic_delete_white.svg" alt="" />
+                        <img src="/assets/images/ic_edit_white.svg" alt="" />
                       </div>
                     </td>
                   </tr>
@@ -209,10 +209,10 @@ const vendorList = () => {
                       1
                       <span className="vendor-image">
                         <img
-                          src="assets/images/009-boy-4.svg"
+                          src="/assets/images/009-boy-4.svg"
                           alt=""
                           onClick={() => {
-                            history.push(
+                            navigate(
                               PRIVATE_ROUTES.vendorManage.vendorDetail.path,
                             );
                           }}
@@ -226,7 +226,7 @@ const vendorList = () => {
                     <td className="vendor-outlet-t">
                       <span
                         onClick={() => {
-                          history.push(
+                          navigate(
                             PRIVATE_ROUTES.vendorManage.vendorOutLets.path,
                           );
                         }}
@@ -244,8 +244,8 @@ const vendorList = () => {
                     <td className="vendor-commission">20%</td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/ic_delete_white.svg" alt="" />
-                        <img src="assets/images/ic_edit_white.svg" alt="" />
+                        <img src="/assets/images/ic_delete_white.svg" alt="" />
+                        <img src="/assets/images/ic_edit_white.svg" alt="" />
                       </div>
                     </td>
                   </tr>
@@ -254,10 +254,10 @@ const vendorList = () => {
                       1
                       <span className="vendor-image">
                         <img
-                          src="assets/images/009-boy-4.svg"
+                          src="/assets/images/009-boy-4.svg"
                           alt=""
                           onClick={() => {
-                            history.push(
+                            navigate(
                               PRIVATE_ROUTES.vendorManage.vendorDetail.path,
                             );
                           }}
@@ -271,7 +271,7 @@ const vendorList = () => {
                     <td className="vendor-outlet-t">
                       <span
                         onClick={() => {
-                          history.push(
+                          navigate(
                             PRIVATE_ROUTES.vendorManage.vendorOutLets.path,
                           );
                         }}
@@ -289,8 +289,8 @@ const vendorList = () => {
                     <td className="vendor-commission">20%</td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/ic_delete_white.svg" alt="" />
-                        <img src="assets/images/ic_edit_white.svg" alt="" />
+                        <img src="/assets/images/ic_delete_white.svg" alt="" />
+                        <img src="/assets/images/ic_edit_white.svg" alt="" />
                       </div>
                     </td>
                   </tr>
@@ -299,10 +299,10 @@ const vendorList = () => {
                       1
                       <span className="vendor-image">
                         <img
-                          src="assets/images/009-boy-4.svg"
+                          src="/assets/images/009-boy-4.svg"
                           alt=""
                           onClick={() => {
-                            history.push(
+                            navigate(
                               PRIVATE_ROUTES.vendorManage.vendorDetail.path,
                             );
                           }}
@@ -316,7 +316,7 @@ const vendorList = () => {
                     <td className="vendor-outlet-t">
                       <span
                         onClick={() => {
-                          history.push(
+                          navigate(
                             PRIVATE_ROUTES.vendorManage.vendorOutLets.path,
                           );
                         }}
@@ -334,8 +334,8 @@ const vendorList = () => {
                     <td className="vendor-commission">20%</td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/ic_delete_white.svg" alt="" />
-                        <img src="assets/images/ic_edit_white.svg" alt="" />
+                        <img src="/assets/images/ic_delete_white.svg" alt="" />
+                        <img src="/assets/images/ic_edit_white.svg" alt="" />
                       </div>
                     </td>
                   </tr>
@@ -344,10 +344,10 @@ const vendorList = () => {
                       1
                       <span className="vendor-image">
                         <img
-                          src="assets/images/009-boy-4.svg"
+                          src="/assets/images/009-boy-4.svg"
                           alt=""
                           onClick={() => {
-                            history.push(
+                            navigate(
                               PRIVATE_ROUTES.vendorManage.vendorDetail.path,
                             );
                           }}
@@ -361,7 +361,7 @@ const vendorList = () => {
                     <td className="vendor-outlet-t">
                       <span
                         onClick={() => {
-                          history.push(
+                          navigate(
                             PRIVATE_ROUTES.vendorManage.vendorOutLets.path,
                           );
                         }}
@@ -379,8 +379,8 @@ const vendorList = () => {
                     <td className="vendor-commission">20%</td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/ic_delete_white.svg" alt="" />
-                        <img src="assets/images/ic_edit_white.svg" alt="" />
+                        <img src="/assets/images/ic_delete_white.svg" alt="" />
+                        <img src="/assets/images/ic_edit_white.svg" alt="" />
                       </div>
                     </td>
                   </tr>
@@ -389,10 +389,10 @@ const vendorList = () => {
                       1
                       <span className="vendor-image">
                         <img
-                          src="assets/images/009-boy-4.svg"
+                          src="/assets/images/009-boy-4.svg"
                           alt=""
                           onClick={() => {
-                            history.push(
+                            navigate(
                               PRIVATE_ROUTES.vendorManage.vendorDetail.path,
                             );
                           }}
@@ -406,7 +406,7 @@ const vendorList = () => {
                     <td className="vendor-outlet-t">
                       <span
                         onClick={() => {
-                          history.push(
+                          navigate(
                             PRIVATE_ROUTES.vendorManage.vendorOutLets.path,
                           );
                         }}
@@ -424,8 +424,8 @@ const vendorList = () => {
                     <td className="vendor-commission">20%</td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/ic_delete_white.svg" alt="" />
-                        <img src="assets/images/ic_edit_white.svg" alt="" />
+                        <img src="/assets/images/ic_delete_white.svg" alt="" />
+                        <img src="/assets/images/ic_edit_white.svg" alt="" />
                       </div>
                     </td>
                   </tr>
@@ -434,10 +434,10 @@ const vendorList = () => {
                       1
                       <span className="vendor-image">
                         <img
-                          src="assets/images/009-boy-4.svg"
+                          src="/assets/images/009-boy-4.svg"
                           alt=""
                           onClick={() => {
-                            history.push(
+                            navigate(
                               PRIVATE_ROUTES.vendorManage.vendorDetail.path,
                             );
                           }}
@@ -451,7 +451,7 @@ const vendorList = () => {
                     <td className="vendor-outlet-t">
                       <span
                         onClick={() => {
-                          history.push(
+                          navigate(
                             PRIVATE_ROUTES.vendorManage.vendorOutLets.path,
                           );
                         }}
@@ -469,8 +469,8 @@ const vendorList = () => {
                     <td className="vendor-commission">20%</td>
                     <td className="action-btn">
                       <div className="edit-delete-form">
-                        <img src="assets/images/ic_delete_white.svg" alt="" />
-                        <img src="assets/images/ic_edit_white.svg" alt="" />
+                        <img src="/assets/images/ic_delete_white.svg" alt="" />
+                        <img src="/assets/images/ic_edit_white.svg" alt="" />
                       </div>
                     </td>
                   </tr>

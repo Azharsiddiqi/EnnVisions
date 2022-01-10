@@ -1,9 +1,9 @@
 import React from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { PRIVATE_ROUTES } from '../../config';
 
 const createVendor = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <div className="d-flex flex-column-fluid">
       {/* begin::Container */}
@@ -66,7 +66,7 @@ const createVendor = () => {
                           autoComplete="off"
                         />
                         <span className="country-code">
-                          <img alt="" src="assets/images/053-canada.svg" /> +1
+                          <img alt="" src="/assets/images/053-canada.svg" /> +1
                         </span>
                       </div>
                     </div>
@@ -80,7 +80,7 @@ const createVendor = () => {
                           autoComplete="off"
                         />
                         <span className="country-code">
-                          <img alt="" src="assets/images/053-canada.svg" /> +1
+                          <img alt="" src="/assets/images/053-canada.svg" /> +1
                         </span>
                       </div>
                     </div>
@@ -604,7 +604,7 @@ const createVendor = () => {
                         Mark this day as closed
                       </label>
                       <span className="del-container">
-                        <img src="assets/images/ic_delete.svg" alt="delete" />
+                        <img src="/assets/images/ic_delete.svg" alt="delete" />
                       </span>
                     </div>
                     <div className="time-label-schedule create-vendor-time-label">
@@ -615,7 +615,7 @@ const createVendor = () => {
                         Mark this day as closed
                       </label>
                       <span className="del-container">
-                        <img src="assets/images/ic_delete.svg" alt="delete" />
+                        <img src="/assets/images/ic_delete.svg" alt="delete" />
                       </span>
                     </div>
                     <div className="time-label-schedule create-vendor-time-label">
@@ -628,7 +628,7 @@ const createVendor = () => {
                         Mark this day as closed
                       </label>
                       <span className="del-container">
-                        <img src="assets/images/ic_delete.svg" alt="delete" />
+                        <img src="/assets/images/ic_delete.svg" alt="delete" />
                       </span>
                     </div>
                   </div>
@@ -659,7 +659,7 @@ const createVendor = () => {
               </div>
               <div className="create-vendor-submit mt-15">
                 <button
-                  onClick={() => history.push(PRIVATE_ROUTES.dashboard.path)}
+                  onClick={() => navigate(PRIVATE_ROUTES.dashboard.path)}
                   className="btn"
                   type="button"
                 >

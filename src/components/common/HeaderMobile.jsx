@@ -10,7 +10,7 @@ const HeaderMobile = () => {
       >
         {/* begin::Logo */}
         <Link to="index.html">
-          <img alt="Logo" src="assets/images/ic-logo-white.svg" />
+          <img alt="Logo" src="/assets/images/ic-logo-white.svg" />
         </Link>
         {/* end::Logo */}
         {/* begin::Toolbar */}
@@ -27,7 +27,7 @@ const HeaderMobile = () => {
             id="kt_header_mobile_topbar_toggle"
           >
             <span className="svg-icon svg-icon-xl">
-              {/* begin::Svg Icon | path:assets/media/svg/icons/General/User.svg */}
+              {/* begin::Svg Icon | path:/assets/media/svg/icons/General/User.svg */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"

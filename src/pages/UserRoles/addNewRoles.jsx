@@ -1,10 +1,10 @@
 import React from 'react';
 import { Form } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { PRIVATE_ROUTES } from '../../config';
 
 const AddNewRoles = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <div className="d-flex">
       {/* begin::Container */}
@@ -14,7 +14,7 @@ const AddNewRoles = () => {
         <div className="add-edit-role dash-body">
           <div className="row">
             <div className="col-md-2">
-              <img src="assets/images/035-boy-15.svg" alt="" />
+              <img src="/assets/images/035-boy-15.svg" alt="" />
             </div>
             <div className="col-md-10">
               <div className="row">
@@ -204,7 +204,7 @@ const AddNewRoles = () => {
             <div className="col-md-11  text-right  add-document-btn">
               <button
                 onClick={() =>
-                  history.push(
+                  navigate(
                     PRIVATE_ROUTES.userRoles.createRegistrationForm.path,
                   )
                 }

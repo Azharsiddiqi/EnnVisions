@@ -88,7 +88,7 @@ const SideBar = () => {
       <div className="brand flex-column-auto " id="kt_brand">
         {/*begin::Logo*/}
         <Link to="index.html" className="brand-logo">
-          <img alt="Logo" src="assets/images/ic-logo.svg" />
+          <img alt="Logo" src="/assets/images/ic-logo.svg" />
         </Link>
         {/*end::Logo*/}
         {/*begin::Toggle*/}
@@ -142,8 +142,7 @@ const SideBar = () => {
           {/*begin::Menu Nav*/}
           <ul className="menu-nav ">
             <li
-              className={`menu-item ${pathname === dashboard.path ? 'menu-item-active' : ''
-              }`}
+              className={`menu-item ${pathname === dashboard.path ? 'menu-item-active' : ''}`}
               aria-haspopup="true"
             >
               <Link to={dashboard.path} className="menu-link ">
@@ -152,8 +151,7 @@ const SideBar = () => {
             </li>
 
             <li
-              className={`menu-item  menu-item-submenu ${mainActive === 'userRoles' ? 'menu-item-open' : ''
-              }`}
+              className={`menu-item  menu-item-submenu ${mainActive === 'userRoles' ? 'menu-item-open' : ''}`}
             >
               <div
                 onClick={() =>
@@ -174,8 +172,7 @@ const SideBar = () => {
                     className={`menu-item ${pathname === userRoles.addNewRole.path ||
                       pathname === userRoles.createRegistrationForm.path
                       ? 'menu-item-active'
-                      : ''
-                    }`}
+                      : ''}`}
                   >
                     <Link to={userRoles.addNewRole.path} className="menu-link">
                       <i className="menu-bullet menu-bullet-line">
@@ -187,8 +184,7 @@ const SideBar = () => {
                   <li
                     className={`menu-item ${pathname === userRoles.userRoleList.path
                       ? 'menu-item-active'
-                      : ''
-                    }`}
+                      : ''}`}
                   >
                     <Link
                       to={userRoles.userRoleList.path}
@@ -203,8 +199,7 @@ const SideBar = () => {
                   <li
                     className={`menu-item ${pathname === userRoles.createPermissions.path
                       ? 'menu-item-active'
-                      : ''
-                    }`}
+                      : ''}`}
                   >
                     <Link
                       to={userRoles.createPermissions.path}
@@ -221,8 +216,7 @@ const SideBar = () => {
             </li>
 
             <li
-              className={`menu-item  menu-item-submenu ${mainActive === 'adminManage' ? 'menu-item-open' : ''
-              }`}
+              className={`menu-item  menu-item-submenu ${mainActive === 'adminManage' ? 'menu-item-open' : ''}`}
             >
               <div
                 onClick={() =>
@@ -241,8 +235,7 @@ const SideBar = () => {
                   <li
                     className={`menu-item ${pathname === adminManage.createAdmin.path
                       ? 'menu-item-active'
-                      : ''
-                    }`}
+                      : ''}`}
                   >
                     <Link
                       to={adminManage.createAdmin.path}
@@ -257,8 +250,7 @@ const SideBar = () => {
                   <li
                     className={`menu-item ${pathname === adminManage.adminDetail.path
                       ? 'menu-item-active'
-                      : ''
-                    }`}
+                      : ''}`}
                   >
                     <Link
                       to={adminManage.adminDetail.path}
@@ -308,8 +300,7 @@ const SideBar = () => {
             </li>
 
             <li
-              className={`menu-item  menu-item-submenu ${mainActive === 'fleetManage' ? 'menu-item-open' : ''
-              }`}
+              className={`menu-item  menu-item-submenu ${mainActive === 'fleetManage' ? 'menu-item-open' : ''}`}
             >
               <div
                 onClick={() =>
@@ -328,8 +319,7 @@ const SideBar = () => {
                   <li
                     className={`menu-item ${pathname === fleetManage.createFleet.path
                       ? 'menu-item-active'
-                      : ''
-                    }`}
+                      : ''}`}
                   >
                     <Link
                       to={fleetManage.createFleet.path}
@@ -379,8 +369,7 @@ const SideBar = () => {
             </li>
 
             <li
-              className={`menu-item  menu-item-submenu ${mainActive === 'dispatcherManage' ? 'menu-item-open' : ''
-              }`}
+              className={`menu-item  menu-item-submenu ${mainActive === 'dispatcherManage' ? 'menu-item-open' : ''}`}
             >
               <div
                 onClick={() =>
@@ -399,8 +388,7 @@ const SideBar = () => {
                   <li
                     className={`menu-item ${pathname === dispatcherManage.createDispatcher.path
                       ? 'menu-item-active'
-                      : ''
-                    }`}
+                      : ''}`}
                   >
                     <Link
                       to={dispatcherManage.createDispatcher.path}
@@ -415,8 +403,7 @@ const SideBar = () => {
                   <li
                     className={`menu-item  menu-item-submenu ${pathname === dispatcherManage.dispatcherDetail.path
                       ? 'menu-item-active'
-                      : ''
-                    }`}
+                      : ''}`}
                   >
                     <Link
                       to={dispatcherManage.dispatcherDetail.path}
@@ -455,8 +442,7 @@ const SideBar = () => {
             </li>
 
             <li
-              className={`menu-item  menu-item-submenu ${mainActive === 'vendorManage' ? 'menu-item-open' : ''
-              }`}
+              className={`menu-item  menu-item-submenu ${mainActive === 'vendorManage' ? 'menu-item-open' : ''}`}
             >
               <div
                 onClick={() =>
@@ -484,8 +470,7 @@ const SideBar = () => {
                     </Link>
                   </li>
                   <li
-                    className={`menu-item  menu-item-submenu ${subActive === 'vendorManageJawafa' ? 'menu-item-open' : ''
-                    }`}
+                    className={`menu-item  menu-item-submenu ${subActive === 'vendorManageJawafa' ? 'menu-item-open' : ''}`}
                   >
                     <div
                       onClick={() =>
@@ -514,8 +499,7 @@ const SideBar = () => {
                         <li
                           className={`menu-item  ${pathname === vendorManage.createVendor.path
                             ? 'menu-item-active'
-                            : ''
-                          }`}
+                            : ''}`}
                           aria-haspopup="true"
                         >
                           <Link
@@ -531,8 +515,7 @@ const SideBar = () => {
                         <li
                           className={`menu-item  ${pathname === vendorManage.vendorList.path
                             ? 'menu-item-active'
-                            : ''
-                          }`}
+                            : ''}`}
                           aria-haspopup="true"
                         >
                           <Link
@@ -548,8 +531,7 @@ const SideBar = () => {
                         <li
                           className={`menu-item  ${pathname === vendorManage.helperList.path
                             ? 'menu-item-active'
-                            : ''
-                          }`}
+                            : ''}`}
                           aria-haspopup="true"
                         >
                           <Link
@@ -588,8 +570,7 @@ const SideBar = () => {
             </li>
 
             <li
-              className={`menu-item  menu-item-submenu ${mainActive === 'driverManage' ? 'menu-item-open' : ''
-              }`}
+              className={`menu-item  menu-item-submenu ${mainActive === 'driverManage' ? 'menu-item-open' : ''}`}
             >
               <div
                 onClick={() =>
@@ -618,8 +599,7 @@ const SideBar = () => {
                     </Link>
                   </li>
                   <li
-                    className={`menu-item  menu-item-submenu ${subActive === 'driverManageJawafa' ? 'menu-item-open' : ''
-                    }`}
+                    className={`menu-item  menu-item-submenu ${subActive === 'driverManageJawafa' ? 'menu-item-open' : ''}`}
                   >
                     <div
                       onClick={() =>
@@ -648,8 +628,7 @@ const SideBar = () => {
                         <li
                           className={`menu-item  ${subOfSubActive === 'driverManageJawafaAdminDriver'
                             ? 'menu-item-active'
-                            : ''
-                          }`}
+                            : ''}`}
                           aria-haspopup="true"
                         >
                           <div
@@ -682,8 +661,7 @@ const SideBar = () => {
                               <li
                                 className={`menu-item  ${pathname === vendorManage.createVendor.path
                                   ? 'menu-item-active'
-                                  : ''
-                                }`}
+                                  : ''}`}
                                 aria-haspopup="true"
                               >
                                 <Link
@@ -701,8 +679,7 @@ const SideBar = () => {
                               <li
                                 className={`menu-item  ${pathname === vendorManage.vendorList.path
                                   ? 'menu-item-active'
-                                  : ''
-                                }`}
+                                  : ''}`}
                                 aria-haspopup="true"
                               >
                                 <Link
@@ -718,8 +695,7 @@ const SideBar = () => {
                               <li
                                 className={`menu-item  ${pathname === vendorManage.helperList.path
                                   ? 'menu-item-active'
-                                  : ''
-                                }`}
+                                  : ''}`}
                                 aria-haspopup="true"
                               >
                                 <Link
@@ -735,8 +711,7 @@ const SideBar = () => {
                               <li
                                 className={`menu-item  ${pathname === driverManage.createDriver.path
                                   ? 'menu-item-active'
-                                  : ''
-                                }`}
+                                  : ''}`}
                                 aria-haspopup="true"
                               >
                                 <Link

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { PRIVATE_ROUTES } from '../../config';
 import ConfirmationAlert from '../../components/confirmationAlert';
 
 const DispatcherDetail = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -28,18 +28,18 @@ const DispatcherDetail = () => {
               <span style={{ cursor: 'pointer', paddingRight: '5px' }}>
                 <img
                   onClick={handleShow}
-                  src="assets/images/ic_delete_white.svg"
+                  src="/assets/images/ic_delete_white.svg"
                   alt=""
                 />
               </span>
               <span style={{ cursor: 'pointer' }}>
                 <img
                   onClick={() =>
-                    history.push(
+                    navigate(
                       PRIVATE_ROUTES.dispatcherManage.editDispatcher.path,
                     )
                   }
-                  src="assets/images/ic_edit_white.svg"
+                  src="/assets/images/ic_edit_white.svg"
                   alt=""
                 />
               </span>
@@ -55,7 +55,7 @@ const DispatcherDetail = () => {
               <div className="modal-dialog" role="document">
                 <div className="modal-content">
                   <div className="modal-header">
-                    <img src="assets/images/ic-logo.svg" alt="logo" />
+                    <img src="/assets/images/ic-logo.svg" alt="logo" />
                   </div>
                   <div className="modal-body">
                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed

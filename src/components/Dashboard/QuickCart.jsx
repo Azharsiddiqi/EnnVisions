@@ -52,7 +52,7 @@ const QuickCart = () => {
               </div>
             </div>
             <Link to="#" className="symbol symbol-70 flex-shrink-0">
-              <img src="assets/media/stock-600x400/img-1.jpg" alt="" />
+              <img src="/assets/media/stock-600x400/img-1.jpg" alt="" />
             </Link>
           </div>
           {/* end::Item */}
@@ -89,7 +89,7 @@ const QuickCart = () => {
               </div>
             </div>
             <Link to="#" className="symbol symbol-70 flex-shrink-0">
-              <img src="assets/media/stock-600x400/img-2.jpg" alt="" />
+              <img src="/assets/media/stock-600x400/img-2.jpg" alt="" />
             </Link>
           </div>
           {/* end::Item */}
@@ -128,7 +128,7 @@ const QuickCart = () => {
               </div>
             </div>
             <Link to="#" className="symbol symbol-70 flex-shrink-0">
-              <img src="assets/media/stock-600x400/img-3.jpg" alt="" />
+              <img src="/assets/media/stock-600x400/img-3.jpg" alt="" />
             </Link>
           </div>
           {/* end::Item */}
@@ -165,7 +165,7 @@ const QuickCart = () => {
               </div>
             </div>
             <Link to="#" className="symbol symbol-70 flex-shrink-0">
-              <img src="assets/media/stock-600x400/img-4.jpg" alt="" />
+              <img src="/assets/media/stock-600x400/img-4.jpg" alt="" />
             </Link>
           </div>
           {/* end::Item */}
@@ -202,7 +202,7 @@ const QuickCart = () => {
               </div>
             </div>
             <Link to="#" className="symbol symbol-70 flex-shrink-0">
-              <img src="assets/media/stock-600x400/img-8.jpg" alt="" />
+              <img src="/assets/media/stock-600x400/img-8.jpg" alt="" />
             </Link>
           </div>
           {/* end::Item */}

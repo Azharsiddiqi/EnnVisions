@@ -45,7 +45,7 @@ const userRolesList = () => {
                 <tbody>
                   <tr>
                     <td className="user-p">
-                      <img src="assets/images/001-boy.svg" alt="" />
+                      <img src="/assets/images/001-boy.svg" alt="" />
                       <span className="user-name">SUPER ADMIN</span>
                     </td>
                     <td className="user-message">
@@ -72,7 +72,7 @@ const userRolesList = () => {
                   </tr>
                   <tr>
                     <td className="user-p">
-                      <img src="assets/images/018-girl-9.svg" alt="" />
+                      <img src="/assets/images/018-girl-9.svg" alt="" />
                       <span className="user-name">ADMIN</span>
                     </td>
                     <td className="user-message">
@@ -95,7 +95,7 @@ const userRolesList = () => {
                   </tr>
                   <tr>
                     <td className="user-p">
-                      <img src="assets/images/035-boy-15.svg" alt="" />
+                      <img src="/assets/images/035-boy-15.svg" alt="" />
                       <span className="user-name">FLEET</span>
                     </td>
                     <td className="user-message">
@@ -118,7 +118,7 @@ const userRolesList = () => {
                   </tr>
                   <tr>
                     <td className="user-p">
-                      <img src="assets/images/001-boy.svg" alt="" />
+                      <img src="/assets/images/001-boy.svg" alt="" />
                       <span className="user-name">VENDOR</span>
                     </td>
                     <td className="user-message">
@@ -141,7 +141,7 @@ const userRolesList = () => {
                   </tr>
                   <tr>
                     <td className="user-p">
-                      <img src="assets/images/018-girl-9.svg" alt="" />
+                      <img src="/assets/images/018-girl-9.svg" alt="" />
                       <span className="user-name">LOCATION MANAGER</span>
                     </td>
                     <td className="user-message">
@@ -164,7 +164,7 @@ const userRolesList = () => {
                   </tr>
                   <tr>
                     <td className="user-p">
-                      <img src="assets/images/035-boy-15.svg" alt="" />
+                      <img src="/assets/images/035-boy-15.svg" alt="" />
                       <span className="user-name">DATA ANALYST</span>
                     </td>
                     <td className="user-message">

@@ -11,7 +11,7 @@ const Aside = () => {
           {/* begin::Aside Top */}
           <div className="d-flex flex-column-auto flex-column pt-5">
             <img
-              src="assets/images/ic-logo-white.svg"
+              src="/assets/images/ic-logo-white.svg"
               alt="logo"
               className="envision-white-logo"
             />
@@ -22,7 +22,7 @@ const Aside = () => {
             className="aside-img d-flex flex-row-fluid bgi-no-repeat bgi-position-y-bottom bgi-position-x-center"
             style={{
               backgroundImage:
-                'url(assets/media/svg/illustrations/login-visual-1.svg)',
+                'url(/assets/media/svg/illustrations/login-visual-1.svg)',
             }}
           ></div>
           {/* end::Aside Bottom */}

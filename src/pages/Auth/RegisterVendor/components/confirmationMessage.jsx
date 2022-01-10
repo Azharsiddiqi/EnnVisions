@@ -4,7 +4,7 @@ const ConfirmationMessage = () => {
   return (
     <div className="confirmation-container">
       <div className="confirmation-container-content">
-        <img src="assets/images/ic-logo-white.svg" alt="" />
+        <img src="/assets/images/ic-logo-white.svg" alt="" />
         <div className="confirmation-title">
           Thank you for your application{' '}
         </div>

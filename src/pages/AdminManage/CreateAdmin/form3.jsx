@@ -1,9 +1,9 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { PRIVATE_ROUTES } from '../../../config';
 
 const Form3 = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <div className="create-admin-form">
       <form action="#" method="post">
@@ -85,7 +85,7 @@ const Form3 = () => {
           <button
             type="submit"
             className="btn"
-            onClick={() => history.push(PRIVATE_ROUTES.dashboard.path)}
+            onClick={() => navigate(PRIVATE_ROUTES.dashboard.path)}
           >
             SUBMIT
           </button>

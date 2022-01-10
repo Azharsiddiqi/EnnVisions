@@ -54,7 +54,7 @@ const Form2 = ({ formShowHandler }) => {
                     APP <span className="light">LOGO</span>
                   </span>
                   <input />
-                  <img src="assets/images/ic_upload.svg" alt="" />
+                  <img src="/assets/images/ic_upload.svg" alt="" />
                 </div>
               </div>
             </div>
@@ -118,7 +118,7 @@ const Form2 = ({ formShowHandler }) => {
                     APP <span className="light">LOGO</span>
                   </span>
                   <input />
-                  <img src="assets/images/ic_upload.svg" alt="" />
+                  <img src="/assets/images/ic_upload.svg" alt="" />
                 </div>
               </div>
             </div>
@@ -182,7 +182,7 @@ const Form2 = ({ formShowHandler }) => {
                     APP <span className="light">LOGO</span>
                   </span>
                   <input />
-                  <img src="assets/images/ic_upload.svg" alt="" />
+                  <img src="/assets/images/ic_upload.svg" alt="" />
                 </div>
               </div>
             </div>
@@ -246,7 +246,7 @@ const Form2 = ({ formShowHandler }) => {
                     APP <span className="light">LOGO</span>
                   </span>
                   <input />
-                  <img src="assets/images/ic_upload.svg" alt="" />
+                  <img src="/assets/images/ic_upload.svg" alt="" />
                 </div>
               </div>
             </div>
@@ -310,7 +310,7 @@ const Form2 = ({ formShowHandler }) => {
                     APP <span className="light">LOGO</span>
                   </span>
                   <input />
-                  <img src="assets/images/ic_upload.svg" alt="" />
+                  <img src="/assets/images/ic_upload.svg" alt="" />
                 </div>
               </div>
             </div>

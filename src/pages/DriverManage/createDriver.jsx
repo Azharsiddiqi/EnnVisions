@@ -176,7 +176,7 @@ const CreateDriver = () => {
                     <div className="col-sm-12">
                       <div className="driver-license">
                         <img
-                          src="assets/images/ic_document.svg"
+                          src="/assets/images/ic_document.svg"
                           alt="Document"
                         />
                         <p>Driver's License- (Back/Reverse)</p>
@@ -186,7 +186,7 @@ const CreateDriver = () => {
                       </div>
                       <div className="driver-license">
                         <img
-                          src="assets/images/ic_document.svg"
+                          src="/assets/images/ic_document.svg"
                           alt="Document"
                         />
                         <p>Driver's License- (Back/Reverse)</p>
@@ -196,7 +196,7 @@ const CreateDriver = () => {
                       </div>
                       <div className="driver-license">
                         <img
-                          src="assets/images/ic_document.svg"
+                          src="/assets/images/ic_document.svg"
                           alt="Document"
                         />
                         <p>Driver's License- (Back/Reverse)</p>
@@ -206,7 +206,7 @@ const CreateDriver = () => {
                       </div>
                       <div className="driver-license">
                         <img
-                          src="assets/images/ic_document.svg"
+                          src="/assets/images/ic_document.svg"
                           alt="Document"
                         />
                         <p>Driver's License- (Back/Reverse)</p>
@@ -216,7 +216,7 @@ const CreateDriver = () => {
                       </div>
                       <div className="driver-license">
                         <img
-                          src="assets/images/ic_document.svg"
+                          src="/assets/images/ic_document.svg"
                           alt="Document"
                         />
                         <p>Driver's License- (Back/Reverse)</p>

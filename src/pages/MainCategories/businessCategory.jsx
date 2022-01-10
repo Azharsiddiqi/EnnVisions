@@ -475,7 +475,7 @@ const BusinessCategory = () => {
                                     data-target="#exampleModal"
                                   >
                                     <img
-                                      src="assets/images/new-delete.svg"
+                                      src="/assets/images/new-delete.svg"
                                       alt=""
                                     />
                                   </span>
@@ -485,7 +485,7 @@ const BusinessCategory = () => {
                                     onClick={() => editButtonHandler(item)}
                                   >
                                     <img
-                                      src="assets/images/new-edit.svg"
+                                      src="/assets/images/new-edit.svg"
                                       alt=""
                                     />
                                   </span>

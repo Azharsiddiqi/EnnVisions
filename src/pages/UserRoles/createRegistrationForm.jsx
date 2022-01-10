@@ -1,9 +1,9 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { PRIVATE_ROUTES } from '../../config';
 
 const createRegistrationForm = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <div className="d-flex flex-column-fluid">
       {/* begin::Container */}
@@ -33,7 +33,7 @@ const createRegistrationForm = () => {
                   <div className="btn-fleet-submit">
                     <button
                       onClick={() =>
-                        history.push(PRIVATE_ROUTES.dashboard.path)
+                        navigate(PRIVATE_ROUTES.dashboard.path)
                       }
                       type="submit"
                       className="btn"
@@ -104,7 +104,7 @@ const createRegistrationForm = () => {
                             <span className="light">(Photo)</span>
                           </span>
                           <input />
-                          <img src="assets/images/ic_upload.svg" alt="" />
+                          <img src="/assets/images/ic_upload.svg" alt="" />
                         </div>
                       </div>
                       <div className="form-group">
@@ -117,7 +117,7 @@ const createRegistrationForm = () => {
                           defaultValue="add placeholder"
                         />
                         <img
-                          src="assets/images/ic_calendar.svg"
+                          src="/assets/images/ic_calendar.svg"
                           className="calendar-icon"
                           alt=""
                         />
@@ -131,7 +131,7 @@ const createRegistrationForm = () => {
                           autoComplete="off"
                         />
                         <span className="country-code">
-                          <img src="assets/images/053-canada.svg" alt="" /> +1
+                          <img src="/assets/images/053-canada.svg" alt="" /> +1
                         </span>
                       </div>
                     </form>

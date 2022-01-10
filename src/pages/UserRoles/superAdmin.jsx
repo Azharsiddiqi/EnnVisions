@@ -1,10 +1,10 @@
 import React from 'react';
 import { Form } from 'react-bootstrap';
 import { PRIVATE_ROUTES } from '../../config';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const superAdmin = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <div>
       <div
@@ -241,7 +241,7 @@ const superAdmin = () => {
                 type="button"
                 className="submit-btn"
                 onClick={() => {
-                  history.push(PRIVATE_ROUTES.userRoles.adminManagePer.path);
+                  navigate(PRIVATE_ROUTES.userRoles.adminManagePer.path);
                 }}
               >
                 SAVE

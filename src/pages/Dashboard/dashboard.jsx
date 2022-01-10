@@ -30,7 +30,7 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div className="red user-img">
-                  <img src="assets/images/026-boy-10.svg" alt="" />
+                  <img src="/assets/images/026-boy-10.svg" alt="" />
                 </div>
               </div>
               <div className="col-12 col-sm-6 col-md-4 col-lg-3 card">
@@ -52,7 +52,7 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div className="sky user-img">
-                  <img src="assets/images/026-boy-10.svg" alt="" />
+                  <img src="/assets/images/026-boy-10.svg" alt="" />
                 </div>
               </div>
               <div className="col-12 col-sm-6 col-md-4 col-lg-3 card">
@@ -74,7 +74,7 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div className="yellow user-img">
-                  <img src="assets/images/026-boy-10.svg" alt="" />
+                  <img src="/assets/images/026-boy-10.svg" alt="" />
                 </div>
               </div>
               <div className="col-12 col-sm-6 col-md-4 col-lg-3 card">
@@ -96,7 +96,7 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div className="brownish user-img">
-                  <img src="assets/images/026-boy-10.svg" alt="" />
+                  <img src="/assets/images/026-boy-10.svg" alt="" />
                 </div>
               </div>
               <div className="col-12 col-sm-6 col-md-4 col-lg-3 card">
@@ -118,7 +118,7 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div className="light-green user-img">
-                  <img src="assets/images/026-boy-10.svg" alt="" />
+                  <img src="/assets/images/026-boy-10.svg" alt="" />
                 </div>
               </div>
               <div className="col-12 col-sm-6 col-md-4 col-lg-3 card">
@@ -140,7 +140,7 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div className="blue user-img">
-                  <img src="assets/images/026-boy-10.svg" alt="" />
+                  <img src="/assets/images/026-boy-10.svg" alt="" />
                 </div>
               </div>
               <div className="col-12 col-sm-6 col-md-4 col-lg-3 card">
@@ -162,7 +162,7 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div className="user-blue user-img">
-                  <img src="assets/images/026-boy-10.svg" alt="" />
+                  <img src="/assets/images/026-boy-10.svg" alt="" />
                 </div>
               </div>
               <div className="col-12 col-sm-6 col-md-4 col-lg-3 card">
@@ -184,7 +184,7 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div className="yellow user-img">
-                  <img src="assets/images/026-boy-10.svg" alt="" />
+                  <img src="/assets/images/026-boy-10.svg" alt="" />
                 </div>
               </div>
               <div className="col-12 col-sm-6 col-md-4 col-lg-3 card">
@@ -206,7 +206,7 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div className="sale-blue user-img">
-                  <img src="assets/images/026-boy-10.svg" alt="" />
+                  <img src="/assets/images/026-boy-10.svg" alt="" />
                 </div>
               </div>
               <div className="col-12 col-sm-6 col-md-4 col-lg-3 card">
@@ -228,7 +228,7 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div className="agency user-img">
-                  <img src="assets/images/026-boy-10.svg" alt="" />
+                  <img src="/assets/images/026-boy-10.svg" alt="" />
                 </div>
               </div>
               <div className="col-12 col-sm-6 col-md-4 col-lg-3 card">
@@ -250,7 +250,7 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div className="water user-img">
-                  <img src="assets/images/026-boy-10.svg" alt="" />
+                  <img src="/assets/images/026-boy-10.svg" alt="" />
                 </div>
               </div>
               <div className="col-12 col-sm-6 col-md-4 col-lg-3 card">
@@ -272,7 +272,7 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div className="referral user-img">
-                  <img src="assets/images/026-boy-10.svg" alt="" />
+                  <img src="/assets/images/026-boy-10.svg" alt="" />
                 </div>
               </div>
             </div>
@@ -298,7 +298,7 @@ const Dashboard = () => {
                   </div>
                   <div className="cat-info-three">
                     <img
-                      src="assets/images/green-circle.png"
+                      src="/assets/images/green-circle.png"
                       alt="green-circle"
                     />
                   </div>
@@ -317,7 +317,7 @@ const Dashboard = () => {
                   </div>
                   <div className="cat-info-three">
                     <img
-                      src="assets/images/green-circle.png"
+                      src="/assets/images/green-circle.png"
                       alt="green-circle"
                     />
                   </div>
@@ -336,7 +336,7 @@ const Dashboard = () => {
                   </div>
                   <div className="cat-info-three">
                     <img
-                      src="assets/images/green-circle.png"
+                      src="/assets/images/green-circle.png"
                       alt="green-circle"
                     />
                   </div>
@@ -355,7 +355,7 @@ const Dashboard = () => {
                   </div>
                   <div className="cat-info-three">
                     <img
-                      src="assets/images/green-circle.png"
+                      src="/assets/images/green-circle.png"
                       alt="green-circle"
                     />
                   </div>
@@ -374,7 +374,7 @@ const Dashboard = () => {
                   </div>
                   <div className="cat-info-three">
                     <img
-                      src="assets/images/green-circle.png"
+                      src="/assets/images/green-circle.png"
                       alt="green-circle"
                     />
                   </div>
@@ -393,7 +393,7 @@ const Dashboard = () => {
                   </div>
                   <div className="cat-info-three">
                     <img
-                      src="assets/images/green-circle.png"
+                      src="/assets/images/green-circle.png"
                       alt="green-circle"
                     />
                   </div>
@@ -412,7 +412,7 @@ const Dashboard = () => {
                   </div>
                   <div className="cat-info-three">
                     <img
-                      src="assets/images/green-circle.png"
+                      src="/assets/images/green-circle.png"
                       alt="green-circle"
                     />
                   </div>
@@ -431,7 +431,7 @@ const Dashboard = () => {
                   </div>
                   <div className="cat-info-three">
                     <img
-                      src="assets/images/green-circle.png"
+                      src="/assets/images/green-circle.png"
                       alt="green-circle"
                     />
                   </div>

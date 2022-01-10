@@ -7,7 +7,7 @@ const ConfirmationAlert = ({ show, handleSave, handleClose, description }) => {
       <div className="page12-custom">
         <div className="page12-container">
           <div className="logo-body-text">
-            <img src="assets/images/ic-logo.svg" alt="Envision" />
+            <img src="/assets/images/ic-logo.svg" alt="Envision" />
             <p>{description}</p>
           </div>
           <div className="btn-container">

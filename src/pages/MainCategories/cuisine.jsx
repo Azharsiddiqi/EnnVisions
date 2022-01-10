@@ -188,7 +188,7 @@ const Cuisine = () => {
                             data-toggle="modal"
                             data-target="#exampleModal"
                           >
-                            <img src="assets/images/new-delete.svg" alt="" />
+                            <img src="/assets/images/new-delete.svg" alt="" />
                           </span>
                           {/* Modal */}
                           <div
@@ -202,7 +202,7 @@ const Cuisine = () => {
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
-                                  <img src="assets/images/ic-logo.svg" alt="" />
+                                  <img src="/assets/images/ic-logo.svg" alt="" />
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
@@ -227,7 +227,7 @@ const Cuisine = () => {
                             </div>
                           </div>
                           <span className="ic-edit">
-                            <img src="assets/images/new-edit.svg" alt="" />
+                            <img src="/assets/images/new-edit.svg" alt="" />
                           </span>
                         </td>
                       </tr>
@@ -244,7 +244,7 @@ const Cuisine = () => {
                             data-toggle="modal"
                             data-target="#exampleModal"
                           >
-                            <img src="assets/images/new-delete.svg" alt="" />
+                            <img src="/assets/images/new-delete.svg" alt="" />
                           </span>
                           {/* Modal */}
                           <div
@@ -258,7 +258,7 @@ const Cuisine = () => {
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
-                                  <img src="assets/images/ic-logo.svg" alt="" />
+                                  <img src="/assets/images/ic-logo.svg" alt="" />
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
@@ -283,7 +283,7 @@ const Cuisine = () => {
                             </div>
                           </div>
                           <span className="ic-edit">
-                            <img src="assets/images/new-edit.svg" alt="" />
+                            <img src="/assets/images/new-edit.svg" alt="" />
                           </span>
                         </td>
                       </tr>
@@ -300,7 +300,7 @@ const Cuisine = () => {
                             data-toggle="modal"
                             data-target="#exampleModal"
                           >
-                            <img src="assets/images/new-delete.svg" alt="" />
+                            <img src="/assets/images/new-delete.svg" alt="" />
                           </span>
                           {/* Modal */}
                           <div
@@ -314,7 +314,7 @@ const Cuisine = () => {
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
-                                  <img src="assets/images/ic-logo.svg" alt="" />
+                                  <img src="/assets/images/ic-logo.svg" alt="" />
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
@@ -339,7 +339,7 @@ const Cuisine = () => {
                             </div>
                           </div>
                           <span className="ic-edit">
-                            <img src="assets/images/new-edit.svg" alt="" />
+                            <img src="/assets/images/new-edit.svg" alt="" />
                           </span>
                         </td>
                       </tr>
@@ -356,7 +356,7 @@ const Cuisine = () => {
                             data-toggle="modal"
                             data-target="#exampleModal"
                           >
-                            <img src="assets/images/new-delete.svg" alt="" />
+                            <img src="/assets/images/new-delete.svg" alt="" />
                           </span>
                           {/* Modal */}
                           <div
@@ -370,7 +370,7 @@ const Cuisine = () => {
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
-                                  <img src="assets/images/ic-logo.svg" alt="" />
+                                  <img src="/assets/images/ic-logo.svg" alt="" />
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
@@ -395,7 +395,7 @@ const Cuisine = () => {
                             </div>
                           </div>
                           <span className="ic-edit">
-                            <img src="assets/images/new-edit.svg" alt="" />
+                            <img src="/assets/images/new-edit.svg" alt="" />
                           </span>
                         </td>
                       </tr>

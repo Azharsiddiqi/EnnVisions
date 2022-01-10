@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { PUBLIC_ROUTES } from '../../../config';
 import AddMoreOptions from './components/addMoreInfo';
 
 const RegisterVendor = () => {
   const [showAddMoreOptions, setShowAddMoreOptions] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <React.Fragment>
       <div className="login-content flex-row-fluid d-flex flex-column justify-content-center position-relative overflow-hidden p-7 mx-auto">
@@ -15,7 +15,7 @@ const RegisterVendor = () => {
           <div className="login-form login-signin">
             {/* begin::Form */}
             <img
-              src="assets/images/ic-logo.svg"
+              src="/assets/images/ic-logo.svg"
               alt="logo"
               className="envision-red-logo"
             />
@@ -79,7 +79,7 @@ const RegisterVendor = () => {
                       autoComplete="off"
                     />
                     <span className="country-code">
-                      <img src="assets/images/053-canada.svg" alt="" /> +1
+                      <img src="/assets/images/053-canada.svg" alt="" /> +1
                     </span>
                   </div>
                 </div>
@@ -93,7 +93,7 @@ const RegisterVendor = () => {
                       autoComplete="off"
                     />
                     <span className="country-code">
-                      <img src="assets/images/053-canada.svg" alt="" /> +1
+                      <img src="/assets/images/053-canada.svg" alt="" /> +1
                     </span>
                   </div>
                 </div>
@@ -261,7 +261,7 @@ const RegisterVendor = () => {
                 <button
                   type="button"
                   onClick={() =>
-                    history.push(PUBLIC_ROUTES.confirmationPassword.path)
+                    navigate('/auth/' + PUBLIC_ROUTES.confirmationPassword.path)
                   }
                   id="sign-submit-btn"
                   className="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 mr-4"

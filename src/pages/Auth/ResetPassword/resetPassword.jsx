@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { PUBLIC_ROUTES } from '../../../config';
 
 const ResetPassword = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <React.Fragment>
       <div className="login-content flex-row-fluid d-flex flex-column justify-content-center position-relative overflow-hidden p-7 mx-auto">
@@ -13,7 +13,7 @@ const ResetPassword = () => {
           <div className="login-form login-signin">
             {/* begin::Form */}
             <img
-              src="assets/images/ic-logo.svg"
+              src="/assets/images/ic-logo.svg"
               alt="logo"
               className="envision-red-logo"
             />
@@ -53,7 +53,7 @@ const ResetPassword = () => {
               {/* begin::Action */}
               <div className="pb-lg-0 pb-5">
                 <button
-                  onClick={() => history.push(PUBLIC_ROUTES.login.path)}
+                  onClick={() => navigate('/auth/' + PUBLIC_ROUTES.login.path)}
                   type="button"
                   className="btn btn-primary next-btn font-weight-bolder font-size-h6 px-4 py-4 my-3 mr-3"
                 >

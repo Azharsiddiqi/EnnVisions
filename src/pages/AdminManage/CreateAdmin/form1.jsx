@@ -178,7 +178,7 @@ const Form1 = ({ formShowHandler }) => {
                   Insurance <span className="light">(Photo)</span>
                 </span>
                 <input />
-                <img src="assets/images/ic_upload.svg" alt="" />
+                <img src="/assets/images/ic_upload.svg" alt="" />
               </div>
             </div>
           </div>
@@ -192,7 +192,7 @@ const Form1 = ({ formShowHandler }) => {
                 placeholder="Insurance Expiry Date"
               />
               <img
-                src="assets/images/ic_calendar.svg"
+                src="/assets/images/ic_calendar.svg"
                 className="calendar-icon"
                 alt=""
               />
