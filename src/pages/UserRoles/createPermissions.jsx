@@ -1,6 +1,6 @@
-import React from 'react';
-import { PRIVATE_ROUTES } from '../../config';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { PRIVATE_ROUTES } from "../../config";
+import { useNavigate } from "react-router-dom";
 
 const createPermissions = () => {
   const navigate = useNavigate();
@@ -98,7 +98,10 @@ const createPermissions = () => {
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
-                                  <img src="/assets/images/ic-logo.svg" alt="" />
+                                  <img
+                                    src="/assets/images/ic-logo.svg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
@@ -154,7 +157,10 @@ const createPermissions = () => {
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
-                                  <img src="/assets/images/ic-logo.svg" alt="" />
+                                  <img
+                                    src="/assets/images/ic-logo.svg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
@@ -210,7 +216,10 @@ const createPermissions = () => {
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
-                                  <img src="/assets/images/ic-logo.svg" alt="" />
+                                  <img
+                                    src="/assets/images/ic-logo.svg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
@@ -266,7 +275,10 @@ const createPermissions = () => {
                             <div className="modal-dialog" role="document">
                               <div className="modal-content">
                                 <div className="modal-header">
-                                  <img src="/assets/images/ic-logo.svg" alt="" />
+                                  <img
+                                    src="/assets/images/ic-logo.svg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="modal-body">
                                   <div className="modal-text">
