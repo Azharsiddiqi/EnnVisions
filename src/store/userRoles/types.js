@@ -5,7 +5,7 @@ export const UPDATE_PERMISSION_LIST = 'UPDATE_PERMISSION_LIST';
 
 // <-----------------------Start: Add New Role Section - Started----------------------->
 
-export const CREATE_USER_ROLE= 'CREATE_USER_ROLE';
+export const CREATE_USER_ROLE = 'CREATE_USER_ROLE';
 // <-----------------------Ending: Add New Role Section----------------------->
 
 

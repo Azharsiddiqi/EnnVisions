@@ -67,7 +67,7 @@ export const ACTION_createUserRole = (reqPacket) => (dispatch) =>{
     .post(BACKEND_BASE_URL+'/api/role/save',reqPacket)
     .then((res)=>{
       console.log('check role :',res);
-      if(res.data.code === 500){
+      if(res.data.code === 200){
         dispatch({
           type:actionTypes.CREATE_USER_ROLE,
           payload:res.data.result

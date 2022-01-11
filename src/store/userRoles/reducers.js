@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 const initialState={
   userPermissions:[],
-  rolesList:[]
+  rolesList:[],
 };
 export default (state = initialState, action) =>{
   switch (action.type) {
