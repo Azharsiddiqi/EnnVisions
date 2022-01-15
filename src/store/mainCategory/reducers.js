@@ -17,10 +17,16 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
   // <-----------------------Beginning Business category list----------------------->
+  case actionTypes.GET_BUSINESS_CATEGORY_SETUP:
+    return {
+      ...state,
+      businessCategory: {...action.payload},
+    };
+
   case actionTypes.UPDATE_BUSINESS_CATEGORIES_DROPDOWN_LIST:
     return {
       ...state,
-      businessCategory: action.payload,
+      businessCategory: {...action.payload},
     };
   case actionTypes.ADD_NEW_BUSINESS_CATEGORY_ITEM:
     return {
@@ -65,10 +71,17 @@ export default (state = initialState, action) => {
   // <-----------------------Ending: Business category list----------------------->
 
   // <-----------------------Beginning: Business Type Section----------------------->
+  case actionTypes.GET_BUSINESS_TYPE_SETUP:
+    return {
+      ...state,
+      businessType: {...action.payload},
+    };
+ 
+ 
   case actionTypes.UPDATE_BUSINESS_TYPE_DROPDOWN_LIST:
     return {
       ...state,
-      businessType: action.payload,
+      businessType: {...action.payload},
     };
   case actionTypes.ADD_NEW_BUSINESS_TYPE_ITEM:
     return {
@@ -107,10 +120,18 @@ export default (state = initialState, action) => {
   // <-----------------------Ending: Business Type Section----------------------->
 
   // <-----------------------Beginning: House Delivery Service Section----------------------->
+  case actionTypes.GET_HOUSE_DELIVERY_SETUP:
+    return {
+      ...state,
+      houseDeliveryService: {...action.payload},
+    };
+  
+  
+  
   case actionTypes.UPDATE_HOUSE_DELIVERY_SETUP:
     return {
       ...state,
-      houseDeliveryService: action.payload,
+      houseDeliveryService: {...action.payload},
     };
 
   case actionTypes.ADD_HOUSE_DELIVERY:
@@ -156,11 +177,19 @@ export default (state = initialState, action) => {
   // <-----------------------Ending: House Delivery Service Section----------------------->
 
   // <-----------------------Beginning: Open Status Section----------------------->
+  case actionTypes.GET_OPEN_STATUS_SETUP:
+    return {
+      ...state,
+      openingStatus: {...action.payload},
+    };
+ 
+
+
 
   case actionTypes.UPDATE_OPEN_STATUS_DROPDOWN_LIST:
     return {
       ...state,
-      openingStatus: action.payload,
+      openingStatus: {...action.payload},
     };
   case actionTypes.ADD_OPEN_STATUS:
     return {
@@ -198,10 +227,18 @@ export default (state = initialState, action) => {
   // <-----------------------Ending: Open Status Section----------------------->
 
   // <-----------------------Beginning: Alcohol Section----------------------->
+
+  case actionTypes.GET_ALCOHOL_SETUP:
+    return {
+      ...state,
+      alcohol: {...action.payload},
+    };
+
+
   case actionTypes.UPDATE_ALCOHOL_DROPDOWN_LIST:
     return {
       ...state,
-      alcohol: action.payload,
+      alcohol: {...action.payload},
     };
   case actionTypes.ADD_ALCOHOL:
     return {

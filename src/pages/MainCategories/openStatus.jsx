@@ -6,13 +6,15 @@ import {
   ACTION_deleteOpeningStatusSetup,
   ACTION_updateOpenStatus,
   ACTION_updateOpeningStatusSetup,
+  ACTION_getOpeningStatusSetup,
 } from '../../store/mainCategory/actions';
 import Modal from '../../components/confirmationAlert';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
+import _ from 'lodash';
 
 const OpenStatus = () => {
   const dispatch = useDispatch();
-  const { openingStatusItems } = useSelector((state) => state.mainCategory);
+  const { openingStatus,openingStatusItems } = useSelector((state) => state.mainCategory);
   // begin item states
   const [itemName, setItemName] = useState('');
   const [itemDescription, setItemDescription] = useState('');
@@ -130,8 +132,24 @@ const OpenStatus = () => {
 
   useEffect(() => {
     dispatch(ACTION_getOpenStatus());
+    dispatch(ACTION_getOpeningStatusSetup());
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    if( !_.isEmpty(openingStatus) ) {
+      setTitle(openingStatus.title);
+      setDescription(openingStatus.description);
+      setIsDisplayTitle(openingStatus.isDisplayTitle);
+      setIsDisplayDescription(openingStatus.isDisplayDescription);
+      setIsDropdown(openingStatus.isDropdown);
+      setIsCheckBox(openingStatus.isCheckBox);
+      setIsMultipleSelection(openingStatus.isMultipleSelection);
+      setIsRequired(openingStatus.isRequired);
+      setStatus(1);
+          
+    }
+  }, [openingStatus]);
 
   return (
     <div>
@@ -164,7 +182,6 @@ const OpenStatus = () => {
                   <textarea
                     className="form-control"
                     placeholder="Main Categories Details"
-                    defaultValue={''}
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                   />
@@ -384,9 +401,9 @@ const OpenStatus = () => {
                     </thead>
                     <tbody>
                       {openingStatusItems && openingStatusItems.length
-                        ? openingStatusItems.map((item) =>
+                        ? openingStatusItems.map((item,index) =>
                           editItem && editItem.id === item.id ? (
-                            <tr>
+                            <tr key={index}>
                               <td className="pg-14-id">{item.id}</td>
                               <td className="pg-14-name">
                                 <div className="form-group">
@@ -450,7 +467,7 @@ const OpenStatus = () => {
                               </td>
                             </tr>
                           ) : (
-                            <tr>
+                            <tr key={index}>
                               <td className="pg-14-id">
                                 <b>{item.id}</b>
                               </td>

@@ -6,13 +6,15 @@ import {
   ACTION_deleteBusinessCategoryItem,
   ACTION_updateBusinessCategoryItem,
   ACTION_updateBusinessCategoriesDropdownList,
+  ACTION_getBusinessCategoriesSetup,
 } from '../../store/mainCategory/actions';
 import Modal from '../../components/confirmationAlert';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
+import _ from 'lodash';
 
 const BusinessCategory = () => {
   const dispatch = useDispatch();
-  const { businessCategoriesItems } = useSelector(
+  const { businessCategory, businessCategoriesItems } = useSelector(
     (state) => state.mainCategory,
   );
   // begin item states
@@ -138,9 +140,25 @@ const BusinessCategory = () => {
   };
 
   useEffect(() => {
+    dispatch(ACTION_getBusinessCategoriesSetup());
     dispatch(ACTION_getBusinessCategoryItems());
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    if( !_.isEmpty(businessCategory) ) {
+      setTitle(businessCategory.title);
+      setDescription(businessCategory.description);
+      setIsDdisplayTitle(businessCategory.isDisplayTitle);
+      setIsDisplayDescription(businessCategory.isDisplayDescription);
+      setIsDropdown(businessCategory.isDropdown);
+      setIsCheckBox(businessCategory.isCheckBox);
+      setIsMultipleSelection(businessCategory.isMultipleSelection);
+      setIsRequired(businessCategory.isRequired);
+      setStatus(1);
+        
+    }
+  }, [businessCategory]);
 
   return (
     <div>
@@ -173,7 +191,6 @@ const BusinessCategory = () => {
                   <textarea
                     className="form-control"
                     placeholder="Main Categories Details"
-                    defaultValue={''}
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                   />
@@ -458,7 +475,7 @@ const BusinessCategory = () => {
                                 </td>
                               </tr>
                             ) : (
-                              <tr>
+                              <tr key={index}>
                                 <td className="pg-14-id">
                                   <b>{index + 1}</b>
                                 </td>

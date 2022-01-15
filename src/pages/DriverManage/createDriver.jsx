@@ -1,6 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { PRIVATE_ROUTES } from '../../config';
 
 const CreateDriver = () => {
+  const navigate = useNavigate();
+
   return (
     <div
       className="content  d-flex flex-column flex-column-fluid"
@@ -227,7 +231,11 @@ const CreateDriver = () => {
                     </div>
                   </div>
                   <div className="create-vendor-submit">
-                    <button className="btn" type="button">
+                    <button  
+                      type="submit"
+                      onClick={() => navigate(PRIVATE_ROUTES.driverManage.vendorFleet.path)}
+                      className="btn"
+                    >
                       SUBMIT
                     </button>
                   </div>

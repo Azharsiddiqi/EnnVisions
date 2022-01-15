@@ -78,6 +78,28 @@ export const ACTION_updateBusinessCategoryItem = (reqPacket) => (dispatch) => {
     .catch((error) => console.log('error: ', error));
 };
 
+export const ACTION_getBusinessCategoriesSetup =
+  () => (dispatch) => {
+    axios
+      .get(
+        BACKEND_BASE_URL +
+          '/api/business/category/getBusinessCategoriesSetup'
+      )
+      .then((res) => {
+        console.log('checking res: ', res);
+        if (res.data.code === 200) {
+          dispatch({
+            type: actionTypes.GET_BUSINESS_CATEGORY_SETUP,
+            payload: res.data.result,
+          });
+          toastify.Success(res.data.message);
+        } else {
+          toastify.Error('Something went wrong! Please try again.');
+        }
+      })
+      .catch((error) => console.log('error: ', error));
+  };
+
 export const ACTION_updateBusinessCategoriesDropdownList =
   (reqPacket) => (dispatch) => {
     axios
@@ -177,6 +199,28 @@ export const ACTION_updateBusinessTypeDropdown = (reqPacket) => (dispatch) => {
     })
     .catch((error) => console.log('error: ', error));
 };
+export const ACTION_getBusinessTypeSetup =
+  () => (dispatch) => {
+    axios
+      .get(
+        BACKEND_BASE_URL +
+          '/api/business/type/getBusinessTypeSetup'
+      )
+      .then((res) => {
+        console.log('checking res: ', res);
+        if (res.data.code === 200) {
+          dispatch({
+            type: actionTypes.GET_BUSINESS_CATEGORY_SETUP,
+            payload: res.data.result,
+          });
+          toastify.Success(res.data.message);
+        } else {
+          toastify.Error('Something went wrong! Please try again.');
+        }
+      })
+      .catch((error) => console.log('error: ', error));
+  };
+
 export const ACTION_deleteBusinessTypeItem = (reqPacket) => (dispatch) => {
   axios
     .post(BACKEND_BASE_URL + '/api/business/type/delete', reqPacket)
@@ -287,6 +331,28 @@ export const ACTION_deleteHouseDeliveryOption = (reqPacket) => (dispatch) => {
     })
     .catch((error) => console.log('error: ', error));
 };
+export const ACTION_getHouseDeliverySetup =
+  () => (dispatch) => {
+    axios
+      .get(
+        BACKEND_BASE_URL +
+          '/api/houseDelivery/getHouseDeliverySetup'
+      )
+      .then((res) => {
+        console.log('checking res: ', res);
+        if (res.data.code === 200) {
+          dispatch({
+            type: actionTypes.GET_HOUSE_DELIVERY_SETUP,
+            payload: res.data.result,
+          });
+          toastify.Success(res.data.message);
+        } else {
+          toastify.Error('Something went wrong! Please try again.');
+        }
+      })
+      .catch((error) => console.log('error: ', error));
+  };
+
 // <-----------------------Ending: House Delivery Section----------------------->
 
 // <-----------------------Start: Open Status Section - Started----------------------->
@@ -363,6 +429,29 @@ export const ACTION_updateOpeningStatusSetup = (reqPacket) => (dispatch) => {
     })
     .catch((error) => console.log('error: ', error));
 };
+
+export const ACTION_getOpeningStatusSetup =
+  () => (dispatch) => {
+    axios
+      .get(
+        BACKEND_BASE_URL +
+          '/api/opening/status/getOpeningStatusSetup'
+      )
+      .then((res) => {
+        console.log('checking res: ', res);
+        if (res.data.code === 200) {
+          dispatch({
+            type: actionTypes.GET_OPEN_STATUS_SETUP,
+            payload: res.data.result,
+          });
+          toastify.Success(res.data.message);
+        } else {
+          toastify.Error('Something went wrong! Please try again.');
+        }
+      })
+      .catch((error) => console.log('error: ', error));
+  };
+
 export const ACTION_deleteOpeningStatusSetup = (reqPacket) => (dispatch) => {
   axios
     .post(BACKEND_BASE_URL + '/api/opening/status/delete', reqPacket)
@@ -453,6 +542,27 @@ export const ACTION_updateAlcoholSetup = (reqPacket) => (dispatch) => {
     })
     .catch((error) => console.log('error: ', error));
 };
+export const ACTION_getAlcoholSetup =
+  () => (dispatch) => {
+    axios
+      .get(
+        BACKEND_BASE_URL +
+          '/api/alcohal/getAlcohalSetup'
+      )
+      .then((res) => {
+        console.log('checking res: ', res);
+        if (res.data.code === 200) {
+          dispatch({
+            type: actionTypes.GET_ALCOHOL_SETUP,
+            payload: res.data.result,
+          });
+          toastify.Success(res.data.message);
+        } else {
+          toastify.Error('Something went wrong! Please try again.');
+        }
+      })
+      .catch((error) => console.log('error: ', error));
+  };
 export const ACTION_deleteAlcoholSetup = (reqPacket) => (dispatch) => {
   axios
     .post(BACKEND_BASE_URL + '/api/alcohal/option/delete', reqPacket)

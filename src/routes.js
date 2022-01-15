@@ -34,7 +34,7 @@ export const privateRoutes = [
   PRIVATE_ROUTES.vendorManage.helperList,
   PRIVATE_ROUTES.vendorManage.outLetDetail,
   PRIVATE_ROUTES.driverManage.createDriver,
-  PRIVATE_ROUTES.driverManage.createDriver,
+  PRIVATE_ROUTES.driverManage.createFleet,
   PRIVATE_ROUTES.mainCategories.businessCategory,
   PRIVATE_ROUTES.mainCategories.businessType,
   PRIVATE_ROUTES.mainCategories.houseDeliveryService,

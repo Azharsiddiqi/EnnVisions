@@ -582,7 +582,11 @@ const SideBar = () => {
                 <span className="menu-text">Driver Manage</span>
                 <i className="menu-arrow" />
               </div>
-              <div className="menu-submenu">
+              <div className="menu-submenu" 
+                style={
+                  mainActive === 'driverManage' ? {} : hiddenStyle
+                }
+              >
                 <i className="menu-arrow" />
                 <ul className="menu-subnav">
                   <li className="menu-item  menu-item-submenu">
@@ -590,7 +594,7 @@ const SideBar = () => {
                       to={dispatcherManage.dispatcherDetail.path}
                       className="menu-link"
                     >
-                      <i className="menu-bullet menu-bullet-line">
+                      <i className="menu-bullet menu-bullet-line"> 
                         <span />
                       </i>
                       <span className="menu-text">DoorBud</span>
@@ -624,22 +628,96 @@ const SideBar = () => {
                     >
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
+                         
+
+
+
+
                         <li
-                          className={`menu-item  ${subOfSubActive === 'driverManageJawafaAdminDriver'
-                            ? 'menu-item-active'
+                          className={`menu-item  menu-item-submenu ${subOfSubActive === 'driverManageJawafaFleetDriver'
+                            ? 'menu-item-open'
                             : ''}`}
-                          aria-haspopup="true"
                         >
                           <div
+                            className="menu-link"
                             onClick={() =>
-                              setSubActive(
+                              setSubOfSubActive(
+                                subOfSubActive !==
+                                  'driverManageJawafaFleetDriver'
+                                  ? 'driverManageJawafaFleetDriver'
+                                  : ''
+                              )
+                            }
+                          >
+                            <i className="menu-bullet menu-bullet-line">
+                              <span />
+                            </i>
+                            <span className="menu-text">Fleet Driver</span>
+                            <i className="menu-arrow" />
+                          </div>
+                          <div
+                            className="menu-submenu"
+                            style={
+                              subOfSubActive === 'driverManageJawafaVendorDriver'
+                                ? {}
+                                : hiddenStyle
+                            }
+                          >
+                            <i className="menu-arrow" />
+                            <ul className="menu-subnav">
+                              <li
+                                className={`menu-item  ${pathname === vendorManage.createVendor.path
+                                  ? 'menu-item-active'
+                                  : ''}`}
+                              >
+                                <Link
+                                  to={vendorManage.createVendor.path}
+                                  className="menu-link "
+                                >
+                                  <i className="menu-bullet menu-bullet-dot">
+                                    <span />
+                                  </i>
+                                  <span className="menu-text">
+                                    New Driver
+                                  </span>
+                                </Link>
+                              </li>
+                              <li
+                                className={`menu-item  ${pathname === vendorManage.vendorList.path
+                                  ? 'menu-item-active'
+                                  : ''}`}
+                                aria-haspopup="true"
+                              >
+                                <Link
+                                  to={vendorManage.vendorList.path}
+                                  className="menu-link "
+                                >
+                                  <i className="menu-bullet menu-bullet-dot">
+                                    <span />
+                                  </i>
+                                  <span className="menu-text">Driver List</span>
+                                </Link>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+
+
+                        <li
+                          className={`menu-item  menu-item-submenu ${subOfSubActive === 'driverManageJawafaAdminDriver'
+                            ? 'menu-item-open'
+                            : ''}`}
+                        >
+                          <div
+                            className="menu-link"
+                            onClick={() =>
+                              setSubOfSubActive(
                                 subOfSubActive !==
                                   'driverManageJawafaAdminDriver'
                                   ? 'driverManageJawafaAdminDriver'
                                   : ''
                               )
                             }
-                            className="menu-link"
                           >
                             <i className="menu-bullet menu-bullet-line">
                               <span />
@@ -661,7 +739,6 @@ const SideBar = () => {
                                 className={`menu-item  ${pathname === vendorManage.createVendor.path
                                   ? 'menu-item-active'
                                   : ''}`}
-                                aria-haspopup="true"
                               >
                                 <Link
                                   to={vendorManage.createVendor.path}
@@ -671,7 +748,7 @@ const SideBar = () => {
                                     <span />
                                   </i>
                                   <span className="menu-text">
-                                    Create Vendor
+                                    New Driver
                                   </span>
                                 </Link>
                               </li>
@@ -688,44 +765,84 @@ const SideBar = () => {
                                   <i className="menu-bullet menu-bullet-dot">
                                     <span />
                                   </i>
-                                  <span className="menu-text">Vendor List</span>
-                                </Link>
-                              </li>
-                              <li
-                                className={`menu-item  ${pathname === vendorManage.helperList.path
-                                  ? 'menu-item-active'
-                                  : ''}`}
-                                aria-haspopup="true"
-                              >
-                                <Link
-                                  to={vendorManage.helperList.path}
-                                  className="menu-link "
-                                >
-                                  <i className="menu-bullet menu-bullet-dot">
-                                    <span />
-                                  </i>
-                                  <span className="menu-text">Helper List</span>
-                                </Link>
-                              </li>
-                              <li
-                                className={`menu-item  ${pathname === driverManage.createDriver.path
-                                  ? 'menu-item-active'
-                                  : ''}`}
-                                aria-haspopup="true"
-                              >
-                                <Link
-                                  to={driverManage.createDriver.path}
-                                  className="menu-link "
-                                >
-                                  <i className="menu-bullet menu-bullet-dot">
-                                    <span />
-                                  </i>
-                                  <span className="menu-text">New Driver</span>
+                                  <span className="menu-text">Driver List</span>
                                 </Link>
                               </li>
                             </ul>
                           </div>
                         </li>
+
+                        <li
+                          className={`menu-item  menu-item-submenu ${subOfSubActive === 'driverManageJawafaVendorDriver'
+                            ? 'menu-item-open'
+                            : ''}`}
+                        >
+                          <div
+                            className="menu-link"
+                            onClick={() =>
+                              setSubOfSubActive(
+                                subOfSubActive !==
+                                  'driverManageJawafaVendorDriver'
+                                  ? 'driverManageJawafaVendorDriver'
+                                  : ''
+                              )
+                            }
+                          >
+                            <i className="menu-bullet menu-bullet-line">
+                              <span />
+                            </i>
+                            <span className="menu-text">Vendor Driver</span>
+                            <i className="menu-arrow" />
+                          </div>
+                          <div
+                            className="menu-submenu"
+                            style={
+                              subOfSubActive === 'driverManageJawafaVendorDriver'
+                                ? {}
+                                : hiddenStyle
+                            }
+                          >
+                            <i className="menu-arrow" />
+                            <ul className="menu-subnav">
+                              <li
+                                className={`menu-item  ${pathname === vendorManage.createVendor.path
+                                  ? 'menu-item-active'
+                                  : ''}`}
+                              >
+                                <Link
+                                  to={vendorManage.createVendor.path}
+                                  className="menu-link "
+                                >
+                                  <i className="menu-bullet menu-bullet-dot">
+                                    <span />
+                                  </i>
+                                  <span className="menu-text">
+                                    New Driver
+                                  </span>
+                                </Link>
+                              </li>
+                              <li
+                                className={`menu-item  ${pathname === vendorManage.vendorList.path
+                                  ? 'menu-item-active'
+                                  : ''}`}
+                                aria-haspopup="true"
+                              >
+                                <Link
+                                  to={vendorManage.vendorList.path}
+                                  className="menu-link "
+                                >
+                                  <i className="menu-bullet menu-bullet-dot">
+                                    <span />
+                                  </i>
+                                  <span className="menu-text">Driver List</span>
+                                </Link>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+
+
+
                       </ul>
                     </div>
                   </li>

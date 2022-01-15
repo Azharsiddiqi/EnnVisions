@@ -6,13 +6,15 @@ import {
   ACTION_deleteBusinessTypeItem,
   ACTION_updateBusinessTypeItem,
   ACTION_updateBusinessTypeDropdown,
+  ACTION_getBusinessTypeSetup,
 } from '../../store/mainCategory/actions';
 import Modal from '../../components/confirmationAlert';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
+import _ from 'lodash';
 
 const BusinessType = () => {
   const dispatch = useDispatch();
-  const { businessTypeItems } = useSelector((state) => state.mainCategory);
+  const { businessType,businessTypeItems } = useSelector((state) => state.mainCategory);
   // begin item states
   const [itemName, setItemName] = useState('');
   const [itemDescription, setItemDescription] = useState('');
@@ -130,8 +132,26 @@ const BusinessType = () => {
 
   useEffect(() => {
     dispatch(ACTION_getBusinessTypeItems());
+    dispatch(ACTION_getBusinessTypeSetup());
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    if( !_.isEmpty(businessType) ) {
+      setTitle(businessType.title);
+      setDescription(businessType.description);
+      setIsDisplayTitle(businessType.isDisplayTitle);
+      setIsDisplayDescription(businessType.isDisplayDescription);
+      setIsDropdown(businessType.isDropdown);
+      setIsCheckBox(businessType.isCheckBox);
+      setIsMultipleSelection(businessType.isMultipleSelection);
+      setIsRequired(businessType.isRequired);
+      setStatus(1);
+          
+    }
+  }, [businessType]);
+
+
 
   return (
     <div>
@@ -384,9 +404,9 @@ const BusinessType = () => {
                     </thead>
                     <tbody>
                       {businessTypeItems && businessTypeItems.length
-                        ? businessTypeItems.map((item) =>
+                        ? businessTypeItems.map((item,index) =>
                           editItem && editItem.id === item.id ? (
-                            <tr>
+                            <tr key={index}>
                               <td className="pg-14-id">{item.id}</td>
                               <td className="pg-14-name">
                                 <div className="form-group">
@@ -450,7 +470,7 @@ const BusinessType = () => {
                               </td>
                             </tr>
                           ) : (
-                            <tr>
+                            <tr key={index}>
                               <td className="pg-14-id">
                                 <b>{item.id}</b>
                               </td>

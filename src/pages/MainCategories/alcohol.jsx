@@ -6,13 +6,15 @@ import {
   ACTION_deleteAlcoholSetup,
   ACTION_updateAlcohol,
   ACTION_updateAlcoholSetup,
+  ACTION_getAlcoholSetup,
 } from '../../store/mainCategory/actions';
 import Modal from '../../components/confirmationAlert';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
+import _ from 'lodash';
 
 const Alcohol = () => {
   const dispatch = useDispatch();
-  const { alcoholItems } = useSelector((state) => state.mainCategory);
+  const { alcohol,alcoholItems } = useSelector((state) => state.mainCategory);
   // begin item states
   const [itemName, setItemName] = useState('');
   const [itemDescription, setItemDescription] = useState('');
@@ -130,8 +132,26 @@ const Alcohol = () => {
 
   useEffect(() => {
     dispatch(ACTION_getAlcohol());
+    dispatch(ACTION_getAlcoholSetup());
     // eslint-disable-next-line
   }, []);
+
+
+
+  useEffect(() => {
+    if( !_.isEmpty(alcohol) ) {
+      setTitle(alcohol.title);
+      setDescription(alcohol.description);
+      setIsDisplayTitle(alcohol.isDisplayTitle);
+      setIsDisplayDescription(alcohol.isDisplayDescription);
+      setIsDropdown(alcohol.isDropdown);
+      setIsCheckBox(alcohol.isCheckBox);
+      setIsMultipleSelection(alcohol.isMultipleSelection);
+      setIsRequired(alcohol.isRequired);
+      setStatus(1);
+          
+    }
+  }, [alcohol]);
 
   return (
     <div>
@@ -384,9 +404,9 @@ const Alcohol = () => {
                     </thead>
                     <tbody>
                       {alcoholItems && alcoholItems.length
-                        ? alcoholItems.map((item) =>
+                        ? alcoholItems.map((item,index) =>
                           editItem && editItem.id === item.id ? (
-                            <tr>
+                            <tr key={index}>
                               <td className="pg-14-id">{item.id}</td>
                               <td className="pg-14-name">
                                 <div className="form-group">
@@ -450,7 +470,7 @@ const Alcohol = () => {
                               </td>
                             </tr>
                           ) : (
-                            <tr>
+                            <tr key={index}>
                               <td className="pg-14-id">
                                 <b>{item.id}</b>
                               </td>

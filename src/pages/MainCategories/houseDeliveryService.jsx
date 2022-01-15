@@ -6,13 +6,15 @@ import {
   ACTION_deleteHouseDeliveryOption,
   ACTION_updateHouseDelivery,
   ACTION_updateHouseDeliverySetup,
+  ACTION_getHouseDeliverySetup,
 } from '../../store/mainCategory/actions';
 import Modal from '../../components/confirmationAlert';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
+import _ from 'lodash';
 
 const HouseDeliverService = () => {
   const dispatch = useDispatch();
-  const { houseDeliveryServiceItems } = useSelector(
+  const { houseDeliveryService,houseDeliveryServiceItems } = useSelector(
     (state) => state.mainCategory,
   );
   // begin item states
@@ -132,8 +134,25 @@ const HouseDeliverService = () => {
 
   useEffect(() => {
     dispatch(ACTION_getHouseDelivery());
+    dispatch(ACTION_getHouseDeliverySetup());
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    if( !_.isEmpty(houseDeliveryService) ) {
+      setTitle(houseDeliveryService.title);
+      setDescription(houseDeliveryService.description);
+      setIsDisplayTitle(houseDeliveryService.isDisplayTitle);
+      setIsDisplayDescription(houseDeliveryService.isDisplayDescription);
+      setIsDropdown(houseDeliveryService.isDropdown);
+      setIsCheckBox(houseDeliveryService.isCheckBox);
+      setIsMultipleSelection(houseDeliveryService.isMultipleSelection);
+      setIsRequired(houseDeliveryService.isRequired);
+      setStatus(1);
+          
+    }
+  }, [houseDeliveryService]);
+
 
   return (
     <div>
@@ -387,9 +406,9 @@ const HouseDeliverService = () => {
                     <tbody>
                       {houseDeliveryServiceItems &&
                         houseDeliveryServiceItems.length
-                        ? houseDeliveryServiceItems.map((item) =>
+                        ? houseDeliveryServiceItems.map((item,index) =>
                           editItem && editItem.id === item.id ? (
-                            <tr>
+                            <tr key={index}>
                               <td className="pg-14-id">{item.id}</td>
                               <td className="pg-14-name">
                                 <div className="form-group">
@@ -453,7 +472,7 @@ const HouseDeliverService = () => {
                               </td>
                             </tr>
                           ) : (
-                            <tr>
+                            <tr key={index}>
                               <td className="pg-14-id">
                                 <b>{item.id}</b>
                               </td>
