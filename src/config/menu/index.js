@@ -184,34 +184,34 @@ export const SideBarMenuList = [
     isActive: false,
     subMenu: [
       {
-        id: '5.0',
+        id: '5.subMenu.0',
         title: 'DoorBud',
         path: '#',
         isActive: false
       },
       {
-        id: '5.1',
+        id: '5.subMenu.1',
         title: 'Jawafa ',
         isActive: false,
         subMenu: [
           {
-            id: '5.1.0',
+            id: '5.subMenu.1.subMenu.0',
             title: 'Admin Driver ',
             isActive: false,
             subMenu: [
               {
-                id: '5.1.0.0',
+                id: '5.subMenu.1.subMenu.0.subMenu.0',
                 title: 'Vendor Driver ',
                 isActive: false,
                 subMenu: [
                   {
-                    id: '5.1.0.0.0',
+                    id: '5.subMenu.1.subMenu.0.subMenu.0.subMenu.0',
                     title: 'New Driver ',
                     path: driverManage.createDriver.path,
                     isActive: false
                   },
                   {
-                    id: '5.1.0.0.1',
+                    id: '5.subMenu.1.subMenu.0.subMenu.0.subMenu.1',
                     title: 'Driver List',
                     path: driverManage.createDriver.path,
                     isActive: false
@@ -219,18 +219,18 @@ export const SideBarMenuList = [
                 ]
               },
               {
-                id: '5.1.0.1',
+                id: '5.subMenu.1.subMenu.0.subMenu.1',
                 title: 'Fleet Driver ',
                 isActive: false,
                 subMenu: [
                   {
-                    id: '5.1.0.1.0',
+                    id: '5.subMenu.1.subMenu.0.subMenu.1.subMenu.0',
                     title: 'New Driver ',
                     path: driverManage.createDriver.path,
                     isActive: false
                   },
                   {
-                    id: '5.1.0.1.1',
+                    id: '5.subMenu.1.subMenu.0.subMenu.1.subMenu.1',
                     title: 'Driver List',
                     path: driverManage.createDriver.path,
                     isActive: false
@@ -240,7 +240,6 @@ export const SideBarMenuList = [
 
             ]
           },
-
         ]
       }
     ]

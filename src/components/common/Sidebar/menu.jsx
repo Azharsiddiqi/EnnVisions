@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Menu = ({ title, path, isActive}) => {
-  console.log('checking path: ', path);
   return (
     <li
       className={`menu-item ${ isActive
