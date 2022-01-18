@@ -1,6 +1,8 @@
+import _ from 'lodash';
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { PRIVATE_ROUTES } from '../../config';
+import { PRIVATE_ROUTES, SideBarMenuList  } from '../../../config';
+import GenerateMenu from './generateMenu';
 
 const SideBar = () => {
   const { pathname } = useLocation();
@@ -18,6 +20,8 @@ const SideBar = () => {
   const [subActive, setSubActive] = useState('');
   // eslint-disable-next-line no-unused-vars
   const [subOfSubActive, setSubOfSubActive] = useState('');
+  // eslint-disable-next-line no-unused-vars
+  const [sideBarMenu, setSideBarMenu] = useState(SideBarMenuList);
   const hiddenStyle = {
     display: 'none',
     overflow: 'hidden',
@@ -77,6 +81,22 @@ const SideBar = () => {
       setMainActive('mainCategories');
     }
   }, [pathname]);
+
+
+  const subMenuClickHandler = (_id) => {
+    const clonedSideBarMenu = _.cloneDeep(sideBarMenu);
+    if( _id.indexOf('.' < 0) ){
+      clonedSideBarMenu[_id].isActive = !clonedSideBarMenu[_id].isActive; 
+    }
+    console.log('checking _id: ', _id);
+    console.log('sideBarMenu: ', sideBarMenu);
+    console.log('clonedSideBarMenu: ', clonedSideBarMenu);
+    setSideBarMenu(clonedSideBarMenu);
+  };
+
+  useEffect(() => {
+    console.log('useEffect sideBarMenu: ', sideBarMenu);
+  }, [sideBarMenu]);
 
   return (
     <div
@@ -140,6 +160,7 @@ const SideBar = () => {
         >
           {/*begin::Menu Nav*/}
           <ul className="menu-nav ">
+            
             <li
               className={`menu-item ${pathname === dashboard.path ? 'menu-item-active' : ''}`}
               aria-haspopup="true"
@@ -148,6 +169,12 @@ const SideBar = () => {
                 <span className="menu-text">Dashboard</span>
               </Link>
             </li>
+
+
+            {/* starting custom Menu */}
+            {sideBarMenu.map((menuDetail, index) => 
+              <GenerateMenu key={index} menuDetail={menuDetail} subMenuClickHandler={subMenuClickHandler} />
+            ) }
 
             <li
               className={`menu-item  menu-item-submenu ${mainActive === 'userRoles' ? 'menu-item-open' : ''}`}
@@ -582,7 +609,7 @@ const SideBar = () => {
                 <span className="menu-text">Driver Manage</span>
                 <i className="menu-arrow" />
               </div>
-              <div className="menu-submenu" 
+              <div className="menu-submenu"
                 style={
                   mainActive === 'driverManage' ? {} : hiddenStyle
                 }
@@ -594,7 +621,7 @@ const SideBar = () => {
                       to={dispatcherManage.dispatcherDetail.path}
                       className="menu-link"
                     >
-                      <i className="menu-bullet menu-bullet-line"> 
+                      <i className="menu-bullet menu-bullet-line">
                         <span />
                       </i>
                       <span className="menu-text">DoorBud</span>
@@ -628,7 +655,7 @@ const SideBar = () => {
                     >
                       <i className="menu-arrow" />
                       <ul className="menu-subnav">
-                         
+
 
 
 
@@ -2401,8 +2428,7 @@ const SideBar = () => {
               </div>
             </li>
             <li
-              className={`menu-item  menu-item-submenu ${mainActive === 'mainCategories' ? 'menu-item-open' : ''
-              }`}
+              className={`menu-item  menu-item-submenu ${mainActive === 'mainCategories' ? 'menu-item-open' : '' }`}
             >
               <div
                 onClick={() =>

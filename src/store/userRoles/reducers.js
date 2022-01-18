@@ -2,17 +2,17 @@ import * as actionTypes from './types';
 import _ from 'lodash';
 
 
-const initialState={
-  userPermissions:[],
-  rolesList:[],
+const initialState = {
+  userPermissions: [],
+  rolesList: [],
 };
-export default (state = initialState, action) =>{
+export default (state = initialState, action) => {
   switch (action.type) {
   // <-----------------------Beginning: Create Permission list----------------------->
   case actionTypes.CREATE_PERMISSION_LIST:
-    return{
+    return {
       ...state,
-      userPermissions:[...state.userPermissions,action.payload]
+      userPermissions: [...state.userPermissions, action.payload]
     };
 
   case actionTypes.GET_ALL_PERMISSION_LIST:
@@ -37,9 +37,9 @@ export default (state = initialState, action) =>{
 
   // <-----------------------Beginning: Create User Role ----------------------->
   case actionTypes.CREATE_USER_ROLE:
-    return{
+    return {
       ...state,
-      rolesList:[...state.rolesList, action.payload]
+      rolesList: [...state.rolesList, action.payload]
     };
 
 

@@ -4,7 +4,7 @@ import { privateRoutes } from '../routes';
 
 // Components Import
 import HeaderMobile from '../components/common/HeaderMobile.jsx';
-import Sidebar from '../components/common/Sidebar.jsx';
+import Sidebar from '../components/common/Sidebar/Sidebar.jsx';
 import Header from '../components/common/Header.jsx';
 import UserPanel from '../components/Dashboard/UserPanel.jsx';
 import QuickCart from '../components/Dashboard/QuickCart.jsx';
