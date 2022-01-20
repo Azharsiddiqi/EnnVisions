@@ -7,6 +7,12 @@ const {
   dispatcherManage,
   vendorManage,
   driverManage,
+  waiterManage,
+  vendorManageJawafa,
+  userManage,
+  riderManage,
+  mainCategories,
+  locationManage,
 } = PRIVATE_ROUTES;
 
 export const SideBarMenuList = [
@@ -41,31 +47,31 @@ export const SideBarMenuList = [
     isActive: false,
     subMenu: [
       {
-        id: '1.0',
+        id: '1.subMenu.0',
         title: 'Create New',
         path: adminManage.createAdmin.path,
         isActive: false
       },
       {
-        id: '1.1',
+        id: '1.subMenu.1',
         title: 'DoorBud',
         path: adminManage.adminDetail.path,
         isActive: false
       },
       {
-        id: '1.2',
+        id: '1.subMenu.2',
         title: 'Jawafa',
         path: adminManage.adminDetail.path,
         isActive: false
       },
       {
-        id: '1.3',
+        id: '1.subMenu.3',
         title: 'Jimmy Guaco\'s',
         path: adminManage.adminDetail.path,
         isActive: false
       },
       {
-        id: '1.4',
+        id: '1.subMenu.4',
         title: 'XP Eats',
         path: adminManage.adminDetail.path,
         isActive: false
@@ -78,25 +84,25 @@ export const SideBarMenuList = [
     isActive: false,
     subMenu: [
       {
-        id: '2.0',
+        id: '2.subMenu.0',
         title: 'Create New',
         path: fleetManage.createFleet.path,
         isActive: false
       },
       {
-        id: '2.1',
+        id: '2.subMenu.1',
         title: 'DoorBud',
         path: fleetManage.fleetDetail.path,
         isActive: false
       },
       {
-        id: '2.2',
+        id: '2.subMenu.2',
         title: 'jawafa',
         path: fleetManage.fleetDetail.path,
         isActive: false
       },
       {
-        id: '2.3',
+        id: '2.subMenu.3',
         title: 'Jimmy Guaco\'s ',
         path: fleetManage.fleetDetail.path,
         isActive: false
@@ -109,25 +115,25 @@ export const SideBarMenuList = [
     isActive: false,
     subMenu: [
       {
-        id: '3.0',
+        id: '3.subMenu.0',
         title: 'Create New',
         path: dispatcherManage.createDispatcher.path,
         isActive: false
       },
       {
-        id: '3.1',
+        id: '3.subMenu.1',
         title: 'DoorBud',
         path: dispatcherManage.dispatcherDetail.path,
         isActive: false
       },
       {
-        id: '3.2',
+        id: '3.subMenu.2',
         title: 'jawafa',
         path: dispatcherManage.dispatcherDetail.path,
         isActive: false
       },
       {
-        id: '3.3',
+        id: '3.subMenu.3',
         title: 'Jimmy Guaco\'s ',
         path: dispatcherManage.dispatcherDetail.path,
         isActive: false
@@ -140,30 +146,30 @@ export const SideBarMenuList = [
     isActive: false,
     subMenu: [
       {
-        id: '4.0',
+        id: '4.subMenu.0',
         title: 'DoorBud',
         path: vendorManage.vendorDetail.path,
         isActive: false
       },
       {
-        id: '4.1',
+        id: '4.subMenu.1',
         title: 'Jawafa ',
         isActive: false,
         subMenu: [
           {
-            id: '4.1.0',
+            id: '4.subMenu.1.subMenu.0',
             title: 'Create vendor ',
             path: vendorManage.createVendor.path,
             isActive: false
           },
           {
-            id: '4.1.1',
+            id: '4.subMenu.1.subMenu.1',
             title: 'Vendor list ',
             path: vendorManage.vendorList.path,
             isActive: false
           },
           {
-            id: '4.1.2',
+            id: '4.subMenu.1.subMenu.2',
             title: 'Helper List ',
             path: vendorManage.helperList.path,
             isActive: false
@@ -171,7 +177,7 @@ export const SideBarMenuList = [
         ]
       },
       {
-        id: '4.2',
+        id: '4.subMenu.2',
         title: 'Jimmy Guaco\'s ',
         path: vendorManage.vendorDetail.path,
         isActive: false
@@ -213,7 +219,7 @@ export const SideBarMenuList = [
                   {
                     id: '5.subMenu.1.subMenu.0.subMenu.0.subMenu.1',
                     title: 'Driver List',
-                    path: driverManage.createDriver.path,
+                    path: driverManage.driverList.path,
                     isActive: false
                   }
                 ]
@@ -232,7 +238,7 @@ export const SideBarMenuList = [
                   {
                     id: '5.subMenu.1.subMenu.0.subMenu.1.subMenu.1',
                     title: 'Driver List',
-                    path: driverManage.createDriver.path,
+                    path: driverManage.driverList.path,
                     isActive: false
                   },
                 ]
@@ -244,208 +250,267 @@ export const SideBarMenuList = [
       }
     ]
   },
-  // {
-  //   title: 'Waiter Manage ',
-  //   isActive: false,
-  //   subMenu: [
-  //     {
-  //       title: 'DoorBud',
-  //       path: driverManage.dispatcherDetail.path,
-  //       isActive: false
-  //     },
+  {
+    id: '6',
+    title: 'Waiter Manage ',
+    isActive: false,
+    subMenu: [
+      {
+        id: '6.subMenu.0',
+        title: 'DoorBud',
+        path: '#',
+        isActive: false
+      },
+      {
+        id: '6.subMenu.1',
+        title: 'Jawafa ',
+        isActive: false,
+        subMenu: [
+          {
+            id: '6.subMenu.1.subMenu.0',
+            title: 'Admin Waiter ',
+            isActive: false,
+            subMenu: [
+              {
+                id: '6.subMenu.1.subMenu.0.subMenu.0',
+                title: 'Vendor Waiter ',
+                isActive: false,
+                subMenu: [
+                  {
+                    id: '6.subMenu.1.subMenu.0.subMenu.0.subMenu.0',
+                    title: 'New Waiter ',
+                    path: waiterManage.createWaiter.path,
+                    isActive: false
+                  },
+                  {
+                    id: '6.subMenu.1.subMenu.0.subMenu.0.subMenu.1',
+                    title: 'Waiter List',
+                    path: waiterManage.waiterList.path,
+                    isActive: false
+                  }
+                ]
+              },
+              {
+                id: '6.subMenu.1.subMenu.0.subMenu.1',
+                title: 'Fleet Waiter ',
+                isActive: false,
+                subMenu: [
+                  {
+                    id: '6.subMenu.1.subMenu.0.subMenu.1.subMenu.0',
+                    title: 'New Waiter ',
+                    path: waiterManage.createWaiter.path,
+                    isActive: false
+                  },
+                  {
+                    id: '6.subMenu.1.subMenu.0.subMenu.1.subMenu.1',
+                    title: 'Waiter List',
+                    path: waiterManage.waiterList.path,
+                    isActive: false
+                  },
+                ]
+              },
 
-  //     {
-  //       title: 'Jawafa ',
-  //       isActive: false,
-  //       subMenu: [
-  //         {
-  //           title: 'Admin Waiter ',
-  //           isActive: false,
-  //           subMenu: [
-  //             {
-  //               title: 'Vendor Waiter ',
-  //               isActive: false,
-  //               subMenu: [
-  //                 {
-  //                   title: 'New Waiter ',
-  //                   path: driverManage.createDriver.path,
-  //                   isActive: false
-  //                 },
+            ]
+          },
+        ]
+      }
+    ]
+  },
+  {
+    id:'7',
+    title: 'Vendor Manage',
+    isActive: false,
+    subMenu: [
+      {
+        id:'7.subMenu.0',
+        title: 'DoorBud',
+        path: '#',
+        isActive: false
+      },
+      {
+        id:'7.subMenu.1',
+        title: 'Jawafa',
+        isActive: false,
+        subMenu: [
+          {
+            id:'7.subMenu.1.subMenu.0',
+            title: 'Create Vendor',
+            path: vendorManageJawafa.createVendorJawafa.path,
+            isActive: false
+          },
+          {
+            id:'7.subMenu.1.subMenu.1',
+            title: 'Vendor List',
+            path: vendorManageJawafa.vendorListJawafa.path,
+            isActive: false
+          },
 
-  //                 {
-  //                   title: 'Waiter List',
-  //                   path: driverManage.createDriver.path,
-  //                   isActive: false
-  //                 },
+        ]
 
-  //               ]
-  //             },
+      },
+      {
+        id:'7.subMenu.2',
+        title: 'Jawafa',
+        path: '#',
+        isActive: false
+      }, {
+        id:'7.subMenu.3',
+        title: 'Jimmy Guaco\'s',
+        path: '#',
+        isActive: false
+      },
+    ]
+  },
 
-  //             {
-  //               title: 'Fleet Waiter ',
-  //               isActive: false,
-  //               subMenu: [
-  //                 {
-  //                   title: 'New Waiter ',
-  //                   path: driverManage.createDriver.path,
-  //                   isActive: false
-  //                 },
+  {
+    id:'8',
+    title: 'User Manage',
+    isActive: false,
+    subMenu: [
+      {
+        id:'8.subMenu.0',
+        title: 'DoorBud',
+        path: userManage.userList.path,
+        isActive: false
+      },
+      {
+        id:'8.subMenu.1',
+        title: 'Jawafa',
+        path: userManage.userList.path,
+        isActive: false
+      },
+      {
+        id:'8.subMenu.2',
+        title: 'jimmy Guaco\'s',
+        path: userManage.userList.path,
+        isActive: false
+      },
+    ]
+  },
 
-  //                 {
-  //                   title: 'Waiter List',
-  //                   path: driverManage.createDriver.path,
-  //                   isActive: false
-  //                 },
-
-  //               ]
-  //             },
-
-  //           ]
-  //         },
-
-  //       ]
-  //     },
-
-
-  //   ]
-  // },
-  // {
-  //   title: 'Vendor Manage',
-  //   isActive: false,
-  //   subMenu: [
-  //     {
-  //       title: 'DoorBud',
-  //       path: driverManage.createDriver.path,
-  //       isActive: false
-  //     },
-  //     {
-  //       title: 'Jawafa',
-  //       isActive: false,
-  //       subMenu: [
-  //         {
-  //           title: 'Create Vendor',
-  //           path: driverManage.createDriver.path,
-  //           isActive: false
-  //         },
-  //         {
-  //           title: 'Vendro List',
-  //           path: driverManage.createDriver.path,
-  //           isActive: false
-  //         },
-
-  //       ]
-
-  //     },
-  //     {
-  //       title: 'Jawafa',
-  //       path: driverManage.createDriver.path,
-  //       isActive: false
-  //     }, {
-  //       title: 'Jimmy Guaco\'s',
-  //       path: driverManage.createDriver.path,
-  //       isActive: false
-  //     },
-  //   ]
-  // },
-  // {
-  //   title: 'User Manage',
-  //   isActive: false,
-  //   subMenu: [
-  //     {
-  //       title: 'DoorBud',
-  //       path: driverManage.createDriver.path,
-  //       isActive: false
-  //     },
-  //     {
-  //       title: 'Jawafa',
-  //       path: driverManage.createDriver.path,
-  //       isActive: false
-  //     },
-  //     {
-  //       title: 'jimmy Guaco\'s',
-  //       path: driverManage.createDriver.path,
-  //       isActive: false
-  //     },
-  //   ]
-  // },
-  // {
-  //   title: 'Rider Manage ',
-  //   isActive: false,
-  //   subMenu: [
-  //     {
-  //       title: 'DoorBud',
-  //       path: driverManage.createDriver.path,
-  //       isActive: false
-  //     },
-  //     {
-  //       title: 'Jawafa',
-  //       path: driverManage.createDriver.path,
-  //       isActive: false
-  //     },
-  //     {
-  //       title: 'jimmy Guaco\'s',
-  //       path: driverManage.createDriver.path,
-  //       isActive: false
-  //     },
-  //   ]
-  // },
-  // {
-  //   title: 'Main Categories',
-  //   isActive: false,
-  //   subMenu: [
-  //     {
-  //       title: 'Add New Category',
-  //       path: driverManage.createDriver.path,
-  //       isActive: false
-  //     },
-  //     {
-  //       title: 'Grocery',
-  //       path: driverManage.createDriver.path,
-  //       isActive: false
-  //     },
-  //     {
-  //       title: 'Restaurant',
-  //       path: driverManage.createDriver.path,
-  //       isActive: false
-  //     },
-  //     {
-  //       title: 'Pharma',
-  //       path: driverManage.createDriver.path,
-  //       isActive: false
-  //     },
-  //     {
-  //       title: 'Vegetable',
-  //       path: driverManage.createDriver.path,
-  //       isActive: false
-  //     },
-  //   ]
-  // },
-  // {
-  //   title: 'Location Mange ',
-  //   isActive: false,
-  //   subMenu: [
-  //     {
-  //       title: 'Add New Category',
-  //       path: driverManage.createDriver.path,
-  //       isActive: false
-  //     },
-  //     {
-  //       title: 'DoorBud',
-  //       path: driverManage.createDriver.path,
-  //       isActive: false
-  //     },
-  //     {
-  //       title: 'Jawafa',
-  //       path: driverManage.createDriver.path,
-  //       isActive: false
-  //     },
-  //     {
-  //       title: 'Jimmy Guaco\'s',
-  //       path: driverManage.createDriver.path,
-  //       isActive: false
-  //     },
-  //   ]
-  // },
+  {
+    id:'9',
+    title: 'Rider Manage ',
+    isActive: false,
+    subMenu: [
+      {
+        id:'9.subMenu.0',
+        title: 'DoorBud',
+        path: riderManage.riderList,
+        isActive: false
+      },
+      {
+        id:'9.subMenu.1',
+        title: 'Jawafa',
+        path: riderManage.riderList,
+        isActive: false
+      },
+      {
+        id:'9.subMenu.2',
+        title: 'jimmy Guaco\'s',
+        path: riderManage.riderList,
+        isActive: false
+      },
+    ]
+  },
+  {
+    id:'10',
+    title: 'Main Categories',
+    isActive: false,
+    subMenu: [
+      {
+        id:'10.subMenu.0',
+        title: 'Business Category',
+        path: mainCategories.businessCategory.path,
+        isActive: false
+      },
+      {
+        id:'10.subMenu.1',
+        title: 'Business Type',
+        path: mainCategories.businessType.path,
+        isActive: false
+      },
+      {
+        id:'10.subMenu.2',
+        title: 'House Delivery Service',
+        path: mainCategories.houseDeliveryService.path,
+        isActive: false
+      },
+      {
+        id:'10.subMenu.3',
+        title: 'Open Status',
+        path: mainCategories.openStatus.path,
+        isActive: false
+      },
+      {
+        id:'10.subMenu.4',
+        title: 'Alcohol',
+        path: mainCategories.alcohol.path,
+        isActive: false
+      },
+      {
+        id:'10.subMenu.5',
+        title: 'Who You Serve',
+        path: mainCategories.whoYouServe.path,
+        isActive: false
+      },
+      {
+        id:'10.subMenu.6',
+        title: 'Menu Service',
+        path: mainCategories.menuService.path,
+        isActive: false
+      },
+      {
+        id:'10.subMenu.7',
+        title: 'Seating',
+        path: mainCategories.seating.path,
+        isActive: false
+      },
+      {
+        id:'10.subMenu.8',
+        title: 'Payment Method',
+        path: mainCategories.paymentMethod.path,
+        isActive: false
+      },
+      {
+        id:'10.subMenu.9',
+        title: 'Cuisine',
+        path: mainCategories.cuisine.path,
+        isActive: false
+      },
+    ]
+  },
+  {
+    id:'11',
+    title: 'Location Mange ',
+    isActive: false,
+    subMenu: [
+      {
+        id:'11.subMenu.0',
+        title: 'Add New Category',
+        path: locationManage.addLocation.path,
+        isActive: false
+      },
+      {
+        id:'11.subMenu.1',
+        title: 'DoorBud',
+        path: driverManage.createDriver.path,
+        isActive: false
+      },
+      {
+        id:'11.subMenu.2',
+        title: 'Jawafa',
+        path: driverManage.createDriver.path,
+        isActive: false
+      },
+      {
+        id:'11.subMenu.3',
+        title: 'Jimmy Guaco\'s',
+        path: driverManage.createDriver.path,
+        isActive: false
+      },
+    ]
+  },
   // {
   //   title: 'Menu Manage ',
   //   isActive: false,
@@ -456,7 +521,7 @@ export const SideBarMenuList = [
   //       isActive: false
   //     },
   //     {
-  //       title: 'Restaurant',
+  // //       title: 'Restaurant',
   //       path: driverManage.createDriver.path,
   //       isActive: false
   //     },

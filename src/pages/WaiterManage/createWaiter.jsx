@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PRIVATE_ROUTES } from '../../config';
 
-const CreateDriver = () => {
+const CreateWaiter = () => {
   const navigate = useNavigate();
 
   return (
@@ -26,7 +26,7 @@ const CreateDriver = () => {
             {/*begin::Actions*/}
             <div className="subheader-separator subheader-separator-ver mt-2 mb-2 mr-4 bg-gray-200" />
             <span className="gilroy-medium inactive-breadcrumb semi-dark-text text-muted font-weight-bold mr-4">
-              CREATE DRIVER
+              CREATE WAITER
             </span>
             {/*end::Actions*/}
           </div>
@@ -249,4 +249,4 @@ const CreateDriver = () => {
   );
 };
 
-export default CreateDriver;
+export default CreateWaiter;

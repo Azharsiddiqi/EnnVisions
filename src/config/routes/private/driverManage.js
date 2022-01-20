@@ -4,8 +4,13 @@ export const createDriver = {
   subMenu: 'CREATE DRIVER',
 };
 
-export const vendorFleet = {
-  path: '/vendor-fleet',
+export const driverList = {
+  path: '/driver-list',
   menu: 'DASHBOARD',
-  subMenu: 'CREATE DRIVER',
+  subMenu: 'DRIVER LIST',
+};
+export const editDriver = {
+  path: '/edit-driver',
+  menu: 'DASHBOARD',
+  subMenu: 'EDIT DRIVER',
 };

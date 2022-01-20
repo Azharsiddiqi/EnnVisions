@@ -28,8 +28,26 @@ import HelperList from './VendorManage/helperList';
 import OutLetDetail from './VendorManage/OutLets/outLetDetail';
 // start: DRIVER MANAGE 
 import CreateDriver from './DriverManage/createDriver';
-import VendorFleet from './DriverManage/vendorFleet';
+import DriverList from './DriverManage/driverList';
+import EditDriver from './DriverManage/editDriver';
 
+// start: WAITER MANAGE 
+import CreateWaiter from './WaiterManage/createWaiter';
+import EditWaiter from './WaiterManage/editWaiter';
+import WaiterList from './WaiterManage/waiterList';
+
+// start: VENDOR MANAGE JAWAFA 
+import CreateVendorJawafa from './VendorManageJawafa/createVendorJawafa';
+import VendorListJawafa from './VendorManageJawafa/vendorListJawafa';
+import VendorDetailJawafa from './VendorManageJawafa/vendorDetailJawafa';
+
+// start: USER MANAGE 
+import UserList from './userManage/userList.jsx';
+import EditUser from './userManage/editUser';
+
+// start: RIDER MANAGE 
+import RiderEditUser from './RiderManage/riderEditUser';
+import RiderList from './RiderManage/riderList';
 
 // start: MAIN CATEGORIES
 import Alcohol from './MainCategories/alcohol';
@@ -42,6 +60,13 @@ import OpenStatus from './MainCategories/openStatus';
 import PaymentMethod from './MainCategories/paymentMethod';
 import Seating from './MainCategories/seating';
 import WhoYouServe from './MainCategories/whoYouServe';
+
+// start: LOCATION MANAGE
+import AddLocation from './LocationManage/addLocation';
+import Helper from './LocationManage/helper';
+
+
+
 
 export const PublicRoutesComponent = [
   { path: PRIVATE_ROUTES.dashboard.path, Component: Index },
@@ -143,9 +168,57 @@ export const PublicRoutesComponent = [
     Component: CreateDriver,
   },
   {
-    path: PRIVATE_ROUTES.driverManage.vendorFleet.path,
-    Component: VendorFleet,
+    path: PRIVATE_ROUTES.driverManage.driverList.path,
+    Component: DriverList,
   },
+  {
+    path: PRIVATE_ROUTES.driverManage.editDriver.path,
+    Component: EditDriver,
+  },
+  {
+    path: PRIVATE_ROUTES.waiterManage.createWaiter.path,
+    Component: CreateWaiter,
+  },
+  {
+    path: PRIVATE_ROUTES.waiterManage.editWaiter.path,
+    Component: EditWaiter,
+  },
+  {
+    path: PRIVATE_ROUTES.waiterManage.waiterList.path,
+    Component: WaiterList,
+  },
+  {
+    path: PRIVATE_ROUTES.vendorManageJawafa.createVendorJawafa.path,
+    Component: CreateVendorJawafa,
+  },
+  {
+    path: PRIVATE_ROUTES.vendorManageJawafa.vendorListJawafa.path,
+    Component: VendorListJawafa,
+  },
+  {
+    path: PRIVATE_ROUTES.vendorManageJawafa.vendorDetailJawafa.path,
+    Component: VendorDetailJawafa,
+  },
+  {
+    path: PRIVATE_ROUTES.userManage.userList.path,
+    Component: UserList,
+  },
+  {
+    path: PRIVATE_ROUTES.userManage.editUser.path,
+    Component: EditUser,
+  },
+  {
+    path: PRIVATE_ROUTES.riderManage.riderList.path,
+    Component: RiderList,
+  },
+  {
+    path: PRIVATE_ROUTES.riderManage.riderEditUser.path,
+    Component: RiderEditUser,
+  },
+
+
+
+
   {
     path: PRIVATE_ROUTES.mainCategories.businessCategory.path,
     Component: BusinessCategory,
@@ -186,4 +259,14 @@ export const PublicRoutesComponent = [
     path: PRIVATE_ROUTES.mainCategories.cuisine.path,
     Component: Cuisine,
   },
+
+  {
+    path: PRIVATE_ROUTES.locationManage.addLocation.path,
+    Component: AddLocation,
+  },
+  {
+    path: PRIVATE_ROUTES.locationManage.helper.path,
+    Component: Helper,
+  },
+
 ];

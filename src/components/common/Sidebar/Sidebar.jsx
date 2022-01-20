@@ -46,7 +46,7 @@ const SideBar = () => {
   const generateMenuRecursive = (_menu, _index) => {
     return _menu.subMenu ? 
       <SubMenu key={_index} title={_menu.title} subMenuClickHandler={subMenuClickHandler} id={_menu.id} isActive={_menu.isActive}>
-        {_menu.subMenu.map(_menuDetail => generateMenuRecursive(_menuDetail))}
+        {_menu.subMenu.map((_menuDetail, idx) => generateMenuRecursive(_menuDetail, idx))}
       </SubMenu> :
       <Menu key={_index} title={_menu.title} isActive={_menu.isActive} path={_menu.path} />;
   };
@@ -56,10 +56,10 @@ const SideBar = () => {
     for (let index = 0; index < clonedSideBarMenu.length; index++) {
       const isFound = setActivePathRecursively(clonedSideBarMenu[index], pathname);
       if (isFound) {
-        setSideBarMenu(clonedSideBarMenu);
         break;
       }
     }
+    setSideBarMenu(clonedSideBarMenu);
   }, [pathname]);
 
   return (
