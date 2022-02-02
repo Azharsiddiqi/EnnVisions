@@ -92,6 +92,66 @@ export const privateRoutes = [
 
   PRIVATE_ROUTES.locationManage.addLocation,
   PRIVATE_ROUTES.locationManage.helper,
+  PRIVATE_ROUTES.locationManage.editMainCategories,
+
+  // <------------------Starting: Menu Manage------------------>
+  PRIVATE_ROUTES.menuManage.menuList,
+  PRIVATE_ROUTES.menuManage.menuVendorOutlets,
+  PRIVATE_ROUTES.menuManage.outLetsSchedulePreparation,
+
+  // <------------------Starting: DOCUMENT Manage------------------>
+
+  PRIVATE_ROUTES.documentManage.addDocumentForm,
+  PRIVATE_ROUTES.documentManage.document,
+
+  // <------------------Starting: VEHICLE Manage------------------>
+  PRIVATE_ROUTES.vehicleManage.vehicleType,
+  PRIVATE_ROUTES.vehicleManage.vehicleMakeManagement,
+
+  // <------------------Starting: FARE Manage------------------>
+  PRIVATE_ROUTES.fareManage.fareManagement,
+  PRIVATE_ROUTES.fareManage.manageFareManagement,
+  PRIVATE_ROUTES.fareManage.editFareManagement,
+  // <------------------Starting: COMMISSION Manage------------------>
+  PRIVATE_ROUTES.commissionManage.feesManagement,
+  // <------------------Starting: REFERRAL Manage------------------>
+  PRIVATE_ROUTES.referralManage.referralDocuments,
+  PRIVATE_ROUTES.referralManage.referralEdit,
+
+  // <------------------Starting: STATEMENTS Manage------------------>
+  PRIVATE_ROUTES.statementsManage.overAllStatements,
+  PRIVATE_ROUTES.statementsManage.statementsDetail,
+  PRIVATE_ROUTES.statementsManage.dispatcherStatements,
+  PRIVATE_ROUTES.statementsManage.driverStatements,
+  PRIVATE_ROUTES.statementsManage.waiterStatements,
+  // <------------------Starting: ADMIN MANAGE XP------------------>
+  PRIVATE_ROUTES.adminManageXP.agentStatements,
+  PRIVATE_ROUTES.adminManageXP.vendorStatements,
+  PRIVATE_ROUTES.adminManageXP.outLetStatements,
+  PRIVATE_ROUTES.adminManageXP.helperStatements,
+  PRIVATE_ROUTES.adminManageXP.driverListStatements,
+  PRIVATE_ROUTES.adminManageXP.waiterListStatements,
+  // <------------------Starting: CANCELLATION REASON MANAGE------------------>
+  
+  PRIVATE_ROUTES.cancellationReasonManage.addNewReason,
+  PRIVATE_ROUTES.cancellationReasonManage.reasonList,
+  PRIVATE_ROUTES.cancellationReasonManage.reasonDetails,
+  // <------------------Starting: USER GUIDE MANAGE------------------>
+  PRIVATE_ROUTES.userGuideManage.addUserGuide,
+  PRIVATE_ROUTES.userGuideManage.userGuideList,
+  PRIVATE_ROUTES.userGuideManage.userGuideDetails,
+
+  // <------------------Starting:COMPLAINTS MANAGE------------------>
+  PRIVATE_ROUTES.complaintsManage.companions,
+  PRIVATE_ROUTES.complaintsManage.companionsOverAllStatements,
+  // <------------------Starting:HELP AND SUPPORT MANAGE------------------>
+  PRIVATE_ROUTES.helpAndSupportManage.helpCompanions,
+  // <------------------Starting:ACCOUNT MANAGE------------------>
+  PRIVATE_ROUTES.accountManage.account,
+
+  // <------------------Starting:REPORT MANAGE------------------>
+  PRIVATE_ROUTES.reportsManage.reportCompanions,
+
 
 
 ];

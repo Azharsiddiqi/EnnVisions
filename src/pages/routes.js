@@ -64,9 +64,64 @@ import WhoYouServe from './MainCategories/whoYouServe';
 // start: LOCATION MANAGE
 import AddLocation from './LocationManage/addLocation';
 import Helper from './LocationManage/helper';
+import EditMainCategories from './LocationManage/editMainCategories';
+
+// start: MENU MANAGE
+import MenuList from './MenuManage/menuList';
+import MenuVendorOutlets from './MenuManage/menuVendorOutlets';
+import OutLetsSchedulePreparation from './MenuManage/outLetsSchedulePreparation';
+
+//start: DOCUMENT MANAGE 
+import AddDocumentForm from './DocumentManage/addDocumentForm';
+import Document from './DocumentManage/document';
+
+//start: VEHICLE MANAGE 
+import VehicleType from './vehicleManage/vehicleType';
+import VehicleMakeManagement from './vehicleManage/vehicleMakeManagement';
+
+//start: VEHICLE MANAGE 
+import FareManagement from './FareManage/fareManagement';
+import ManageFareManagement from './FareManage/manageFareManagement';
+import EditFareManagement from './FareManage/editFareManagement';
+
+//start: COMMISSION MANAGE 
+
+import FeesManagement from './CommissionManage/feesManagement';
 
 
-
+//start: REFERRAL  MANAGE 
+import ReferralDocuments from './ReferralManage/referralDocuments';
+import ReferralEdit from './ReferralManage/referralEdit';
+//start: STATEMENTS  MANAGE 
+import OverAllStatements from './StatementsManage/overAllStatements';
+import StatementsDetail from './StatementsManage/statementsDetail';
+import DispatcherStatements from './StatementsManage/dispatcherStatements';
+import DriverStatements from './StatementsManage/driverStatements';
+import WaiterStatements from './StatementsManage/waiterStatements';
+//start: ADMIN  MANAGE XP
+import AgentStatements from './AdminManageXP/agentStatements'; 
+import VendorStatements from './AdminManageXP/vendorStatements';
+import OutLetStatements from './AdminManageXP/outLetStatements';
+import WaiterListStatements from './AdminManageXP/waiterListStatements';
+import HelperStatements from './AdminManageXP/helperStatements.jsx';
+import DriverListStatements from './AdminManageXP/driverListStatements';
+//START: CANCELLATION REASON MANAGE
+import AddNewReason from './CancellationReasonManage/addNewReason';
+import ReasonList from './CancellationReasonManage/reasonList';
+import ReasonDetails from './CancellationReasonManage/reasonDetails';
+//START: USER GUIDE MANAGE 
+import AddUserGuide from './UserGuideManage/addUserGuide';
+import UserGuideList from './UserGuideManage/userGuideList';
+import UserGuideDetails from './UserGuideManage/userGuideDetails';
+//START: COMPANIONS MANAGE
+import Companions from './ComplaintsManage/companions';
+import CompanionsOverAllStatements from './ComplaintsManage/companionsOverAllStatements';
+//START: HELP & SUPPORT MANAGE
+import HelpCompanions from './HelpAndSupportManage/helpCompanions';
+//START: ACCOUNT MANAGE
+import Account from './AccountManage/account';
+//START: REPORT MANAGE
+import ReportCompanions from './ReportsManage/reportCompanions';
 
 export const PublicRoutesComponent = [
   { path: PRIVATE_ROUTES.dashboard.path, Component: Index },
@@ -215,10 +270,6 @@ export const PublicRoutesComponent = [
     path: PRIVATE_ROUTES.riderManage.riderEditUser.path,
     Component: RiderEditUser,
   },
-
-
-
-
   {
     path: PRIVATE_ROUTES.mainCategories.businessCategory.path,
     Component: BusinessCategory,
@@ -268,5 +319,149 @@ export const PublicRoutesComponent = [
     path: PRIVATE_ROUTES.locationManage.helper.path,
     Component: Helper,
   },
-
+  {
+    path: PRIVATE_ROUTES.locationManage.editMainCategories.path,
+    Component: EditMainCategories,
+  },
+  {
+    path: PRIVATE_ROUTES.menuManage.menuList.path,
+    Component: MenuList
+  },
+  {
+    path: PRIVATE_ROUTES.menuManage.menuVendorOutlets.path,
+    Component:MenuVendorOutlets
+  },
+  {
+    path: PRIVATE_ROUTES.menuManage.outLetsSchedulePreparation.path,
+    Component:OutLetsSchedulePreparation
+  },
+  {
+    path: PRIVATE_ROUTES.documentManage.addDocumentForm.path,
+    Component: AddDocumentForm
+  },
+  {
+    path: PRIVATE_ROUTES.documentManage.document.path,
+    Component: Document
+  },
+  {
+    path: PRIVATE_ROUTES.vehicleManage.vehicleType.path,
+    Component: VehicleType
+  },
+  {
+    path: PRIVATE_ROUTES.vehicleManage.vehicleMakeManagement.path,
+    Component: VehicleMakeManagement
+  },
+  {
+    path: PRIVATE_ROUTES.fareManage.fareManagement.path,
+    Component: FareManagement
+  },
+  {
+    path: PRIVATE_ROUTES.fareManage.manageFareManagement.path,
+    Component:ManageFareManagement
+  },
+  {
+    path: PRIVATE_ROUTES.fareManage.editFareManagement.path,
+    Component:EditFareManagement
+  },
+  {
+    path: PRIVATE_ROUTES.commissionManage.feesManagement.path,
+    Component:FeesManagement
+  },
+  {
+    path: PRIVATE_ROUTES.referralManage.referralDocuments.path,
+    Component:ReferralDocuments
+  },
+  {
+    path: PRIVATE_ROUTES.referralManage.referralEdit.path,
+    Component:ReferralEdit
+  },
+  {
+    path: PRIVATE_ROUTES.statementsManage.overAllStatements.path,
+    Component:OverAllStatements
+  },
+  {
+    path: PRIVATE_ROUTES.statementsManage.statementsDetail.path,
+    Component:StatementsDetail
+  },
+  {
+    path: PRIVATE_ROUTES.statementsManage.dispatcherStatements.path,
+    Component:DispatcherStatements
+  },
+  {
+    path: PRIVATE_ROUTES.statementsManage.driverStatements.path,
+    Component:DriverStatements
+  },
+  {
+    path: PRIVATE_ROUTES.statementsManage.waiterStatements.path,
+    Component:WaiterStatements
+  },
+  {
+    path: PRIVATE_ROUTES.adminManageXP.agentStatements.path,
+    Component:AgentStatements
+  },
+  {
+    path: PRIVATE_ROUTES.adminManageXP.vendorStatements.path,
+    Component:VendorStatements
+  },
+  {
+    path: PRIVATE_ROUTES.adminManageXP.outLetStatements.path,
+    Component:OutLetStatements
+  },
+  {
+    path: PRIVATE_ROUTES.adminManageXP.waiterListStatements.path,
+    Component:WaiterListStatements
+  },
+  {
+    path: PRIVATE_ROUTES.adminManageXP.driverListStatements.path,
+    Component:DriverListStatements
+  },
+  {
+    path: PRIVATE_ROUTES.adminManageXP.helperStatements.path,
+    Component:HelperStatements
+  },
+  {
+    path: PRIVATE_ROUTES.cancellationReasonManage.addNewReason.path,
+    Component:AddNewReason
+  },
+  {
+    path: PRIVATE_ROUTES.cancellationReasonManage.reasonList.path,
+    Component:ReasonList
+  },
+  {
+    path: PRIVATE_ROUTES.cancellationReasonManage.reasonDetails.path,
+    Component:ReasonDetails
+  },
+  {
+    path: PRIVATE_ROUTES.userGuideManage.addUserGuide.path,
+    Component:AddUserGuide
+  },
+  {
+    path: PRIVATE_ROUTES.userGuideManage.userGuideList.path,
+    Component:UserGuideList
+  },
+  {
+    path: PRIVATE_ROUTES.userGuideManage.userGuideDetails.path,
+    Component:UserGuideDetails
+  },
+  {
+    path: PRIVATE_ROUTES.complaintsManage.companions.path,
+    Component:Companions
+  },
+  {
+    path: PRIVATE_ROUTES.complaintsManage.companionsOverAllStatements.path,
+    Component:CompanionsOverAllStatements
+  },
+  {
+    path: PRIVATE_ROUTES.helpAndSupportManage.helpCompanions.path,
+    Component:HelpCompanions
+  },
+  {
+    path: PRIVATE_ROUTES.accountManage.account.path,
+    Component:Account
+  },
+  {
+    path: PRIVATE_ROUTES.reportsManage.reportCompanions.path,
+    Component:ReportCompanions
+  },
+  
 ];

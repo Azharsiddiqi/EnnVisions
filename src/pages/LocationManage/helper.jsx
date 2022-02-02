@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import ConfirmationAlert from '../../components/confirmationAlert';
+import { PRIVATE_ROUTES } from '../../config/routes';
+import { useNavigate } from 'react-router-dom';
 
 const helper = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const navigate = useNavigate();
   
+
+
   return (
     <div>
       <div className="d-flex flex-column-fluid">
@@ -64,8 +69,8 @@ const helper = () => {
                       </td>
                       <td className="action-btn">
                         <div className="edit-delete-form">
-                          <img src="assets/images/ic_delete_white.svg" onClick={handleShow}/>
-                          <img src="assets/images/ic_edit_white.svg" />
+                          <img src="assets/images/new-delete.svg" className="delete" onClick={handleShow}/>
+                          <img src="assets/images/new-edit.svg" className="edit"  onClick={()=> navigate(PRIVATE_ROUTES.locationManage.editMainCategories.path)} />
                         </div>
                       </td>
                     </tr>
@@ -92,8 +97,8 @@ const helper = () => {
                       </td>
                       <td className="action-btn">
                         <div className="edit-delete-form">
-                          <img src="assets/images/ic_delete_white.svg" onClick={handleShow} />
-                          <img src="assets/images/ic_edit_white.svg" />
+                          <img src="assets/images/new-delete.svg" className="delete" onClick={handleShow} />
+                          <img src="assets/images/new-edit.svg" className="edit" />
                         </div>
                       </td>
                     </tr>
@@ -120,8 +125,8 @@ const helper = () => {
                       </td>
                       <td className="action-btn">
                         <div className="edit-delete-form">
-                          <img src="assets/images/ic_delete_white.svg" onClick={handleShow} />
-                          <img src="assets/images/ic_edit_white.svg" />
+                          <img src="assets/images/new-delete.svg" className="delete" onClick={handleShow} />
+                          <img src="assets/images/new-edit.svg" className="edit" />
                         </div>
                       </td>
                     </tr>
@@ -148,8 +153,8 @@ const helper = () => {
                       </td>
                       <td className="action-btn">
                         <div className="edit-delete-form">
-                          <img src="assets/images/ic_delete_white.svg" onClick={handleShow} />
-                          <img src="assets/images/ic_edit_white.svg" />
+                          <img src="assets/images/new-delete.svg" className="delete" onClick={handleShow} />
+                          <img src="assets/images/new-edit.svg" className="edit" />
                         </div>
                       </td>
                     </tr>
@@ -176,8 +181,8 @@ const helper = () => {
                       </td>
                       <td className="action-btn">
                         <div className="edit-delete-form">
-                          <img src="assets/images/ic_delete_white.svg" onClick={handleShow} />
-                          <img src="assets/images/ic_edit_white.svg" />
+                          <img src="assets/images/new-delete.svg" className="delete" onClick={handleShow} />
+                          <img src="assets/images/new-edit.svg" className="edit" />
                         </div>
                       </td>
                     </tr>
@@ -204,8 +209,8 @@ const helper = () => {
                       </td>
                       <td className="action-btn">
                         <div className="edit-delete-form">
-                          <img src="assets/images/ic_delete_white.svg" onClick={handleShow} />
-                          <img src="assets/images/ic_edit_white.svg" />
+                          <img src="assets/images/new-delete.svg" className="delete" onClick={handleShow} />
+                          <img src="assets/images/new-edit.svg" className="edit" />
                         </div>
                       </td>
                     </tr>
@@ -232,8 +237,8 @@ const helper = () => {
                       </td>
                       <td className="action-btn">
                         <div className="edit-delete-form">
-                          <img src="assets/images/ic_delete_white.svg" onClick={handleShow} />
-                          <img src="assets/images/ic_edit_white.svg" />
+                          <img src="assets/images/new-delete.svg" className="delete" onClick={handleShow} />
+                          <img src="assets/images/new-edit.svg" className="edit" />
                         </div>
                       </td>
                     </tr>
@@ -260,8 +265,8 @@ const helper = () => {
                       </td>
                       <td className="action-btn">
                         <div className="edit-delete-form">
-                          <img src="assets/images/ic_delete_white.svg" onClick={handleShow} />
-                          <img src="assets/images/ic_edit_white.svg" />
+                          <img src="assets/images/new-delete.svg" className="delete" onClick={handleShow} />
+                          <img src="assets/images/new-edit.svg" className="edit" />
                         </div>
                       </td>
                     </tr>
@@ -288,8 +293,8 @@ const helper = () => {
                       </td>
                       <td className="action-btn">
                         <div className="edit-delete-form">
-                          <img src="assets/images/ic_delete_white.svg" onClick={handleShow} />
-                          <img src="assets/images/ic_edit_white.svg" />
+                          <img src="assets/images/new-delete.svg" className="delete" onClick={handleShow} />
+                          <img src="assets/images/new-edit.svg" className="edit" />
                         </div>
                       </td>
                     </tr>
@@ -316,8 +321,8 @@ const helper = () => {
                       </td>
                       <td className="action-btn">
                         <div className="edit-delete-form">
-                          <img src="assets/images/ic_delete_white.svg" onClick={handleShow} />
-                          <img src="assets/images/ic_edit_white.svg" />
+                          <img src="assets/images/new-delete.svg" className="delete" onClick={handleShow} />
+                          <img src="assets/images/new-edit.svg" className="edit" />
                         </div>
                       </td>
                     </tr>
@@ -344,8 +349,8 @@ const helper = () => {
                       </td>
                       <td className="action-btn">
                         <div className="edit-delete-form">
-                          <img src="assets/images/ic_delete_white.svg" onClick={handleShow} />
-                          <img src="assets/images/ic_edit_white.svg" />
+                          <img src="assets/images/new-delete.svg" className="delete" onClick={handleShow} />
+                          <img src="assets/images/new-edit.svg" className="edit" />
                         </div>
                       </td>
                     </tr>

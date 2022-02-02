@@ -8,3 +8,8 @@ export const helper = {
   menu: 'DASHBOARD',
   subMenu: 'HELPER ',
 };
+export const editMainCategories = {
+  path: '/edit-main-categories',
+  menu: 'DASHBOARD',
+  subMenu: 'EDIT MAIN CATEGORIES ',
+};

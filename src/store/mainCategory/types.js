@@ -56,3 +56,58 @@ export const UPDATE_ALCOHOL_DROPDOWN_LIST = 'UPDATE_ALCOHOL_DROPDOWN_LIST';
 export const GET_ALCOHOL_SETUP = 'GET_ALCOHOL_SETUP';
 
 // <-----------------------Ending Alcohol Section ----------------------->
+
+// <-----------------------Beginning Who You Serve Section ----------------------->
+
+export const ADD_NEW_SERVING = 'ADD_NEW_SERVING';
+export const GET_SERVING = 'GET_SERVING';
+export const UPDATE_SERVING = 'UPDATE_SERVING';
+export const DELETE_SERVING = 'DELETE_SERVING';
+export const GET_SERVING_SETUP = 'GET_SERVING_SETUP';
+export const UPDATE_SERVING_DROPDOWN_LIST = 'UPDATE_SERVING_DROPDOWN_LIST';
+// <-----------------------Ending Who You Serve Section ----------------------->
+
+// <-----------------------Beginning Menu Service Section ----------------------->
+
+export const ADD_NEW_MENU = 'ADD_NEW_MENU';
+export const GET_MENU = 'GET_MENU';
+export const UPDATE_MENU = 'UPDATE_MENU';
+export const DELETE_MENU = 'DELETE_MENU';
+export const GET_MENU_SETUP = 'GET_MENU_SETUP';
+export const UPDATE_MENU_DROPDOWN_LIST = 'UPDATE_MENU_DROPDOWN_LIST';
+// <-----------------------Ending Menu Service Section ----------------------->
+
+
+// <-----------------------Beginning Seating Section ----------------------->
+
+export const ADD_NEW_SEATING = 'ADD_NEW_SEATING';
+export const GET_SEATING = 'GET_SEATING';
+export const UPDATE_SEATING = 'UPDATE_SEATING';
+export const DELETE_SEATING = 'DELETE_SEATING';
+export const GET_SEATING_SETUP = 'GET_SEATING_SETUP';
+export const UPDATE_SEATING_DROPDOWN_LIST = 'UPDATE_SEATING_DROPDOWN_LIST';
+// <-----------------------Ending Seating Section ----------------------->
+
+
+// <-----------------------Beginning Payment Method Section ----------------------->
+
+export const ADD_NEW_PAYMENT_METHOD = 'ADD_NEW_PAYMENT_METHOD';
+export const GET_PAYMENT_METHOD = 'GET_PAYMENT_METHOD';
+export const UPDATE_PAYMENT_METHOD = 'UPDATE_PAYMENT_METHOD';
+export const DELETE_PAYMENT_METHOD = 'DELETE_PAYMENT_METHOD';
+export const GET_PAYMENT_METHOD_SETUP = 'GET_PAYMENT_METHOD_SETUP';
+export const UPDATE_PAYMENT_METHOD_DROPDOWN_LIST = 'UPDATE_PAYMENT_METHOD_DROPDOWN_LIST';
+// <-----------------------Ending Payment Method Section ----------------------->
+
+// <-----------------------Beginning Cuisine Section ----------------------->
+
+export const ADD_NEW_CUISINE = 'ADD_NEW_CUISINE';
+export const GET_CUISINE = 'GET_CUISINE';
+export const UPDATE_CUISINE = 'UPDATE_CUISINE';
+export const DELETE_CUISINE = 'DELETE_CUISINE';
+export const GET_CUISINE_SETUP = 'GET_CUISINE_SETUP';
+export const UPDATE_CUISINE_DROPDOWN_LIST = 'UPDATE_CUISINE_DROPDOWN_LIST';
+// <-----------------------Ending Cuisine Section ----------------------->
+
+
+

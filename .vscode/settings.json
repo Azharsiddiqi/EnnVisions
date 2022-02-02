@@ -8,7 +8,8 @@
     "phonecode",
     "QURESHI",
     "semibold",
-    "signin"
+    "signin",
+    "transbox"
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true

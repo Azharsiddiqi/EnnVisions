@@ -11,6 +11,20 @@ import * as vendorManageJawafa from './vendorManageJawafa';
 import * as userManage from './userManage';
 import * as riderManage from './riderManage';
 import * as locationManage from './locationManage';
+import * as menuManage from './menuManage';
+import * as documentManage from './documentManage';
+import * as vehicleManage from './vehicleManage';
+import * as fareManage from './fareManage';
+import * as commissionManage from './commissionManage';
+import * as referralManage from './referralManage';
+import * as statementsManage from './statementsManage';
+import * as adminManageXP from './adminManageXP';
+import * as cancellationReasonManage from './cancellationReasonManage';
+import * as userGuideManage from './userGuideManage';
+import * as complaintsManage from './complaintsManage';
+import * as helpAndSupportManage  from './helpAndSupportManage';
+import * as accountManage from './accountManage'; 
+import * as reportsManage from './reportsManage';
 export const PRIVATE_ROUTES = {
   ...common,
   userRoles,
@@ -25,4 +39,18 @@ export const PRIVATE_ROUTES = {
   riderManage,
   mainCategories,
   locationManage,
+  menuManage,
+  documentManage,
+  vehicleManage,
+  fareManage,
+  commissionManage,
+  referralManage,
+  statementsManage,
+  adminManageXP,
+  cancellationReasonManage,
+  userGuideManage,
+  complaintsManage,
+  helpAndSupportManage,
+  accountManage,
+  reportsManage,
 };

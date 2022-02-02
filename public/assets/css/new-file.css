@@ -280,6 +280,7 @@
     overflow-x: auto;
     border-radius: 4px;    
 }
+`
 
 .page-14-table thead, .page-6-table thead {
 	background-color: #F3F6F9;
@@ -625,7 +626,7 @@
 	justify-content: space-between;
 	width: 100%;
 	margin-top: 55px;
-	border-bottom: 1px solid #D1D1D6;
+	
 }
 
 .dash-body.page-15-container .top-add h1 {

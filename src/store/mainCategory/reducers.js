@@ -12,6 +12,16 @@ const initialState = {
   openingStatusItems: [],
   alcohol: {},
   alcoholItems: [],
+  whoYouServe:{},
+  whoYouServingItems: [],
+  menuService:{},
+  menuServiceItems:[],
+  seating:{},
+  seatingItems:[],
+  paymentMethod:{},
+  paymentMethodItems:[],
+  cuisine:{},
+  cuisineItems:[],
 };
 
 export default (state = initialState, action) => {
@@ -275,6 +285,238 @@ export default (state = initialState, action) => {
   }
 
   // <-----------------------Ending: Alcohol Section----------------------->
+
+  // <-----------------------Beginning: Who You Serve  Section----------------------->
+  case actionTypes.GET_SERVING_SETUP:
+    return {
+      ...state,
+      whoYouServe: {...action.payload},
+    };
+  case actionTypes.UPDATE_SERVING_DROPDOWN_LIST:
+    return {
+      ...state,
+      whoYouServe: {...action.payload},
+    };
+  case actionTypes.ADD_NEW_SERVING:
+    return {
+      ...state,
+      whoYouServingItems: [...state.whoYouServingItems, action.payload],
+    };
+  case actionTypes.GET_SERVING:
+    return {
+      ...state,
+      whoYouServingItems: [...action.payload],
+    };
+  case actionTypes.DELETE_SERVING: {
+    const updatedWhoYouServingItems = _.cloneDeep(state.whoYouServingItems);
+    _.remove(updatedWhoYouServingItems, {
+      id: action.payload.id,
+    });
+    return {
+      ...state,
+      whoYouServingItems: updatedWhoYouServingItems,
+    };
+  }
+  case actionTypes.UPDATE_SERVING: {
+    const updatedWhoYouServingItems = _.cloneDeep(state.whoYouServingItems);
+    const index = updatedWhoYouServingItems.findIndex(
+      (object) => object.id === action.payload.id,
+    );
+    if (index >= 0) {
+      updatedWhoYouServingItems[index] = { ...action.payload };
+    }
+    return {
+      ...state,
+      whoYouServingItems: updatedWhoYouServingItems,
+    };
+  }
+  // <-----------------------Ending: Who You Serve  Section----------------------->
+
+  // <-----------------------Beginning: Menu Service  Section----------------------->
+  case actionTypes.GET_MENU_SETUP:
+    return {
+      ...state,
+      menuService: {...action.payload},
+    };
+  case actionTypes.UPDATE_MENU_DROPDOWN_LIST:
+    return {
+      ...state,
+      menuService: {...action.payload},
+    };
+  case actionTypes.ADD_NEW_MENU:
+    return {
+      ...state,
+      menuServiceItems: [...state.menuServiceItems, action.payload],
+    };
+  case actionTypes.GET_MENU:
+    return {
+      ...state,
+      menuServiceItems: [...action.payload],
+    };
+  case actionTypes.DELETE_MENU: {
+    const updatedMenuServiceItems = _.cloneDeep(state.menuServiceItems);
+    _.remove(updatedMenuServiceItems, {
+      id: action.payload.id,
+    });
+    return {
+      ...state,
+      menuServiceItems: updatedMenuServiceItems,
+    };
+  }
+  case actionTypes.UPDATE_MENU: {
+    const updatedMenuServiceItems = _.cloneDeep(state.menuServiceItems);
+    const index = updatedMenuServiceItems.findIndex(
+      (object) => object.id === action.payload.id,
+    );
+    if (index >= 0) {
+      updatedMenuServiceItems[index] = { ...action.payload };
+    }
+    return {
+      ...state,
+      menuServiceItems: updatedMenuServiceItems,
+    };
+  }
+  // <-----------------------Ending: Menu Service  Section----------------------->
+
+
+  // <-----------------------Beginning: Seating  Section----------------------->
+  case actionTypes.GET_SEATING_SETUP:
+    return {
+      ...state,
+      seating: {...action.payload},
+    };
+  case actionTypes.UPDATE_SEATING_DROPDOWN_LIST:
+    return {
+      ...state,
+      seating: {...action.payload},
+    };
+  case actionTypes.ADD_NEW_SEATING:
+    return {
+      ...state,
+      seatingItems: [...state.seatingItems, action.payload],
+    };
+  case actionTypes.GET_SEATING:
+    return {
+      ...state,
+      seatingItems: [...action.payload],
+    };
+  case actionTypes.DELETE_SEATING: {
+    const updatedSeatingItems = _.cloneDeep(state.seatingItems);
+    _.remove(updatedSeatingItems, {
+      id: action.payload.id,
+    });
+    return {
+      ...state,
+      seatingItems: updatedSeatingItems,
+    };
+  }
+  case actionTypes.UPDATE_SEATING: {
+    const updatedSeatingItems = _.cloneDeep(state.seatingItems);
+    const index = updatedSeatingItems.findIndex(
+      (object) => object.id === action.payload.id,
+    );
+    if (index >= 0) {
+      updatedSeatingItems[index] = { ...action.payload };
+    }
+    return {
+      ...state,
+      seatingItems: updatedSeatingItems,
+    };
+  }
+  // <-----------------------Ending: Seating  Section----------------------->
+
+  // <-----------------------Beginning: PaymentMethod  Section----------------------->
+  case actionTypes.GET_PAYMENT_METHOD_SETUP:
+    return {
+      ...state,
+      paymentMethod: {...action.payload},
+    };
+  case actionTypes.UPDATE_PAYMENT_METHOD_DROPDOWN_LIST:
+    return {
+      ...state,
+      paymentMethod: {...action.payload},
+    };
+  case actionTypes.ADD_NEW_PAYMENT_METHOD:
+    return {
+      ...state,
+      paymentMethodItems: [...state.paymentMethodItems, action.payload],
+    };
+  case actionTypes.GET_PAYMENT_METHOD:
+    return {
+      ...state,
+      paymentMethodItems: [...action.payload],
+    };
+  case actionTypes.DELETE_PAYMENT_METHOD: {
+    const updatedPaymentMethodItems = _.cloneDeep(state.paymentMethodItems);
+    _.remove(updatedPaymentMethodItems, {
+      id: action.payload.id,
+    });
+    return {
+      ...state,
+      paymentMethodItems: updatedPaymentMethodItems,
+    };
+  }
+  case actionTypes.UPDATE_PAYMENT_METHOD: {
+    const updatedPaymentMethodItems = _.cloneDeep(state.paymentMethodItems);
+    const index = updatedPaymentMethodItems.findIndex(
+      (object) => object.id === action.payload.id,
+    );
+    if (index >= 0) {
+      updatedPaymentMethodItems[index] = { ...action.payload };
+    }
+    return {
+      ...state,
+      paymentMethodItems: updatedPaymentMethodItems,
+    };
+  }
+  // <-----------------------Ending: PaymentMethod  Section----------------------->
+
+  // <-----------------------Beginning: Cuisine  Section----------------------->
+  case actionTypes.GET_CUISINE_SETUP:
+    return {
+      ...state,
+      cuisine: {...action.payload},
+    };
+  case actionTypes.UPDATE_CUISINE_DROPDOWN_LIST:
+    return {
+      ...state,
+      cuisine: {...action.payload},
+    };
+  case actionTypes.ADD_NEW_CUISINE:
+    return {
+      ...state,
+      cuisineItems: [...state.cuisineItems, action.payload],
+    };
+  case actionTypes.GET_CUISINE:
+    return {
+      ...state,
+      cuisineItems: [...action.payload],
+    };
+  case actionTypes.DELETE_CUISINE: {
+    const updatedCuisineItems = _.cloneDeep(state.cuisineItems);
+    _.remove(updatedCuisineItems, {
+      id: action.payload.id,
+    });
+    return {
+      ...state,
+      cuisineItems: updatedCuisineItems,
+    };
+  }
+  case actionTypes.UPDATE_CUISINE: {
+    const updatedCuisineItems = _.cloneDeep(state.cuisineItems);
+    const index = updatedCuisineItems.findIndex(
+      (object) => object.id === action.payload.id,
+    );
+    if (index >= 0) {
+      updatedCuisineItems[index] = { ...action.payload };
+    }
+    return {
+      ...state,
+      cuisineItems: updatedCuisineItems,
+    };
+  }
+  // <-----------------------Ending: Cuisine  Section----------------------->
+
 
   default:
     return state;

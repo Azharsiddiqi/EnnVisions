@@ -1,8 +1,166 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  ACTION_addServing,
+  ACTION_getServing,
+  ACTION_updateServing,
+  ACTION_deleteServingSetup,
+  ACTION_getServingSetup,
+  ACTION_updateServingSetup,
+} from '../../store/mainCategory/actions';
+import Modal from '../../components/confirmationAlert';
+import { Dropdown, DropdownButton } from 'react-bootstrap';
+import _ from 'lodash';
 
-const WhoYouServe = () => {
+const whoYouServe = () => {
+  const dispatch = useDispatch();
+  const { whoYouServe,whoYouServeItems } = useSelector((state) => state.mainCategory);
+  // begin item states
+  const [itemName, setItemName] = useState('');
+  const [itemDescription, setItemDescription] = useState('');
+  const [itemStatus, setItemStatus] = useState(1); // 0 mean false and 1 mean true
+  const [deleteItem, setDeleteItem] = useState(null);
+  const [editItem, setEditItem] = useState(null);
+  const [editItemName, setEditItemName] = useState('');
+  const [editItemDescription, setEditItemDescription] = useState('');
+  const [editItemStatus, setEditItemStatus] = useState(1); // 0 mean false and 1 mean true
+  const [show, setShow] = useState(false);
+  // Starting whoYouServe Service states
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [isDisplayTitle, setIsDisplayTitle] = useState(false);
+  const [isDisplayDescription, setIsDisplayDescription] = useState(false);
+  const [isDropdown, setIsDropdown] = useState(false);
+  const [isCheckBox, setIsCheckBox] = useState(false);
+  const [isMultipleSelection, setIsMultipleSelection] = useState(false);
+  const [isRequired, setIsRequired] = useState(false);
+  const [status, setStatus] = useState(1);
+
+  const handleShow = (_item) => {
+    setDeleteItem(_item);
+    setShow(true);
+  };
+
+  const handleClose = () => {
+    setShow(false);
+    setDeleteItem(null);
+  };
+  const resetItem = () => {
+    setItemName('');
+    setItemDescription('');
+    setItemStatus(1);
+  };
+  const resetEditItem = () => {
+    setEditItem(null);
+    setEditItemName('');
+    setEditItemDescription('');
+    setEditItemStatus(1);
+  };
+
+  const addNewItemHandler = () => {
+    if (!itemName || itemName === '') return;
+    const reqPacket = {
+      title: itemName,
+      description: itemDescription,
+      status: itemStatus === 1 ? true : false,
+    };
+    dispatch(ACTION_addServing(reqPacket));
+    resetItem();
+  };
+  const updateItemHandler = (e) => {
+    e.preventDefault();
+    if (
+      !editItem ||
+      !editItemName ||
+      editItemName === '' ||
+      (editItem.title === editItemName &&
+        editItem.description === editItemDescription &&
+        ((editItem.status === true && editItemStatus === 1) ||
+          (editItem.status === false && editItemStatus === 0)))
+    )
+      return;
+
+    const reqPacket = {
+      id: editItem.id,
+      title: editItemName,
+      description: editItemDescription,
+      status: editItemStatus === 1 ? true : false,
+    };
+    dispatch(ACTION_updateServing(reqPacket));
+    resetEditItem();
+  };
+
+  const deleteItemHandler = () => {
+    if (!deleteItem) return;
+    const reqPacket = {
+      id: deleteItem.id,
+    };
+    dispatch(ACTION_deleteServingSetup(reqPacket));
+    setShow(false);
+    setDeleteItem(null);
+  };
+  const editButtonHandler = (_item) => {
+    setEditItem(_item);
+    setEditItemName(_item.title);
+    setEditItemDescription(_item.description);
+    setEditItemStatus(_item.status === true ? 1 : 0);
+  };
+  const updateWhoYouServeHandler = () => {
+    if (!title) return;
+
+    const dtoServeringOptions = [];
+    whoYouServeItems.forEach((_item) => {
+      dtoServeringOptions.push({
+        id: _item.id,
+      });
+    });
+
+    const reqPacket = {
+      dtoServeringOptions,
+      title,
+      description,
+      isDisplayTitle,
+      isDisplayDescription,
+      isDropdown,
+      isCheckBox,
+      isMultipleSelection,
+      isRequired,
+    };
+
+    dispatch(ACTION_updateServingSetup(reqPacket));
+  };
+
+  useEffect(() => {
+    dispatch(ACTION_getServing());
+    dispatch(ACTION_getServingSetup());
+    // eslint-disable-next-line
+  }, []);
+
+
+
+  useEffect(() => {
+    if( !_.isEmpty(whoYouServe) ) {
+      setTitle(whoYouServe.title);
+      setDescription(whoYouServe.description);
+      setIsDisplayTitle(whoYouServe.isDisplayTitle);
+      setIsDisplayDescription(whoYouServe.isDisplayDescription);
+      setIsDropdown(whoYouServe.isDropdown);
+      setIsCheckBox(whoYouServe.isCheckBox);
+      setIsMultipleSelection(whoYouServe.isMultipleSelection);
+      setIsRequired(whoYouServe.isRequired);
+      setStatus(1);
+          
+    }
+  }, [whoYouServe]);
+
   return (
     <div>
+      <Modal
+        show={show}
+        description={`Do you want to delete "${deleteItem?.title}" item!`}
+        handleSave={deleteItemHandler}
+        handleClose={handleClose}
+      />
       <div className="d-flex flex-column-fluid">
         {/*begin::Container*/}
         <div className=" container ">
@@ -18,6 +176,8 @@ const WhoYouServe = () => {
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="Main Categories name"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
                   />
                 </div>
                 <div className="form-group">
@@ -25,6 +185,8 @@ const WhoYouServe = () => {
                     className="form-control"
                     placeholder="Main Categories Details"
                     defaultValue={''}
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
                   />
                 </div>
                 <div className="form-group">
@@ -32,9 +194,11 @@ const WhoYouServe = () => {
                   <select
                     className="form-control"
                     id="exampleFormControlSelect1"
+                    value={status}
+                    onChange={(e) => setStatus(Number(e.target.value))}
                   >
-                    <option value="Active">Active</option>
-                    <option value="in-active">In active</option>
+                    <option value={1}>Active</option>
+                    <option value={0}>In active</option>
                   </select>
                 </div>
 
@@ -43,12 +207,22 @@ const WhoYouServe = () => {
                     <label className="r-u-owner who-serve">Display Title</label>
                     <div className="row c-vendor-checboxes">
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={isDisplayTitle}
+                          onChange={() => setIsDisplayTitle(true)}
+                        />
                         <span />
                         Active
                       </label>
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={!isDisplayTitle}
+                          onChange={() => setIsDisplayTitle(false)}
+                        />
                         <span />
                         InActive
                       </label>
@@ -60,12 +234,22 @@ const WhoYouServe = () => {
                     </label>
                     <div className="row c-vendor-checboxes">
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={isDisplayDescription}
+                          onChange={() => setIsDisplayDescription(true)}
+                        />
                         <span />
                         Active
                       </label>
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={!isDisplayDescription}
+                          onChange={() => setIsDisplayDescription(false)}
+                        />
                         <span />
                         InActive
                       </label>
@@ -78,12 +262,22 @@ const WhoYouServe = () => {
                     <label className="r-u-owner who-serve">Dropdown</label>
                     <div className="row c-vendor-checboxes">
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={isDropdown}
+                          onChange={() => setIsDropdown(true)}
+                        />
                         <span />
                         Active
                       </label>
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={!isDropdown}
+                          onChange={() => setIsDropdown(false)}
+                        />
                         <span />
                         InActive
                       </label>
@@ -93,12 +287,22 @@ const WhoYouServe = () => {
                     <label className="r-u-owner who-serve">Check Box</label>
                     <div className="row c-vendor-checboxes">
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={isCheckBox}
+                          onChange={() => setIsCheckBox(true)}
+                        />
                         <span />
                         Active
                       </label>
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={!isCheckBox}
+                          onChange={() => setIsCheckBox(false)}
+                        />
                         <span />
                         InActive
                       </label>
@@ -113,12 +317,22 @@ const WhoYouServe = () => {
                     </label>
                     <div className="row c-vendor-checboxes">
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={isMultipleSelection}
+                          onChange={() => setIsMultipleSelection(true)}
+                        />
                         <span />
                         Active
                       </label>
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={!isMultipleSelection}
+                          onChange={() => setIsMultipleSelection(false)}
+                        />
                         <span />
                         InActive
                       </label>
@@ -128,12 +342,22 @@ const WhoYouServe = () => {
                     <label className="r-u-owner who-serve">Required</label>
                     <div className="row c-vendor-checboxes">
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={isRequired}
+                          onChange={() => setIsRequired(true)}
+                        />
                         <span />
                         Active
                       </label>
                       <label className="plain-check checkbox checkbox-lg bg-check col-xl-6">
-                        <input type="checkbox" name="Checkboxes3_1" />
+                        <input
+                          type="checkbox"
+                          name="Checkboxes3_1"
+                          checked={!isRequired}
+                          onChange={() => setIsRequired(false)}
+                        />
                         <span />
                         InActive
                       </label>
@@ -142,7 +366,11 @@ const WhoYouServe = () => {
                 </div>
 
                 <div className="creat-main-category-submit  mt-5">
-                  <button className="btn" type="button">
+                  <button
+                    className="btn"
+                    type="button"
+                    onClick={updateWhoYouServeHandler}
+                  >
                     UPDATE
                   </button>
                 </div>
@@ -175,241 +403,121 @@ const WhoYouServe = () => {
                       </tr>
                     </thead>
                     <tbody>
+                      {whoYouServeItems && whoYouServeItems.length
+                        ? whoYouServeItems.map((item,index) =>
+                          editItem && editItem.id === item.id ? (
+                            <tr key={index}>
+                              <td className="pg-14-id">{item.id}</td>
+                              <td className="pg-14-name">
+                                <div className="form-group">
+                                  <input
+                                    type="text"
+                                    placeholder="Item name"
+                                    className="form-control"
+                                    value={editItemName}
+                                    onChange={(e) =>
+                                      setEditItemName(e.target.value)
+                                    }
+                                  />
+                                </div>
+                              </td>
+                              <td className="pg-14-name">
+                                <div className="form-group">
+                                  <input
+                                    type="text"
+                                    placeholder="Details"
+                                    className="form-control"
+                                    value={editItemDescription}
+                                    onChange={(e) =>
+                                      setEditItemDescription(e.target.value)
+                                    }
+                                  />
+                                </div>
+                              </td>
+                              <td className="pg-14-name">
+                                <div className="form-group">
+                                  <select
+                                    className="form-control"
+                                    value={editItemStatus}
+                                    onChange={(e) =>
+                                      setEditItemStatus(
+                                        Number(e.target.value),
+                                      )
+                                    }
+                                  >
+                                    <option value={1}>ACTIVE</option>
+                                    <option value={0}>IN-ACTIVE</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td className="td-action-icon">
+                                <DropdownButton
+                                  id="dropdown-basic-button"
+                                  title="Actions"
+                                >
+                                  <Dropdown.Item onClick={updateItemHandler}>
+                                    Update
+                                  </Dropdown.Item>
+                                  <Dropdown.Item
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      resetEditItem();
+                                    }}
+                                  >
+                                    Cancel
+                                  </Dropdown.Item>
+                                </DropdownButton>
+                              </td>
+                            </tr>
+                          ) : (
+                            <tr key={index}>
+                              <td className="pg-14-id">
+                                <b>{item.id}</b>
+                              </td>
+                              <td className="pg-14-name">{item.title}</td>
+                              <td className="pg-14-name">
+                                {item.description}
+                              </td>
+                              <td className="pg-14-name">
+                                {item.status ? 'ACTIVE' : 'IN ACTIVE'}{' '}
+                              </td>
+                              <td className="td-action-icon">
+                                <span
+                                  onClick={() => handleShow(item)}
+                                  className="del-icon cursor-class"
+                                  data-toggle="modal"
+                                  data-target="#exampleModal"
+                                >
+                                  <img
+                                    src="/assets/images/new-delete.svg"
+                                    alt=""
+                                  />
+                                </span>
+                                <span
+                                  className="ic-edit cursor-class"
+                                  onClick={() => editButtonHandler(item)}
+                                >
+                                  <img
+                                    src="/assets/images/new-edit.svg"
+                                    alt=""
+                                  />
+                                </span>
+                              </td>
+                            </tr>
+                          ),
+                        )
+                        : ''}
+
                       <tr>
-                        <td className="pg-14-id">
-                          <b>1</b>
-                        </td>
-                        <td className="pg-14-name">Chicken Karaage</td>
-                        <td className="pg-14-name">For Only Food</td>
-                        <td className="pg-14-name">ACTIVE</td>
-                        <td className="td-action-icon">
-                          <span
-                            className="del-icon"
-                            data-toggle="modal"
-                            data-target="#exampleModal"
-                          >
-                            <img src="/assets/images/new-delete.svg" alt="" />
-                          </span>
-                          {/* Modal */}
-                          <div
-                            className="modal fade del-modal"
-                            id="exampleModal"
-                            tabIndex={-1}
-                            role="dialog"
-                            aria-labelledby="exampleModalLabel"
-                            aria-hidden="true"
-                          >
-                            <div className="modal-dialog" role="document">
-                              <div className="modal-content">
-                                <div className="modal-header">
-                                  <img src="/assets/images/ic-logo.svg" alt="" />
-                                </div>
-                                <div className="modal-body">
-                                  <div className="modal-text">
-                                    Lorem ipsum dolor sit amet, consetetur
-                                    sadipscing elitr, sed diam nonumy eirmod
-                                    tempor invidunt ut labore et dolore magna
-                                  </div>
-                                  <div className="modal-btn">
-                                    <button type="button" className="yes-btn">
-                                      YES!
-                                    </button>
-                                    <button
-                                      type="button"
-                                      data-dismiss="modal"
-                                      className="cancel-btn"
-                                    >
-                                      CANCEL
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <span className="ic-edit">
-                            <img src="/assets/images/new-edit.svg" alt="" />
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="pg-14-id">
-                          <b>1</b>
-                        </td>
-                        <td className="pg-14-name">8. Small Boat</td>
-                        <td className="pg-14-name">For Only Food</td>
-                        <td className="pg-14-name">ACTIVE</td>
-                        <td className="td-action-icon">
-                          <span
-                            className="del-icon"
-                            data-toggle="modal"
-                            data-target="#exampleModal"
-                          >
-                            <img src="/assets/images/new-delete.svg" alt="" />
-                          </span>
-                          {/* Modal */}
-                          <div
-                            className="modal fade del-modal"
-                            id="exampleModal"
-                            tabIndex={-1}
-                            role="dialog"
-                            aria-labelledby="exampleModalLabel"
-                            aria-hidden="true"
-                          >
-                            <div className="modal-dialog" role="document">
-                              <div className="modal-content">
-                                <div className="modal-header">
-                                  <img src="/assets/images/ic-logo.svg" alt="" />
-                                </div>
-                                <div className="modal-body">
-                                  <div className="modal-text">
-                                    Lorem ipsum dolor sit amet, consetetur
-                                    sadipscing elitr, sed diam nonumy eirmod
-                                    tempor invidunt ut labore et dolore magna
-                                  </div>
-                                  <div className="modal-btn">
-                                    <button type="button" className="yes-btn">
-                                      YES!
-                                    </button>
-                                    <button
-                                      type="button"
-                                      data-dismiss="modal"
-                                      className="cancel-btn"
-                                    >
-                                      CANCEL
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <span className="ic-edit">
-                            <img src="/assets/images/new-edit.svg" alt="" />
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="pg-14-id">
-                          <b>1</b>
-                        </td>
-                        <td className="pg-14-name">Spicy Salmon Roll</td>
-                        <td className="pg-14-name">For Only Food</td>
-                        <td className="pg-14-name">ACTIVE</td>
-                        <td className="td-action-icon">
-                          <span
-                            className="del-icon"
-                            data-toggle="modal"
-                            data-target="#exampleModal"
-                          >
-                            <img src="/assets/images/new-delete.svg" alt="" />
-                          </span>
-                          {/* Modal */}
-                          <div
-                            className="modal fade del-modal"
-                            id="exampleModal"
-                            tabIndex={-1}
-                            role="dialog"
-                            aria-labelledby="exampleModalLabel"
-                            aria-hidden="true"
-                          >
-                            <div className="modal-dialog" role="document">
-                              <div className="modal-content">
-                                <div className="modal-header">
-                                  <img src="/assets/images/ic-logo.svg" alt="" />
-                                </div>
-                                <div className="modal-body">
-                                  <div className="modal-text">
-                                    Lorem ipsum dolor sit amet, consetetur
-                                    sadipscing elitr, sed diam nonumy eirmod
-                                    tempor invidunt ut labore et dolore magna
-                                  </div>
-                                  <div className="modal-btn">
-                                    <button type="button" className="yes-btn">
-                                      YES!
-                                    </button>
-                                    <button
-                                      type="button"
-                                      data-dismiss="modal"
-                                      className="cancel-btn"
-                                    >
-                                      CANCEL
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <span className="ic-edit">
-                            <img src="/assets/images/new-edit.svg" alt="" />
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="pg-14-id">
-                          <b>1</b>
-                        </td>
-                        <td className="pg-14-name">Soup and Salad</td>
-                        <td className="pg-14-name">For Only Food</td>
-                        <td className="pg-14-name">ACTIVE</td>
-                        <td className="td-action-icon">
-                          <span
-                            className="del-icon"
-                            data-toggle="modal"
-                            data-target="#exampleModal"
-                          >
-                            <img src="/assets/images/new-delete.svg" alt="" />
-                          </span>
-                          {/* Modal */}
-                          <div
-                            className="modal fade del-modal"
-                            id="exampleModal"
-                            tabIndex={-1}
-                            role="dialog"
-                            aria-labelledby="exampleModalLabel"
-                            aria-hidden="true"
-                          >
-                            <div className="modal-dialog" role="document">
-                              <div className="modal-content">
-                                <div className="modal-header">
-                                  <img src="/assets/images/ic-logo.svg" alt="" />
-                                </div>
-                                <div className="modal-body">
-                                  <div className="modal-text">
-                                    Lorem ipsum dolor sit amet, consetetur
-                                    sadipscing elitr, sed diam nonumy eirmod
-                                    tempor invidunt ut labore et dolore magna
-                                  </div>
-                                  <div className="modal-btn">
-                                    <button type="button" className="yes-btn">
-                                      YES!
-                                    </button>
-                                    <button
-                                      type="button"
-                                      data-dismiss="modal"
-                                      className="cancel-btn"
-                                    >
-                                      CANCEL
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <span className="ic-edit">
-                            <img src="/assets/images/new-edit.svg" alt="" />
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="pg-14-id">
-                          <b>1</b>
-                        </td>
+                        <td className="pg-14-id"></td>
                         <td className="pg-14-name">
                           <div className="form-group">
                             <input
                               type="text"
-                              name="text"
                               placeholder="Item name"
                               className="form-control"
+                              value={itemName}
+                              onChange={(e) => setItemName(e.target.value)}
                             />
                           </div>
                         </td>
@@ -417,24 +525,36 @@ const WhoYouServe = () => {
                           <div className="form-group">
                             <input
                               type="text"
-                              name="text"
                               placeholder="Details"
                               className="form-control"
+                              value={itemDescription}
+                              onChange={(e) =>
+                                setItemDescription(e.target.value)
+                              }
                             />
                           </div>
                         </td>
                         <td className="pg-14-name">
                           <div className="form-group">
-                            <select className="form-control">
-                              <option value="active">ACTIVE</option>
-                              <option value="inactive">IN-ACTIVE</option>
-                              <option value="active">ACTIVE</option>
-                              <option value="inactive">IN-ACTIVE</option>
+                            <select
+                              className="form-control"
+                              value={itemStatus}
+                              onChange={(e) =>
+                                setItemStatus(Number(e.target.value))
+                              }
+                            >
+                              <option value={1}>ACTIVE</option>
+                              <option value={0}>IN-ACTIVE</option>
                             </select>
                           </div>
                         </td>
                         <td className="td-action-icon">
-                          <span className="plus-sign">+ Add</span>
+                          <span
+                            onClick={addNewItemHandler}
+                            className="plus-sign cursor-class"
+                          >
+                            + Add
+                          </span>
                         </td>
                       </tr>
                     </tbody>
@@ -449,4 +569,4 @@ const WhoYouServe = () => {
   );
 };
 
-export default WhoYouServe;
+export default whoYouServe;

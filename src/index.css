@@ -43,7 +43,14 @@
 .cursor-class {
   cursor: pointer;
 }
+.cursor-class-hover:hover {
+background-color: #f0f3f7;
+  cursor: pointer;
+}
 
+.transbox {
+  opacity: 0.1;
+}
 
 /* Adding custom switch css */
 .custom-switch {
