@@ -14,7 +14,6 @@ const App = () => {
 
   return (
     <Routes>
-      {/* Start: public routes */}
       <Route path="/auth" element={<AuthIndex />}>
         {AuthRoutesComponent.map(({ path, Component }, index) =>
           <Route key={index} path={path} element={<Component />} />
